@@ -1,2 +1,35 @@
+import cv2 as cv
+import numpy as np
+import os
 
+
+def picture_classification(picture_collection_path, step_length, limit_range):
+    path = picture_collection_path
+    picture_num = len([lists for lists in os.listdir(path) if os.path.isfile(os.path.join(path, lists))])
+    picture_label = [0 for x in range(0, picture_num + 1)]
+    for i in range(picture_num):
+        if i + step_length > picture_num:
+            break
+        if picture_label[i + 1] == 1:
+            continue
+        for j in range(i, i + step_length - 1):
+            picture1_name = path + '\shot' + str(j + 1) + '.png'
+            picture2_name = path + '\shot' + str(j + 2) + '.png'
+            first_array = np.array(cv.imread(picture1_name))
+            second_array = np.array(cv.imread(picture2_name))
+            euclidean_distance = np.sqrt(np.sum((second_array - first_array) * (second_array - first_array)))
+            if euclidean_distance <= limit_range:
+                picture_label[j + 1] = 1
+                picture_label[j + 2] = 1
+            else:
+                for k in range(i, i + step_length):
+                    picture_label[k + 1] = 0
+                break
+    return picture_label
+
+
+picture_label = picture_classification(picture_collection_path='D:\pyCharm\demo\shot', step_length=5, limit_range=100)
+for i in range(len(picture_label)):
+    if picture_label[i] == 1:
+        print(i)
 
