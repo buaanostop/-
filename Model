@@ -2,29 +2,52 @@ import cv2 as cv
 import numpy as np
 import os
 
+'''
+picture_classification 用来对一组图片进行分类，目的是要找到与整体有差异的若干张图片
+                       根据相邻图片的相似程度来区分正常和异常图片
+                       通过计算两张图片的欧式距离来判断其相似程度
+                       直到若干张图片都相似才判断它们都为异常
+picture_collection_path：储存图片的文件夹的路径
+step_length：参数，表示分组的步长，即判断相邻的step_length张图片为异常还是正常
+limit_range：参数，表示接受的相似程度，即当欧式距离小于limit_range时判断两张图片为相似
+picture_label：返回值，一个图片的标签的集合，0表示正常图片，1表示异常图片
+'''
+
 
 def picture_classification(picture_collection_path, step_length, limit_range):
     path = picture_collection_path
+    # picture_num为图片的总数量
     picture_num = len([lists for lists in os.listdir(path) if os.path.isfile(os.path.join(path, lists))])
+    # picture_label初始化一个全部为0的数组
     picture_label = [0 for x in range(0, picture_num + 1)]
+    # 最外层循环，对每张图片进行遍历
     for i in range(picture_num):
+        # 因为每次循环都会比较第i张到第i+step_length张图片，故这里这样设置跳出循环的条件
         if i + step_length > picture_num:
             break
+        # 如果图片已经被标注为异常，那么说明它和之前的图片是相似的，不用进行下一层循环
         if picture_label[i + 1] == 1:
             continue
+        # 内层循环，比较step_length张图片是否相似
         for j in range(i, i + step_length - 1):
+            # 得到每次比较的两张图片的名字
             picture1_name = path + '\shot' + str(j + 1) + '.png'
             picture2_name = path + '\shot' + str(j + 2) + '.png'
+            # 将要比较的两张图片转换为数组
             first_array = np.array(cv.imread(picture1_name))
             second_array = np.array(cv.imread(picture2_name))
+            # 计算两张图片之间的欧氏距离
             euclidean_distance = np.sqrt(np.sum((second_array - first_array) * (second_array - first_array)))
+            # 当两图片之间的欧式距离在能接受的范围之内，修改它们的标签
             if euclidean_distance <= limit_range:
                 picture_label[j + 1] = 1
                 picture_label[j + 2] = 1
+            # 如果有某两张图片之间的欧式距离不在接受范围内，则断定这若干张图片都为正常，重新修改它们的标签
             else:
                 for k in range(i, i + step_length):
                     picture_label[k + 1] = 0
                 break
+    # 返回一个图片的标签的集合
     return picture_label
 
 
@@ -32,4 +55,5 @@ picture_label = picture_classification(picture_collection_path='D:\pyCharm\demo\
 for i in range(len(picture_label)):
     if picture_label[i] == 1:
         print(i)
+
 
