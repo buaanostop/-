@@ -64,6 +64,27 @@ class Test():
         MonkeyRunner.sleep(10)
         print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Open application succeeded.")
 
+    def touch(self,pos_x, pos_y, touch_number=1, interval_time=1):
+        """点击屏幕测试
+        参数
+        -------------
+        pos_x : int
+                点击的位置x
+        pos_y : int
+                点击的位置y
+        touch_numbere : int
+                点击的次数，默认为1
+        interval_time : float
+                多次点击时间隔时间,默认为1秒
+        
+        """
+        num = 1
+        while(num <= touch_number):            
+            print("%stouch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "), num, pos_x, pos_y))
+            self.__device.touch(pos_x, pos_y, 'DOWN_AND_UP')
+            num += 1
+            MonkeyRunner.sleep(interval_time)
+
     def random_touch(self, touch_number, interval_time):
         """随机点击屏幕测试
         参数
@@ -87,6 +108,40 @@ class Test():
             num += 1
         print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test finished.")
 
+    def press(self, key_name):
+        print("%spress %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),key_name))
+        self.__device.press(key_name, 'DOWN_AND_UP')
+
+    def type(self, typestring):
+        print("%stype %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),typestring))
+        self.__device.type(typestring)
+              
+    def drag(self,start_x, start_y, end_x, end_y, drag_time=1, drag_number=1, interval_time=1):
+        """滑动屏幕测试
+        参数
+        ---------------
+        start_x : int
+                滑动起始位置x
+        start_y : int
+                滑动起始位置y
+        end_x : int
+                滑动结束位置x
+        end_y : int
+                滑动结束位置y
+        drag_time : float
+                滑动持续时间,默认为1秒
+        drag_number : int
+                滑动次数，默认为1次
+        interval_time : float
+                滑动间隔时间，默认为1秒
+        """
+        num = 1
+        while(num <= drag_number):
+            print("%sdrag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,start_x,start_y,end_x,end_y))
+            self.__device.drag((start_x, start_y), (end_x, end_y), drag_time, 10)
+            MonkeyRunner.sleep(interval_time)
+            num += 1
+            
     def random_drag(self, drag_number, interval_time):
         """随机滑动屏幕测试
         参数
@@ -111,3 +166,19 @@ class Test():
             MonkeyRunner.sleep(interval_time)
             num += 1
         print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test finished.")
+
+    def play_test(self):
+        """玩游戏测试
+        """
+        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Play test start.")
+        interval_time = 3
+        self.__device.touch(280, 460, 'DOWN_AND_UP') # 按第一个键
+        MonkeyRunner.sleep(10)
+        num = 1
+        while(num <= 20): # 20次滑动
+            x = random.randint(70,470) # 随机生成范围内的x值，x与水母左右运动方向相关
+            print('%sdrag %d (270,520) to (%d,630).'%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x))
+            device.drag((270, 520), (x, 630), 1, 10) # 滑动屏幕从 (270,520) 到 (x,630),持续时间1秒
+            MonkeyRunner.sleep(interval_time)
+            num += 1
+        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Play test finished.")
