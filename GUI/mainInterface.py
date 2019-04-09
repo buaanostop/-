@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from guide_UI import guide
-from test_UI import test_UI
+from test_UI2 import test_UI
 from tkinter import *
 import tkinter as tk  # 使用Tkinter前需要先导入
 class main_UI:
