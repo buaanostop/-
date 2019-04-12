@@ -9,6 +9,7 @@ import os
 import socket
 import _thread as thread
 
+
 class main_UI:
     window = tk.Tk()  # 实例化object，建立窗口window
     window.title('My Window')  # 给窗口的可视化起名字
