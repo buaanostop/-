@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 from guide_UI import guide
-from test_UI2 import test_UI
+from test_UI_inter import test_UI
 from tkinter import *
 import tkinter as tk  # 使用Tkinter前需要先导入
+import threading
+import time
+import os
+import socket
+import _thread as thread
+
 class main_UI:
     window = tk.Tk()  # 实例化object，建立窗口window
     window.title('My Window')  # 给窗口的可视化起名字
