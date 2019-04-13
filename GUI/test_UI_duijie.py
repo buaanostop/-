@@ -5,6 +5,7 @@ from tkinter import *
 import threading
 import time
 
+
 import os
 import socket
 import _thread as thread
@@ -13,9 +14,7 @@ import _thread as thread
 #def test_UI(root):
 root = Tk()
 root.title("hello world")
-root.geometry('900x650')
-
-######################################################################################
+root.geometry('1050x650')
 
 uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 port = 8081
@@ -58,22 +57,32 @@ def random_touch():
     interval_time = float(e_interval_time.get()) # 通过输入框获取参数 间隔时间
     print("TestMethod: random_touch 点击次数:%d 间隔时间:%f"%(touch_number, interval_time))
     send('random_touch',0,0,0,0,touch_number,interval_time,0,0)
+
+def delete_print():
+    global print_text
+    print_text.delete(0,'end')
 '''
-
-######################################################################################
-
 menubar = tk.Menu(root)  # 菜单选项
-
-clean_menu = tk.Menu(menubar, tearoff=0)
-menubar.add_cascade(label = '清屏',menu = clean_menu)
 
 clean_menu = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label = '帮助',menu = clean_menu)
 
 root.config(menu=menubar)
 
+## 最左边文本框输出测试队列信息
+print_text = Listbox(root, bg = 'white', width = '45', height = '80')
+
+
+def delete_text():
+    global print_text
+    print_text.delete(0,'end')
+b_delete = Button(root, text = '清屏', width = '3', command = delete_text).pack(side = 'left', fill = 'y')
+print_text.pack(side = 'left')
+## 最左边文本框输出测试队列信息
+
+
 ##左侧frame##
-frame_left=Frame(root,bg = 'white',width = 500,height = 1200)
+frame_left=Frame(root,bg = 'white',width = 300,height = 1200)
 frame_left.pack(side = 'left')
 
 log_name = "log.txt"
@@ -102,6 +111,10 @@ def log_monitor():
 log_timer = threading.Timer(1,log_monitor)
 log_timer.start()
 ##左侧frame##
+
+
+
+
 
 #连接手机按钮
 b_con_phone = Button(root, text = '连接设备', font = ('黑体',12), height = 2, command = connect)
@@ -156,12 +169,12 @@ b_con.pack(fill = 'x')
 
 fm_con = Frame(root) # 连接手机或模拟器的块
 
-# v_con_x = 0 # 分辨率x值，初值为0
-# v_con_y = 0 # 分辨率y值，初值为0
+v_con_x = 0 # 分辨率x值，初值为0
+v_con_y = 0 # 分辨率y值，初值为0
 v_p_name = '' # 应用的包名
 v_a_name = '' # 应用的活动名
 
-'''
+
 con_x = Label(fm_con, text = '分辨率x值:')
 con_x.pack(side = 'top')
 con_x_text = StringVar()
@@ -175,7 +188,7 @@ con_y_text = StringVar()
 con_y_entry = Entry(fm_con, textvariable = con_y_text)
 con_y_text.set("")
 con_y_entry.pack(side = 'top')
-'''
+
 
 p_name = Label(fm_con, text = '应用的包名(Package Name):')
 p_name.pack(side = 'top')
@@ -201,7 +214,8 @@ def click_b_con_confirm():
     judge_con = 0
     # print("TestMethod: open_app")
     send('open_app',0,0,0,0,0,0,0,v_p_name + '&' + v_a_name)
-    
+    global print_text
+    print_text.delete(0,'end')
 Button(fm_con, text="确定",command = click_b_con_confirm).pack(pady = 5)
 
 
@@ -316,13 +330,15 @@ i_time_text.set("")
 i_time_entry.pack(side = 'top',pady=5)
 
 def click_b_confirm_touch():
+    global print_text
     v_pos_x = int(pos_x_entry.get())
     v_pos_y = int(pos_y_entry.get())
     v_touch_n = int(touch_n_entry.get())
     v_i_time = float(i_time_entry.get())
     fm_touch.forget()
     fm_choose.pack()
-    print("TestMethod: touch 点击位置:(%d,%d) 点击次数:%d 间隔时间:%f"%(v_pos_x, v_pos_y, v_touch_n, v_i_time))
+    print_text.insert('end', "TestMethod: touch")
+    print_text.insert('end', "点击位置:(%d,%d) 点击次数:%d 间隔时间:%f"%(v_pos_x, v_pos_y, v_touch_n, v_i_time))
     send('touch',v_pos_x, v_pos_y, 0, 0, v_touch_n, v_i_time, 0, 0)
     
 Button(fm_touch, text="加入测试队列",command = click_b_confirm_touch).pack(pady = 5)
@@ -355,8 +371,10 @@ def click_b_r_touch_confirm():
     v_r_touch_time = float(r_touch_time_entry.get())
     fm_r_touch.forget()
     fm_choose.pack()
-    print("TestMethod: random_touch 点击次数:%d 间隔时间:%f"%(v_r_touch_n, v_r_touch_time))
+    print_text.insert('end', "TestMethod: random_touch")
+    print_text.insert('end', "点击次数:%d 间隔时间:%f"%(v_r_touch_n, v_r_touch_time))
     send('random_touch', 0, 0, 0, 0, v_r_touch_n, v_r_touch_time, 0, 0)
+    
 Button(fm_r_touch, text="加入测试队列",command = click_b_r_touch_confirm).pack(pady = 5)
 
 
@@ -435,7 +453,10 @@ def click_b_drag_confirm():
     v_d_i_time = float(d_i_time_entry.get())
     fm_drag.forget()
     fm_choose.pack()
-    print("TestMethod: drag 滑动起始位置:(%d,%d) 滑动结束位置:(%d,%d) 滑动持续时间: %f 滑动次数: %d 滑动间隔时间: %d"%(v_start_x, v_start_y, v_end_x, v_end_y, v_d_time, v_d_num, v_d_i_time))
+    print_text.insert('end', "TestMethod: drag")
+    print_text.insert('end', "滑动起始位置:(%d,%d) 滑动结束位置:(%d,%d)"%(v_start_x, v_start_y, v_end_x, v_end_y))
+    print_text.insert('end', "滑动持续时间: %f 滑动次数: %d 滑动间隔时间: %d"%(v_d_time, v_d_num, v_d_i_time))
+    # print("TestMethod: drag )
     send('drag', v_start_x, v_start_y, v_end_x, v_end_y, v_d_num, v_d_i_time, v_d_time, 0)
 Button(fm_drag, text="加入测试队列",command = click_b_drag_confirm).pack(pady = 5)
 
@@ -466,7 +487,9 @@ def click_b_r_drag_confirm():
     v_r_d_i_time = float(r_d_i_time_entry.get())
     fm_r_drag.forget()
     fm_choose.pack()
-    print("TestMethod: random_drag 滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
+    print_text.insert('end', "TestMethod: random_drag")
+    print_text.insert('end', "滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
+    # print("TestMethod: random_drag 滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
     send('random_drag',0,0,0,0,v_r_d_num, v_r_d_i_time, 1, 0)
 Button(fm_r_drag, text="加入测试队列",command = click_b_r_drag_confirm).pack(pady = 5)
 
