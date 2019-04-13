@@ -34,11 +34,13 @@ class Test(threading.Thread):
         self.__flag = threading.Event() # 暂停标志
         self.__flag.set() # 设为True
         self.__running = threading.Event() # 运行标志
-        self.__running.set() # 设为True
+        self.__running.clear() # 设为True
         self.__resolution_x = 0 # 分辨率x
         self.__resolution_y = 0 # 分辨率y
         self.__device = None # 设备
         self.__oplist = [] # 模拟操作的列表
+
+        self.__isstart = False
         
     def connect(self, resolution_x=540, resolution_y=960):
         """连接模拟器或手机
@@ -200,114 +202,128 @@ class Test(threading.Thread):
         self.__oplist.append(op)
         print("random_drag test add success")
 
-        
+    def runstart(self):
+        self.__running.set()
+
+    def isstart(self):
+        return self.__isstart
+    
     def run(self):
-        opnum = len(self.__oplist)
-        if(opnum <= 0):
-            return
-        for op in self.__oplist:
-# touch
-            if op.optype == 'touch':
-                touch_number = op.number
-                pos_x = op.x1
-                pos_y = op.y1
-                interval_time = op.interval_time
-                num = 1
-                while(num <= touch_number):
+        self.__isstart = True
+        
+        while True:
+            self.__running.wait()
+            opnum = len(self.__oplist)
+            if(opnum <= 0):
+                print("no test")
+            for op in self.__oplist:
+    # touch
+                if op.optype == 'touch':
+                    touch_number = op.number
+                    pos_x = op.x1
+                    pos_y = op.y1
+                    interval_time = op.interval_time
+                    num = 1
+                    while(num <= touch_number):
+                        if self.__running.isSet():
+                            self.__flag.wait()
+                            print("%stouch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "), num, pos_x, pos_y))
+                            self.__device.touch(pos_x, pos_y, 'DOWN_AND_UP')
+                            num += 1
+                            MonkeyRunner.sleep(interval_time)
+                        else:
+                            self.__oplist[:] = []
+                            break
+                            
+    # random_touch
+                elif op.optype == 'random_touch':
+                    touch_number = op.number
+                    interval_time = op.interval_time
+                    print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test start.")
+                    num = 1
+                    while(num <= touch_number):
+                        if self.__running.isSet():
+                            self.__flag.wait()
+                            x = random.randint(0, self.__resolution_x) # 随机生成位置x
+                            y = random.randint(0, self.__resolution_y) # 随机生成位置y
+                            print("%srandom_touch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x,y))
+                            self.__device.touch(x, y, 'DOWN_AND_UP') # 点击(x,y)
+                            MonkeyRunner.sleep(interval_time)
+                            num += 1
+                        else:
+                            self.__oplist[:] = []
+                            break
                     if self.__running.isSet():
-                        self.__flag.wait()
-                        print("%stouch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "), num, pos_x, pos_y))
-                        self.__device.touch(pos_x, pos_y, 'DOWN_AND_UP')
-                        num += 1
-                        MonkeyRunner.sleep(interval_time)
-                    else:
-                        self.__oplist[:] = []
-                        return
-                        
-# random_touch
-            elif op.optype == 'random_touch':
-                touch_number = op.number
-                interval_time = op.interval_time
-                print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test start.")
-                num = 1
-                while(num <= touch_number):
-                    if self.__running.isSet():
-                        self.__flag.wait()
-                        x = random.randint(0, self.__resolution_x) # 随机生成位置x
-                        y = random.randint(0, self.__resolution_y) # 随机生成位置y
-                        print("%srandom_touch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x,y))
-                        self.__device.touch(x, y, 'DOWN_AND_UP') # 点击(x,y)
-                        MonkeyRunner.sleep(interval_time)
-                        num += 1
-                    else:
-                        self.__oplist[:] = []
-                        return
-                print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test finished.")
-# drag
-            elif op.optype == 'drag':
-                start_x = op.x1
-                start_y = op.y1
-                end_x = op.x2
-                end_y = op.y2
-                drag_time = op.drag_time
-                drag_number = op.number
-                interval_time = op.interval_time
-                num = 1
-                while(num <= drag_number):
-                    if self.__running.isSet():
-                        self.__flag.wait()
-                        print("%sdrag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,start_x,start_y,end_x,end_y))
-                        self.__device.drag((start_x, start_y), (end_x, end_y), drag_time, 10)
-                        MonkeyRunner.sleep(interval_time)
-                        num += 1
-                    else:
-                        self.__oplist[:] = []
-                        return
+                        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test finished.")
+    # drag
+                elif op.optype == 'drag':
+                    start_x = op.x1
+                    start_y = op.y1
+                    end_x = op.x2
+                    end_y = op.y2
+                    drag_time = op.drag_time
+                    drag_number = op.number
+                    interval_time = op.interval_time
+                    num = 1
+                    while(num <= drag_number):
+                        if self.__running.isSet():
+                            self.__flag.wait()
+                            print("%sdrag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,start_x,start_y,end_x,end_y))
+                            self.__device.drag((start_x, start_y), (end_x, end_y), drag_time, 10)
+                            MonkeyRunner.sleep(interval_time)
+                            num += 1
+                        else:
+                            self.__oplist[:] = []
+                            break
 
-#random_drag
-            elif op.optype == 'random_drag':
-                drag_number = op.number
-                interval_time = op.interval_time
-                print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test start.")
-                num = 1
-                while(num <= drag_number):
+    #random_drag
+                elif op.optype == 'random_drag':
+                    drag_number = op.number
+                    interval_time = op.interval_time
+                    print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test start.")
+                    num = 1
+                    while(num <= drag_number):
+                        if self.__running.isSet():
+                            self.__flag.wait()
+                            x_start = random.randint(0, self.__resolution_x)
+                            y_start = random.randint(0, self.__resolution_y)
+                            x_end = random.randint(0,self.__resolution_x)
+                            y_end = random.randint(0,self.__resolution_y)
+                            print("%srandom_drag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x_start,y_start,x_end,y_end))
+                            self.__device.drag((x_start, y_start), (x_end, y_end), 1, 10)
+                            MonkeyRunner.sleep(interval_time)
+                            num += 1
+                        else:
+                            self.__oplist[:] = []
+                            break
+                    if self.__running.isSet():
+                        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test finished.")                
+
+    #press
+                elif op.optype == 'press':
+                    key_name = op.keyorstring
                     if self.__running.isSet():
                         self.__flag.wait()
-                        x_start = random.randint(0, self.__resolution_x)
-                        y_start = random.randint(0, self.__resolution_y)
-                        x_end = random.randint(0,self.__resolution_x)
-                        y_end = random.randint(0,self.__resolution_y)
-                        print("%srandom_drag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x_start,y_start,x_end,y_end))
-                        self.__device.drag((x_start, y_start), (x_end, y_end), 1, 10)
-                        MonkeyRunner.sleep(interval_time)
-                        num += 1
+                        print("%spress %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),key_name))
+                        self.__device.press(key_name, 'DOWN_AND_UP')
                     else:
                         self.__oplist[:] = []
-                        return
-                print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test finished.")                
-
-#press
-            elif op.optype == 'press':
-                key_name = op.keyorstring
-                if self.__running.isSet():
-                    self.__flag.wait()
-                    print("%spress %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),key_name))
-                    self.__device.press(key_name, 'DOWN_AND_UP')
+                        break
+    #typestr
+                elif op.optype == 'typestr':
+                    typestring = op.keyorstring
+                    if self.__running.isSet():
+                        print("%stype %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),typestring))
+                        self.__device.type(typestring)
+                    else:
+                        self.__oplist[:] = []
+                        break
                 else:
-                    self.__oplist[:] = []
-                    return
-#typestr
-            elif op.optype == 'typestr':
-                typestring = op.keyorstring
-                if self.__running.isSet():
-                    print("%stype %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),typestring))
-                    self.__device.type(typestring)
-                else:
-                    self.__oplist[:] = []
-                    return
+                    print("optype error")
 
-            else:
-                print("optype error")
+            self.__oplist[:] = []
+            self.__running.clear()
+            
 ##
 ##Socket相关
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -332,7 +348,9 @@ while True:
     if optype == 'connect':
         t.connect()
     elif optype == 'start':
-        t.start()
+        if not t.isstart():
+            t.start()
+        t.runstart()
     elif optype == 'pause':
         t.pause()
     elif optype == 'resume':
