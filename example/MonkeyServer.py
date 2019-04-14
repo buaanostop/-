@@ -3,6 +3,32 @@
 MonkeyServer
 通过socket接受关于MonkeyRunner的指令并在cmd中执行。
 """
+"""
+更新日志 2019.04.14
+1.在Test类中增加了 isconnect()方法，返回是否连接设备
+    如果连接设备返回 True, 否则返回False
+
+2.加入截图功能ScreenShot类，伴随Test类中方法的调用自动启动，
+  图片存在路径 ScreenShot 中的 self.__path
+  图片时间Log文件 存在 self.__logpath
+  每一行格式为 图片名 秒级时间戳
+  例如
+  1.png 1555228887
+  2.png 1555228889
+  3.png 1555228891
+  4.png 1555228892
+  使用时，可读取秒级时间戳并转换成需要的格式，转换方法如下
+    import time
+    timeStamp = 1381419600 #秒级时间戳
+    timeArray = time.localtime(timeStamp)
+    otherStyleTime = time.strftime("%Y--%m--%d %H:%M:%S", timeArray)
+    print otherStyleTime   # 2013--10--10 23:40:00
+
+3.cmd信息存入
+    具体在Test类 writelog方法中
+    设定log文件路径在Test的 __init__方法中
+    信息写入Log文件，并同时在cmd中打印
+"""
 import sys
 import time
 import socket
@@ -12,6 +38,7 @@ from com.android.monkeyrunner import MonkeyRunner
 from com.android.monkeyrunner import MonkeyDevice
 from com.android.monkeyrunner import MonkeyImage
 
+#sys.stdout = open("E:/dontstop/example/log.txt")
 class Operation():
     """操作类，给Test类记录各种操作"""
     def __init__(self, optype, x1, y1, x2, y2, number, interval_time, drag_time, keyorstring ):
@@ -25,6 +52,60 @@ class Operation():
         self.drag_time = drag_time
         self.keyorstring = keyorstring
         
+class ScreenShot(threading.Thread):
+
+    def __init__(self):
+        threading.Thread.__init__(self)
+        self.__device = None
+        self.__flag = threading.Event()
+        self.__flag.clear()
+        self.__running = threading.Event()
+        self.__running.set()
+        self.__isstart = False
+        self.__count = 0
+        self.__path = "E:/dontstop/example/screenshot/"
+        self.__logpath = "E:/dontstop/example/screenshot/log.txt"
+        logfile = open(self.__logpath,'w')
+        logfile.close()
+
+    def connect(self,device):
+        self.__device = device
+        
+    def pause(self):
+        self.__flag.clear()
+
+    def resume(self):
+        self.__flag.set()
+
+    def stop(self):
+        self.__flag.set()
+        self.__running.clear()
+
+    def runstart(self):
+        self.__running.set()
+        
+    def isstart(self):
+        return self.__isstart
+
+    def run(self):
+        self.__isstart = True
+        
+        while True:
+            self.__running.wait()
+            self.__flag.wait()
+            self.__count += 1
+            result = self.__device.takeSnapshot()
+            shottime = time.time()
+            shottime = int(shottime) # 秒级时间戳
+            filename = self.__path + str(self.__count) + '.png'
+            result.writeToFile(filename,'png')
+
+            #写入log
+            logfile = open(self.__logpath,'a')
+            logfile.write(str(self.__count)+'.png '+str(shottime)+'\n')
+            logfile.close()
+#            print("ScreenShot"+str(self.__count))
+            time.sleep(0.5)
         
 class Test(threading.Thread):
     
@@ -34,13 +115,22 @@ class Test(threading.Thread):
         self.__flag = threading.Event() # 暂停标志
         self.__flag.set() # 设为True
         self.__running = threading.Event() # 运行标志
-        self.__running.clear() # 设为True
+        self.__running.clear() # 设为False
         self.__resolution_x = 0 # 分辨率x
         self.__resolution_y = 0 # 分辨率y
         self.__device = None # 设备
         self.__oplist = [] # 模拟操作的列表
-
         self.__isstart = False
+        self.__shot = ScreenShot()
+        self.__logpath = "E:/dontstop/example/log.txt"
+        logfile = open(self.__logpath,'w')
+        logfile.close()
+
+    def writelog(self,data):
+        print(data)
+        logfile = open(self.__logpath,'a')
+        logfile.write(data+'\n')
+        logfile.close()
         
     def connect(self, resolution_x=540, resolution_y=960):
         """连接模拟器或手机
@@ -63,14 +153,21 @@ class Test(threading.Thread):
         """
         self.__resolution_x = resolution_x
         self.__resolution_y = resolution_y
-        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Connect ...")
+        self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Connect ...")
+#        print(data)
+#        print(data)
+#        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Connect ...")
         self.__device = MonkeyRunner.waitForConnection() # 连接设备或模拟器
         if not self.__device:
-            print("Please connect a device to start.")
+            self.writelog("Please connect a device to start.")
+
             return 0
         else:
-            print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Connection success")
-            print("Connect to : %s"%self.__device)
+            self.__shot.connect(self.__device)
+            self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Connection success")
+            self.writelog("Connect to : %s"%self.__device)
+            
+            
             return 1
             
     def open_app(self, package_name, activity_name):
@@ -85,21 +182,24 @@ class Test(threading.Thread):
         ----------
         >>> a.open_app('com.Jelly.JellyFish','com.unity3d.player.UnityPlayerActivity')        
         """
-        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Oppen application ...")
+        self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Oppen application ...")
         self.__device.startActivity(component = package_name + "/" + activity_name)
         MonkeyRunner.sleep(10)
-        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Open application succeeded.")
+        self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Open application succeeded.")
 
     def pause(self):
-        print("pause")
+        self.writelog("pause")
+        self.__shot.pause()
         self.__flag.clear()
 
     def resume(self):
-        print("resume")
+        self.writelog("resume")
+        self.__shot.resume()
         self.__flag.set()
 
     def stop(self):
-        print("stop")
+        self.writelog("stop")
+        self.__shot.stop()
         self.__flag.set()
         self.__running.clear()
     
@@ -121,7 +221,7 @@ class Test(threading.Thread):
         #optype, x1, y1, x2, y2, number, interval_time, drag_time, keyorstring
         op = Operation('touch',pos_x,pos_y,0,0,touch_number,interval_time,0,0)
         self.__oplist.append(op)
-        print("touch test add success")
+        self.writelog("touch test add success")
 
     def random_touch(self, touch_number, interval_time):
         """随机点击屏幕测试
@@ -137,7 +237,7 @@ class Test(threading.Thread):
         """
         op = Operation('random_touch',0,0,0,0,touch_number,interval_time,0,0)
         self.__oplist.append(op)
-        print("random_touch test add success")
+        self.writelog("random_touch test add success")
 
     def press(self, key_name):
         """按键测试
@@ -149,7 +249,7 @@ class Test(threading.Thread):
         """
         op = Operation('press',0,0,0,0,0,0,0,key_name)
         self.__oplist.append(op)
-        print("press test add success")
+        self.writelog("press test add success")
 
     def typestr(self, typestring):
         """键盘输入测试
@@ -160,7 +260,7 @@ class Test(threading.Thread):
         """
         op = Operation('typestr',0,0,0,0,0,0,0,typestring)
         self.__oplist.append(op)
-        print("typestr test add success")
+        self.writelog("typestr test add success")
               
     def drag(self,start_x, start_y, end_x, end_y, drag_time=1, drag_number=1, interval_time=1):
         """滑动屏幕测试
@@ -184,7 +284,7 @@ class Test(threading.Thread):
         #optype, x1, y1, x2, y2, number, interval_time, drag_time, keyorstring
         op = Operation('drag',start_x,start_y,end_x,end_y,drag_number,interval_time,drag_time,0)
         self.__oplist.append(op)
-        print("drag test add success")
+        self.writelog("drag test add success")
             
     def random_drag(self, drag_number, interval_time):
         """随机滑动屏幕测试
@@ -200,22 +300,33 @@ class Test(threading.Thread):
         """
         op = Operation('random_drag',0,0,0,0,drag_number,interval_time,1,0)
         self.__oplist.append(op)
-        print("random_drag test add success")
+        self.writelog("random_drag test add success")
 
     def runstart(self):
+        self.__shot.runstart()
         self.__running.set()
 
     def isstart(self):
+        """判断是否启动线程"""
         return self.__isstart
-    
+
+    def isconnect(self):
+        """判断是否连接设备"""
+        if self.__device:
+            return True
+        else:
+            return False
     def run(self):
+        self.__shot.start()
         self.__isstart = True
         
         while True:
             self.__running.wait()
             opnum = len(self.__oplist)
             if(opnum <= 0):
-                print("no test")
+                self.writelog("no test")
+            else:
+                self.__shot.resume()
             for op in self.__oplist:
     # touch
                 if op.optype == 'touch':
@@ -227,7 +338,7 @@ class Test(threading.Thread):
                     while(num <= touch_number):
                         if self.__running.isSet():
                             self.__flag.wait()
-                            print("%stouch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "), num, pos_x, pos_y))
+                            self.writelog("%stouch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "), num, pos_x, pos_y))
                             self.__device.touch(pos_x, pos_y, 'DOWN_AND_UP')
                             num += 1
                             MonkeyRunner.sleep(interval_time)
@@ -239,14 +350,14 @@ class Test(threading.Thread):
                 elif op.optype == 'random_touch':
                     touch_number = op.number
                     interval_time = op.interval_time
-                    print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test start.")
+                    self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test start.")
                     num = 1
                     while(num <= touch_number):
                         if self.__running.isSet():
                             self.__flag.wait()
                             x = random.randint(0, self.__resolution_x) # 随机生成位置x
                             y = random.randint(0, self.__resolution_y) # 随机生成位置y
-                            print("%srandom_touch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x,y))
+                            self.writelog("%srandom_touch %d (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x,y))
                             self.__device.touch(x, y, 'DOWN_AND_UP') # 点击(x,y)
                             MonkeyRunner.sleep(interval_time)
                             num += 1
@@ -254,7 +365,7 @@ class Test(threading.Thread):
                             self.__oplist[:] = []
                             break
                     if self.__running.isSet():
-                        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test finished.")
+                        self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random touch test finished.")
     # drag
                 elif op.optype == 'drag':
                     start_x = op.x1
@@ -268,7 +379,7 @@ class Test(threading.Thread):
                     while(num <= drag_number):
                         if self.__running.isSet():
                             self.__flag.wait()
-                            print("%sdrag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,start_x,start_y,end_x,end_y))
+                            self.writelog("%sdrag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,start_x,start_y,end_x,end_y))
                             self.__device.drag((start_x, start_y), (end_x, end_y), drag_time, 10)
                             MonkeyRunner.sleep(interval_time)
                             num += 1
@@ -280,7 +391,7 @@ class Test(threading.Thread):
                 elif op.optype == 'random_drag':
                     drag_number = op.number
                     interval_time = op.interval_time
-                    print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test start.")
+                    self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test start.")
                     num = 1
                     while(num <= drag_number):
                         if self.__running.isSet():
@@ -289,7 +400,7 @@ class Test(threading.Thread):
                             y_start = random.randint(0, self.__resolution_y)
                             x_end = random.randint(0,self.__resolution_x)
                             y_end = random.randint(0,self.__resolution_y)
-                            print("%srandom_drag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x_start,y_start,x_end,y_end))
+                            self.writelog("%srandom_drag %d (%d,%d) to (%d,%d)."%(time.strftime("%Y-%m-%d %H:%M:%S "),num,x_start,y_start,x_end,y_end))
                             self.__device.drag((x_start, y_start), (x_end, y_end), 1, 10)
                             MonkeyRunner.sleep(interval_time)
                             num += 1
@@ -297,14 +408,14 @@ class Test(threading.Thread):
                             self.__oplist[:] = []
                             break
                     if self.__running.isSet():
-                        print(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test finished.")                
+                        self.writelog(time.strftime("%Y-%m-%d %H:%M:%S ") + "Random drag test finished.")                
 
     #press
                 elif op.optype == 'press':
                     key_name = op.keyorstring
                     if self.__running.isSet():
                         self.__flag.wait()
-                        print("%spress %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),key_name))
+                        self.writelog("%spress %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),key_name))
                         self.__device.press(key_name, 'DOWN_AND_UP')
                     else:
                         self.__oplist[:] = []
@@ -313,16 +424,18 @@ class Test(threading.Thread):
                 elif op.optype == 'typestr':
                     typestring = op.keyorstring
                     if self.__running.isSet():
-                        print("%stype %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),typestring))
+                        self.writelog("%stype %s."%(time.strftime("%Y-%m-%d %H:%M:%S "),typestring))
                         self.__device.type(typestring)
                     else:
                         self.__oplist[:] = []
                         break
                 else:
-                    print("optype error")
-
+                    self.writelog("optype error")
+                    
+            self.__shot.pause()
             self.__oplist[:] = []
             self.__running.clear()
+            
             
 ##
 ##Socket相关
@@ -332,6 +445,7 @@ s.bind(("", 8081))
 t = Test()
 
 print("MonkeyServer start")
+
 while True:
     data, addr = s.recvfrom(1024)
     # print(data)
@@ -376,4 +490,5 @@ while True:
         print("no such optype")
         
     # print("%s:%d:%d:%d:%d:%d:%f:%f:%s"%(optype,x1,y1,x2,y2,number,interval_time,drag_time,keyorstring))
+    
     

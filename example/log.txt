@@ -1,0 +1,12 @@
+2019-04-14 17:15:09 Connect ...
+2019-04-14 17:15:11 Connection success
+Connect to : <com.android.monkeyrunner.MonkeyDevice object at 0x2>
+random_touch test add success
+2019-04-14 17:15:14 Random touch test start.
+2019-04-14 17:15:14 random_touch 1 (170,465).
+2019-04-14 17:15:19 random_touch 2 (220,731).
+2019-04-14 17:15:24 random_touch 3 (159,958).
+pause
+resume
+2019-04-14 17:15:30 random_touch 4 (317,414).
+stop
