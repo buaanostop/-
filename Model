@@ -1,17 +1,34 @@
 import cv2 as cv
 import numpy as np
 import os
+import threading
+import time
 
-'''
-picture_classification 用来对一组图片进行分类，目的是要找到与整体有差异的若干张图片
-                       根据相邻图片的相似程度来区分正常和异常图片
-                       通过计算两张图片的欧式距离来判断其相似程度
-                       直到若干张图片都相似才判断它们都为异常
-picture_collection_path：储存图片的文件夹的路径
-step_length：参数，表示分组的步长，即判断相邻的step_length张图片为异常还是正常
-limit_range：参数，表示接受的相似程度，即当欧式距离小于limit_range时判断两张图片为相似
-picture_label：返回值，一个图片的标签的集合，0表示正常图片，1表示异常图片
-'''
+
+class SimpleModel(threading.Thread):
+    def __init__(self, picture_collection_path, step_length, limit_range):
+        threading.Thread.__init__(self)
+        self.picture_collection_path = picture_collection_path
+        self.step_length = step_length
+        self.limit_range = limit_range
+
+    '''
+    picture_classification 用来对一组图片进行分类，目的是要找到与整体有差异的若干张图片
+                           根据相邻图片的相似程度来区分正常和异常图片
+                           通过计算两张图片的欧式距离来判断其相似程度
+                           直到若干张图片都相似才判断它们都为异常
+    picture_collection_path：储存图片的文件夹的路径
+    step_length：参数，表示分组的步长，即判断相邻的step_length张图片为异常还是正常
+    limit_range：参数，表示接受的相似程度，即当欧式距离小于limit_range时判断两张图片为相似
+    picture_label：返回值，一个图片的标签的集合，0表示正常图片，1表示异常图片
+    '''
+    def run(self):
+        print('thread begin')
+        picture_label = picture_classification(self.picture_collection_path, self.step_length, self.limit_range)
+        for i in range(len(picture_label)):
+            if picture_label[i] == 1:
+                print(i)
+        print('thread finish')
 
 
 def picture_classification(picture_collection_path, step_length, limit_range):
@@ -51,8 +68,6 @@ def picture_classification(picture_collection_path, step_length, limit_range):
     return picture_label
 
 
-picture_label = picture_classification(picture_collection_path='D:\pyCharm\demo\shot', step_length=5, limit_range=100)
-for i in range(len(picture_label)):
-    if picture_label[i] == 1:
-        print(i)
+model_thread = SimpleModel(picture_collection_path='D:\pyCharm\demo\shot', step_length=5, limit_range=100)
+model_thread.start()
 
