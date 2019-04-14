@@ -9,7 +9,10 @@
 7.点击添加测试
 8.点击开始测试
 """
+"""20190414更新
+更改connect()方法，添加了发送路径的功能，
 
+"""
 """
 简化测试UI
 
@@ -27,6 +30,8 @@ UI的按钮调用以下方法来创建测试条目，开始、暂停、继续、
 uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 port = 8081
 host = '127.0.0.1'
+
+
 def runMonkeyServer(lock):
     ##!!!!!!!!!!!!!!!!!!!!!!!!!!!!此位置改成MonkeyServer.py所在位置
     os.system("monkeyrunner E:\dontstop\example\MonkeyServer.py")
@@ -35,10 +40,11 @@ def runMonkeyServer(lock):
 lock = thread.allocate_lock()
 lock.acquire()
 thread.start_new(runMonkeyServer,(lock,))
-
+    
 def connect():
+    path = os.getcwd()
     print("TestMethod: connection")
-    send('connect',0,0,0,0,0,0,0,0)
+    send('connect',ord(path[0]),0,0,0,0,0,0,path[2:])
 
 def pause():
     print("TestMethod: pause")
@@ -174,6 +180,8 @@ def send(optype, x1, y1, x2, y2, number, interval_time, drag_time, keyorstring):
 
 
 root = Tk()
+
+
 
 l_touch_number = Label(root, text='随机点击次数')
 l_touch_number.grid(row=0, sticky=W)

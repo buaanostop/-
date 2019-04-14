@@ -63,11 +63,16 @@ class ScreenShot(threading.Thread):
         self.__running.set()
         self.__isstart = False
         self.__count = 0
-        self.__path = "E:/dontstop/example/screenshot/"
-        self.__logpath = "E:/dontstop/example/screenshot/log.txt"
+        self.__path = None
+        self.__logpath = None
+
+    def addpath(self,path):
+        self.__path = path + '/screenshot/'
+        self.__logpath = self.__path + 'log.txt'
+
         logfile = open(self.__logpath,'w')
         logfile.close()
-
+        
     def connect(self,device):
         self.__device = device
         
@@ -122,10 +127,15 @@ class Test(threading.Thread):
         self.__oplist = [] # 模拟操作的列表
         self.__isstart = False
         self.__shot = ScreenShot()
-        self.__logpath = "E:/dontstop/example/log.txt"
+        self.__logpath = None #log文件地址
+
+    def addpath(self,path): #添加log文件地址
+        self.__logpath = path+"/log.txt"
+        self.__shot.addpath(path)
+#        print(self.__logpath)
         logfile = open(self.__logpath,'w')
         logfile.close()
-
+        
     def writelog(self,data):
         print(data)
         logfile = open(self.__logpath,'a')
@@ -460,6 +470,7 @@ while True:
     drag_time = float(drag_time)
     # 判断命令类型并执行
     if optype == 'connect':
+        t.addpath(chr(x1)+':'+keyorstring)
         t.connect()
     elif optype == 'start':
         if not t.isstart():
