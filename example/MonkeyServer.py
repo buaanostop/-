@@ -4,6 +4,11 @@ MonkeyServer
 通过socket接受关于MonkeyRunner的指令并在cmd中执行。
 """
 """
+更新日志 2019.04.17
+1.在连接上设备后，会在根目录connectlog.txt中写入True,UI可以直接查看该connectlog.txt文档。
+  在使用connect操作时触发，所以之前需要UI重写根目录下的connectlog.txt中的内容为False
+"""
+"""
 更新日志 2019.04.14
 1.在Test类中增加了 isconnect()方法，返回是否连接设备
     如果连接设备返回 True, 否则返回False
@@ -128,9 +133,11 @@ class Test(threading.Thread):
         self.__isstart = False
         self.__shot = ScreenShot()
         self.__logpath = None #log文件地址
+        self.__connectlogpath = None
 
     def addpath(self,path): #添加log文件地址
         self.__logpath = path+"/log.txt"
+        self.__connectlogpath = path+"/connectlog.txt"
         self.__shot.addpath(path)
 #        print(self.__logpath)
         logfile = open(self.__logpath,'w')
@@ -141,6 +148,11 @@ class Test(threading.Thread):
         logfile = open(self.__logpath,'a')
         logfile.write(data+'\n')
         logfile.close()
+
+    def writeconnectlog(self):
+        connectlog = open(self.__connectlogpath,'w')
+        connectlog.write("True")
+        connectlog.close()
         
     def connect(self, resolution_x=540, resolution_y=960):
         """连接模拟器或手机
