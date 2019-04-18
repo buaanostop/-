@@ -6,13 +6,27 @@ import time
 
 
 class SimpleModel(threading.Thread):
-    def __init__(self, picture_collection_path, step_length, limit_range):
+    def __init__(self, picture_collection_path, step_length, limit_range, time_interval):
         threading.Thread.__init__(self)
         self.picture_collection_path = picture_collection_path
         self.step_length = step_length
         self.limit_range = limit_range
+        self.time_interval = time_interval
 
-    '''
+    def run(self):
+        print('thread begin')
+        # 先把存储图片的文件夹清空
+        del_file(self.picture_collection_path)
+        while 1:
+            time.sleep(self.time_interval)
+            exception_num = picture_classification(self.picture_collection_path, self.step_length, self.limit_range)
+            print(exception_num)
+            if exception_num != -1:
+                break
+        print('thread finish')
+
+
+'''
     picture_classification 用来对一组图片进行分类，目的是要找到与整体有差异的若干张图片
                            根据相邻图片的相似程度来区分正常和异常图片
                            通过计算两张图片的欧式距离来判断其相似程度
@@ -20,54 +34,48 @@ class SimpleModel(threading.Thread):
     picture_collection_path：储存图片的文件夹的路径
     step_length：参数，表示分组的步长，即判断相邻的step_length张图片为异常还是正常
     limit_range：参数，表示接受的相似程度，即当欧式距离小于limit_range时判断两张图片为相似
-    picture_label：返回值，一个图片的标签的集合，0表示正常图片，1表示异常图片
-    '''
-    def run(self):
-        print('thread begin')
-        picture_label = picture_classification(self.picture_collection_path, self.step_length, self.limit_range)
-        for i in range(len(picture_label)):
-            if picture_label[i] == 1:
-                print(i)
-        print('thread finish')
+    i：返回值，返回这组图片第一张的序号
+ '''
 
 
 def picture_classification(picture_collection_path, step_length, limit_range):
     path = picture_collection_path
     # picture_num为图片的总数量
     picture_num = len([lists for lists in os.listdir(path) if os.path.isfile(os.path.join(path, lists))])
-    # picture_label初始化一个全部为0的数组
-    picture_label = [0 for x in range(0, picture_num + 1)]
-    # 最外层循环，对每张图片进行遍历
-    for i in range(picture_num):
-        # 因为每次循环都会比较第i张到第i+step_length张图片，故这里这样设置跳出循环的条件
-        if i + step_length > picture_num:
-            break
-        # 如果图片已经被标注为异常，那么说明它和之前的图片是相似的，不用进行下一层循环
-        if picture_label[i + 1] == 1:
-            continue
-        # 内层循环，比较step_length张图片是否相似
-        for j in range(i, i + step_length - 1):
+    if picture_num < step_length:
+        return -1
+    # 遍历一组内的所有图片
+    for i in range(picture_num - step_length + 1, picture_num + 1):
+        # print(i)
+        # 取第i张图片和组内的所有图片计算距离
+        for j in range(picture_num - step_length + 1, picture_num + 1):
+            if j == i:
+                continue
+            # print(j)
             # 得到每次比较的两张图片的名字
-            picture1_name = path + '\shot' + str(j + 1) + '.png'
-            picture2_name = path + '\shot' + str(j + 2) + '.png'
+            picture1_name = path + '\shot' + str(i) + '.png'
+            picture2_name = path + '\shot' + str(j) + '.png'
             # 将要比较的两张图片转换为数组
             first_array = np.array(cv.imread(picture1_name))
             second_array = np.array(cv.imread(picture2_name))
             # 计算两张图片之间的欧氏距离
             euclidean_distance = np.sqrt(np.sum((second_array - first_array) * (second_array - first_array)))
-            # 当两图片之间的欧式距离在能接受的范围之内，修改它们的标签
-            if euclidean_distance <= limit_range:
-                picture_label[j + 1] = 1
-                picture_label[j + 2] = 1
-            # 如果有某两张图片之间的欧式距离不在接受范围内，则断定这若干张图片都为正常，重新修改它们的标签
-            else:
-                for k in range(i, i + step_length):
-                    picture_label[k + 1] = 0
-                break
-    # 返回一个图片的标签的集合
-    return picture_label
+            # 若两张图片的距离不满足要求，直接return -1
+            if euclidean_distance > limit_range:
+                return -1
+    # 如果所有图片都满足要求，就返回这组图片第一张的序号
+    return i - step_length + 1
 
 
-model_thread = SimpleModel(picture_collection_path='D:\pyCharm\demo\shot', step_length=5, limit_range=100)
+# path: 要删除的文件夹的绝对路径
+def del_file(path):
+    file_list = os.listdir(path)
+    for i in file_list:
+        # 先将要删除的文件的名字处理为绝对路径
+        file_path = os.path.join(path, i)
+        os.remove(file_path)
+
+
+model_thread = SimpleModel(picture_collection_path='D:\pyCharm\demo\sss', step_length=5, limit_range=100, time_interval=3)
 model_thread.start()
 
