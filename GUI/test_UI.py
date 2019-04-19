@@ -2,6 +2,7 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import *
+from tkinter import messagebox
 import threading
 import time
 
@@ -12,40 +13,118 @@ import _thread as thread
 
 # entry1 = "000"
 def test_UI(root):
+
+    #一些常数和错误处理#
+    bool_ever_click_connect_button = 0
+    bool_is_device_connected_successful = 0
+    min_click_times = 1
+    max_click_times = 9999
+    min_interval_time = 0.1
+    max_interval_time = 99.9
+    min_drag_times_number = 1
+    max_drag_times_number = 9999
+    min_drag_during_time =0.1
+    max_drag_during_time = 9.9
+    min_drag_interval_time = 0.1
+    max_drag_interval_time = 99.9
+    max_pos_x = 1000
+    max_pos_y = 1000
+
+    exception_count = 0
+    while(1):
+        try:
+            open('exception_' + str(exception_count) + '.txt')
+            exception_count += 1
+        except IOError:
+            break
+    empty_error_code = 0
+    number_error_code = 1
+    logic_error_code = 2
+    resolution_ration_error_code = 3
+    something_else_error_code = 4
+    have_not_connect_error_code = 5
+    not_successful_connected_error_code = 6
+    def error_message_prompt(error_code):
+        if(error_code == 0):#错误信息:空输入
+            tk.messagebox.showinfo('输入错误','输入不能为空或非半角阿拉伯数字，具体输入规范可参考顶部菜单栏的“帮助”按钮')
+        elif(error_code == 1):#错误信息：输入的应该是数字却不是
+            tk.messagebox.showinfo('输入错误','请输入半角阿拉伯正数，具体输入规范可参考顶部菜单栏的“帮助”按钮')
+        elif(error_code == 2):
+            tk.messagebox.showinfo('输入错误','请输入不要超过限定范围，具体输入范围可参考顶部菜单栏的“帮助”按钮')
+        elif(error_code == 3):
+            tk.messagebox.showinfo('输入错误','请正确输入手机分辨率，以半角阿拉伯正数形式输入')
+        elif(error_code == something_else_error_code):
+            tk.messagebox.showinfo('未知错误','发生了一些未知的错误，程序将退出')
+        elif(error_code == have_not_connect_error_code):
+            tk.messagebox.showinfo('提示','请先连接设备！')
+        elif(error_code == not_successful_connected_error_code):
+            tk.messagebox.showinfo('连接错误','还未成功连接设备')
+    #常数和错误处理结束#
+
     # root = Tk()
     root.title("测试界面")
     root.geometry('1050x650')
+
+
 
     uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     port = 8081
     host = '127.0.0.1'
     def runMonkeyServer(lock):
         ##!!!!!!!!!!!!!!!!!!!!!!!!!!!!此位置改成MonkeyServer.py所在位置
-        os.system(r"monkeyrunner C:\Users\Lenovo\Desktop\Autotest-master\example\MonkeyServer.py")
+        ret = os.system(r"monkeyrunner C:\Users\Lenovo\Desktop\Autotest-master\example\MonkeyServer.py")
+        '''if(ret == 0):
+            tk.messagebox.showinfo('运行错误','无法打开monkeyrunner，请检查路径设置是否正确')
+        '''
         lock.release()
 
     lock = thread.allocate_lock()
     lock.acquire()
     thread.start_new(runMonkeyServer,(lock,))
-
+    
+    def connect_waiting():
+        nonlocal bool_is_device_connected_successful
+        connect_log = open(os.getcwd() + '\\connectlog.txt','r')
+        content = connect_log.read()
+        nonlocal connect_waiting_timer
+        if(content == 'True'):
+            bool_is_device_connected_successful = 1
+            print_text.insert('end','connection successful!')
+            connect_waiting_timer.cancel()
+            connect_log.close()
+        else:
+            connect_log.close()
+            connect_waiting_timer = threading.Timer(0.5,connect_waiting)
+            connect_waiting_timer.start()
+            
     def connect():
-        print("TestMethod: connection")
-        send('connect',0,0,0,0,0,0,0,0)
-
+        nonlocal bool_ever_click_connect_button
+        bool_ever_click_connect_button = 1
+        path = os.getcwd()
+        print_text.insert('end',"TestMethod: waiting for connection..")
+        send('connect',ord(path[0]),0,0,0,0,0,0,path[2:])
+        nonlocal connect_waiting_timer
+        connect_waiting_timer = threading.Timer(0.5,connect_waiting)
+        connect_waiting_timer.start()
+        #send('connect',0,0,0,0,0,0,0,0)
+    connect_waiting_timer = threading.Timer(0.5,connect_waiting)
     def pause():
-        print("TestMethod: pause")
+        print_text.insert('end',"TestMethod: pause")
         send('pause',0,0,0,0,0,0,0,0)
 
     def resume():
-        print("TestMethod: resume")
+        print_text.insert('end',"TestMethod: resume")
         send('resume',0,0,0,0,0,0,0,0)
 
     def stop():
-        print("TestMethod: stop")
+        print_text.insert('end',"TestMethod: stop")
         send('stop',0,0,0,0,0,0,0,0)
 
     def start():
-        print("TestMethod: start")
+        nonlocal log_timer
+        log_timer = threading.Timer(1,log_monitor)
+        log_timer.start()
+        print_text.insert('end',"TestMethod: start")
         send('start',0,0,0,0,0,0,0,0)
 
     def send(optype, x1, y1, x2, y2, number, interval_time, drag_time, keyorstring):
@@ -57,15 +136,23 @@ def test_UI(root):
         interval_time = float(e_interval_time.get()) # 通过输入框获取参数 间隔时间
         print("TestMethod: random_touch 点击次数:%d 间隔时间:%f"%(touch_number, interval_time))
         send('random_touch',0,0,0,0,touch_number,interval_time,0,0)
-
     def delete_print():
-        global print_text
+        nonlocal print_text
         print_text.delete(0,'end')
     '''
     menubar = tk.Menu(root)  # 菜单选项
-
-    clean_menu = tk.Menu(menubar, tearoff=0)
-    menubar.add_cascade(label = '帮助',menu = clean_menu)
+    def help_func():
+         tk.messagebox.showinfo('帮助',
+         '输入请输入半角阿拉伯数字，每一个输入文本框都输入完毕以后再点击确认按钮。\n\
+      输入范围限制如下：\n\
+            点击次数：1-9999次\n\
+            间隔时间：0.1-99.9s\n\
+            滑动次数：1-9999次\n\
+            滑动时间：0.1-9.9s\n\
+            滑动间隔时间：0.1-99.9s\n\
+            使用遇到问题，请发送邮件到702368107@buaa.edu.cn')
+    #help_menu = tk.Menu(menubar, tearoff=0)
+    menubar.add_command(label = '帮助',command = help_func)
 
     root.config(menu=menubar)
 
@@ -74,7 +161,7 @@ def test_UI(root):
 
 
     def delete_text():
-        global print_text
+        nonlocal print_text
         print_text.delete(0,'end')
     b_delete = Button(root, text = '清屏', width = '3', command = delete_text).pack(side = 'left', fill = 'y')
     print_text.pack(side = 'left')
@@ -86,30 +173,59 @@ def test_UI(root):
     frame_left.pack(side = 'left')
 
     log_name = "log.txt"
+    exception_raw_name = 'exception.txt'
+    exception_name = 'exception_' + str(exception_count)+'.txt'
     content_initialize = "开始测试后，测试报告会显示在这"
     label_2=Label(frame_left,text = content_initialize,bg = 'white',justify='left')
     label_2.place(x = 0,y = 0)
+    #os.remove(os.getcwd() + '\\' + exception_raw_name)
+    connect_status_flag = open(os.getcwd() + '\\connectlog.txt','w+')  #初始化connectlog.txt
+    connect_status_flag.write("False")
+    connect_status_flag.close()
     #label_test = Lab
-
+    #print(os.getcwd())
     #采用timer实时监测文件变化
+    read_log = 0
     def log_monitor():
         nonlocal log_name
+        nonlocal read_log
+
         try:
-                file_log = open(log_name,'r')
-                content = file_log.read()
-                nonlocal label_2
-                label_2.config(text = content)
-                file_log.close()
+            read_log = 1
+            file_log = open(log_name,'r')
+            content = file_log.read()
+            nonlocal label_2
+            label_2.config(text = content)
+            file_log.close()
+            try:
+                file_excetpion = open(exception_raw_name,'r')
+                file_exception_log = open(exception_name,'a+')
+                log_lines = file_log.readlines()
+                keys = [k for k in range(0,len(log_lines))]
+                result = {k:v for k,v in zip(keys,log_lines[::-1])}
+                lines_to_be_written = []
+                for i in range(10):
+                    lines_to_be_written.append(result[i])
+                file_exception_log.writelines(lines_to_be_written)
+                content = content + '\n出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止'
+                nonlocal exception_count
+                exception_count += 1
+                file_exception.close()
+                os.remove(os.getcwd() + '\\' + exception_raw_name)
+                stop()
+                file_exception_log.close()
+            except IOError:
                 nonlocal log_timer
                 log_timer = threading.Timer(1,log_monitor)
                 log_timer.start()
         except IOError:
+            if(read_log == 0):
                 content = "暂时未读取到日志文件"
                 label_2.config(text = content)
             
-            
-    log_timer = threading.Timer(1,log_monitor)
-    log_timer.start()
+    log_timer = threading.Timer(1,log_monitor)         
+    '''log_timer = threading.Timer(1,log_monitor)
+    log_timer.start()'''
     ##左侧frame##
 
 
@@ -129,6 +245,12 @@ def test_UI(root):
     def click_b_con(): # 开始命名成了连接。。实际上此函数时展开输入app选项的按钮
         nonlocal judge_choose_test
         nonlocal judge_con
+        if(bool_ever_click_connect_button == 0):
+            error_message_prompt(have_not_connect_error_code)
+            return
+        if(bool_is_device_connected_successful == 0):
+            error_message_prompt(not_successful_connected_error_code)
+            return
         if judge_choose_test == 0 and judge_con == 0:
             b_choose.forget()
             fm_con.pack()
@@ -206,15 +328,24 @@ def test_UI(root):
 
     def click_b_con_confirm():
         nonlocal judge_con
-        # v_con_x = con_x_entry.get()
-        # ov_con_y = con_y_entry.get()
+        v_con_x = con_x_entry.get()
+        v_con_y = con_y_entry.get()
+        try:
+            nonlocal max_pos_x
+            nonlocal max_pos_y
+            v_con_x = int(con_x_entry.get())
+            v_con_y = int(con_y_entry.get())
+            max_pos_x = v_con_x
+            max_pos_y = v_con_y
+        except ValueError:
+            error_message_prompt(resolution_ration_error_code)
         v_p_name = p_name_entry.get()
         v_a_name = a_name_entry.get()
         fm_con.forget() # 点击设备信息的确定按钮之后，会暂时消除填入信息的行，再次点击‘请先点击输入设备信息’按钮之后会重新出现
         judge_con = 0
         # print("TestMethod: open_app")
         send('open_app',0,0,0,0,0,0,0,v_p_name + '&' + v_a_name)
-        global print_text
+        nonlocal print_text
         print_text.delete(0,'end')
     Button(fm_con, text="确定",command = click_b_con_confirm).pack(pady = 5)
 
@@ -222,6 +353,12 @@ def test_UI(root):
     def click_b_choose():
         nonlocal judge_choose_test
         nonlocal judge_con
+        if(bool_ever_click_connect_button == 0):
+            error_message_prompt(have_not_connect_error_code)
+            return
+        if(bool_is_device_connected_successful == 0):
+            error_message_prompt(not_successful_connected_error_code)
+            return
         if judge_choose_test == 0 and judge_con == 0:
             fm_choose.pack()
             judge_choose_test = 1
@@ -331,15 +468,34 @@ def test_UI(root):
 
     def click_b_confirm_touch():
         nonlocal print_text
-        v_pos_x = int(pos_x_entry.get())
-        v_pos_y = int(pos_y_entry.get())
-        v_touch_n = int(touch_n_entry.get())
-        v_i_time = float(i_time_entry.get())
-        fm_touch.forget()
-        fm_choose.pack()
-        print_text.insert('end', "TestMethod: touch")
-        print_text.insert('end', "点击位置:(%d,%d) 点击次数:%d 间隔时间:%f"%(v_pos_x, v_pos_y, v_touch_n, v_i_time))
-        send('touch',v_pos_x, v_pos_y, 0, 0, v_touch_n, v_i_time, 0, 0)
+        try:
+            v_pos_x = int(pos_x_entry.get())
+            v_pos_y = int(pos_y_entry.get())
+            v_touch_n = int(touch_n_entry.get())
+            v_i_time = float(i_time_entry.get())
+            fm_touch.forget()
+            fm_choose.pack()
+            logic_error = 0
+            if(v_pos_x < 0 or v_pos_x > max_pos_x):
+                logic_error = 1
+            if(v_pos_y < 0 or v_pos_y > max_pos_y):
+                logic_error = 1
+            if(v_touch_n < min_click_times or v_touch_n > max_click_times):
+                logic_error = 1
+            if(v_i_time < min_interval_time or v_i_time > max_interval_time):
+                logic_error = 1
+            if(logic_error == 1):
+                error_message_prompt(logic_error_code)
+            else:
+                print_text.insert('end', "TestMethod: touch")
+                print_text.insert('end', "点击位置:(%d,%d) 点击次数:%d 间隔时间:%f"%(v_pos_x, v_pos_y, v_touch_n, v_i_time))
+                send('touch',v_pos_x, v_pos_y, 0, 0, v_touch_n, v_i_time, 0, 0)
+        except ValueError:
+            if(pos_x_entry.get() == '' or pos_y_entry.get() == '' or touch_n_entry.get() == '' or i_time_entry.get() == ''):
+                error_message_prompt(empty_error_code)
+            else:
+                error_message_prompt(number_error_code)
+
         
     Button(fm_touch, text="加入测试队列",command = click_b_confirm_touch).pack(pady = 5)
 
@@ -367,13 +523,28 @@ def test_UI(root):
     r_touch_time_entry.pack(side = 'top',pady=5)
 
     def click_b_r_touch_confirm():
-        v_r_touch_n = int(r_touch_n_entry.get())
-        v_r_touch_time = float(r_touch_time_entry.get())
-        fm_r_touch.forget()
-        fm_choose.pack()
-        print_text.insert('end', "TestMethod: random_touch")
-        print_text.insert('end', "点击次数:%d 间隔时间:%f"%(v_r_touch_n, v_r_touch_time))
-        send('random_touch', 0, 0, 0, 0, v_r_touch_n, v_r_touch_time, 0, 0)
+        nonlocal print_text
+        try:
+                v_r_touch_n = int(r_touch_n_entry.get())
+                v_r_touch_time = float(r_touch_time_entry.get()) #间隔时间 对应interval time
+                fm_r_touch.forget()
+                fm_choose.pack()
+                logic_error = 0
+                if(v_r_touch_n < 0 or v_r_touch_n > max_click_times):
+                    logic_error = 1
+                if(v_r_touch_time < min_interval_time or v_r_touch_time > max_interval_time):
+                    logic_error = 1
+                if(logic_error == 1):
+                    error_message_prompt(logic_error_code)
+                else:
+                    print_text.insert('end', "TestMethod: random_touch")
+                    print_text.insert('end',"点击次数:%d 间隔时间:%fs"%(v_r_touch_n, v_r_touch_time))
+                    send('random_touch', 0, 0, 0, 0, v_r_touch_n, v_r_touch_time, 0, 0)
+        except ValueError:
+                if(r_touch_n_entry.get() == '' or r_touch_time_entry.get() == '' ):
+                    error_message_prompt(empty_error_code)
+                else:
+                    error_message_prompt(number_error_code)
         
     Button(fm_r_touch, text="加入测试队列",command = click_b_r_touch_confirm).pack(pady = 5)
 
@@ -444,20 +615,48 @@ def test_UI(root):
     d_i_time_entry.pack(side = 'top',pady=5)
 
     def click_b_drag_confirm():
-        v_start_x = int(start_x_entry.get())
-        v_start_y = int(start_y_entry.get())
-        v_end_x = int(end_x_entry.get())
-        v_end_y = int(end_y_entry.get())
-        v_d_time = int(d_time_entry.get())
-        v_d_num = int(d_num_entry.get())
-        v_d_i_time = float(d_i_time_entry.get())
-        fm_drag.forget()
-        fm_choose.pack()
-        print_text.insert('end', "TestMethod: drag")
-        print_text.insert('end', "滑动起始位置:(%d,%d) 滑动结束位置:(%d,%d)"%(v_start_x, v_start_y, v_end_x, v_end_y))
-        print_text.insert('end', "滑动持续时间: %f 滑动次数: %d 滑动间隔时间: %d"%(v_d_time, v_d_num, v_d_i_time))
+        nonlocal print_text
+        try:
+            v_start_x = int(start_x_entry.get())
+            v_start_y = int(start_y_entry.get())
+            v_end_x = int(end_x_entry.get())
+            v_end_y = int(end_y_entry.get())
+            v_d_time = int(d_time_entry.get())
+            v_d_num = int(d_num_entry.get())
+            v_d_i_time = float(d_i_time_entry.get())
+            fm_drag.forget()
+            fm_choose.pack()
+            logic_error = 0
+            if(v_start_x < 0 or v_start_x > max_pos_x):
+                logic_error = 1
+            if(v_start_y < 0 or v_start_y > max_pos_y):
+                logic_error = 1
+            if(v_end_x < 0 or v_end_x > max_pos_x):
+                logic_error = 1
+            if(v_end_y < 0 or v_end_y > max_pos_y):
+                logic_error = 1
+            if(v_start_x == v_end_x or v_start_y == v_end_y):
+                logic_error = 1
+            if(v_d_time < min_drag_during_time  or  v_d_time > max_drag_during_time ):
+                logic_error = 1
+            if(v_d_num < min_drag_times_number or v_d_num > max_drag_times_number):
+                logic_error = 1
+            if(v_d_i_time < min_drag_interval_time or v_d_i_time > max_drag_interval_time):
+                logic_error = 1
+            if(logic_error == 1):
+                error_message_prompt(logic_error_code)
+            else:
+                print_text.insert('end', "TestMethod: drag")
+                print_text.insert('end', "滑动起始位置:(%d,%d) 滑动结束位置:(%d,%d)"%(v_start_x, v_start_y, v_end_x, v_end_y))
+                print_text.insert('end', "滑动持续时间: %f 滑动次数: %d 滑动间隔时间: %d"%(v_d_time, v_d_num, v_d_i_time))
+        except ValueError:
+            if(start_x_entry.get() == '' or start_y_entry.get() == '' or end_x_entry.get() == '' or\
+                end_y_entry.get() == '' or d_time_entry.get() == '' or d_num_entry.get() == '' or\
+                    d_i_time_entry.get() == '' ):
+                error_message_prompt(empty_error_code)
+            else:
+                error_message_prompt(number_error_code)
         # print("TestMethod: drag )
-        send('drag', v_start_x, v_start_y, v_end_x, v_end_y, v_d_num, v_d_i_time, v_d_time, 0)
     Button(fm_drag, text="加入测试队列",command = click_b_drag_confirm).pack(pady = 5)
 
     #随机滑动屏幕测试
@@ -483,14 +682,27 @@ def test_UI(root):
     r_d_i_time_entry.pack(side = 'top',pady=5)
 
     def click_b_r_drag_confirm():
-        v_r_d_num = int(r_d_num_entry.get())
-        v_r_d_i_time = float(r_d_i_time_entry.get())
-        fm_r_drag.forget()
-        fm_choose.pack()
-        print_text.insert('end', "TestMethod: random_drag")
-        print_text.insert('end', "滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
-        # print("TestMethod: random_drag 滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
-        send('random_drag',0,0,0,0,v_r_d_num, v_r_d_i_time, 1, 0)
+        try:
+            v_r_d_num = int(r_d_num_entry.get())
+            v_r_d_i_time = float(r_d_i_time_entry.get())
+            fm_r_drag.forget()
+            fm_choose.pack()
+            logic_error = 0
+            if(v_r_d_num < min_drag_times_number or v_r_d_num > max_drag_times_number):
+                logic_error = 1
+            if(v_r_d_i_time < min_drag_interval_time or v_r_d_i_time > max_drag_interval_time):
+                logic_error = 1
+            if(logic_error == 1):
+                error_message_prompt(logic_error_code)
+            print_text.insert('end', "TestMethod: random_drag")
+            print_text.insert('end', "滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
+            # print("TestMethod: random_drag 滑动次数: %d 滑动间隔时间: %f"%(v_r_d_num, v_r_d_i_time))
+            send('random_drag',0,0,0,0,v_r_d_num, v_r_d_i_time, 1, 0)
+        except ValueError:
+            if(r_d_num_entry.get() == '' or r_d_i_time_entry.get() == ''):
+                error_message_prompt(empty_error_code)
+            else:
+                error_message_prompt(number_error_code)
     Button(fm_r_drag, text="加入测试队列",command = click_b_r_drag_confirm).pack(pady = 5)
 
     def click_start_b():
@@ -505,7 +717,12 @@ def test_UI(root):
         nonlocal fm_drag
         nonlocal fm_r_drag
 
-        
+        if(bool_ever_click_connect_button == 0):
+            error_message_prompt(have_not_connect_error_code)
+            return
+        if(bool_is_device_connected_successful == 0):
+            error_message_prompt(not_successful_connected_error_code)
+            return
         fin_in_b.forget()
         b_con_phone.forget()
         fm_con.forget()
@@ -540,7 +757,7 @@ def test_UI(root):
         return_in_b.forget()
 
         b_con_phone.pack(fill = 'x')
-        b_con.pack(fill = 'x')
+        b_con.pack(fill = 'x') 
         b_choose.pack(fill = 'x')
         fin_in_b.pack(fill = 'x', side = 'bottom')
         
@@ -556,3 +773,7 @@ def test_UI(root):
 
 
     root.mainloop()
+    '''except:
+        error_message_prompt(something_else_error_code)'''
+root = tk.Tk()
+test_UI(root)
