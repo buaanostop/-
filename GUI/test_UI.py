@@ -121,7 +121,6 @@ def test_UI(root):
         send('stop',0,0,0,0,0,0,0,0)
 
     def start():
-        nonlocal log_timer
         log_timer = threading.Timer(1,log_monitor)
         log_timer.start()
         print_text.insert('end',"TestMethod: start")
@@ -189,25 +188,29 @@ def test_UI(root):
     def log_monitor():
         nonlocal log_name
         nonlocal read_log
-
         try:
             read_log = 1
             file_log = open(log_name,'r')
             content = file_log.read()
+            log_lines = file_log.readlines()
             nonlocal label_2
             label_2.config(text = content)
             file_log.close()
             try:
                 file_excetpion = open(exception_raw_name,'r')
                 file_exception_log = open(exception_name,'a+')
-                log_lines = file_log.readlines()
+                if(len(log_lines) == 0):
+                    log_timer = threading.Timer(1,log_monitor)
+                    log_timer.start()
+                    return
                 keys = [k for k in range(0,len(log_lines))]
                 result = {k:v for k,v in zip(keys,log_lines[::-1])}
                 lines_to_be_written = []
-                for i in range(10):
+                for i in range(min(10,len(log_lines))):
                     lines_to_be_written.append(result[i])
                 file_exception_log.writelines(lines_to_be_written)
                 content = content + '\n出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止'
+                print_text.insert('end','出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止')
                 nonlocal exception_count
                 exception_count += 1
                 file_exception.close()
@@ -215,15 +218,13 @@ def test_UI(root):
                 stop()
                 file_exception_log.close()
             except IOError:
-                nonlocal log_timer
                 log_timer = threading.Timer(1,log_monitor)
                 log_timer.start()
         except IOError:
             if(read_log == 0):
                 content = "暂时未读取到日志文件"
                 label_2.config(text = content)
-            
-    log_timer = threading.Timer(1,log_monitor)         
+              
     '''log_timer = threading.Timer(1,log_monitor)
     log_timer.start()'''
     ##左侧frame##
