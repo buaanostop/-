@@ -14,16 +14,17 @@ class SimpleModel(threading.Thread):
         self.time_interval = time_interval
 
     def run(self):
-        print('thread begin')
+        print('Model thread begin')
         # 先把存储图片的文件夹清空
         del_file(self.picture_collection_path)
         while 1:
             time.sleep(self.time_interval)
-            exception_num = picture_classification(self.picture_collection_path, self.step_length, self.limit_range)
-            print(exception_num)
-            if exception_num != -1:
+            exception_order = picture_classification(self.picture_collection_path, self.step_length, self.limit_range)
+            print(exception_order)
+            if exception_order != -1:
                 break
-        print('thread finish')
+        print_exception(exception_order, self.picture_collection_path)
+        print('Model thread finish')
 
 
 '''
@@ -67,6 +68,7 @@ def picture_classification(picture_collection_path, step_length, limit_range):
     return i - step_length + 1
 
 
+# 用来清空一个文件夹下的所有图片
 # path: 要删除的文件夹的绝对路径
 def del_file(path):
     file_list = os.listdir(path)
@@ -76,6 +78,25 @@ def del_file(path):
         os.remove(file_path)
 
 
-model_thread = SimpleModel(picture_collection_path='D:\pyCharm\demo\sss', step_length=5, limit_range=100, time_interval=3)
+# 将捕获到的异常信息输出到 exception.txt 中
+# order 为异常图片的序号，path为存储图片的文件夹的绝对路径
+def print_exception(order, path):
+    # 获得要输出信息的图片的绝对路径
+    picture1_path = path + '\shot' + str(order) + '.png'
+    # 获得输出信息文本的绝对路径
+    txt_path = os.path.join(os.getcwd(), 'exception.txt')
+    print(txt_path)
+    data = open(txt_path, 'w')
+    print('exception appeared!', file=data)
+    # 输出异常图片的序号到txt中
+    print('the picture order is: %s' % order, file=data)
+    # 输出异常图片的得到时间到txt中
+    print('the picture got in: %s' % os.stat(picture1_path).st_ctime, file=data)
+
+
+# picture_file 为储存截图的文件夹
+picture_file = os.path.join(os.getcwd(), 'shot')
+# print(picture_file)
+model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
 model_thread.start()
 
