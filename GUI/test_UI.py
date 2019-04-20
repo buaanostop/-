@@ -65,7 +65,7 @@ def test_UI(root):
     root.title("测试界面")
     root.geometry('1050x650')
 
-
+    root.resizable(0,0) # 禁止调整窗口大小
 
     uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     port = 8081
@@ -776,5 +776,5 @@ def test_UI(root):
     root.mainloop()
     '''except:
         error_message_prompt(something_else_error_code)'''
-root = tk.Tk()
-test_UI(root)
+# root = tk.Tk()
+# test_UI(root)

@@ -12,9 +12,11 @@ import _thread as thread
 
 class main_UI:
     window = tk.Tk()  # 实例化object，建立窗口window
-    window.title('My Window')  # 给窗口的可视化起名字
+    window.title('主界面')  # 给窗口的可视化起名字
     window.geometry('900x600')  # 设定窗口的大小(长 * 宽) 这里的乘是小x
-    l = tk.Label(window, text='LOGO', bg='lightskyblue', font=('Arial', 40), width=15, height=3)  # 在图形界面上设定标签
+    window.resizable(0,0)
+    
+    l = tk.Label(window, text='手机APP异常检测', bg='lightskyblue', font=('黑体', 40), width=20, height=3)  # 在图形界面上设定标签
     # 说明： bg为背景，font为字体，width为长，height为高，这里的长和高是字符的长和高，比如height=2,就是标签有2个字符这么高
      
     l.pack(pady='110')  # 放置标签Label内容content区域放置位置，自动调节尺寸
@@ -27,16 +29,16 @@ class main_UI:
         root = Toplevel()
         test_UI(root)
     # 在窗口界面设置放置Button按键
-    b = tk.Button(window, text='报告', font=('黑体', 12), width=8, height=2)
-    b.pack(side='bottom',expand='yes')
+    # b = tk.Button(window, text='报告', font=('黑体', 12), width=8, height=2)
+    # b.pack(side='bottom',expand='yes')
     # b.place(relx = 0.5, rely = 0.5)
 
-    c = tk.Button(window, text='测试', font=('黑体', 12), width=8, height=2,command = test2)
+    c = tk.Button(window, text='测试', font=('黑体', 12), width=10, height=3,command = test2)
     c.pack(side='bottom',expand='yes')
 
-    d = tk.Button(window, text='引导', font=('黑体', 12), width=8, height=2, command = guide2)
+    d = tk.Button(window, text='引导', font=('黑体', 12), width=10, height=3, command = guide2)
     d.pack(side='bottom',expand='yes')
-
+    '''
     menubar = tk.Menu(window)  # 菜单选项
 
     filemenu = tk.Menu(menubar, tearoff=0)
@@ -62,7 +64,7 @@ class main_UI:
     menubar.add_cascade(label = '帮助',menu = helpmenu)
 
     window.config(menu=menubar)
-
+    '''
     d.pack_forget()
     d.pack(side='bottom',expand='yes')
 
