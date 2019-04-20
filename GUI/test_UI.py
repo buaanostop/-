@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+from tkinter import scrolledtext
 import threading
 import time
 
@@ -63,7 +64,7 @@ def test_UI(root):
 
     # root = Tk()
     root.title("测试界面")
-    root.geometry('1050x650')
+    root.geometry('1250x650')
 
     root.resizable(0,0) # 禁止调整窗口大小
 
@@ -149,7 +150,10 @@ def test_UI(root):
             滑动次数：1-9999次\n\
             滑动时间：0.1-9.9s\n\
             滑动间隔时间：0.1-99.9s\n\
-            使用遇到问题，请发送邮件到702368107@buaa.edu.cn')
+            点击位置不可超出app分辨率\n\
+            若希望软件自动启动需要测试的游戏，请正确输入游戏的包名和活动名，留空则默认对当前运行的应用进行测试\n\
+            需要修改分辨率参数，输入并再次确认即可\n\
+            使用遇到问题，可发送邮件到buaanostop@163.com')
     #help_menu = tk.Menu(menubar, tearoff=0)
     menubar.add_command(label = '帮助',command = help_func)
 
@@ -168,15 +172,18 @@ def test_UI(root):
 
 
     ##左侧frame##
-    frame_left=Frame(root,bg = 'white',width = 300,height = 1200)
+    frame_left=Frame(root,bg = 'white',width = 459,height = 1200)
     frame_left.pack(side = 'left')
 
     log_name = "log.txt"
     exception_raw_name = 'exception.txt'
     exception_name = 'exception_' + str(exception_count)+'.txt'
     content_initialize = "开始测试后，测试报告会显示在这"
-    label_2=Label(frame_left,text = content_initialize,bg = 'white',justify='left')
-    label_2.place(x = 0,y = 0)
+    scr = scrolledtext.ScrolledText(frame_left,width = 65,height = 1200)
+    scr.insert('end',content_initialize)
+    scr.pack()
+    #label_2=Label(scr,text = content_initialize,bg = 'white',justify='left')
+    #label_2.place(x = 0,y = 0)
     #os.remove(os.getcwd() + '\\' + exception_raw_name)
     connect_status_flag = open(os.getcwd() + '\\connectlog.txt','w+')  #初始化connectlog.txt
     connect_status_flag.write("False")
@@ -185,45 +192,62 @@ def test_UI(root):
     #print(os.getcwd())
     #采用timer实时监测文件变化
     read_log = 0
+    log_lines = []
+    bool_successful_read_log = 0
+    file_log = open('connectlog.txt','r')
     def log_monitor():
         nonlocal log_name
         nonlocal read_log
+        nonlocal log_lines
+        nonlocal file_log
+        nonlocal scr
+        nonlocal bool_successful_read_log
         try:
             read_log = 1
-            file_log = open(log_name,'r')
-            content = file_log.read()
-            log_lines = file_log.readlines()
-            nonlocal label_2
-            label_2.config(text = content)
-            file_log.close()
+            if(not bool_successful_read_log):
+                file_log = open(log_name,'r')
+                bool_successful_read_log = 1
+            final_line = file_log.readline()
+            if(final_line != ''):
+                log_lines.append(final_line)
+                scr.insert('end',final_line)
+            #print(log_lines)
+            #nonlocal label_2
+            #label_2.config(text = content)
+            #file_log.close()
             try:
-                file_excetpion = open(exception_raw_name,'r')
+                file_exception = open(exception_raw_name,'r')
                 file_exception_log = open(exception_name,'a+')
+                lines_count = len(log_lines)
                 if(len(log_lines) == 0):
-                    log_timer = threading.Timer(1,log_monitor)
+                    #print('no log file')
+                    log_timer = threading.Timer(0.5,log_monitor)
                     log_timer.start()
                     return
-                keys = [k for k in range(0,len(log_lines))]
-                result = {k:v for k,v in zip(keys,log_lines[::-1])}
                 lines_to_be_written = []
-                for i in range(min(10,len(log_lines))):
-                    lines_to_be_written.append(result[i])
+                min_lines_error_log = min(10,lines_count)
+                for i in range(lines_count - 1,lines_count - min_lines_error_log,-1):
+                    lines_to_be_written.insert(0,log_lines[i])
                 file_exception_log.writelines(lines_to_be_written)
-                content = content + '\n出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止'
-                print_text.insert('end','出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止')
+                scr.insert('end','\n出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止')
+                #content = content + '\n出现异常！相关内容已经保存到根目录下' + exception_name + '\n测试已停止'
+                #label_2.config(text = content)
+                print_text.insert('end','出现异常！相关内容已经保存到' + exception_name )
+                print_text.insert('end','测试已停止')
                 nonlocal exception_count
                 exception_count += 1
                 file_exception.close()
                 os.remove(os.getcwd() + '\\' + exception_raw_name)
                 stop()
+                file_log.close()
                 file_exception_log.close()
             except IOError:
-                log_timer = threading.Timer(1,log_monitor)
+                log_timer = threading.Timer(0.5,log_monitor)
                 log_timer.start()
         except IOError:
             if(read_log == 0):
-                content = "暂时未读取到日志文件"
-                label_2.config(text = content)
+                scr.insert('end','暂未读取到日志文件')
+               # label_2.config(text = content)
               
     '''log_timer = threading.Timer(1,log_monitor)
     log_timer.start()'''
