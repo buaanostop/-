@@ -8,7 +8,7 @@ import time
 import os
 import socket
 import _thread as thread
-
+import webbrowser
 
 class main_UI:
     window = tk.Tk()  # 实例化object，建立窗口window
@@ -28,46 +28,25 @@ class main_UI:
     def test2():
         root = Toplevel()
         test_UI(root)
-    # 在窗口界面设置放置Button按键
-    # b = tk.Button(window, text='报告', font=('黑体', 12), width=8, height=2)
-    # b.pack(side='bottom',expand='yes')
-    # b.place(relx = 0.5, rely = 0.5)
+    def click_sur():
+        webbrowser.open("https://link.jiandaoyun.com/f/5cb910d6c221e541e8fb3a17")
+    def click_fb():
+        webbrowser.open("https://link.jiandaoyun.com/f/5cb9215b196c2d1d50253635")
 
-    c = tk.Button(window, text='测试', font=('黑体', 12), width=10, height=3,command = test2)
+    survey = tk.Button(window, text='用户调查', font=('黑体', 12), width=15, height=2,command = click_sur)
+    survey.pack(side='bottom',expand='yes')
+
+    feedback = tk.Button(window, text='问题反馈', font=('黑体', 12), width=15, height=2, command = click_fb)
+    feedback.pack(side='bottom',expand='yes')
+    
+    c = tk.Button(window, text='测试', font=('黑体', 12), width=15, height=2,command = test2)
     c.pack(side='bottom',expand='yes')
 
-    d = tk.Button(window, text='引导', font=('黑体', 12), width=10, height=3, command = guide2)
+    d = tk.Button(window, text='引导', font=('黑体', 12), width=15, height=2, command = guide2)
     d.pack(side='bottom',expand='yes')
-    '''
-    menubar = tk.Menu(window)  # 菜单选项
-
-    filemenu = tk.Menu(menubar, tearoff=0)
-    menubar.add_cascade(label = '文件',menu = filemenu)
-
-    filemenu.add_command(label='新建')
-    filemenu.add_command(label='打开')
-    filemenu.add_command(label='保存')
-    # filemenu.add_separator() 添加一条分隔线
-    filemenu.add_command(label='退出', command=window.destroy)
-
-    editmenu = tk.Menu(menubar,tearoff=0)
-    menubar.add_cascade(label = '编辑',menu = editmenu)
-
-    editmenu.add_command(label='剪切')
-    editmenu.add_command(label='复制')
-    editmenu.add_command(label='粘贴')
-
-    viewmenu = tk.Menu(menubar,tearoff=0)
-    menubar.add_cascade(label = '视图',menu = viewmenu)
-
-    helpmenu = tk.Menu(menubar,tearoff=0)
-    menubar.add_cascade(label = '帮助',menu = helpmenu)
-
-    window.config(menu=menubar)
-    '''
-    d.pack_forget()
-    d.pack(side='bottom',expand='yes')
-
+   
+    
+    
     window.mainloop()
     # 注意，loop因为是循环的意思，window.mainloop就会让window不断的刷新，如果没有mainloop,就是一个静态的window,传入进去的值就不会有循环，mainloop就相当于一个很大的while循环，有个while，每点击一次就会更新一次，所以我们必须要有循环
     # 所有的窗口文件都必须有类似的mainloop函数，mainloop是窗口文件的关键的关键。
