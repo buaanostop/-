@@ -684,6 +684,7 @@ def test_UI(root):
                 print_text.insert('end', "TestMethod: drag")
                 print_text.insert('end', "滑动起始位置:(%d,%d) 滑动结束位置:(%d,%d)" % (v_start_x, v_start_y, v_end_x, v_end_y))
                 print_text.insert('end', "滑动持续时间: %f 滑动次数: %d 滑动间隔时间: %d" % (v_d_time, v_d_num, v_d_i_time))
+                send('drag', v_start_x, v_start_y, v_end_x, v_end_y, v_d_num, v_d_i_time, v_d_time, 0)
         except ValueError:
             if (start_x_entry.get() == '' or start_y_entry.get() == '' or end_x_entry.get() == '' or \
                     end_y_entry.get() == '' or d_time_entry.get() == '' or d_num_entry.get() == '' or \
