@@ -16,12 +16,12 @@ def guide(top):
             ind = 28
             label2.forget()
             label3.forget()
-            bm = PhotoImage(file='guideP/1.png', width=630, height=441)
+            bm = PhotoImage(file='guideP/28.png', width=630, height=441)
             label2 = Label(top, image=bm, bg='lightyellow')
             label2.bm = bm
             label2.pack()
 
-            bms = PhotoImage(file='guideP/1s.png', width=630, height=100)
+            bms = PhotoImage(file='guideP/28s.png', width=630, height=100)
             label3 = Label(top, image=bms, bg='white')
             label3.bm = bms
             label3.pack()
