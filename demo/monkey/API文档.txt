@@ -1,8 +1,42 @@
 #Monkey.py API文档
+
 -------------------------------------
+### 1.连接设备（在此步启动MonkeyServer）
 connect()
 
+### 2.关闭 MonkeyServer
+close()
+
+### 3.保存
+save(save_name)
+    参数
+    -------------
+    save_name : string
+                存档的名字(不带扩展名)
+    返回值
+    -------------
+    bool : True 保存成功
+            False 保存失败
+
+### 4.读取存档
+load(save_name)
+    参数
+    -----------
+    save_name : string
+                存档的名字
+    返回值
+    -----------
+    bool : True 读取成功
+            False 读取失败(存档不存在等问题)
+
+### 5.打开应用
 open_app()
+    参数
+    ----------
+    package_name : string 
+                    包名 例如 com.Jelly.JellyFish
+    activity_name : string
+                    活动名 例如 com.unity3d.player.UnityPlayerActivit
 
 -------------------------------------
 ### 单击
@@ -101,20 +135,6 @@ random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0)
     drag_time : float
                 滑动时间，默认为1秒
 
-###按键
-press(key_name)
-    参数
-    -----------
-    key_name : string
-            按键的名字
-
-###键盘输入
-typestr(typestring)
-    参数
-    -------
-    typestring : string
-                要输入的字符串
-
 ###长按滑动
 touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, interval_time=1.0)
     参数
@@ -130,6 +150,27 @@ touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, interval_
     interval_time : float
                 两次动作的间隔时间
 
+###按键
+press(key_name)
+    参数
+    -----------
+    key_name : string
+            按键的名字
+
+###键盘输入
+typestr(typestring)
+    参数
+    -------
+    typestring : string
+                要输入的字符串
+
+
+###等待
+wait(wait_time)
+    参数
+    ------
+    wait_time : float
+                要等待的时间
 -------------------------------------
 start()
 

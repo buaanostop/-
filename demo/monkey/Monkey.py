@@ -6,34 +6,24 @@ Monkey.py
 简化MonkeyServer的功能，仅接受信息并进行简单操作。
 功能：
 1.创建测试队列
-2.控制测试的运行
+2.保存、读取测试队列
+3.控制测试的运行
 
 """
 import sys
-import socket
-import random
 import time
-
-class Operation():
-    """操作类，记录各种操作"""
-
-    def __init__(self, optype, pointlist, number, interval_time, hold_time, keyorstring, wait_time):
-        self.optype = optype
-        self.pointlist = pointlist
-        self.number = int(number)
-        self.interval_time = float(interval_time)
-        self.hold_time = float(hold_time)
-        self.keyorstring = str(keyorstring)
-        self.wait_time = float(wait_time)
-
-    def display(self):
-        print(self.optype, self.pointlist, self.number, self.interval_time, self.hold_time, self.keyorstring, self.wait_time)
-                           
+from Operation import *
+from MonkeySender import *         
 logpath = "log.txt"
 oplist = []
-uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-port = 8081
-host = '127.0.0.1'
+##uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+##port = 8081
+##host = '127.0.0.1'
+
+def __clear():
+    """清空Oplist"""
+    oplist.clear()
+    
 
 def __ifprint(data):
     print(data)
@@ -44,23 +34,92 @@ def __writelog(data):
     logfile.write(data + '\n')
     logfile.close()
 
-def __send(optype, x1=0, y1=0, x2=0, y2=0, hold_time=1.0, keyorstring="none"):
-    data = bytes("%s:%d:%d:%d:%d:%f:%s"%(optype,x1,y1,x2,y2,hold_time,keyorstring),encoding="utf8")
-    uisocket.sendto(data, (host, port))
-    print("send: "+ optype)
+##def __send(optype, x1=0, y1=0, x2=0, y2=0, hold_time=1.0, keyorstring="none"):
+##    data = bytes("%s:%d:%d:%d:%d:%f:%s"%(optype,x1,y1,x2,y2,hold_time,keyorstring),encoding="utf8")
+##    uisocket.sendto(data, (host, port))
+##    print("send: "+ optype)
     
 def __now():
     return str(time.strftime("%Y-%m-%d %H:%M:%S "))
 
 ##-------------------------------
 def connect():
+    """连接设备
+    返回值
+    ----------
+    bool : True 连接成功
+            False 连接失败
+    """
     __writelog(__now() + "connect...")
-    __send("connect")
+    return do_connect()
 
-def open_app():
+def open_app(package_name, activity_name):
+    """打开应用
+    参数
+    ----------
+    package_name : string 
+                    包名 例如 com.Jelly.JellyFish
+    activity_name : string
+                    活动名 例如 com.unity3d.player.UnityPlayerActivity
+    
+    """
     __writelog(__now() + "open app")
-    __send("connect")
+    do_open_app(package_name, activity_name)
 
+def save(save_name):
+    """将oplist保存
+    参数
+    -------------
+    save_name : string
+                存档的名字
+    返回值
+    -------------
+    bool : True 保存成功
+            False 保存失败
+    """
+    try:
+        f = open(save_name+'.save','w')
+        for op in oplist:
+            f.write(str(op.todict())+'\n')
+        f.close()
+        __writelog(__now() + save_name + " save success")
+        return True
+    except:
+        f.close()
+        __writelog(__now() + save_name + " save fail")
+        return False
+
+def load(save_name):
+    """读取存档
+    参数
+    -----------
+    save_name : string
+                存档的名字
+    返回值
+    -----------
+    bool : True 读取成功
+            False 读取失败
+    """
+    try:       
+        __clear() # 清空当前oplist
+        f = open(save_name+'.save','r')
+        data = f.readline()
+        while data:
+            data = eval(data)
+            op = Operation(data['optype'],data['pointlist'],data['number'],data['interval_time'],
+                            data['hold_time'],data['keyorstring'],data['wait_time'])
+            oplist.append(op)
+            data = f.readline()
+        f.close()
+        __writelog(__now() + save_name + " load success")
+    except:
+        f.close()
+        __writelog(_now() + save_name + " load fail")
+        return False
+    
+def close():
+    __writelog(__now() + "close")
+    do_close()
 ##-------------------------------
 def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
     """单击
@@ -234,7 +293,17 @@ def typestr(typestring):
     oplist.append(op)
     __writelog(__now() + "typestr test add success")
 
-  
+def wait(wait_time):
+    """等待
+    参数
+    ------
+    wait_time : float
+                要等待的时间
+
+    """
+    op = Operation('wait', None, 0, 0, 0, 0, wait_time)
+    oplist.append(op)
+    __writelog(__now() + "wait test add success")
 
 def print_oplist():
     for op in oplist:
@@ -244,6 +313,8 @@ def print_oplist():
 ##-------------------------------
 def start():
     __writelog(__now() + "start")
+    test = DoTest(oplist)
+    test.start()
 #    __send("start")
     
 def pause():
@@ -259,8 +330,7 @@ def stop():
 #    __send("stop")
 
 ##-------------------------------
-def closeMonkeyServer():
-    __writelog(__now() + "close")
-    __send("close")
+
+
 
 
