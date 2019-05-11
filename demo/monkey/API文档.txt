@@ -1,0 +1,181 @@
+#Monkey.py API文档
+
+-------------------------------------
+### 1.连接设备（在此步启动MonkeyServer）
+connect()
+
+### 2.关闭 MonkeyServer
+close()
+
+### 3.保存
+save(save_name)
+    参数
+    -------------
+    save_name : string
+                存档的名字(不带扩展名)
+    返回值
+    -------------
+    bool : True 保存成功
+            False 保存失败
+
+### 4.读取存档
+load(save_name)
+    参数
+    -----------
+    save_name : string
+                存档的名字
+    返回值
+    -----------
+    bool : True 读取成功
+            False 读取失败(存档不存在等问题)
+
+### 5.打开应用
+open_app()
+    参数
+    ----------
+    package_name : string 
+                    包名 例如 com.Jelly.JellyFish
+    activity_name : string
+                    活动名 例如 com.unity3d.player.UnityPlayerActivit
+
+-------------------------------------
+### 单击
+touch(pos_x, pos_y, touch_number=1, interval_time=1.0)
+    参数
+    -------------
+    pos_x : int
+            点击的位置横坐标
+    pos_y : int
+            点击的位置纵坐标
+    touch_numbere : int
+            点击的次数，默认为1
+    interval_time : float
+            多次点击间隔时间,默认为1秒
+
+### 长按
+long_touch(pos_x, pos_y, touch_time=1.0, touch_number=1, interval_time=1.0)
+    参数
+    -----------
+    pos_x : int
+            点击的位置x
+    pos_y : int
+            点击的位置y
+    touch_time: float
+            按住的时间，默认为1秒
+    touch_number : int
+            长按的次数
+    interval_time : float
+            每次长按间隔的时间
+
+### 多位置顺序单击
+multi_touch(pointlist, loop_number=1, interval_time = 1.0, loop_time = 1.0)
+    参数
+    ---------------
+    pointlist : ((x1,y1),(x2,y2),...(x10,y10)),x,y均为int
+                多个位置的坐标
+                当前限定为10个点
+    loop_number : int
+                循环的遍数，默认为1
+    interval_time : float
+                两次点击的间隔时间,默认为1秒
+    loop_time : float
+                两遍循环的间隔时间，默认为1秒
+
+###随机单击
+random_touch(pointlist, touch_number=1, interval_time=1.0)
+    参数
+    -----------
+    pointlist : ((x1,y1),(x2,y2)) x,y均为int 或 None
+                由两个点围成的矩形为随机的范围
+                如果传入None 则没有范围，在全屏内随机
+    touch_number : int
+                点击的次数
+    interval_time : float
+                每两次点击间隔的时间，默认为1秒
+
+###滑动
+drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0)
+    参数
+    ---------------
+    pointlist : ((x1,y1),(x2,y2)) x,y均为int
+                滑动的起点和终点
+    drag_time : float
+            滑动持续时间,默认为1秒
+    drag_number : int
+            滑动次数，默认为1次
+    interval_time : float
+            滑动间隔时间，默认为1秒
+
+###多位置滑动
+multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0)
+    参数
+    ---------------
+    pointlist : ((startx1,starty1,endx1,endy1),(startx2,starty2,endx2,endy2)...),均为int
+                多个(起点，终点)位置的坐标
+    loop_number : int
+                滑动的遍数，默认为1
+    interval_time : float
+                两次滑动的间隔时间,默认为1秒
+    drag_time : float
+                每次滑动的持续时间，默认为1秒
+    loop_time : float
+                两遍滑动的间隔时间，默认为1秒
+
+###随机滑动
+random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0)
+    参数
+    -----------
+    pointlist : ((x1,y1),(x2,y2)) x,y均为int 或 None
+                由两个点围成的矩形为随机的范围
+                如果传入None 则没有范围，在全屏内随机
+    drag_number : int
+                随机滑动次数
+    interval_time : float
+                每两次滑动间隔的时间，默认为1秒
+    drag_time : float
+                滑动时间，默认为1秒
+
+###长按滑动
+touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, interval_time=1.0)
+    参数
+    -----------
+    pointlist : ((x1,y1),(x2,y2)) x,y均为int
+                按住的点和滑动的终点的坐标
+    touch_number : int
+                长按滑动的次数
+    touch_time : float
+                长按的时间，默认为1秒
+    drag_time : float
+                滑动的时间， 默认为1秒
+    interval_time : float
+                两次动作的间隔时间
+
+###按键
+press(key_name)
+    参数
+    -----------
+    key_name : string
+            按键的名字
+
+###键盘输入
+typestr(typestring)
+    参数
+    -------
+    typestring : string
+                要输入的字符串
+
+
+###等待
+wait(wait_time)
+    参数
+    ------
+    wait_time : float
+                要等待的时间
+-------------------------------------
+start()
+
+stop()
+
+pause()
+
+resume()
