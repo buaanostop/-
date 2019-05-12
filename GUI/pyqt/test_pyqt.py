@@ -6,12 +6,17 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDockWidget, QListWidget
 from PyQt5.QtGui import *
 #from Test_Ui_Functions import *
+import Test_Ui_Functions
 from Ui_test_ui import Ui_TestWindow #import刚刚创建的GUI类
 class myTestWindow(QtWidgets.QMainWindow,Ui_TestWindow):
     def __init__(self):#因为是继承自Qtwidgets.QMainWindow和Ui_MainWindow的，重载一下父类构造函数
         super(myTestWindow,self).__init__()
         self.setupUi(self) #初始化UI界面
         #self.pushButton.clicked.connect(self.hello_message)
+        self.queueList.setDragDropMode(self.queueList.InternalMove)
+        '''for i in range(0,5):
+            self.queueList.addItem("hello")
+        self.queueList.addItem("world")'''
 
 if  __name__ == '__main__': #python的main函数
     app = QtWidgets.QApplication(sys.argv)
