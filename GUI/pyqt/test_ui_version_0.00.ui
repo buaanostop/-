@@ -102,8 +102,8 @@
    <widget class="QPushButton" name="finishInputButton">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>530</y>
+      <x>810</x>
+      <y>550</y>
       <width>101</width>
       <height>31</height>
      </rect>
