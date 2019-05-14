@@ -1,0 +1,760 @@
+{'optype': 'touch', 'pointlist': ((133, 960),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((611, 96),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((166, 725),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((562, 946),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((33, 1223),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((360, 746),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((599, 1229),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((682, 993),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((519, 3),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((5, 228),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((366, 297),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((639, 608),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((491, 1015),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((614, 1108),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((393, 1259),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((560, 180),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((162, 79),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((74, 181),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((608, 50),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((660, 898),), 'number': 5, 'interval_time': 0.5, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((113, 739),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((536, 1246),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((582, 460),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((480, 1032),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((406, 1160),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((594, 285),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((329, 480),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((131, 76),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((170, 35),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((162, 1063),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((539, 876),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((243, 188),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((407, 1147),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((717, 1131),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((242, 1235),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((68, 1150),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((550, 222),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((454, 447),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((495, 43),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((244, 100),), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((292, 667),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((402, 315),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((27, 742),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((501, 413),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((408, 764),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((649, 771),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((462, 1203),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((532, 309),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((650, 1100),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((493, 880),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((384, 6),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((4, 948),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((376, 292),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((429, 48),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((70, 827),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((410, 314),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((712, 272),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((563, 776),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((159, 1048),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((156, 111),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((124, 1194),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((210, 79),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((57, 721),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((429, 360),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((502, 1099),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((130, 437),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((127, 538),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((686, 721),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((401, 710),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((161, 970),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((568, 456),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((501, 783),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((79, 291),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((15, 687),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((540, 887),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((538, 554),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((159, 799),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((254, 250),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((123, 174),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((70, 950),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((245, 634),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((48, 285),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((704, 318),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((518, 1114),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((699, 888),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((684, 1006),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((604, 117),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((564, 350),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((224, 156),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((116, 256),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((593, 405),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((11, 118),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((362, 18),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((201, 65),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((297, 642),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((355, 558),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((92, 577),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((530, 580),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((148, 633),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((350, 909),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((406, 508),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((451, 252),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((595, 1093),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((3, 587),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((376, 603),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((541, 344),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((600, 48),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((336, 505),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((166, 467),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((43, 744),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((686, 481),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((165, 105),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((229, 590),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((397, 1269),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((420, 349),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((142, 409),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((179, 148),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((596, 17),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((490, 193),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((256, 367),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((616, 783),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((25, 1165),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((581, 170),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((334, 582),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((472, 863),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((110, 744),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((542, 111),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((568, 1019),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((292, 559),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((103, 678),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((127, 1208),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((644, 1075),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((116, 67),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((563, 584),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((459, 925),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((150, 941),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((103, 512),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((679, 845),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((580, 453),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((135, 847),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((180, 256),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((220, 826),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((284, 1016),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((419, 567),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((718, 277),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((474, 764),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((704, 1222),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((427, 1194),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((213, 460),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((597, 208),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((363, 256),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((478, 409),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((72, 879),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((670, 1157),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((306, 286),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((106, 1118),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((203, 980),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((93, 503),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((251, 741),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((130, 269),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((443, 993),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((211, 472),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((236, 152),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((70, 936),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((459, 908),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((218, 331),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((166, 771),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((649, 853),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((319, 95),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((193, 550),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((683, 401),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((497, 1176),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((576, 9),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((477, 323),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((239, 876),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((384, 556),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((656, 396),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((491, 1035),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((252, 398),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((280, 385),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((427, 185),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((457, 1163),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((58, 185),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((302, 670),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((219, 242),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((693, 366),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((718, 125),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((326, 220),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((582, 1174),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((415, 258),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((492, 540),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((283, 646),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((251, 608),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((227, 201),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((79, 50),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((570, 244),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((322, 176),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((260, 360),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((230, 330),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((268, 414),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((605, 574),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((598, 1061),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((120, 697),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((148, 267),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((306, 579),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((719, 282),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((221, 141),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((15, 550),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((172, 535),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((254, 472),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((481, 788),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((26, 1100),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((361, 791),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((321, 1020),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((322, 535),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((395, 1002),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((123, 1232),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((104, 459),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((672, 717),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((423, 878),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((218, 964),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((400, 229),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((694, 265),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((650, 617),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((587, 151),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((187, 92),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((360, 575),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((145, 901),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((455, 210),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((236, 616),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((145, 825),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((302, 877),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((512, 1028),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((538, 740),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((312, 838),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((604, 72),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((206, 835),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((84, 517),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((244, 7),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((430, 485),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((234, 351),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((562, 1107),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((640, 879),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((581, 87),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((438, 560),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((358, 161),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((450, 273),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((78, 236),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((105, 560),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((653, 902),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((648, 489),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((700, 567),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((275, 309),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((315, 552),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((554, 1089),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((609, 1264),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((551, 484),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((91, 9),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((423, 56),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((20, 83),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((16, 1138),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((193, 1175),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((444, 257),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((97, 929),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((683, 644),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((231, 710),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((384, 1191),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((577, 734),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((283, 854),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((27, 244),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((276, 58),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((281, 54),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((543, 401),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((634, 1110),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((237, 948),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((210, 1009),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((686, 505),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((435, 648),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((674, 1037),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((92, 104),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((220, 968),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((27, 75),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((428, 1048),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((445, 1151),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((660, 241),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((94, 725),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((612, 930),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((337, 817),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((261, 200),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((508, 995),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((674, 61),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((311, 230),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((320, 117),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((470, 287),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((666, 621),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((36, 899),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((593, 453),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((583, 1074),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((59, 216),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((661, 41),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((391, 927),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((22, 961),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((123, 1263),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((398, 635),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((628, 1112),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((128, 1122),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((252, 678),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((710, 456),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((576, 1032),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((110, 1040),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((140, 946),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((98, 1053),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((376, 887),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((652, 1040),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((314, 807),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((102, 433),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((552, 1141),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((283, 833),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((307, 627),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((483, 1182),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((293, 331),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((580, 95),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((463, 118),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((576, 539),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((278, 126),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((561, 584),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((172, 1265),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((604, 1185),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((683, 535),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((617, 187),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((317, 643),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((443, 729),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((421, 1041),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((266, 575),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((179, 264),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((102, 1130),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((555, 805),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((387, 191),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((211, 1137),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((635, 851),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((683, 146), (220, 574)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((377, 521), (644, 1108)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((535, 1201), (140, 638)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((550, 178), (254, 739)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((32, 1170), (377, 228)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((542, 616), (313, 280)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((384, 889), (136, 652)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((473, 26), (586, 62)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((441, 834), (628, 654)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((14, 821), (568, 594)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((536, 938), (387, 1232)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((179, 539), (511, 47)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((474, 314), (221, 1243)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((146, 1086), (354, 1244)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((461, 553), (156, 1019)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((164, 941), (685, 969)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((7, 808), (690, 27)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((107, 767), (502, 570)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((516, 1007), (339, 5)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((72, 265), (523, 44)), 'number': 5, 'interval_time': 0.5, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((456, 474), (500, 746)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((502, 310), (703, 677)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((95, 1254), (518, 890)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((317, 634), (672, 1215)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((568, 266), (530, 129)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((155, 704), (54, 419)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((336, 1268), (45, 1227)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((381, 177), (29, 771)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((301, 443), (77, 335)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((36, 422), (227, 601)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((233, 560), (557, 1265)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((225, 566), (716, 882)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((233, 850), (476, 407)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((368, 474), (462, 942)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((496, 1064), (64, 693)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((18, 638), (409, 1035)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((370, 778), (132, 686)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((695, 577), (154, 38)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((514, 48), (378, 1210)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((133, 404), (182, 131)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((543, 757), (294, 777)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((455, 1245), (550, 660)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((429, 659), (321, 180)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((13, 135), (408, 934)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((590, 1), (507, 162)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((459, 1055), (198, 933)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((448, 17), (662, 551)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((162, 820), (197, 826)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((26, 220), (336, 109)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((502, 1133), (490, 571)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((130, 1067), (86, 611)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((405, 1090), (710, 213)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((521, 475), (252, 678)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((236, 200), (319, 162)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((396, 931), (418, 606)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((634, 20), (597, 25)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((320, 567), (499, 1221)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((396, 212), (184, 270)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((555, 254), (22, 773)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((280, 917), (91, 722)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((77, 642), (208, 1104)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((139, 115), (164, 1039)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((173, 367), (199, 656)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((635, 466), (428, 668)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((417, 23), (347, 599)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((297, 921), (346, 1177)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((330, 227), (199, 981)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((586, 642), (433, 298)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((685, 657), (115, 983)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((285, 1116), (111, 382)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((688, 172), (234, 222)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((42, 996), (686, 181)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((542, 837), (167, 56)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((575, 58), (658, 1248)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((86, 327), (365, 280)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((262, 1022), (560, 363)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((567, 969), (684, 676)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((456, 1071), (596, 1269)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((344, 789), (75, 423)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((281, 207), (86, 695)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((316, 1264), (500, 148)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((194, 1111), (304, 667)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((275, 1187), (685, 619)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((543, 995), (100, 390)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((454, 616), (609, 23)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((710, 532), (301, 517)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((563, 1184), (192, 157)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((188, 145), (566, 1188)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((275, 1057), (254, 1222)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((278, 312), (277, 849)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((657, 862), (651, 231)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((470, 1257), (84, 909)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((251, 453), (365, 669)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((37, 750), (687, 148)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((37, 503), (60, 1061)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((262, 71), (664, 1237)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((464, 1141), (295, 865)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((328, 176), (440, 754)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((295, 1189), (671, 1128)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((605, 183), (579, 1158)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((578, 45), (247, 1019)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((155, 36), (441, 480)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((672, 735), (288, 1045)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((59, 1093), (559, 260)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((348, 693), (591, 1016)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((192, 882), (252, 130)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((246, 18), (330, 696)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((677, 623), (428, 580)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((623, 512), (125, 1175)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((647, 1239), (182, 5)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((533, 1135), (501, 594)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((131, 451), (423, 919)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((108, 482), (73, 195)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((683, 1149), (305, 873)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((626, 978), (616, 186)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((153, 934), (487, 1270)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((239, 1145), (437, 879)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((619, 1128), (593, 814)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((150, 468), (198, 248)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((146, 605), (108, 312)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((321, 538), (228, 609)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((47, 1207), (37, 1264)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((572, 187), (238, 890)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((526, 105), (359, 697)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((500, 1254), (144, 216)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((589, 468), (361, 922)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((485, 683), (433, 13)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((334, 1080), (51, 737)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((615, 981), (54, 551)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((157, 1116), (591, 396)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((266, 585), (0, 733)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((607, 1266), (543, 822)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((43, 544), (97, 721)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((549, 643), (277, 318)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((573, 1180), (68, 83)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((630, 1202), (215, 453)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((545, 579), (556, 1140)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((619, 882), (329, 233)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((402, 187), (38, 1136)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((41, 422), (78, 799)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((375, 302), (128, 1184)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((398, 787), (265, 1245)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((53, 911), (283, 530)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((298, 107), (264, 718)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((237, 106), (225, 90)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((514, 753), (239, 209)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((563, 876), (212, 974)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((532, 325), (282, 349)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((176, 656), (43, 674)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((616, 192), (417, 136)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((349, 425), (557, 1093)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((20, 133), (301, 378)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((69, 980), (30, 83)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((56, 1030), (439, 694)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((2, 582), (319, 772)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((627, 184), (314, 258)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((179, 514), (10, 5)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((307, 305), (577, 101)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((235, 51), (283, 921)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((672, 450), (392, 1002)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((701, 966), (440, 626)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((615, 709), (164, 180)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((305, 602), (601, 588)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((223, 499), (171, 2)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((5, 869), (100, 872)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((35, 882), (223, 1131)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((241, 43), (34, 745)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((178, 683), (313, 487)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((655, 926), (505, 1057)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((510, 1108), (678, 1269)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((55, 248), (306, 946)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((126, 782), (418, 1001)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((505, 1135), (525, 951)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((130, 1020), (101, 291)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((218, 624), (48, 201)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((631, 710), (109, 957)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((391, 994), (583, 194)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((482, 823), (115, 801)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((372, 105), (441, 367)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((611, 182), (582, 979)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((591, 721), (462, 305)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((392, 46), (646, 199)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((48, 4), (78, 925)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((684, 529), (75, 492)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((150, 1060), (673, 254)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((584, 108), (652, 839)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((90, 402), (588, 974)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((243, 196), (373, 267)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((439, 697), (419, 37)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((110, 94), (492, 424)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((709, 69), (494, 471)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((133, 1037), (494, 707)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((390, 1115), (219, 240)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((533, 74), (381, 1080)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((594, 613), (514, 901)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((530, 261), (126, 84)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((572, 863), (208, 548)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((250, 979), (154, 135)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((14, 893), (376, 313)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((375, 305), (360, 414)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((378, 734), (69, 217)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((453, 932), (614, 488)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((616, 351), (659, 511)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((468, 879), (291, 1008)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((539, 580), (5, 532)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((346, 334), (149, 1267)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((550, 167), (391, 146)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((89, 1258), (370, 43)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((680, 998), (635, 83)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((349, 1126), (320, 867)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((484, 746), (380, 198)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((237, 1155), (36, 435)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((600, 885), (355, 342)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((184, 229), (619, 796)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((518, 733), (101, 619)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((71, 791), (494, 1110)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((425, 513), (191, 19)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((134, 135), (135, 348)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((639, 410), (374, 788)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((521, 608), (565, 1137)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((281, 20), (3, 1009)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((222, 290), (308, 218)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((60, 290), (318, 721)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((42, 1213), (709, 1200)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((583, 1170), (337, 25)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((186, 63), (481, 1269)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((13, 658), (413, 1209)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((642, 12), (379, 149)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((114, 750), (352, 505)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((411, 1052), (703, 1235)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((679, 1271), (160, 669)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((198, 88), (226, 658)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((547, 23), (305, 345)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((138, 69), (45, 1041)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((295, 113), (362, 326)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((321, 104), (469, 380)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((317, 1146), (446, 89)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((149, 1079), (248, 487)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((279, 38), (368, 155)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((417, 95), (58, 920)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((327, 639), (531, 354)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((415, 1176), (445, 1086)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((261, 304), (628, 621)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((692, 938), (500, 109)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((477, 1202), (10, 690)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((291, 1278), (347, 485)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((471, 258), (581, 404)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((24, 282), (91, 488)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((73, 65), (655, 130)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((164, 835), (410, 342)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((443, 552), (412, 699)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((345, 56), (179, 579)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((195, 1275), (276, 543)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((402, 1235), (660, 203)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((444, 1092), (644, 251)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((449, 560), (161, 222)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((342, 384), (62, 1074)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((242, 2), (591, 428)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((554, 651), (268, 1103)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((205, 194), (181, 1006)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((687, 64), (620, 11)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((297, 1027), (102, 749)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((289, 699), (356, 285)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((524, 120), (19, 1171)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((584, 608), (539, 860)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((703, 70), (435, 411)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((39, 187), (453, 607)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((104, 385), (149, 475)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((80, 594), (173, 684)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((717, 615), (204, 71)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((51, 812), (688, 172)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((273, 838), (158, 360)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((310, 1000), (656, 1212)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((422, 490), (224, 100)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((537, 39), (240, 499)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((218, 244), (620, 845)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((689, 516), (153, 685)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((580, 1122), (72, 1060)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((179, 595), (195, 803)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((235, 1156), (38, 275)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((571, 1141), (686, 863)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((150, 1220), (237, 261)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((416, 932), (208, 870)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((676, 184), (153, 651)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((676, 1097), (95, 25)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((426, 260), (133, 936)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((418, 972), (551, 1173)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((415, 638), (624, 1085)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((541, 1099), (390, 1136)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((654, 616), (48, 1103)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((300, 1116), (476, 422)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((520, 174), (193, 979)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((100, 614), (643, 470)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((318, 853), (98, 761)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((349, 633), (186, 537)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((664, 321), (146, 613)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((132, 548), (630, 304)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((64, 1099), (309, 757)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((81, 350), (643, 443)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((674, 1053), (252, 928)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((642, 18), (0, 410)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((424, 328), (528, 30)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((619, 280), (527, 1213)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((716, 107), (514, 165)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((46, 852), (500, 1069)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((2, 773), (456, 1040)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((225, 332), (151, 1111)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((706, 399), (179, 429)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((82, 199), (695, 220)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((44, 754), (223, 153)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((26, 1123), (293, 7)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((85, 1043), (121, 1148)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((542, 1205), (578, 1043)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((107, 534), (657, 169)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((22, 629), (175, 1227)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((493, 33), (613, 329)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((428, 717), (627, 1218)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((553, 784), (490, 543)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((150, 618), (394, 600)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((342, 728), (10, 472)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch_drag', 'pointlist': ((110, 230), (566, 891)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((365, 101), (670, 535)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((151, 28), (708, 529)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((448, 335), (587, 110)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((104, 40), (485, 94)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((509, 24), (631, 205)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((289, 367), (565, 1236)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((489, 56), (657, 687)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((677, 1065), (42, 1161)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((95, 250), (377, 761)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((305, 1194), (670, 1222)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((37, 1209), (428, 198)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((188, 706), (430, 1003)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((574, 807), (378, 919)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((41, 539), (138, 732)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((696, 927), (242, 193)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((313, 27), (83, 221)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((544, 843), (668, 397)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((157, 215), (548, 545)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((74, 81), (185, 804)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((245, 533), (64, 426)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((1, 305), (68, 942)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((258, 1134), (484, 604)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((32, 648), (150, 453)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((116, 1048), (542, 188)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((38, 771), (708, 750)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((203, 326), (133, 22)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((321, 594), (344, 127)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((498, 614), (589, 560)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((596, 1084), (179, 866)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((179, 897), (656, 278)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((353, 850), (302, 725)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((380, 678), (432, 668)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((79, 591), (581, 415)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((303, 121), (217, 61)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((168, 843), (508, 251)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((222, 281), (289, 218)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((37, 397), (681, 553)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((416, 273), (223, 1164)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((251, 1277), (284, 923)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((577, 161), (473, 799)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((157, 654), (693, 151)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((473, 1172), (649, 931)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((222, 583), (574, 760)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((303, 658), (601, 1276)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((271, 1), (42, 688)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((103, 1081), (385, 1149)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((688, 345), (255, 1217)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((37, 868), (178, 868)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((701, 609), (146, 1057)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((480, 1113), (545, 706)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((581, 70), (612, 168)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((45, 1056), (352, 62)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((256, 433), (39, 184)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((314, 776), (680, 518)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((335, 207), (277, 1128)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((117, 557), (340, 183)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((627, 1170), (525, 819)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((507, 117), (178, 568)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((665, 660), (420, 492)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((169, 616), (667, 1244)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((613, 1093), (319, 389)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((432, 814), (626, 166)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((294, 984), (29, 1187)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((454, 12), (79, 1201)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((232, 707), (671, 600)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((571, 571), (382, 1094)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((673, 633), (494, 938)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((138, 1236), (629, 893)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((596, 419), (263, 561)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((179, 1031), (129, 1231)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((533, 707), (225, 55)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((348, 83), (418, 1270)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((497, 146), (57, 662)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((500, 600), (223, 917)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((613, 492), (60, 1195)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((709, 507), (620, 212)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((365, 1017), (180, 553)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((151, 1221), (460, 343)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((223, 205), (165, 842)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((74, 220), (542, 705)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((94, 1191), (572, 1265)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((280, 367), (220, 314)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((165, 694), (265, 258)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((473, 361), (524, 1035)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((637, 267), (573, 113)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((384, 222), (57, 318)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((211, 1), (704, 16)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((240, 581), (405, 601)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((632, 1184), (470, 869)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((315, 1171), (242, 527)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((311, 39), (575, 1109)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((528, 980), (129, 659)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((513, 215), (28, 697)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((128, 400), (687, 213)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((715, 1021), (91, 197)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((126, 962), (704, 318)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((345, 109), (195, 575)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((113, 162), (567, 648)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((655, 1070), (158, 581)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.0, 'keyorstring': '0', 'wait_time': 1.0}
