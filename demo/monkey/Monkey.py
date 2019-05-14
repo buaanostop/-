@@ -19,11 +19,7 @@ oplist = []
 ##uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 ##port = 8081
 ##host = '127.0.0.1'
-
-def __clear():
-    """清空Oplist"""
-    oplist.clear()
-    
+  
 
 def __ifprint(data):
     print(data)
@@ -66,6 +62,34 @@ def open_app(package_name, activity_name):
     __writelog(__now() + "open app")
     do_open_app(package_name, activity_name)
 
+##----------------------------------------
+def clear():
+    """清空测试列表"""
+    oplist.clear()
+
+def delete(index):
+    """删除列表中第index个测试
+    参数
+    -------------
+    index : int
+            要删除的位置（从1开始）
+
+    """
+    oplist.pop(index - 1)
+
+def change(index1, index2):
+    """将原来在Index1的测试调到位置Index2
+    参数
+    -----------
+    index1: int
+            原来的位置（从1开始）
+    index2: int
+            改变后的位置（从1开始）
+    
+    """
+    op = oplist.pop(index1 - 1)
+    oplist.insert(index2 - 1, op)
+    
 def save(save_name):
     """将oplist保存
     参数
