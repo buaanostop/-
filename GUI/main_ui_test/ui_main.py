@@ -18,8 +18,10 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setStyleSheet("image: url(:/newPrefix/c0d98682b9014a9005ae5bd5a9773912b21bee11.jpg);")
+        self.label.setStyleSheet("border-image: url(:/newPrefix/1.png);")
         self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap(":/mp/1.png"))
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
         self.gridLayout = QtWidgets.QGridLayout()
@@ -50,7 +52,7 @@ class Ui_MainWindow(object):
         self.test_b.setMaximumSize(QtCore.QSize(339, 100))
         font = QtGui.QFont()
         font.setFamily("Agency FB")
-        font.setPointSize(12)
+        font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.test_b.setFont(font)
@@ -85,7 +87,8 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.test_b.clicked.connect(MainWindow.click_button_1)
+        self.guide_b.clicked.connect(MainWindow.click_guide_b)
+        self.test_b.clicked.connect(MainWindow.click_test_b)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -93,7 +96,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.guide_b.setText(_translate("MainWindow", "引导"))
-        self.test_b.setText(_translate("MainWindow", "测试(目前点击会关闭窗口)"))
+        self.test_b.setText(_translate("MainWindow", "测试"))
         self.feedback_b.setText(_translate("MainWindow", "反馈"))
 
-import images.test_picture
+import images.main_p
