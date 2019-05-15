@@ -15,17 +15,24 @@ port = 12345
 host = '127.0.0.1'
 
 wtime = 1.0
-
+resolution_ratio = (540,960)
 def do_connect():
     data = bytes("connect:0:0:0:0:1.0:",encoding="utf8")
     sendsocket.sendto(data, (host, port))
     print("connect")
-##    recsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-##    recsocket.bind(("", 12346))
+    recsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    recsocket.bind(("", 12346))
 ##    data, addr = recsocket.recvfrom(1024)
 ##    data = data.decode("utf-8")
-##    print(data)
-##    recsocket.close()
+##    (ratio_x, ratio_y) = data.split(',')
+##    resolution_ratio[0] = int(ratio_x)
+##    resolution_ratio[1] = int(ratio_y)
+    recsocket.close()
+    if data == "connect false" or data == "None":
+        return False
+    else:
+        print("connect to",data)
+        return True
     
 def do_open_app(package_name, activity_name):
     data = bytes("open_app:0:0:0:0:1.0:"+package_name+'&'+activity_name,encoding="utf8")
@@ -40,7 +47,7 @@ def do_close():
 class DoTest():
     def __init__(self, oplist):
         self.oplist = oplist
-        self.resolution_ratio = (1080, 1920) # 需要获取分辨率 （宽 ， 高）
+        self.resolution_ratio = resolution_ratio # 需要获取分辨率 （宽 ， 高）
 
     def __send(self, optype, x1=0, y1=0, x2=0, y2=0, hold_time=1.0, keyorstring=''):
         data = bytes("%s:%d:%d:%d:%d:%f:%s"%(optype,x1,y1,x2,y2,hold_time,keyorstring),encoding="utf8")
@@ -180,10 +187,12 @@ class DoTest():
             num = 1
             while num < number:
                 self.__drag(x1, y1, x2, y2, hold_time)
+                self.__wait(hold_time) #等待拖动完毕
                 self.__wait(interval_time)
                 num += 1
         
             self.__drag(x1, y1, x2, y2, hold_time)
+            self.__wait(hold_time)
             self.__wait(wtime)
 # multi_drag
         elif optype == 'multi_drag': # --> drag drag ...
@@ -196,6 +205,7 @@ class DoTest():
                     x2 = point[2]
                     y2 = point[3]
                     self.__drag(x1, y1, x2, y2, hold_time)
+                    self.__wait(hold_time)
                     if num < len(pointlist): # 不是最后一个点
                         self.__wait(interval_time)
                         num += 1
@@ -237,6 +247,7 @@ class DoTest():
                 end_x = random.randint(min_x, max_x)
                 end_y = random.randint(min_y, max_y)
                 self.__drag(start_x, start_y, end_x, end_y, hold_time)
+                self.__wait(hold_time)
                 self.__wait(interval_time)
                 num += 1
 
@@ -245,6 +256,7 @@ class DoTest():
             end_x = random.randint(min_x, max_x)
             end_y = random.randint(min_y, max_y)
             self.__drag(start_x, start_y, end_x, end_y, hold_time)
+            self.__wait(hold_time)
             self.__wait(wtime) #最后一次            
 # touch_drag
         elif optype == 'touch_drag': # down wait move up

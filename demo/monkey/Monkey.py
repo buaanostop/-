@@ -72,6 +72,7 @@ def open_app(package_name, activity_name):
     """
     __writelog(__now() + "open app")
     do_open_app(package_name, activity_name)
+    return True
 
 def set_resolution_ratio(width, height):
     """设定分辨率 （用于手动修改）
@@ -82,11 +83,15 @@ def set_resolution_ratio(width, height):
     height : int
             高度
     """
+    resolution_ratio = (width, height)
+    return resolution_ratio
+
 ##----------------------------------------
 ##针对测试列表的操作
 def clear():
     """清空测试列表"""
     oplist.clear()
+    return oplist
 
 def delete(index):
     """删除列表中第index个测试
@@ -97,6 +102,7 @@ def delete(index):
 
     """
     oplist.pop(index - 1)
+    return oplist
 
 def change(index1, index2):
     """将原来在Index1的测试调到位置Index2
@@ -110,6 +116,7 @@ def change(index1, index2):
     """
     op = oplist.pop(index1 - 1)
     oplist.insert(index2 - 1, op)
+    return oplist
     
 def save(save_name):
     """将oplist保存
@@ -204,9 +211,12 @@ def all_random(test_number=100):
             touch_drag(((x1,y1),(x2,y2)), testtime[t1], testtime[t2])         
         num += 1
     __writelog(__now() + "all_random test add success")
+    return True
+
 def close():
     __writelog(__now() + "close")
     do_close()
+    return True
 ##-------------------------------
 ##添加各种测试项
 def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
@@ -226,6 +236,7 @@ def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
     op = Operation('touch', ((pos_x, pos_y),), touch_number, interval_time, 0, 0, 0)
     oplist.append(op)
     __writelog(__now() + "touch test add success")
+    return op
 
 def long_touch(pos_x, pos_y, touch_time=1.0, touch_number=1, interval_time=1.0):
     """长按测试
@@ -246,6 +257,7 @@ def long_touch(pos_x, pos_y, touch_time=1.0, touch_number=1, interval_time=1.0):
     op = Operation('long_touch', ((pos_x, pos_y),), touch_number, interval_time, touch_time, 0, 0)
     oplist.append(op)
     __writelog(__now() + "long_touch test add success")
+    return op
     
 def multi_touch(pointlist, loop_number=1, interval_time = 1.0, loop_time = 1.0):
     """多位置顺序单击
@@ -265,6 +277,7 @@ def multi_touch(pointlist, loop_number=1, interval_time = 1.0, loop_time = 1.0):
     op = Operation('multi_touch', pointlist, loop_number, interval_time, 0, 0, loop_time)
     oplist.append(op)
     __writelog(__now() + "multi_touch add success")
+    return op
     
 def random_touch(pointlist, touch_number=1, interval_time=1.0):
     """随机点击屏幕测试
@@ -281,6 +294,7 @@ def random_touch(pointlist, touch_number=1, interval_time=1.0):
     op = Operation('random_touch', pointlist, touch_number, interval_time, 0, 0, 0)
     oplist.append(op)
     __writelog(__now() + "random_touch test add success")
+    return op
 
 def drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0):
     """滑动屏幕测试
@@ -298,6 +312,7 @@ def drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0):
     op = Operation('drag', pointlist, drag_number, interval_time, drag_time, 0, 0)
     oplist.append(op)
     __writelog(__now() + "drag test add success")
+    return op
 
 def multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0):
     """多位置滑动测试
@@ -318,6 +333,7 @@ def multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loo
     op = Operation('multi_drag', pointlist, loop_number, interval_time, drag_time, 0, loop_time)   
     oplist.append(op)
     __writelog(__now() + "multi_drag add success")
+    return op
     
 def random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0):
     """随机滑动屏幕测试
@@ -337,6 +353,7 @@ def random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0):
     op = Operation('random_drag', pointlist, drag_number, interval_time, drag_time, 0, 0)
     oplist.append(op)
     __writelog(__now() + "random_drag test add success")
+    return op
 
 def touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interval_time=1.0):
     """长按滑动测试
@@ -357,6 +374,7 @@ def touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interva
     op = Operation('touch_drag', pointlist, touch_number, interval_time, drag_time, 0, touch_time)
     oplist.append(op)
     __writelog(__now() + "touch_drag test add success")
+    return op
    
 def press(key_name):
     """按键测试
@@ -369,6 +387,7 @@ def press(key_name):
     op = Operation('press', None, 0, 0, 0, key_name, 0)
     oplist.append(op)
     __writelog(__now() + "press test add success")
+    return op
 
 def typestr(typestring):
     """键盘输入测试
@@ -380,6 +399,7 @@ def typestr(typestring):
     op = Operation('typestr', None, 0, 0, 0, typestring, 0)
     oplist.append(op)
     __writelog(__now() + "typestr test add success")
+    return op
 
 def wait(wait_time):
     """等待
@@ -392,6 +412,7 @@ def wait(wait_time):
     op = Operation('wait', None, 0, 0, 0, 0, wait_time)
     oplist.append(op)
     __writelog(__now() + "wait test add success")
+    return op
 
 def print_oplist(): #测试用
     for op in oplist:
@@ -405,18 +426,22 @@ def start():
     test = DoTest(oplist)
     test.start()
 #    __send("start")
+    return True
     
 def pause():
     __writelog(__now() + "pause")
 #    __send("pause")
+    return True
 
 def resume():
     __writelog(__now() + "resume")
 #    __send("resume")
+    return True
 
 def stop():
     __writelog(__now() + "stop")
 #    __send("stop")
+    return True
 
 ##-------------------------------
 
