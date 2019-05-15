@@ -12,10 +12,20 @@ Monkey.py
 """
 import sys
 import time
+import random
+import os
 from Operation import *
 from MonkeySender import *         
 logpath = "log.txt"
 oplist = []
+resolution_ratio = (1080, 1920) #需要获取 分辨率 （x, y)
+rootpath = os.getcwd() # 当前根目录
+savepath = rootpath+'\save' # 存档文件夹
+logfile = open(logpath, 'w') #清空Log
+logfile.close()
+##检测save文件夹是否存在，不存在则创建save文件夹
+if not os.path.exists(savepath):
+    os.makedirs(savepath)
 ##uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 ##port = 8081
 ##host = '127.0.0.1'
@@ -39,6 +49,7 @@ def __now():
     return str(time.strftime("%Y-%m-%d %H:%M:%S "))
 
 ##-------------------------------
+##针对设备的操作
 def connect():
     """连接设备
     返回值
@@ -62,7 +73,17 @@ def open_app(package_name, activity_name):
     __writelog(__now() + "open app")
     do_open_app(package_name, activity_name)
 
+def set_resolution_ratio(width, height):
+    """设定分辨率 （用于手动修改）
+    参数
+    ------------
+    width : int
+            宽度
+    height : int
+            高度
+    """
 ##----------------------------------------
+##针对测试列表的操作
 def clear():
     """清空测试列表"""
     oplist.clear()
@@ -102,7 +123,7 @@ def save(save_name):
             False 保存失败
     """
     try:
-        f = open(save_name+'.save','w')
+        f = open('save\\'+save_name+'.save','w')
         for op in oplist:
             f.write(str(op.todict())+'\n')
         f.close()
@@ -121,12 +142,12 @@ def load(save_name):
                 存档的名字
     返回值
     -----------
-    bool : True 读取成功
-            False 读取失败
+    List(Operation) : 读取成功，返回列表
+    bool : False 读取失败
     """
     try:       
-        __clear() # 清空当前oplist
-        f = open(save_name+'.save','r')
+        clear() # 清空当前oplist
+        f = open('save\\'+save_name+'.save','r')
         data = f.readline()
         while data:
             data = eval(data)
@@ -136,15 +157,58 @@ def load(save_name):
             data = f.readline()
         f.close()
         __writelog(__now() + save_name + " load success")
+        return oplist
     except:
         f.close()
         __writelog(_now() + save_name + " load fail")
         return False
-    
+
+def all_random(test_number=100):
+    """生成完全随机测试
+    参数
+    -----------
+    test_number : int
+                生成的测试项个数，默认为100
+
+    """
+    num = 0
+    testtype = ['touch','long_touch','drag','touch_drag']
+    testtime = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
+    max_x = resolution_ratio[0] - 1
+    max_y = resolution_ratio[1] - 1
+    while num < test_number:
+        index = random.randint(0,3)
+        if index == 0: # touch
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            touch(x1, y1)
+        elif index == 1: # long_touch
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            t1 = random.randint(0, 3)
+            long_touch(x1, y1, testtime[t1])
+        elif index == 2: # drag
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            x2 = random.randint(0, max_x)
+            y2 = random.randint(0, max_y)
+            t1 = random.randint(0, 5)
+            drag(((x1,y1),(x2,y2)), testtime[t1])
+        elif index == 3: # touch_drag
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            x2 = random.randint(0, max_x)
+            y2 = random.randint(0, max_y)
+            t1 = random.randint(0, 3)
+            t2 = random.randint(0, 5)
+            touch_drag(((x1,y1),(x2,y2)), testtime[t1], testtime[t2])         
+        num += 1
+    __writelog(__now() + "all_random test add success")
 def close():
     __writelog(__now() + "close")
     do_close()
 ##-------------------------------
+##添加各种测试项
 def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
     """单击
     参数
@@ -274,18 +338,18 @@ def random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0):
     oplist.append(op)
     __writelog(__now() + "random_drag test add success")
 
-def touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, interval_time=1.0):
+def touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interval_time=1.0):
     """长按滑动测试
     参数
     -----------
     pointlist : ((x1,y1),(x2,y2)) x,y均为int
                 按住的点和滑动的终点的坐标
-    touch_number : int
-                长按滑动的次数
     touch_time : float
                 长按的时间，默认为1秒
     drag_time : float
                 滑动的时间， 默认为1秒
+    touch_number : int
+                长按滑动的次数
     interval_time : float
                 两次动作的间隔时间
 
@@ -329,12 +393,13 @@ def wait(wait_time):
     oplist.append(op)
     __writelog(__now() + "wait test add success")
 
-def print_oplist():
+def print_oplist(): #测试用
     for op in oplist:
         op.display()
         
 
 ##-------------------------------
+##针对测试线程的操作
 def start():
     __writelog(__now() + "start")
     test = DoTest(oplist)
