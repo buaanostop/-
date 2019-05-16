@@ -25,9 +25,11 @@ class TestUiFunctionsClass(object):
     max_pos_y = 1000
     path = os.getcwd()
     exception_count = 0
-    connect_waiting_timer = None
-    def __init__(self):
-        self.thread_start()
+    #connect_waiting_timer = None
+    test_window = None
+    def __init__(self,window_form):
+        #self.thread_start()
+        self.test_window = window_form
     def add_text(self,text,widget):
         widget.addItem(text)
     def close_monkeyrunner(self):
@@ -54,21 +56,21 @@ class TestUiFunctionsClass(object):
         lock = thread.allocate_lock()
         lock.acquire()
         thread.start_new(runMonkeyServer,(lock,))
-    def connect_waiting(self):
-        #nonlocal bool_is_device_connected_successful
-        connect_log = open(os.getcwd() + '\\connectlog.txt','r')
-        content = connect_log.read()
-        if(content == 'True'):
-            bool_is_device_connected_successful = 1
-            #print_text.insert('end','connection successful!')
-            self.connect_waiting_timer.cancel()
-            connect_log.close()
-        else:
-            connect_log.close()
-            self.connect_waiting_timer = threading.Timer(0.5,self.connect_waiting)
-            self.connect_waiting_timer.start()  
+    ''' def connect_waiting(self):
+            #nonlocal bool_is_device_connected_successful
+            connect_log = open(os.getcwd() + '\\connectlog.txt','r')
+            content = connect_log.read()
+            if(content == 'True'):
+                bool_is_device_connected_successful = 1
+                self.add_text('connection successful',self.test_window.queueList)
+                self.connect_waiting_timer.cancel()
+                connect_log.close()
+            else:
+                connect_log.close()
+                self.connect_waiting_timer = threading.Timer(0.5,self.connect_waiting)
+                self.connect_waiting_timer.start()  
     def thread_start(self):
-        self.connect_waiting_timer = threading.Timer(0.5,self.connect_waiting)
+        self.connect_waiting_timer = threading.Timer(0.5,self.connect_waiting)'''
     def error_message_prompt(self,error_code):
         empty_error_code = 0
         number_error_code = 1
@@ -82,23 +84,23 @@ class TestUiFunctionsClass(object):
     #常数和错误处理结束#
       
     def connect(self):
-        
+        print("ok")
         #print_text.insert('end',"TestMethod: waiting for connection..")
-        
-        #send('connect',ord(path[0]),0,0,0,0,0,0,path[2:])
-        Monkey.connect()
-        connect_waiting_timer = threading.Timer(0.5,connect_waiting)
-        connect_waiting_timer.start()
-        #send('connect',0,0,0,0,0,0,0,0)
-    connect_waiting_timer = threading.Timer(0.5,connect_waiting)
+        self.add_text('waiting for connection',self.test_window.reportList)
+        connect_successful = Monkey.connect()
+        if(connect_successful):
+            self.add_text('connection successful!',self.test_window.reportList)
+        else:
+            self.add_text('fail to connect your device,please check that if your device connect to computer successfully',self.test_window.reportList)
+        '''connect_waiting_timer = threading.Timer(0.5,connect_waiting)
+        connect_waiting_timer.start()'''
+
     def pause(self):
-        #print_text.insert('end',"TestMethod: pause")
-        #send('pause',0,0,0,0,0,0,0,0)
+        self.add_text('pausing...',self.test_window.reportList)
         Monkey.pause()
 
     def resume(self):
-        #print_text.insert('end',"TestMethod: resume")
-        #send('resume',0,0,0,0,0,0,0,0)
+        self.add_text('now resume',self.test_window.reportList)
         Monkey.resume()
 
     def stop(self):
@@ -109,6 +111,6 @@ class TestUiFunctionsClass(object):
     def start(self):
         #log_timer = threading.Timer(1,log_monitor)
         #log_timer.start()
-        #print_text.insert('end',"TestMethod: start")
+        self.add_text('start!',self.test_window.reportList)
         #send('start',0,0,0,0,0,0,0,0)
         Monkey.start()
