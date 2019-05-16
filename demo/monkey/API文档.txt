@@ -3,7 +3,10 @@
 -------------------------------------
 ### 1.连接设备（在此步启动MonkeyServer）
 connect()
-
+    返回值
+    ----------
+    bool : True 连接成功
+            False 连接失败
 ### 2.关闭 MonkeyServer
 close()
 
@@ -26,8 +29,8 @@ load(save_name)
                 存档的名字
     返回值
     -----------
-    bool : True 读取成功
-            False 读取失败(存档不存在等问题)
+    List(Operation) : 读取成功，返回列表
+    bool : False 读取失败
 
 ### 5.打开应用
 open_app()
@@ -38,6 +41,39 @@ open_app()
     activity_name : string
                     活动名 例如 com.unity3d.player.UnityPlayerActivit
 
+### 6.清空测试列表
+clear()
+
+### 7.删除列表中第index个测试
+delete(index)
+    参数
+    -------------
+    index : int
+            要删除的位置（从1开始）
+
+### 8.将原来在Index1的测试调到位置Index2
+change(index1, index2)
+    参数
+    -----------
+    index1: int
+            原来的位置（从1开始）
+    index2: int
+            改变后的位置（从1开始）
+
+### 9.生成完全随机测试
+    参数
+    -----------
+    test_number : int
+                生成的测试项个数，默认为100
+
+### 10.修改分辨率
+set_resolution_ratio(width,height)
+    参数
+    ------------
+    width : int
+            宽度
+    height : int
+            高度
 -------------------------------------
 ### 单击
 touch(pos_x, pos_y, touch_number=1, interval_time=1.0)
@@ -136,17 +172,17 @@ random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0)
                 滑动时间，默认为1秒
 
 ###长按滑动
-touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, interval_time=1.0)
+touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interval_time=1.0)
     参数
     -----------
     pointlist : ((x1,y1),(x2,y2)) x,y均为int
                 按住的点和滑动的终点的坐标
-    touch_number : int
-                长按滑动的次数
     touch_time : float
                 长按的时间，默认为1秒
     drag_time : float
                 滑动的时间， 默认为1秒
+    touch_number : int
+                长按滑动的次数
     interval_time : float
                 两次动作的间隔时间
 
