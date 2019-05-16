@@ -4,9 +4,6 @@ import socket
 import threading
 import os
 import _thread as thread
-sys.path.append(os.getcwd() + '\\monkeys')
-for p in sys.path:
-    print(p )
 import Monkey
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
@@ -30,10 +27,12 @@ class TestUiFunctionsClass(object):
     path = os.getcwd()
     exception_count = 0
     #connect_waiting_timer = None
-    test_window = None
-    def __init__(self,window_form):
+    add_test_form = None
+    test_form = None
+    def __init__(self,test_form,add_test_form):
         #self.thread_start()
-        self.test_window = window_form
+        self.test_form = test_form
+        self.add_test_form = add_test_form
     def add_text(self,text,widget):
         widget.addItem(text)
     def close_monkeyrunner(self):
@@ -45,36 +44,13 @@ class TestUiFunctionsClass(object):
         sendsocket.sendto(1,(port,host))
 
     #一些常数和错误处理#
-  
-    while(1):
-        try:
-            open('exception_' + str(exception_count) + '.txt')
-            exception_count += 1
-        except IOError:
-            break
-    def runMonkeyServer(self,lock):
-    ##!!!!!!!!!!!!!!!!!!!!!!!!!!!!此位置改成MonkeyServer.py所在位置
-        ret = os.system(r"monkeyrunner C:\Users\Lenovo\Desktop\Autotest-master\example\MonkeyServer.py")
-        lock.release(self)
-    def monkey_runner_initial(self):
-        lock = thread.allocate_lock()
-        lock.acquire()
-        thread.start_new(runMonkeyServer,(lock,))
-    ''' def connect_waiting(self):
-            #nonlocal bool_is_device_connected_successful
-            connect_log = open(os.getcwd() + '\\connectlog.txt','r')
-            content = connect_log.read()
-            if(content == 'True'):
-                bool_is_device_connected_successful = 1
-                self.add_text('connection successful',self.test_window.queueList)
-                self.connect_waiting_timer.cancel()
-                connect_log.close()
-            else:
-                connect_log.close()
-                self.connect_waiting_timer = threading.Timer(0.5,self.connect_waiting)
-                self.connect_waiting_timer.start()  
-    def thread_start(self):
-        self.connect_waiting_timer = threading.Timer(0.5,self.connect_waiting)'''
+    def read_exception():
+        '''while(1):
+            try:
+                open('exception_' + str(exception_count) + '.txt')
+                exception_count += 1
+            except IOError:
+                break'''
     def error_message_prompt(self,error_code):
         empty_error_code = 0
         number_error_code = 1
@@ -86,7 +62,15 @@ class TestUiFunctionsClass(object):
         #if(error_code == 0):#错误信息:空输入
 
     #常数和错误处理结束#
-      
+    def runMonkeyServer(self,lock):
+    ##!!!!!!!!!!!!!!!!!!!!!!!!!!!!此位置改成MonkeyServer.py所在位置
+        ret = os.system(r"monkeyrunner C:\Users\Lenovo\Desktop\Autotest-master\example\MonkeyServer.py")
+        lock.release(self)
+    def monkey_runner_initial(self):
+        lock = thread.allocate_lock()
+        lock.acquire()
+        thread.start_new(runMonkeyServer,(lock,))
+
     def connect(self):
         print("ok")
         #print_text.insert('end',"TestMethod: waiting for connection..")

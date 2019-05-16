@@ -57,7 +57,7 @@
         <number>27</number>
        </property>
        <item>
-        <widget class="QLineEdit" name="v_reso_x">
+        <widget class="QLineEdit" name="xPositionValue">
          <property name="minimumSize">
           <size>
            <width>200</width>
@@ -73,7 +73,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="v_reso_y">
+        <widget class="QLineEdit" name="yPositionValue">
          <property name="minimumSize">
           <size>
            <width>200</width>
@@ -89,7 +89,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="v_p_name">
+        <widget class="QLineEdit" name="packageNameValue">
          <property name="minimumSize">
           <size>
            <width>639</width>
@@ -105,7 +105,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="v_a_name">
+        <widget class="QLineEdit" name="PackageActivityName">
          <property name="minimumSize">
           <size>
            <width>639</width>
@@ -140,7 +140,7 @@
       <number>15</number>
      </property>
      <item>
-      <widget class="QPushButton" name="fin_b">
+      <widget class="QPushButton" name="finishInputButton">
        <property name="minimumSize">
         <size>
          <width>110</width>
@@ -159,7 +159,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="exit_b">
+      <widget class="QPushButton" name="exitButton">
        <property name="minimumSize">
         <size>
          <width>110</width>
@@ -178,7 +178,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="clean_b">
+      <widget class="QPushButton" name="cleanButton">
        <property name="minimumSize">
         <size>
          <width>110</width>
@@ -203,14 +203,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>fin_b</sender>
+   <sender>finishInputButton</sender>
    <signal>clicked()</signal>
    <receiver>In_dev_infor</receiver>
    <slot>click_fin_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>421</x>
-     <y>259</y>
+     <x>509</x>
+     <y>258</y>
     </hint>
     <hint type="destinationlabel">
      <x>412</x>
@@ -219,7 +219,71 @@
    </hints>
   </connection>
   <connection>
-   <sender>exit_b</sender>
+   <sender>cleanButton</sender>
+   <signal>clicked()</signal>
+   <receiver>xPositionValue</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>664</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cleanButton</sender>
+   <signal>clicked()</signal>
+   <receiver>yPositionValue</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>690</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>97</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cleanButton</sender>
+   <signal>clicked()</signal>
+   <receiver>packageNameValue</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>737</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>682</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cleanButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PackageActivityName</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>739</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>729</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exitButton</sender>
    <signal>clicked()</signal>
    <receiver>In_dev_infor</receiver>
    <slot>reject()</slot>
@@ -235,66 +299,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>clean_b</sender>
+   <sender>finishInputButton</sender>
    <signal>clicked()</signal>
-   <receiver>v_reso_x</receiver>
-   <slot>clear()</slot>
+   <receiver>In_dev_infor</receiver>
+   <slot>click_fin_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>664</x>
-     <y>245</y>
+     <x>509</x>
+     <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>650</x>
-     <y>29</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clean_b</sender>
-   <signal>clicked()</signal>
-   <receiver>v_reso_y</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>690</x>
-     <y>239</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>665</x>
-     <y>80</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clean_b</sender>
-   <signal>clicked()</signal>
-   <receiver>v_p_name</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>737</x>
-     <y>240</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>682</x>
-     <y>147</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clean_b</sender>
-   <signal>clicked()</signal>
-   <receiver>v_a_name</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>739</x>
-     <y>238</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>729</x>
-     <y>199</y>
+     <x>516</x>
+     <y>237</y>
     </hint>
    </hints>
   </connection>

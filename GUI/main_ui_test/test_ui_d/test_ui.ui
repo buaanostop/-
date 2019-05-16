@@ -39,7 +39,7 @@
         <attribute name="title">
          <string>测试队列</string>
         </attribute>
-        <widget class="QListWidget" name="listWidget_3">
+        <widget class="QListWidget" name="queueList">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -54,7 +54,7 @@
         <attribute name="title">
          <string>测试报告</string>
         </attribute>
-        <widget class="QListWidget" name="listWidget_2">
+        <widget class="QListWidget" name="reportList">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -75,7 +75,7 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QPushButton" name="load_b">
+          <widget class="QPushButton" name="loadButton">
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -94,7 +94,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="save_b">
+          <widget class="QPushButton" name="saveButton">
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -113,7 +113,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="start_b">
+          <widget class="QPushButton" name="startButton">
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -136,7 +136,7 @@
        <item>
         <layout class="QVBoxLayout" name="p_r_s">
          <item>
-          <widget class="QPushButton" name="pause_b">
+          <widget class="QPushButton" name="pauseButton">
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -155,7 +155,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="resume_b">
+          <widget class="QPushButton" name="resumeButton">
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -174,7 +174,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="stop_b">
+          <widget class="QPushButton" name="stopButton">
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -209,7 +209,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="testWinLabel">
        <property name="minimumSize">
         <size>
          <width>990</width>
@@ -352,9 +352,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>load_b</receiver>
+   <receiver>loadButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -368,9 +368,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>pause_b</receiver>
+   <receiver>pauseButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -384,9 +384,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>save_b</receiver>
+   <receiver>saveButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -400,9 +400,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>save_b</receiver>
+   <receiver>saveButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -416,9 +416,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>start_b</receiver>
+   <receiver>startButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -432,9 +432,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>pause_b</receiver>
+   <receiver>pauseButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -448,9 +448,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>resume_b</receiver>
+   <receiver>resumeButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -464,9 +464,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
-   <receiver>stop_b</receiver>
+   <receiver>stopButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -480,9 +480,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
-   <receiver>load_b</receiver>
+   <receiver>loadButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -496,9 +496,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
-   <receiver>save_b</receiver>
+   <receiver>saveButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -512,9 +512,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
-   <receiver>start_b</receiver>
+   <receiver>startButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -528,9 +528,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
-   <receiver>pause_b</receiver>
+   <receiver>pauseButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -544,9 +544,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
-   <receiver>resume_b</receiver>
+   <receiver>resumeButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -560,9 +560,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
-   <receiver>stop_b</receiver>
+   <receiver>stopButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -576,7 +576,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>load_b</sender>
+   <sender>loadButton</sender>
    <signal>clicked()</signal>
    <receiver>TestWindow</receiver>
    <slot>click_load_b()</slot>
@@ -592,7 +592,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>save_b</sender>
+   <sender>saveButton</sender>
    <signal>clicked()</signal>
    <receiver>TestWindow</receiver>
    <slot>click_save_b()</slot>
@@ -608,7 +608,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>start_b</sender>
+   <sender>startButton</sender>
    <signal>clicked()</signal>
    <receiver>TestWindow</receiver>
    <slot>click_start_b()</slot>
@@ -624,7 +624,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pause_b</sender>
+   <sender>pauseButton</sender>
    <signal>clicked()</signal>
    <receiver>TestWindow</receiver>
    <slot>click_pause_b()</slot>
@@ -640,7 +640,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>resume_b</sender>
+   <sender>resumeButton</sender>
    <signal>clicked()</signal>
    <receiver>TestWindow</receiver>
    <slot>click_resume_b()</slot>
@@ -656,7 +656,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>stop_b</sender>
+   <sender>stopButton</sender>
    <signal>clicked()</signal>
    <receiver>TestWindow</receiver>
    <slot>click_stop_b()</slot>

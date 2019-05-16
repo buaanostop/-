@@ -1,4 +1,8 @@
 import sys
+import os
+new_path = sys.path[0] + '\\monkeys'
+sys.path.insert(1,new_path)
+from Test_Ui_Functions import TestUiFunctionsClass as func
 from ui_main import Ui_MainWindow
 from guide_ui import Ui_GuideWindow
 from test_ui_d.test_ui import Ui_TestWindow
@@ -6,11 +10,27 @@ from test_ui_d.in_device_infor import Ui_In_dev_infor
 from test_ui_d.add_test_ui import Ui_Add_test
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
+from functools import wraps
+
 
 now_point_index = 1
 now_drag_index = 1
 nowp = 2
+'''
+    通过装饰器实现一个单例模式
+    保证只有一个和窗体类功能类↓
+'''
+def singleton(cls):
+    instances = {}
+    @wraps(cls)
+    def getinstance(*args, **kw):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kw)
+        return instances[cls]
+    return getinstance
+@singleton
 class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
+    #successfully_connect = 1
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
@@ -22,6 +42,7 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
         print("打开测试界面")
         t_ui.t_init()
         t_ui.show()
+@singleton
 class g_window(QtWidgets.QMainWindow,Ui_GuideWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -45,16 +66,19 @@ class g_window(QtWidgets.QMainWindow,Ui_GuideWindow):
             nowp = nowp + 1
         g_ui.label.setPixmap(QtGui.QPixmap(":/gp/" + str(nowp) + ".png"))
         #g_ui.label.setStyleSheet("border-image: url(:/gp/"+str(nowp)+".png);")
-
+@singleton
 class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_TestWindow.__init__(self)
         self.setupUi(self)
-
+        self.InputAssignmentButton.setEnabled(False)
+        self.chooseTypeButton.setEnabled(False)
     def click_in_index_b(self):
         print("点击 输入app参数 按钮")
         i_d_ui.show()
+
+
 
     def click_add_test(self):
         print("点击 选择测试类型 按钮")
@@ -70,15 +94,23 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         a_t_ui.show()
 
     def t_init(self):
-        t_ui.load_b.show()
-        t_ui.save_b.show()
-        t_ui.start_b.show()
-        t_ui.pause_b.hide()
-        t_ui.resume_b.hide()
-        t_ui.stop_b.hide()
+        t_ui.loadButton.show()
+        t_ui.saveButton.show()
+        t_ui.startButton.show()
+        t_ui.pauseButton.hide()
+        t_ui.resumeButton.hide()
+        t_ui.stopButton.hide()
 
+    '''点击连接设备按钮'''
     def click_connect_b(self):
         print("点击连接设备按钮")
+        '''
+            todo:调用connect函数
+                之后根据连接成功与否判断其他两个键是否启用
+        '''
+        self.InputAssignmentButton.setEnabled(True)
+        self.connectDeviceButton.setText("重新连接")
+
     def click_load_b(self):
         print("点击读档按钮")
     def click_save_b(self):
@@ -91,28 +123,42 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         print("点击继续按钮")
     def click_stop_b(self):
         print("点击终止按钮")
+@singleton
 class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
+    has_finished = 0
     def __init__(self):
         QtWidgets.QDialog.__init__(self)
         Ui_In_dev_infor.__init__(self)
         self.setupUi(self)
-
+    
 
     def click_fin_b(self):
-        #print(i_d_ui.v_reso_x.text())
-        #print(i_d_ui.v_reso_y.text())
-        #print(i_d_ui.v_p_name.text())
-        #print(i_d_ui.v_a_name.text())
-        print("参数信息输入完毕")
+        '''
+        加入对参数信息的异常处理
+        '''
 
+        '''
+        把信息记录下来
+        '''
+        if(i_d_ui.has_finished == 0):
+            test_window = t_window()
+            test_window.InputAssignmentButton.setText('重新输入')
+            test_window.chooseTypeButton.setEnabled(True)
+
+        self.has_finished = 1
+        self.close()
+        print("参数信息输入完毕")
+@singleton
 class add_test(QtWidgets.QDialog,Ui_Add_test):
     def __init__(self):
         QtWidgets.QDialog.__init__(self)
         Ui_Add_test.__init__(self)
         self.setupUi(self)
+        #self.currentQueueList.clear()
+        self.currentQueueList.setDragDropMode(self.currentQueueList.InternalMove)
     def delete_current_row(self):
         row = a_t_ui.currentQueueList.currentRow()
-        print("删除第"+str(row+1)+"条测试")
+        #print("删除第"+str(row+1)+"条测试")
         a_t_ui.currentQueueList.takeItem(row)
     #多点点击测试
     def mul_touch_next_p(self):
@@ -177,6 +223,7 @@ if __name__ == '__main__':
     t_ui = t_window()
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()
+    functions_class = func(t_ui,i_d_ui)
     ui.show()
     sys.exit(app.exec_())
 # queueList
