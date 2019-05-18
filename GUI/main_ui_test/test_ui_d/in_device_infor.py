@@ -89,6 +89,7 @@ class Ui_In_dev_infor(object):
         self.cleanButton.clicked.connect(self.packageNameValue.clear)
         self.cleanButton.clicked.connect(self.PackageActivityName.clear)
         self.exitButton.clicked.connect(In_dev_infor.reject)
+        self.finishInputButton.clicked.connect(In_dev_infor.click_fin_b)
         QtCore.QMetaObject.connectSlotsByName(In_dev_infor)
 
     def retranslateUi(self, In_dev_infor):

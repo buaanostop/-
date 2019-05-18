@@ -11,3 +11,4 @@ class MyCurrentQueue(QtWidgets.QListWidget):
         super(MyCurrentQueue,self).dragMoveEvent(event)
     def dragEnterEvent(self,event):
         super(MyCurrentQueue,self).dragEnterEvent(event)
+

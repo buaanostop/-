@@ -16,10 +16,10 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>11</y>
-     <width>661</width>
-     <height>342</height>
+     <x>0</x>
+     <y>0</y>
+     <width>681</width>
+     <height>351</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -37,7 +37,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="single_point_touch_test">
     <attribute name="title">
@@ -87,6 +87,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="touch_i_time">
+         <property name="whatsThis">
+          <string>单位：秒</string>
+         </property>
          <property name="text">
           <string>两次点击间隔时间：</string>
          </property>
@@ -106,6 +109,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
@@ -121,6 +127,9 @@
            <width>16777215</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -195,6 +204,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
@@ -217,6 +229,9 @@
            <width>16777215</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -241,10 +256,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="press_i_time">
+         <property name="whatsThis">
+          <string>单位：秒</string>
+         </property>
          <property name="text">
           <string>两次长按间隔时间：</string>
          </property>
@@ -263,7 +284,7 @@
       <rect>
        <x>154</x>
        <y>107</y>
-       <width>165</width>
+       <width>167</width>
        <height>30</height>
       </rect>
      </property>
@@ -279,75 +300,8 @@
        <height>30</height>
       </size>
      </property>
-    </widget>
-    <widget class="QLineEdit" name="v_m_touch_loop_num">
-     <property name="geometry">
-      <rect>
-       <x>154</x>
-       <y>239</y>
-       <width>165</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>30</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QLabel" name="m_touch_loop_num">
-     <property name="geometry">
-      <rect>
-       <x>12</x>
-       <y>239</y>
-       <width>90</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>循环的遍数：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="m_touch_pos">
-     <property name="geometry">
-      <rect>
-       <x>12</x>
-       <y>107</y>
-       <width>116</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>第1点坐标:(X,Y)</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="v_m_touch_i_time">
-     <property name="geometry">
-      <rect>
-       <x>154</x>
-       <y>173</y>
-       <width>165</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>30</height>
-      </size>
+     <property name="placeholderText">
+      <string/>
      </property>
     </widget>
     <widget class="QLineEdit" name="v_m_touch_pos_y">
@@ -372,7 +326,10 @@
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="m_touch_next_p_b">
+    <widget class="QPushButton" name="multiTouchNextPointButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>499</x>
@@ -397,40 +354,6 @@
       <string>确认并输入下一个点</string>
      </property>
     </widget>
-    <widget class="QLabel" name="m_touch_i_time">
-     <property name="geometry">
-      <rect>
-       <x>12</x>
-       <y>173</y>
-       <width>135</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>两次点击间隔时间：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="now_point_num">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>40</y>
-       <width>191</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>17</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
@@ -443,6 +366,9 @@
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QLabel" name="m_touch_point_num">
+        <property name="whatsThis">
+         <string>修改个数将会清空之前输入的点的信息</string>
+        </property>
         <property name="text">
          <string>点击点的个数：</string>
         </property>
@@ -479,7 +405,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="confirm_m_touch_point_n_b">
+       <widget class="QPushButton" name="confirmMultiTouchTestButton">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -499,6 +425,130 @@
       </item>
      </layout>
     </widget>
+    <widget class="QComboBox" name="pointSelectComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="whatsThis">
+      <string>设置多点点击的point的个数数后，可以在这里编辑每个点的信息
+如果没有设置好每个点的坐标，会有相应提示，请补充完成</string>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>未确认点的个数</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>311</width>
+       <height>132</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="verticalSpacing">
+       <number>20</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="m_touch_i_time">
+        <property name="text">
+         <string>两次点击间隔时间：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="v_m_touch_i_time">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="m_touch_loop_num">
+        <property name="text">
+         <string>循环的遍数：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="v_m_touch_loop_num">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="m_touch_loop_i_time">
+        <property name="text">
+         <string>循环间隔时间：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="v_m_touch_loop_i_time">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="random_touch_test">
     <attribute name="title">
@@ -510,14 +560,14 @@
        <item row="1" column="0">
         <widget class="QLabel" name="r_touch_p2">
          <property name="text">
-          <string>点2坐标：(X,Y)</string>
+          <string>随机范围右上角</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="r_touch_p1">
          <property name="text">
-          <string>点1坐标：(X,Y)</string>
+          <string>随机范围左下角</string>
          </property>
         </widget>
        </item>
@@ -567,6 +617,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>（前两行都为空默认全屏随机）</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
@@ -613,6 +666,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
@@ -628,6 +684,9 @@
            <width>16777215</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -661,7 +720,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="drag_p1">
          <property name="text">
-          <string>点1坐标：</string>
+          <string>起点坐标：(X,Y)</string>
          </property>
         </widget>
        </item>
@@ -741,12 +800,15 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="drag_p2">
          <property name="text">
-          <string>点2坐标：</string>
+          <string>终点2坐标：(X,Y)</string>
          </property>
         </widget>
        </item>
@@ -763,6 +825,9 @@
            <width>16777215</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -914,7 +979,7 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QPushButton" name="m_drag_next_b">
+       <widget class="QPushButton" name="multiDragNextButton">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -968,6 +1033,9 @@
           <pointsize>9</pointsize>
          </font>
         </property>
+        <property name="placeholderText">
+         <string>1</string>
+        </property>
        </widget>
       </item>
       <item row="3" column="0">
@@ -976,6 +1044,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="whatsThis">
+         <string>一遍内有1到9次滑动，当滑动次数大于1时，该输入框设置的是这几次的间隔</string>
         </property>
         <property name="text">
          <string>两次滑动间隔时间：</string>
@@ -1000,6 +1071,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="placeholderText">
+         <string>1</string>
         </property>
        </widget>
       </item>
@@ -1034,6 +1108,9 @@
           <pointsize>9</pointsize>
          </font>
         </property>
+        <property name="placeholderText">
+         <string>1</string>
+        </property>
        </widget>
       </item>
       <item row="5" column="0">
@@ -1042,6 +1119,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="whatsThis">
+         <string>该输入框设置的是遍与遍之间的滑动间隔，即一遍的n次滑动结束以后，直到下一个n次滑动开始的间隔</string>
         </property>
         <property name="text">
          <string>两遍滑动间隔时间：</string>
@@ -1066,6 +1146,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="placeholderText">
+         <string>1</string>
         </property>
        </widget>
       </item>
@@ -1124,7 +1207,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="confirm_m_drag_n_b">
+       <widget class="QPushButton" name="confirmMultiDragButton">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -1157,6 +1240,32 @@
     <layout class="QGridLayout" name="gridLayout_7">
      <item row="0" column="0">
       <layout class="QGridLayout" name="random_drag_test">
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="v_r_drag_i_time">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="r_drag_num">
+         <property name="text">
+          <string>滑动次数：</string>
+         </property>
+        </widget>
+       </item>
        <item row="4" column="1">
         <widget class="QLineEdit" name="v_r_drag_time">
          <property name="minimumSize">
@@ -1171,6 +1280,19 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="randomDragLeftDownPoint">
+         <property name="whatsThis">
+          <string>随机范围是一个矩形，这是这个矩形左下角点的坐标，输入(x,y)形式</string>
+         </property>
+         <property name="text">
+          <string>随机范围左下角</string>
+         </property>
         </widget>
        </item>
        <item row="4" column="0">
@@ -1180,8 +1302,8 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QLineEdit" name="v_r_drag_end_p_y">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="v_r_drag_start_p_x">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1194,10 +1316,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>（前两行都为空默认全屏随机）</string>
+         </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="v_r_drag_end_p_x">
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="v_r_drag_end_p_y">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1242,6 +1370,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="3" column="0">
@@ -1251,38 +1382,18 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="v_r_drag_start_p_x">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="r_drag_num">
-         <property name="text">
-          <string>滑动次数：</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="r_drag_end_p">
+        <widget class="QLabel" name="randomDragRightUpPoint">
+         <property name="whatsThis">
+          <string>随机范围是一个矩形，这是这个矩形右下角点的坐标，输入(x,y)形式</string>
+         </property>
          <property name="text">
-          <string>点2坐标：(X,Y)</string>
+          <string>随机范围右上角</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="v_r_drag_i_time">
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="v_r_drag_end_p_x">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1294,13 +1405,6 @@
            <width>16777215</width>
            <height>30</height>
           </size>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="r_drag_start_p">
-         <property name="text">
-          <string>点1坐标：(X,Y)</string>
          </property>
         </widget>
        </item>
@@ -1344,6 +1448,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="3" column="1">
@@ -1354,6 +1461,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
@@ -1363,6 +1473,9 @@
            <width>0</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
          </property>
         </widget>
        </item>
@@ -1411,6 +1524,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
@@ -1453,7 +1569,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="delete_test_b">
+     <widget class="QPushButton" name="deleteButton">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -1477,7 +1593,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="finish_b">
+     <widget class="QPushButton" name="finishButton">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -1494,6 +1610,9 @@
        <font>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>注意：创建完成后将不可修改</string>
       </property>
       <property name="text">
        <string> 测试队列创建完成</string>
@@ -1530,32 +1649,17 @@
     </property>
     <item>
      <property name="text">
-      <string>New Item</string>
+      <string>test1</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>New Item</string>
+      <string>test2</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>4564565</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>23</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>New Item</string>
+      <string>test3</string>
      </property>
     </item>
    </widget>
@@ -1571,7 +1675,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QPushButton" name="clear_test_b">
+     <widget class="QPushButton" name="clearAssignmentButton">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -1595,7 +1699,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="test_add_b">
+     <widget class="QPushButton" name="addToQueueButton">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -1649,7 +1753,7 @@
   <tabstop>v_drag_num</tabstop>
   <tabstop>v_drag_i_time</tabstop>
   <tabstop>v_m_drag_num</tabstop>
-  <tabstop>confirm_m_drag_n_b</tabstop>
+  <tabstop>confirmMultiDragButton</tabstop>
   <tabstop>v_m_drag_start_p_x</tabstop>
   <tabstop>v_m_drag_start_p_y</tabstop>
   <tabstop>v_m_drag_end_p_x</tabstop>
@@ -1661,21 +1765,21 @@
   <tabstop>v_press_drag_p_time_3</tabstop>
   <tabstop>v_press_drag_p_time</tabstop>
   <tabstop>v_press_drag_p_time_2</tabstop>
-  <tabstop>m_drag_next_b</tabstop>
+  <tabstop>multiDragNextButton</tabstop>
   <tabstop>v_press_drag_start_p_x</tabstop>
-  <tabstop>delete_test_b</tabstop>
+  <tabstop>deleteButton</tabstop>
   <tabstop>currentQueueList</tabstop>
-  <tabstop>finish_b</tabstop>
+  <tabstop>finishButton</tabstop>
   <tabstop>tabWidget</tabstop>
-  <tabstop>clear_test_b</tabstop>
-  <tabstop>test_add_b</tabstop>
+  <tabstop>clearAssignmentButton</tabstop>
+  <tabstop>addToQueueButton</tabstop>
   <tabstop>v_r_drag_time</tabstop>
   <tabstop>v_r_drag_end_p_x</tabstop>
-  <tabstop>m_touch_next_p_b</tabstop>
+  <tabstop>multiTouchNextPointButton</tabstop>
   <tabstop>v_r_drag_start_p_y</tabstop>
   <tabstop>v_press_drag_num</tabstop>
   <tabstop>v_touch_pos_x</tabstop>
-  <tabstop>confirm_m_touch_point_n_b</tabstop>
+  <tabstop>confirmMultiTouchTestButton</tabstop>
   <tabstop>v_press_drag_end_p_x</tabstop>
   <tabstop>v_press_drag_start_p_y</tabstop>
   <tabstop>v_r_drag_i_time</tabstop>
@@ -1686,7 +1790,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>delete_test_b</sender>
+   <sender>deleteButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>delete_current_row()</slot>
@@ -1702,7 +1806,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_touch_i_time</receiver>
    <slot>clear()</slot>
@@ -1712,13 +1816,13 @@
      <y>386</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>288</y>
+     <x>393</x>
+     <y>276</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_touch_num</receiver>
    <slot>clear()</slot>
@@ -1728,13 +1832,13 @@
      <y>367</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>205</y>
+     <x>393</x>
+     <y>192</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_touch_pos_x</receiver>
    <slot>clear()</slot>
@@ -1744,13 +1848,13 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>316</x>
-     <y>122</y>
+     <x>393</x>
+     <y>108</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_touch_pos_y</receiver>
    <slot>clear()</slot>
@@ -1760,13 +1864,13 @@
      <y>370</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>122</y>
+     <x>666</x>
+     <y>108</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_pos_x</receiver>
    <slot>clear()</slot>
@@ -1776,13 +1880,13 @@
      <y>375</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>105</y>
+     <x>393</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_time</receiver>
    <slot>clear()</slot>
@@ -1792,13 +1896,13 @@
      <y>386</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>171</y>
+     <x>393</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_num</receiver>
    <slot>clear()</slot>
@@ -1808,13 +1912,13 @@
      <y>391</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>237</y>
+     <x>393</x>
+     <y>225</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_i_time</receiver>
    <slot>clear()</slot>
@@ -1824,13 +1928,13 @@
      <y>369</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>303</y>
+     <x>383</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_pos_y</receiver>
    <slot>clear()</slot>
@@ -1840,13 +1944,13 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>105</y>
+     <x>666</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_touch_p1_x</receiver>
    <slot>clear()</slot>
@@ -1856,13 +1960,13 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>105</y>
+     <x>393</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_touch_p2_x</receiver>
    <slot>clear()</slot>
@@ -1872,13 +1976,13 @@
      <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>171</y>
+     <x>393</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_touch_num</receiver>
    <slot>clear()</slot>
@@ -1888,13 +1992,13 @@
      <y>379</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>237</y>
+     <x>393</x>
+     <y>225</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_touch_i_time</receiver>
    <slot>clear()</slot>
@@ -1904,13 +2008,13 @@
      <y>381</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>303</y>
+     <x>383</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_touch_p1_y</receiver>
    <slot>clear()</slot>
@@ -1920,13 +2024,13 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>105</y>
+     <x>666</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_touch_p2_y</receiver>
    <slot>clear()</slot>
@@ -1936,13 +2040,13 @@
      <y>377</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>171</y>
+     <x>666</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_touch_pos_x</receiver>
    <slot>clear()</slot>
@@ -1958,7 +2062,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_touch_pos_y</receiver>
    <slot>clear()</slot>
@@ -1968,13 +2072,13 @@
      <y>388</y>
     </hint>
     <hint type="destinationlabel">
-     <x>365</x>
-     <y>160</y>
+     <x>367</x>
+     <y>157</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_touch_i_time</receiver>
    <slot>clear()</slot>
@@ -1984,13 +2088,13 @@
      <y>369</y>
     </hint>
     <hint type="destinationlabel">
-     <x>201</x>
-     <y>231</y>
+     <x>203</x>
+     <y>223</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_touch_loop_num</receiver>
    <slot>clear()</slot>
@@ -2000,13 +2104,13 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>217</x>
-     <y>292</y>
+     <x>219</x>
+     <y>289</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_drag_p1_x</receiver>
    <slot>clear()</slot>
@@ -2016,13 +2120,13 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>105</y>
+     <x>393</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_drag_p1_y</receiver>
    <slot>clear()</slot>
@@ -2032,13 +2136,13 @@
      <y>377</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>105</y>
+     <x>666</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_drag_p2_x</receiver>
    <slot>clear()</slot>
@@ -2048,13 +2152,13 @@
      <y>368</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>171</y>
+     <x>393</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_drag_p2_y</receiver>
    <slot>clear()</slot>
@@ -2064,13 +2168,13 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>171</y>
+     <x>666</x>
+     <y>158</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_drag_num</receiver>
    <slot>clear()</slot>
@@ -2080,13 +2184,13 @@
      <y>388</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>237</y>
+     <x>393</x>
+     <y>225</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_drag_i_time</receiver>
    <slot>clear()</slot>
@@ -2096,13 +2200,13 @@
      <y>361</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>303</y>
+     <x>383</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_start_p_x</receiver>
    <slot>clear()</slot>
@@ -2112,13 +2216,13 @@
      <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>125</y>
+     <x>335</x>
+     <y>111</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_start_p_y</receiver>
    <slot>clear()</slot>
@@ -2128,13 +2232,13 @@
      <y>363</y>
     </hint>
     <hint type="destinationlabel">
-     <x>457</x>
-     <y>125</y>
+     <x>519</x>
+     <y>111</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_end_p_x</receiver>
    <slot>clear()</slot>
@@ -2144,13 +2248,13 @@
      <y>380</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>162</y>
+     <x>335</x>
+     <y>147</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_end_p_y</receiver>
    <slot>clear()</slot>
@@ -2160,13 +2264,13 @@
      <y>372</y>
     </hint>
     <hint type="destinationlabel">
-     <x>457</x>
-     <y>162</y>
+     <x>519</x>
+     <y>147</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_loop_num</receiver>
    <slot>clear()</slot>
@@ -2176,13 +2280,13 @@
      <y>386</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>199</y>
+     <x>335</x>
+     <y>183</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_i_time</receiver>
    <slot>clear()</slot>
@@ -2192,13 +2296,13 @@
      <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>236</y>
+     <x>335</x>
+     <y>219</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_time</receiver>
    <slot>clear()</slot>
@@ -2208,13 +2312,13 @@
      <y>380</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>273</y>
+     <x>335</x>
+     <y>255</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_trip_i_time</receiver>
    <slot>clear()</slot>
@@ -2224,13 +2328,13 @@
      <y>387</y>
     </hint>
     <hint type="destinationlabel">
-     <x>306</x>
-     <y>310</y>
+     <x>335</x>
+     <y>291</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_start_p_x</receiver>
    <slot>clear()</slot>
@@ -2240,13 +2344,13 @@
      <y>381</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>94</y>
+     <x>393</x>
+     <y>80</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_start_p_y</receiver>
    <slot>clear()</slot>
@@ -2256,13 +2360,13 @@
      <y>361</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>94</y>
+     <x>666</x>
+     <y>80</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_end_p_x</receiver>
    <slot>clear()</slot>
@@ -2272,13 +2376,13 @@
      <y>367</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>149</y>
+     <x>393</x>
+     <y>136</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_end_p_y</receiver>
    <slot>clear()</slot>
@@ -2288,13 +2392,13 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>514</x>
-     <y>149</y>
+     <x>666</x>
+     <y>136</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_num</receiver>
    <slot>clear()</slot>
@@ -2304,13 +2408,13 @@
      <y>385</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>204</y>
+     <x>393</x>
+     <y>192</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_i_time</receiver>
    <slot>clear()</slot>
@@ -2320,13 +2424,13 @@
      <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>259</y>
+     <x>383</x>
+     <y>248</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_r_drag_time</receiver>
    <slot>clear()</slot>
@@ -2336,13 +2440,13 @@
      <y>382</y>
     </hint>
     <hint type="destinationlabel">
-     <x>266</x>
-     <y>314</y>
+     <x>383</x>
+     <y>304</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_start_p_x</receiver>
    <slot>clear()</slot>
@@ -2352,13 +2456,13 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>276</x>
-     <y>86</y>
+     <x>396</x>
+     <y>72</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_start_p_y</receiver>
    <slot>clear()</slot>
@@ -2368,13 +2472,13 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>519</x>
-     <y>86</y>
+     <x>666</x>
+     <y>72</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_end_p_x</receiver>
    <slot>clear()</slot>
@@ -2384,13 +2488,13 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>276</x>
-     <y>133</y>
+     <x>396</x>
+     <y>120</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_end_p_y</receiver>
    <slot>clear()</slot>
@@ -2400,13 +2504,13 @@
      <y>382</y>
     </hint>
     <hint type="destinationlabel">
-     <x>519</x>
-     <y>133</y>
+     <x>666</x>
+     <y>120</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_num</receiver>
    <slot>clear()</slot>
@@ -2416,13 +2520,13 @@
      <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>276</x>
-     <y>180</y>
+     <x>396</x>
+     <y>168</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_p_time</receiver>
    <slot>clear()</slot>
@@ -2432,13 +2536,13 @@
      <y>370</y>
     </hint>
     <hint type="destinationlabel">
-     <x>276</x>
-     <y>227</y>
+     <x>396</x>
+     <y>216</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_p_time_2</receiver>
    <slot>clear()</slot>
@@ -2448,13 +2552,13 @@
      <y>372</y>
     </hint>
     <hint type="destinationlabel">
-     <x>276</x>
-     <y>274</y>
+     <x>396</x>
+     <y>264</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_press_drag_p_time_3</receiver>
    <slot>clear()</slot>
@@ -2464,20 +2568,20 @@
      <y>382</y>
     </hint>
     <hint type="destinationlabel">
-     <x>276</x>
-     <y>321</y>
+     <x>396</x>
+     <y>312</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>m_touch_next_p_b</sender>
+   <sender>multiTouchNextPointButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>mul_touch_next_p()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>543</x>
-     <y>159</y>
+     <x>545</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>90</x>
@@ -2486,62 +2590,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>confirm_m_touch_point_n_b</sender>
-   <signal>clicked()</signal>
-   <receiver>v_m_touch_point_num</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>452</x>
-     <y>105</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>307</x>
-     <y>105</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirm_m_touch_point_n_b</sender>
-   <signal>clicked()</signal>
-   <receiver>now_point_num</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>452</x>
-     <y>105</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>182</x>
-     <y>91</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirm_m_touch_point_n_b</sender>
-   <signal>clicked()</signal>
-   <receiver>confirm_m_touch_point_n_b</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>452</x>
-     <y>105</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>452</x>
-     <y>105</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirm_m_touch_point_n_b</sender>
+   <sender>confirmMultiTouchTestButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>confirm_m_touch_p_num()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>396</x>
-     <y>104</y>
+     <x>441</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>137</x>
@@ -2550,9 +2606,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
-   <receiver>confirm_m_touch_point_n_b</receiver>
+   <receiver>confirmMultiTouchTestButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2560,36 +2616,20 @@
      <y>375</y>
     </hint>
     <hint type="destinationlabel">
-     <x>452</x>
-     <y>105</y>
+     <x>441</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
-   <signal>clicked()</signal>
-   <receiver>now_point_num</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>522</x>
-     <y>378</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>136</x>
-     <y>86</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirm_m_drag_n_b</sender>
+   <sender>confirmMultiDragButton</sender>
    <signal>clicked()</signal>
    <receiver>now_drag_num</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>457</x>
-     <y>85</y>
+     <x>521</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>243</x>
@@ -2598,39 +2638,39 @@
    </hints>
   </connection>
   <connection>
-   <sender>confirm_m_drag_n_b</sender>
+   <sender>confirmMultiDragButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_num</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>457</x>
-     <y>85</y>
+     <x>521</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
-     <x>350</x>
-     <y>83</y>
+     <x>339</x>
+     <y>71</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>confirm_m_drag_n_b</sender>
+   <sender>confirmMultiDragButton</sender>
    <signal>clicked()</signal>
-   <receiver>confirm_m_drag_n_b</receiver>
+   <receiver>confirmMultiDragButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>457</x>
-     <y>85</y>
+     <x>521</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
-     <x>457</x>
-     <y>85</y>
+     <x>521</x>
+     <y>71</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>now_drag_num</receiver>
    <slot>hide()</slot>
@@ -2640,13 +2680,13 @@
      <y>379</y>
     </hint>
     <hint type="destinationlabel">
-     <x>184</x>
-     <y>74</y>
+     <x>186</x>
+     <y>66</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_num</receiver>
    <slot>show()</slot>
@@ -2656,15 +2696,15 @@
      <y>367</y>
     </hint>
     <hint type="destinationlabel">
-     <x>350</x>
-     <y>85</y>
+     <x>339</x>
+     <y>71</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
-   <receiver>confirm_m_drag_n_b</receiver>
+   <receiver>confirmMultiDragButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2672,20 +2712,20 @@
      <y>370</y>
     </hint>
     <hint type="destinationlabel">
-     <x>457</x>
-     <y>85</y>
+     <x>521</x>
+     <y>71</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>confirm_m_drag_n_b</sender>
+   <sender>confirmMultiDragButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>confirm_m_drag_num()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>457</x>
-     <y>85</y>
+     <x>521</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
      <x>196</x>
@@ -2694,7 +2734,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_touch_point_num</receiver>
    <slot>show()</slot>
@@ -2704,20 +2744,20 @@
      <y>380</y>
     </hint>
     <hint type="destinationlabel">
-     <x>220</x>
-     <y>101</y>
+     <x>296</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>m_drag_next_b</sender>
+   <sender>multiDragNextButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>mul_drag_next_l()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>571</x>
-     <y>151</y>
+     <x>641</x>
+     <y>147</y>
     </hint>
     <hint type="destinationlabel">
      <x>228</x>
@@ -2726,7 +2766,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>reset_point_no()</slot>
@@ -2742,7 +2782,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>clear_test_b</sender>
+   <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>reset_drag_no()</slot>
@@ -2758,7 +2798,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>test_add_b</sender>
+   <sender>addToQueueButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>add_new_test_b()</slot>
@@ -2774,7 +2814,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>finish_b</sender>
+   <sender>finishButton</sender>
    <signal>clicked()</signal>
    <receiver>Add_test</receiver>
    <slot>fin_queue_edit()</slot>

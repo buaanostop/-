@@ -98,5 +98,4 @@ class Ui_MainWindow(object):
         self.guide_b.setText(_translate("MainWindow", "引导"))
         self.test_b.setText(_translate("MainWindow", "测试"))
         self.feedback_b.setText(_translate("MainWindow", "反馈"))
-
 import images.main_p

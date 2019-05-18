@@ -95,6 +95,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="saveButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -114,6 +117,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="startButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -234,6 +240,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="connectDeviceButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -259,6 +268,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="InputAssignmentButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>321</width>
@@ -293,6 +305,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="chooseTypeButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>321</width>
