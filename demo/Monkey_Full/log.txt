@@ -1,0 +1,9 @@
+2019-05-17 15:06:45 connect...
+2019-05-17 15:06:53 drag test add success
+2019-05-17 15:06:55 drag test add success
+2019-05-17 15:06:58 drag test add success
+2019-05-17 15:07:00 drag test add success
+2019-05-17 15:07:02 start
+2019-05-17 15:07:25 start
+2019-05-17 15:07:43 stop
+2019-05-17 15:07:44 close
