@@ -2,6 +2,8 @@ import sys
 import os
 new_path = sys.path[0] + '\\monkeys'
 sys.path.insert(1,new_path)
+import threading
+import time
 from Test_Ui_Functions import TestUiFunctionsClass as func
 from ui_main import Ui_MainWindow
 from guide_ui import Ui_GuideWindow
@@ -105,6 +107,8 @@ class g_window(QtWidgets.QMainWindow,Ui_GuideWindow):
 class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     max_x = 1024
     max_y = 768
+    connect_thread = None
+    successfully_connect = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_TestWindow.__init__(self)
@@ -142,19 +146,31 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         t_ui.stopButton.hide()
         t_ui.InputAssignmentButton.setEnabled(False)
         t_ui.chooseTypeButton.setEnabled(False)
+    def thread_waitingfor_connect(self):
+        while(self.successfully_connect == None ):
+            self.successfully_connect = functions_class.connect()
+            if(self.successfully_connect == True):
+                self.InputAssignmentButton.setEnabled(True)
+                self.connectDeviceButton.setEnabled(False)
+                break
+                #self.connectDeviceButton.setText("重新连接")
+            elif(self.successfully_connect == False):
+                self.connectDeviceButton.setEnabled(True)
+                self.successfully_connect = None
+                self.connectDeviceButton.setText('重新连接')
+                break
 
     '''点击连接设备按钮'''
     def click_connect_b(self):
         #print("点击连接设备按钮")
-        '''
-            todo:实际运行时把注释删掉
-        '''
+
         self.connectDeviceButton.setText('连接中...')
         self.connectDeviceButton.setEnabled(False)
-        successfully_connect = functions_class.connect()
-        #if(successfully_connect == True):      
-        self.InputAssignmentButton.setEnabled(True)
-        self.connectDeviceButton.setText("重新连接")
+        self.connect_thread = threading.Thread(target = self.thread_waitingfor_connect)
+        self.connect_thread.start()
+
+        #elf.connectDeviceButton.setEnabled(()
+
 
     def click_load_b(self):
         print("点击读档按钮")
@@ -205,17 +221,22 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
 class add_test(QtWidgets.QDialog,Ui_Add_test):
     points_list = []#初始化
     def __init__(self):
+
         QtWidgets.QDialog.__init__(self)
+
         Ui_Add_test.__init__(self)
+
         self.setupUi(self)
         #self.currentQueueList.clear()
         self.currentQueueList.setDragDropMode(self.currentQueueList.InternalMove)
         self.pointSelectComboBox.currentIndexChanged.connect(self.change_final_point_button_text)
+        self.currentQueueList.clear()
+
     def delete_current_row(self):
         row = a_t_ui.currentQueueList.currentRow()
-        index = self.currentQueueList.currentIndex()
-        #print("删除第"+str(row+1)+"条测试")
-        functions_class.delete_from_queue(index + 1)
+        #index = self.currentQueueList.currentIndex()
+        print("删除第"+str(row+1)+"条测试")
+        functions_class.delete_from_queue(row + 1)
         a_t_ui.currentQueueList.takeItem(row)
     #多点点击测试
     '''多点点击测试选项卡下的
@@ -350,12 +371,12 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ui = mywindow()
     g_ui = g_window()
+
     t_ui = t_window()
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()
     functions_class = func(t_ui,a_t_ui)
     ui.show()
-    #print('close main window')
     sys.exit(app.exec_())
 # queueList
 # reportList
