@@ -7,25 +7,48 @@ Sender
 import socket
 import time
 import random
-
+import os
 from Operation import *
+import threading
 
 sendsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 port = 12345
 host = '127.0.0.1'
 
-wtime = 1.0
+recsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+recsocket.bind(("", 12346))
 
+wtime = 1.0
+resolution_ratio = (540,960)
+
+root_path = os.getcwd()
+shot_path = root_path + '\screenshot'
+class do_run_monkey(threading.Thread):
+    
+    def __init__(self, monkeypath):
+        threading.Thread.__init__(self)
+        self.monkeypath = monkeypath
+    def run(self):
+#        os.popen("monkeyrunner "+self.monkeypath)
+        os.system("monkeyrunner "+self.monkeypath)
+            
 def do_connect():
-    data = bytes("connect:0:0:0:0:1.0:",encoding="utf8")
+    data = bytes("connect:0:0:0:0:1.0:"+shot_path.replace(':','&'),encoding="utf8")
     sendsocket.sendto(data, (host, port))
     print("connect")
-##    recsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-##    recsocket.bind(("", 12346))
-##    data, addr = recsocket.recvfrom(1024)
-##    data = data.decode("utf-8")
-##    print(data)
-##    recsocket.close()
+
+    data, addr = recsocket.recvfrom(1024)
+    data = data.decode("utf-8")
+
+    print("recv",data)
+
+    if data == "connect false" or data == "NonexNone":
+        return False
+    else:
+        ratio_x, ratio_y = data.split('x')
+        resolution_ratio = (ratio_x, ratio_y)
+        print("connect to",resolution_ratio)
+        return True
     
 def do_open_app(package_name, activity_name):
     data = bytes("open_app:0:0:0:0:1.0:"+package_name+'&'+activity_name,encoding="utf8")
@@ -35,14 +58,24 @@ def do_open_app(package_name, activity_name):
 def do_close():
     data = bytes("close:0:0:0:0:1.0:",encoding="utf8")
     sendsocket.sendto(data, (host, port))
+    recsocket.close()
     print("close")
     
-class DoTest():
+class DoTest(threading.Thread):
     def __init__(self, oplist):
+        threading.Thread.__init__(self)
+        self.flag = threading.Event() # 运行标志
+        self.stopflag = threading.Event() # 结束标志
+        self.flag.clear()
         self.oplist = oplist
-        self.resolution_ratio = (1080, 1920) # 需要获取分辨率 （宽 ， 高）
+        self.resolution_ratio = resolution_ratio # 需要获取分辨率 （宽 ， 高）
 
     def __send(self, optype, x1=0, y1=0, x2=0, y2=0, hold_time=1.0, keyorstring=''):
+        while not self.flag.isSet():
+            if self.stopflag.isSet():
+                return
+            else:
+                self.flag.wait(5)
         data = bytes("%s:%d:%d:%d:%d:%f:%s"%(optype,x1,y1,x2,y2,hold_time,keyorstring),encoding="utf8")
         sendsocket.sendto(data, (host, port))
         print("send: "+ optype)
@@ -180,10 +213,12 @@ class DoTest():
             num = 1
             while num < number:
                 self.__drag(x1, y1, x2, y2, hold_time)
+                self.__wait(hold_time) #等待拖动完毕
                 self.__wait(interval_time)
                 num += 1
         
             self.__drag(x1, y1, x2, y2, hold_time)
+            self.__wait(hold_time)
             self.__wait(wtime)
 # multi_drag
         elif optype == 'multi_drag': # --> drag drag ...
@@ -196,6 +231,7 @@ class DoTest():
                     x2 = point[2]
                     y2 = point[3]
                     self.__drag(x1, y1, x2, y2, hold_time)
+                    self.__wait(hold_time)
                     if num < len(pointlist): # 不是最后一个点
                         self.__wait(interval_time)
                         num += 1
@@ -237,6 +273,7 @@ class DoTest():
                 end_x = random.randint(min_x, max_x)
                 end_y = random.randint(min_y, max_y)
                 self.__drag(start_x, start_y, end_x, end_y, hold_time)
+                self.__wait(hold_time)
                 self.__wait(interval_time)
                 num += 1
 
@@ -245,6 +282,7 @@ class DoTest():
             end_x = random.randint(min_x, max_x)
             end_y = random.randint(min_y, max_y)
             self.__drag(start_x, start_y, end_x, end_y, hold_time)
+            self.__wait(hold_time)
             self.__wait(wtime) #最后一次            
 # touch_drag
         elif optype == 'touch_drag': # down wait move up
@@ -278,7 +316,21 @@ class DoTest():
         elif optype == 'typestr': # typestr
             self.__typestr(keyorstring)
             self.__wait(wtime)
-            
-    def start(self):
+
+    def pause(self):
+        self.flag.clear()
+
+    def resume(self):
+        self.flag.set()
+
+    def stop(self):
+        self.flag.clear()
+        self.stopflag.set()
+        
+    def run(self):
+        self.flag.set()
+        self.stopflag.clear()
         for op in self.oplist:
+            if self.stopflag.isSet():
+                break
             self.__actOp(op)

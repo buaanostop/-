@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\test_ui_d\add_test_ui.ui'
+# Form implementation generated from reading ui file 'add_test_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -558,6 +558,26 @@ class Ui_Add_test(object):
         self.press_drag_test1.addWidget(self.press_drag_end_p, 1, 0, 1, 1)
         self.gridLayout_8.addLayout(self.press_drag_test1, 0, 0, 1, 1)
         self.tabWidget.addTab(self.press_drag_test, "")
+        self.randomTest = QtWidgets.QWidget()
+        self.randomTest.setObjectName("randomTest")
+        self.horizontalLayoutWidget = QtWidgets.QWidget(self.randomTest)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(170, 120, 311, 61))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.randomTestNum = QtWidgets.QLabel(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.randomTestNum.setFont(font)
+        self.randomTestNum.setObjectName("randomTestNum")
+        self.horizontalLayout_5.addWidget(self.randomTestNum)
+        self.randomTestNumValue = QtWidgets.QSpinBox(self.horizontalLayoutWidget)
+        self.randomTestNumValue.setMinimumSize(QtCore.QSize(120, 30))
+        self.randomTestNumValue.setMaximumSize(QtCore.QSize(120, 30))
+        self.randomTestNumValue.setObjectName("randomTestNumValue")
+        self.horizontalLayout_5.addWidget(self.randomTestNumValue)
+        self.tabWidget.addTab(self.randomTest, "")
         self.layoutWidget4 = QtWidgets.QWidget(Add_test)
         self.layoutWidget4.setGeometry(QtCore.QRect(410, 610, 264, 42))
         self.layoutWidget4.setObjectName("layoutWidget4")
@@ -619,7 +639,7 @@ class Ui_Add_test(object):
         self.horizontalLayout_2.addWidget(self.addToQueueButton)
 
         self.retranslateUi(Add_test)
-        self.tabWidget.setCurrentIndex(4)
+        self.tabWidget.setCurrentIndex(8)
         self.deleteButton.clicked.connect(Add_test.delete_current_row)
         self.clearAssignmentButton.clicked.connect(self.v_touch_i_time.clear)
         self.clearAssignmentButton.clicked.connect(self.v_touch_num.clear)
@@ -834,6 +854,8 @@ class Ui_Add_test(object):
         self.press_drag_num.setText(_translate("Add_test", "长按滑动次数："))
         self.press_drag_end_p.setText(_translate("Add_test", "终点坐标：(X,Y)"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.press_drag_test), _translate("Add_test", "长按滑动测试"))
+        self.randomTestNum.setText(_translate("Add_test", "随机测试项个数："))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.randomTest), _translate("Add_test", "完全随机测试"))
         self.deleteButton.setText(_translate("Add_test", "删除"))
         self.finishButton.setWhatsThis(_translate("Add_test", "注意：创建完成后将不可修改"))
         self.finishButton.setText(_translate("Add_test", " 测试队列创建完成"))

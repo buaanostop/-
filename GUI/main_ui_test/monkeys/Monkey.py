@@ -12,37 +12,71 @@ Monkey.py
 """
 import sys
 import time
+import random
+import os
 from Operation import *
-from MonkeySender import *         
-logpath = "log.txt"
-oplist = []
-##uisocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-##port = 8081
-##host = '127.0.0.1'
+from MonkeySender import *
+import threading
+import shutil
 
-def __clear():
-    """清空Oplist"""
-    oplist.clear()
-    
+
+        
+#----------------------
+#测试队列所用参数
+oplist = []
+resolution_ratio = (1080, 1920) #需要获取 分辨率 （x, y)
+test = None # 测试线程
+#----------------------
+#文件路径相关参数
+rootpath = os.getcwd() # 当前根目录
+logpath = "log.txt" # Log文件名
+savepath = rootpath+'\save' # 存档文件夹
+shotpath = rootpath+'\screenshot' # 截图文件夹
+monkeypath = rootpath+'\monkeys\MonkeyServer.py' # MonkeyServer.py脚本路径
+log_new_path = shotpath + '\log_new.txt' # ScreenShot Log 文件路径
+#----------------------
+#前期准备
+##检测save文件夹是否存在，不存在则创建save文件夹s
+if not os.path.exists(savepath):
+    os.makedirs(savepath)
+##检测screenshot文件夹是否存在，不存在则创建screenshot文件夹
+if not os.path.exists(shotpath):
+    os.makedirs(shotpath)
+else:
+    shutil.rmtree(shotpath)
+    os.makedirs(shotpath)
+##清空Log文件
+logfile = open(logpath, 'w')
+logfile.close()
+##清空screenshot文件夹Log文件
+log_new_file = open(log_new_path, 'w')
+log_new_file.close()
+
+##启动MonkeyServer
+thread_monkey = do_run_monkey(monkeypath)
+thread_monkey.start()
 
 def __ifprint(data):
+    """写入Log同时打印信息，若不想打印则注释掉下面的print"""
     print(data)
     
 def __writelog(data):
+    """把信息写入log文件"""
     __ifprint(data)
     logfile = open(logpath, 'a')
     logfile.write(data + '\n')
     logfile.close()
 
-##def __send(optype, x1=0, y1=0, x2=0, y2=0, hold_time=1.0, keyorstring="none"):
-##    data = bytes("%s:%d:%d:%d:%d:%f:%s"%(optype,x1,y1,x2,y2,hold_time,keyorstring),encoding="utf8")
-##    uisocket.sendto(data, (host, port))
-##    print("send: "+ optype)
-    
+def __runMonkeyServer():
+    """启动MonkeyServer"""
+    pass
+        
 def __now():
+    """返回当前时间信息"""
     return str(time.strftime("%Y-%m-%d %H:%M:%S "))
 
 ##-------------------------------
+##针对设备的操作
 def connect():
     """连接设备
     返回值
@@ -65,7 +99,52 @@ def open_app(package_name, activity_name):
     """
     __writelog(__now() + "open app")
     do_open_app(package_name, activity_name)
+    return True
 
+def set_resolution_ratio(width, height):
+    """设定分辨率 （用于手动修改）
+    参数
+    ------------
+    width : int
+            宽度
+    height : int
+            高度
+    """
+    resolution_ratio = (width, height)
+    return resolution_ratio
+
+##----------------------------------------
+##针对测试列表的操作
+def clear():
+    """清空测试列表"""
+    oplist.clear()
+    return oplist
+
+def delete(index):
+    """删除列表中第index个测试
+    参数
+    -------------
+    index : int
+            要删除的位置（从1开始）
+
+    """
+    oplist.pop(index - 1)
+    return oplist
+
+def change(index1, index2):
+    """将原来在Index1的测试调到位置Index2
+    参数
+    -----------
+    index1: int
+            原来的位置（从1开始）
+    index2: int
+            改变后的位置（从1开始）
+    
+    """
+    op = oplist.pop(index1 - 1)
+    oplist.insert(index2 - 1, op)
+    return oplist
+    
 def save(save_name):
     """将oplist保存
     参数
@@ -78,7 +157,7 @@ def save(save_name):
             False 保存失败
     """
     try:
-        f = open(save_name+'.save','w')
+        f = open('save\\'+save_name+'.save','w')
         for op in oplist:
             f.write(str(op.todict())+'\n')
         f.close()
@@ -97,12 +176,12 @@ def load(save_name):
                 存档的名字
     返回值
     -----------
-    bool : True 读取成功
-            False 读取失败
+    List(Operation) : 读取成功，返回列表
+    bool : False 读取失败
     """
     try:       
-        __clear() # 清空当前oplist
-        f = open(save_name+'.save','r')
+        clear() # 清空当前oplist
+        f = open('save\\'+save_name+'.save','r')
         data = f.readline()
         while data:
             data = eval(data)
@@ -112,15 +191,61 @@ def load(save_name):
             data = f.readline()
         f.close()
         __writelog(__now() + save_name + " load success")
+        return oplist
     except:
         f.close()
         __writelog(_now() + save_name + " load fail")
         return False
-    
+
+def all_random(test_number=100):
+    """生成完全随机测试
+    参数
+    -----------
+    test_number : int
+                生成的测试项个数，默认为100
+
+    """
+    num = 0
+    testtype = ['touch','long_touch','drag','touch_drag']
+    testtime = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
+    max_x = resolution_ratio[0] - 1
+    max_y = resolution_ratio[1] - 1
+    while num < test_number:
+        index = random.randint(0,3)
+        if index == 0: # touch
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            touch(x1, y1)
+        elif index == 1: # long_touch
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            t1 = random.randint(0, 3)
+            long_touch(x1, y1, testtime[t1])
+        elif index == 2: # drag
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            x2 = random.randint(0, max_x)
+            y2 = random.randint(0, max_y)
+            t1 = random.randint(0, 5)
+            drag(((x1,y1),(x2,y2)), testtime[t1])
+        elif index == 3: # touch_drag
+            x1 = random.randint(0, max_x)
+            y1 = random.randint(0, max_y)
+            x2 = random.randint(0, max_x)
+            y2 = random.randint(0, max_y)
+            t1 = random.randint(0, 3)
+            t2 = random.randint(0, 5)
+            touch_drag(((x1,y1),(x2,y2)), testtime[t1], testtime[t2])         
+        num += 1
+    __writelog(__now() + "all_random test add success")
+    return True
+
 def close():
     __writelog(__now() + "close")
     do_close()
+    return True
 ##-------------------------------
+##添加各种测试项
 def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
     """单击
     参数
@@ -138,6 +263,7 @@ def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
     op = Operation('touch', ((pos_x, pos_y),), touch_number, interval_time, 0, 0, 0)
     oplist.append(op)
     __writelog(__now() + "touch test add success")
+    return op
 
 def long_touch(pos_x, pos_y, touch_time=1.0, touch_number=1, interval_time=1.0):
     """长按测试
@@ -158,6 +284,7 @@ def long_touch(pos_x, pos_y, touch_time=1.0, touch_number=1, interval_time=1.0):
     op = Operation('long_touch', ((pos_x, pos_y),), touch_number, interval_time, touch_time, 0, 0)
     oplist.append(op)
     __writelog(__now() + "long_touch test add success")
+    return op
     
 def multi_touch(pointlist, loop_number=1, interval_time = 1.0, loop_time = 1.0):
     """多位置顺序单击
@@ -177,6 +304,7 @@ def multi_touch(pointlist, loop_number=1, interval_time = 1.0, loop_time = 1.0):
     op = Operation('multi_touch', pointlist, loop_number, interval_time, 0, 0, loop_time)
     oplist.append(op)
     __writelog(__now() + "multi_touch add success")
+    return op
     
 def random_touch(pointlist, touch_number=1, interval_time=1.0):
     """随机点击屏幕测试
@@ -193,6 +321,7 @@ def random_touch(pointlist, touch_number=1, interval_time=1.0):
     op = Operation('random_touch', pointlist, touch_number, interval_time, 0, 0, 0)
     oplist.append(op)
     __writelog(__now() + "random_touch test add success")
+    return op
 
 def drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0):
     """滑动屏幕测试
@@ -210,6 +339,7 @@ def drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0):
     op = Operation('drag', pointlist, drag_number, interval_time, drag_time, 0, 0)
     oplist.append(op)
     __writelog(__now() + "drag test add success")
+    return op
 
 def multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0):
     """多位置滑动测试
@@ -230,6 +360,7 @@ def multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loo
     op = Operation('multi_drag', pointlist, loop_number, interval_time, drag_time, 0, loop_time)   
     oplist.append(op)
     __writelog(__now() + "multi_drag add success")
+    return op
     
 def random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0):
     """随机滑动屏幕测试
@@ -249,19 +380,20 @@ def random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0):
     op = Operation('random_drag', pointlist, drag_number, interval_time, drag_time, 0, 0)
     oplist.append(op)
     __writelog(__now() + "random_drag test add success")
+    return op
 
-def touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, interval_time=1.0):
+def touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interval_time=1.0):
     """长按滑动测试
     参数
     -----------
     pointlist : ((x1,y1),(x2,y2)) x,y均为int
                 按住的点和滑动的终点的坐标
-    touch_number : int
-                长按滑动的次数
     touch_time : float
                 长按的时间，默认为1秒
     drag_time : float
                 滑动的时间， 默认为1秒
+    touch_number : int
+                长按滑动的次数
     interval_time : float
                 两次动作的间隔时间
 
@@ -269,6 +401,7 @@ def touch_drag(pointlist, touch_number=1.0, touch_time=1.0, drag_time=1.0, inter
     op = Operation('touch_drag', pointlist, touch_number, interval_time, drag_time, 0, touch_time)
     oplist.append(op)
     __writelog(__now() + "touch_drag test add success")
+    return op
    
 def press(key_name):
     """按键测试
@@ -281,6 +414,7 @@ def press(key_name):
     op = Operation('press', None, 0, 0, 0, key_name, 0)
     oplist.append(op)
     __writelog(__now() + "press test add success")
+    return op
 
 def typestr(typestring):
     """键盘输入测试
@@ -292,6 +426,7 @@ def typestr(typestring):
     op = Operation('typestr', None, 0, 0, 0, typestring, 0)
     oplist.append(op)
     __writelog(__now() + "typestr test add success")
+    return op
 
 def wait(wait_time):
     """等待
@@ -304,30 +439,43 @@ def wait(wait_time):
     op = Operation('wait', None, 0, 0, 0, 0, wait_time)
     oplist.append(op)
     __writelog(__now() + "wait test add success")
+    return op
 
-def print_oplist():
+def print_oplist(): #测试用
     for op in oplist:
         op.display()
         
 
 ##-------------------------------
+##针对测试线程的操作
 def start():
+    global test
     __writelog(__now() + "start")
     test = DoTest(oplist)
     test.start()
 #    __send("start")
+    return True
     
 def pause():
+    global test
     __writelog(__now() + "pause")
 #    __send("pause")
+    test.pause()
+    return True
 
 def resume():
+    global test
     __writelog(__now() + "resume")
 #    __send("resume")
+    test.resume()
+    return True
 
 def stop():
+    global test
     __writelog(__now() + "stop")
 #    __send("stop")
+    test.stop()
+    return True
 
 ##-------------------------------
 
