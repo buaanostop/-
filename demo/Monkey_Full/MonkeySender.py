@@ -29,8 +29,8 @@ class do_run_monkey(threading.Thread):
         threading.Thread.__init__(self)
         self.monkeypath = monkeypath
     def run(self):
-#        os.popen("monkeyrunner "+self.monkeypath)
-        os.system("monkeyrunner "+self.monkeypath)
+        os.popen("monkeyrunner "+self.monkeypath)
+#        os.system("monkeyrunner "+self.monkeypath)
             
 def do_connect():
     data = bytes("connect:0:0:0:0:1.0:"+shot_path.replace(':','&'),encoding="utf8")

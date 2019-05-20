@@ -24,6 +24,7 @@ import shutil
 #----------------------
 #测试队列所用参数
 oplist = []
+allrandomlist = []
 resolution_ratio = (1080, 1920) #需要获取 分辨率 （x, y)
 test = None # 测试线程
 #----------------------
@@ -95,7 +96,9 @@ def open_app(package_name, activity_name):
                     包名 例如 com.Jelly.JellyFish
     activity_name : string
                     活动名 例如 com.unity3d.player.UnityPlayerActivity
-    
+    返回值
+    ---------
+
     """
     __writelog(__now() + "open app")
     do_open_app(package_name, activity_name)
@@ -203,6 +206,9 @@ def all_random(test_number=100):
     -----------
     test_number : int
                 生成的测试项个数，默认为100
+    返回值
+    list[Operation]
+    随机操作的队列
 
     """
     num = 0
@@ -210,6 +216,7 @@ def all_random(test_number=100):
     testtime = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
     max_x = resolution_ratio[0] - 1
     max_y = resolution_ratio[1] - 1
+    allrandomlist.clear()
     while num < test_number:
         index = random.randint(0,3)
         if index == 0: # touch
@@ -238,7 +245,7 @@ def all_random(test_number=100):
             touch_drag(((x1,y1),(x2,y2)), testtime[t1], testtime[t2])         
         num += 1
     __writelog(__now() + "all_random test add success")
-    return True
+    return allrandomlist
 
 def close():
     __writelog(__now() + "close")
@@ -262,6 +269,7 @@ def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
     """
     op = Operation('touch', ((pos_x, pos_y),), touch_number, interval_time, 0, 0, 0)
     oplist.append(op)
+    allrandomlist.append(op)
     __writelog(__now() + "touch test add success")
     return op
 
@@ -283,6 +291,7 @@ def long_touch(pos_x, pos_y, touch_time=1.0, touch_number=1, interval_time=1.0):
     """
     op = Operation('long_touch', ((pos_x, pos_y),), touch_number, interval_time, touch_time, 0, 0)
     oplist.append(op)
+    allrandomlist.append(op)
     __writelog(__now() + "long_touch test add success")
     return op
     
@@ -338,6 +347,7 @@ def drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0):
     """
     op = Operation('drag', pointlist, drag_number, interval_time, drag_time, 0, 0)
     oplist.append(op)
+    allrandomlist.append(op)
     __writelog(__now() + "drag test add success")
     return op
 
@@ -400,6 +410,7 @@ def touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interva
     """
     op = Operation('touch_drag', pointlist, touch_number, interval_time, drag_time, 0, touch_time)
     oplist.append(op)
+    allrandomlist.append(op)
     __writelog(__now() + "touch_drag test add success")
     return op
    
