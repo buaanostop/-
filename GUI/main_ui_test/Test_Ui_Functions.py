@@ -5,6 +5,7 @@ import threading
 import os
 import _thread as thread
 import Monkey
+from NewModel import SimpleModel
 from functools import wraps
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
@@ -53,12 +54,13 @@ class TestUiFunctionsClass(object):
     #connect_waiting_timer = None
     add_test_form = None
     test_form = None
-    exception_raw_name = path + '\\test_ui_d\\exception.txt'
+    exception_raw_name = path + '\\exception.txt'
     exception_name = path + '\\log\\exception_' + str(exception_count)+'.txt'
     log_name = path + '\\test_ui_d\\log.txt'
     log_lines = []
     log_timer = None
     bool_successful_read_log = 0
+    model_thread = None
     def __init__(self,test_form,add_test_form):
         #self.thread_start()
         self.test_form = test_form
@@ -68,10 +70,8 @@ class TestUiFunctionsClass(object):
     def close_monkeyrunner(self):
         Monkey.close()
     def close_model(self):
-        sendsocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        port = 9999
-        host = '127.0.0.1'
-        sendsocket.sendto(1,(port,host))
+        if(self.model_thread != None):
+            self.model_thread.quit_flag = 1
     #一些常数和错误处理#
     def read_exception(self):
         while(1):
@@ -134,9 +134,12 @@ class TestUiFunctionsClass(object):
         Monkey.stop()
     @disp_func_msg
     def start(self):
+        picture_file = os.path.join(os.getcwd(), 'screenshot')
         self.add_text('start!',self.test_form.reportList)
         self.log_timer = threading.Timer(1,self.log_monitor)
         self.log_timer.start()
+        self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
+        self.model_thread.start()
         Monkey.start()
     
     def range_inside(self,**arg):

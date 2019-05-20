@@ -85,6 +85,7 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
         t_ui.show()
     def closeEvent(self,event):
         functions_class.close_monkeyrunner()
+        functions_class.close_model()
         #print("close window")
         event.accept()
         #super(mywindow,self).closeEvent(event)
@@ -179,7 +180,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         '''
             if debug
         '''
-        #t_ui.chooseTypeButton.setEnabled(True)
+        t_ui.chooseTypeButton.setEnabled(True)
     def thread_waitingfor_connect(self):
         while(self.successfully_connect == None ):
             self.successfully_connect = functions_class.connect()
@@ -480,7 +481,7 @@ if __name__ == '__main__':
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()
     functions_class = func(t_ui,a_t_ui)
-    
+    functions_class.read_exception()
     ui.show()
     sys.exit(app.exec_())
 # queueList
