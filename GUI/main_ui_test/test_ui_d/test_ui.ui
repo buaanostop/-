@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1073</width>
-    <height>816</height>
+    <height>0</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -76,6 +76,9 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QPushButton" name="loadButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="minimumSize">
             <size>
              <width>250</width>
