@@ -37,7 +37,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>8</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="single_point_touch_test">
     <attribute name="title">
@@ -845,71 +845,17 @@
     <attribute name="title">
      <string>多线滑动测试</string>
     </attribute>
-    <widget class="QLabel" name="now_drag_num">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>30</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>13</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>631</width>
-       <height>217</height>
+       <x>220</x>
+       <y>50</y>
+       <width>135</width>
+       <height>212</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QLabel" name="m_drag_start_p">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>第1次滑动起点坐标:(X,Y)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="v_m_drag_start_p_x">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
        <widget class="QLineEdit" name="v_m_drag_start_p_y">
         <property name="minimumSize">
          <size>
@@ -931,18 +877,6 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="m_drag_end_p">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>第1次滑动终点坐标:(X,Y)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
        <widget class="QLineEdit" name="v_m_drag_end_p_x">
         <property name="minimumSize">
          <size>
@@ -963,64 +897,7 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QLineEdit" name="v_m_drag_end_p_y">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="multiDragNextButton">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>确认并输入下次滑动</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="m_drag_loop_num">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>滑动循环的遍数：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
        <widget class="QLineEdit" name="v_m_drag_loop_num">
         <property name="minimumSize">
          <size>
@@ -1045,21 +922,6 @@
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QLabel" name="m_drag_i_time">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="whatsThis">
-         <string>一遍内有1到9次滑动，当滑动次数大于1时，该输入框设置的是这几次的间隔</string>
-        </property>
-        <property name="text">
-         <string>两次滑动间隔时间：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
        <widget class="QLineEdit" name="v_m_drag_i_time">
         <property name="minimumSize">
          <size>
@@ -1084,18 +946,6 @@
        </widget>
       </item>
       <item row="4" column="0">
-       <widget class="QLabel" name="m_drag_time">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>每次滑动持续时间：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
        <widget class="QLineEdit" name="v_m_drag_time">
         <property name="minimumSize">
          <size>
@@ -1120,21 +970,6 @@
        </widget>
       </item>
       <item row="5" column="0">
-       <widget class="QLabel" name="m_drag_trip_i_time">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="whatsThis">
-         <string>该输入框设置的是遍与遍之间的滑动间隔，即一遍的n次滑动结束以后，直到下一个n次滑动开始的间隔</string>
-        </property>
-        <property name="text">
-         <string>两遍滑动间隔时间：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
        <widget class="QLineEdit" name="v_m_drag_trip_i_time">
         <property name="minimumSize">
          <size>
@@ -1160,17 +995,137 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>50</y>
+       <width>135</width>
+       <height>68</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_9">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="v_m_drag_start_p_x">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="v_m_drag_end_p_y">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>120</y>
+       <width>110</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_10">
+      <item row="0" column="0">
+       <widget class="QLabel" name="m_drag_loop_num">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>滑动循环的遍数：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="m_drag_i_time">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="whatsThis">
+         <string>一遍内有1到9次滑动，当滑动次数大于1时，该输入框设置的是这几次的间隔</string>
+        </property>
+        <property name="text">
+         <string>两次滑动间隔时间：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="m_drag_time">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>每次滑动持续时间：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="m_drag_trip_i_time">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="whatsThis">
+         <string>该输入框设置的是遍与遍之间的滑动间隔，即一遍的n次滑动结束以后，直到下一个n次滑动开始的间隔</string>
+        </property>
+        <property name="text">
+         <string>两遍滑动间隔时间：</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
-       <width>511</width>
+       <y>10</y>
+       <width>437</width>
        <height>32</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
+     <layout class="QGridLayout" name="gridLayout_11">
+      <item row="0" column="0">
        <widget class="QLabel" name="m_drag_num">
         <property name="font">
          <font>
@@ -1178,11 +1133,11 @@
          </font>
         </property>
         <property name="text">
-         <string>一遍内滑动的次数：</string>
+         <string>一遍内滑动的次数：                </string>
         </property>
        </widget>
       </item>
-      <item>
+      <item row="0" column="1">
        <widget class="QSpinBox" name="v_m_drag_num">
         <property name="minimumSize">
          <size>
@@ -1212,7 +1167,7 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="0" column="2">
        <widget class="QPushButton" name="confirmMultiDragButton">
         <property name="minimumSize">
          <size>
@@ -1233,6 +1188,100 @@
         </property>
         <property name="text">
          <string>确定</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="multiDragNextButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>87</y>
+       <width>116</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>确认并输入下次滑动</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>50</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="0" column="0">
+       <widget class="QComboBox" name="dragSelectComboBox">
+        <property name="whatsThis">
+         <string>设置多点点击的point的个数数后，可以在这里编辑每个点的信息
+如果没有设置好每个点的坐标，会有相应提示，请补充完成</string>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+        <property name="duplicatesEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>待输入滑动1</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="m_drag_start_p">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>起点坐标:(X,Y)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="m_drag_end_p">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>终点坐标:(X,Y)</string>
         </property>
        </widget>
       </item>
@@ -1906,8 +1955,8 @@
      <y>370</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>113</y>
+     <x>666</x>
+     <y>111</y>
     </hint>
    </hints>
   </connection>
@@ -1986,8 +2035,8 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>96</y>
+     <x>666</x>
+     <y>93</y>
     </hint>
    </hints>
   </connection>
@@ -2066,8 +2115,8 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>96</y>
+     <x>666</x>
+     <y>93</y>
     </hint>
    </hints>
   </connection>
@@ -2082,8 +2131,8 @@
      <y>377</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>164</y>
+     <x>666</x>
+     <y>162</y>
     </hint>
    </hints>
   </connection>
@@ -2130,8 +2179,8 @@
      <y>369</y>
     </hint>
     <hint type="destinationlabel">
-     <x>203</x>
-     <y>223</y>
+     <x>320</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>
@@ -2147,7 +2196,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>321</x>
-     <y>274</y>
+     <y>271</y>
     </hint>
    </hints>
   </connection>
@@ -2178,8 +2227,8 @@
      <y>377</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>96</y>
+     <x>666</x>
+     <y>93</y>
     </hint>
    </hints>
   </connection>
@@ -2210,8 +2259,8 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>164</y>
+     <x>666</x>
+     <y>162</y>
     </hint>
    </hints>
   </connection>
@@ -2258,8 +2307,8 @@
      <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>335</x>
-     <y>111</y>
+     <x>445</x>
+     <y>101</y>
     </hint>
    </hints>
   </connection>
@@ -2274,8 +2323,8 @@
      <y>363</y>
     </hint>
     <hint type="destinationlabel">
-     <x>490</x>
-     <y>114</y>
+     <x>305</x>
+     <y>101</y>
     </hint>
    </hints>
   </connection>
@@ -2290,8 +2339,8 @@
      <y>380</y>
     </hint>
     <hint type="destinationlabel">
-     <x>335</x>
-     <y>147</y>
+     <x>305</x>
+     <y>137</y>
     </hint>
    </hints>
   </connection>
@@ -2306,8 +2355,8 @@
      <y>372</y>
     </hint>
     <hint type="destinationlabel">
-     <x>490</x>
-     <y>151</y>
+     <x>445</x>
+     <y>137</y>
     </hint>
    </hints>
   </connection>
@@ -2322,8 +2371,8 @@
      <y>386</y>
     </hint>
     <hint type="destinationlabel">
-     <x>335</x>
-     <y>183</y>
+     <x>305</x>
+     <y>173</y>
     </hint>
    </hints>
   </connection>
@@ -2338,8 +2387,8 @@
      <y>378</y>
     </hint>
     <hint type="destinationlabel">
-     <x>335</x>
-     <y>219</y>
+     <x>305</x>
+     <y>209</y>
     </hint>
    </hints>
   </connection>
@@ -2354,8 +2403,8 @@
      <y>380</y>
     </hint>
     <hint type="destinationlabel">
-     <x>335</x>
-     <y>255</y>
+     <x>305</x>
+     <y>245</y>
     </hint>
    </hints>
   </connection>
@@ -2370,8 +2419,8 @@
      <y>387</y>
     </hint>
     <hint type="destinationlabel">
-     <x>335</x>
-     <y>291</y>
+     <x>305</x>
+     <y>281</y>
     </hint>
    </hints>
   </connection>
@@ -2402,8 +2451,8 @@
      <y>361</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>85</y>
+     <x>666</x>
+     <y>82</y>
     </hint>
    </hints>
   </connection>
@@ -2434,8 +2483,8 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>142</y>
+     <x>666</x>
+     <y>140</y>
     </hint>
    </hints>
   </connection>
@@ -2514,8 +2563,8 @@
      <y>373</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>77</y>
+     <x>666</x>
+     <y>73</y>
     </hint>
    </hints>
   </connection>
@@ -2546,8 +2595,8 @@
      <y>382</y>
     </hint>
     <hint type="destinationlabel">
-     <x>664</x>
-     <y>126</y>
+     <x>666</x>
+     <y>122</y>
     </hint>
    </hints>
   </connection>
@@ -2664,70 +2713,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>confirmMultiDragButton</sender>
-   <signal>clicked()</signal>
-   <receiver>now_drag_num</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>521</x>
-     <y>71</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>243</x>
-     <y>65</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirmMultiDragButton</sender>
-   <signal>clicked()</signal>
-   <receiver>v_m_drag_num</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>521</x>
-     <y>71</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>339</x>
-     <y>71</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>confirmMultiDragButton</sender>
-   <signal>clicked()</signal>
-   <receiver>confirmMultiDragButton</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>521</x>
-     <y>71</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>521</x>
-     <y>71</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clearAssignmentButton</sender>
-   <signal>clicked()</signal>
-   <receiver>now_drag_num</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>507</x>
-     <y>379</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>186</x>
-     <y>66</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_num</receiver>
@@ -2738,8 +2723,8 @@
      <y>367</y>
     </hint>
     <hint type="destinationlabel">
-     <x>339</x>
-     <y>71</y>
+     <x>304</x>
+     <y>61</y>
     </hint>
    </hints>
   </connection>
@@ -2754,8 +2739,8 @@
      <y>370</y>
     </hint>
     <hint type="destinationlabel">
-     <x>521</x>
-     <y>71</y>
+     <x>441</x>
+     <y>61</y>
     </hint>
    </hints>
   </connection>
@@ -2766,8 +2751,8 @@
    <slot>confirm_m_drag_num()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>521</x>
-     <y>71</y>
+     <x>441</x>
+     <y>61</y>
     </hint>
     <hint type="destinationlabel">
      <x>196</x>
@@ -2798,8 +2783,8 @@
    <slot>mul_drag_next_l()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>641</x>
-     <y>147</y>
+     <x>577</x>
+     <y>137</y>
     </hint>
     <hint type="destinationlabel">
      <x>228</x>

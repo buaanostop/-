@@ -130,9 +130,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         a_t_ui.v_m_touch_point_num.show()
         a_t_ui.confirmMultiTouchTestButton.show()
 
-        a_t_ui.now_drag_num.hide()
+        '''a_t_ui.now_drag_num.hide()
         a_t_ui.v_m_drag_num.setProperty("value", 1)
-        a_t_ui.v_m_drag_num.show()
+        a_t_ui.v_m_drag_num.show()'''
         #a_t_ui.confirm_m_drag_n_b.show()
         a_t_ui.confirmMultiDragButton.show()
         a_t_ui.show()
@@ -145,7 +145,12 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         t_ui.resumeButton.hide()
         t_ui.stopButton.hide()
         t_ui.InputAssignmentButton.setEnabled(False)
+        
         t_ui.chooseTypeButton.setEnabled(False)
+        '''
+            if debug
+        '''
+        t_ui.chooseTypeButton.setEnabled(True)
     def thread_waitingfor_connect(self):
         while(self.successfully_connect == None ):
             self.successfully_connect = functions_class.connect()
@@ -305,14 +310,17 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         print("清除参数")'''
         pass
     #多端滑动测试
+
+
     def mul_drag_next_l(self):
-        global now_drag_index #注意
+        '''global now_drag_index #注意
         if(now_drag_index < int(a_t_ui.now_drag_num.text())):
             now_drag_index = now_drag_index + 1
             text1 = "第" + str(now_drag_index)+"次滑动起点坐标:(X,Y)"
             text2 = "第" + str(now_drag_index) + "次滑动终点坐标:(X,Y)"
             a_t_ui.m_drag_start_p.setText(text1)
-            a_t_ui.m_drag_end_p.setText(text2)
+            a_t_ui.m_drag_end_p.setText(text2)'''
+        pass
     def change_final_point_button_text(self):
         if(self.pointSelectComboBox.count() == 0):
             return
@@ -320,8 +328,25 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             self.multiTouchNextPointButton.setText('确定')
         else:
             self.multiTouchNextPointButton.setText('确定并输入下一个点')
+    '''
+        点击多线滑动的确定按钮
+        和多点点击类似
+        使左侧不可修改
+    '''
     def confirm_m_drag_num(self):
-        a_t_ui.now_drag_num.setText(a_t_ui.v_m_drag_num.text())
+        #a_t_ui.now_drag_num.setText(a_t_ui.v_m_drag_num.text())
+        if(self.confirmMultiDragButton.text() == '确定'):
+            self.confirmMultiDragButton.setEnabled(True)
+            self.v_m_drag_num.setEnabled(False)
+            self.confirmMultiDragButton.setText('修改')
+            self.dragSelectComboBox.clear()
+            drag_num = int(self.v_m_drag_num.text())
+            self.points_list = [((-1,-1),(-1,-1)) for p in range(drag_num)]
+            for i in range(1,drag_num + 1):
+                self.dragSelectComboBox.addItem("第%d点"%i)
+        else:
+            self.confirmMultiDragButton.setText('确定')
+            self.v_m_drag_num.setEnabled(True)
 
     def reset_drag_no(self):
         global now_drag_index
@@ -376,6 +401,7 @@ if __name__ == '__main__':
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()
     functions_class = func(t_ui,a_t_ui)
+    
     ui.show()
     sys.exit(app.exec_())
 # queueList

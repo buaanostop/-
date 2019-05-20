@@ -4,7 +4,7 @@ import socket
 import threading
 import os
 import _thread as thread
-from monkeys import Monkey
+import Monkey
 from functools import wraps
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
@@ -104,6 +104,14 @@ class TestUiFunctionsClass(object):
         elif(error_code == not_successful_connected_error_code):
            QMessageBox.about(widget,'连接错误','还未成功连接设备')
     #常数和错误处理结束#
+    def runMonkeyServer(self,lock):
+    ##!!!!!!!!!!!!!!!!!!!!!!!!!!!!此位置改成MonkeyServer.py所在位置
+        ret = os.system(r"monkeyrunner C:\Users\Lenovo\Desktop\Autotest-master\example\MonkeyServer.py")
+        lock.release(self)
+    def monkey_runner_initial(self):
+        lock = thread.allocate_lock()
+        lock.acquire()
+        thread.start_new(runMonkeyServer,(lock,))
     @disp_func_msg
     def connect(self):
         self.add_text('waiting for connection',self.test_form.reportList)
@@ -130,7 +138,7 @@ class TestUiFunctionsClass(object):
         self.log_timer = threading.Timer(1,self.log_monitor)
         self.log_timer.start()
         Monkey.start()
-
+    
     def range_inside(self,**arg):
         if(arg.get('x',1) > self.test_form.max_x) :
             return False,'坐标x(' + str(arg['x']) +'):'
@@ -355,10 +363,9 @@ class TestUiFunctionsClass(object):
                 file_log = open(log_name,'r')
                 bool_successful_read_log = 1
             final_line = file_log.readline()
-            if(final_line != ''):
-                if(len(log_lines) == 0 or final_line != log_lines[-1]):
-                    log_lines.append(final_line)
-                    self.disp_report_information('end',final_line)
+            if(final_line != '' and final_line != log_lines[-1]):
+                log_lines.append(final_line)
+                self.disp_report_information('end',final_line)
             #print(log_lines)
             #nonlocal label_2
             #label_2.config(text = content)
@@ -390,3 +397,13 @@ class TestUiFunctionsClass(object):
         except IOError:
             if(self.read_log == 0):
                 self.disp_report_information('end','暂未读取到日志文件')
+        def save(self):
+            Monkey.save()
+        def load(self):
+            pass
+        '''def operations_to_str(self,ops):  
+            strs = []
+            for op in ops:
+                item_str = ""
+                if(op.otype == 'touch'):'''
+                    
