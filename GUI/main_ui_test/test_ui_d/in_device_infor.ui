@@ -102,6 +102,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>（后两行可以为空，默认对当前app进行测试）</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -117,6 +120,9 @@
            <width>639</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>（后两行可以为空，默认对当前app进行测试）</string>
          </property>
         </widget>
        </item>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1073</width>
-    <height>0</height>
+    <height>844</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -165,6 +165,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="resumeButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="minimumSize">
             <size>
              <width>250</width>
@@ -339,7 +342,7 @@
      <x>0</x>
      <y>0</y>
      <width>1073</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

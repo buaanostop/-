@@ -99,6 +99,8 @@ class Ui_In_dev_infor(object):
         self.reso_y.setText(_translate("In_dev_infor", "分辨率Y值："))
         self.p_name.setText(_translate("In_dev_infor", "应用的包名："))
         self.a_name.setText(_translate("In_dev_infor", "应用的活动名："))
+        self.packageNameValue.setPlaceholderText(_translate("In_dev_infor", "（后两行可以为空，默认对当前app进行测试）"))
+        self.PackageActivityName.setPlaceholderText(_translate("In_dev_infor", "（后两行可以为空，默认对当前app进行测试）"))
         self.finishInputButton.setText(_translate("In_dev_infor", "输入完毕"))
         self.exitButton.setText(_translate("In_dev_infor", "退出"))
         self.cleanButton.setText(_translate("In_dev_infor", "清屏"))

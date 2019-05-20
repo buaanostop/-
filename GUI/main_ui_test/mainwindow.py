@@ -5,6 +5,7 @@ sys.path.insert(1,new_path)
 import threading
 import time
 from Test_Ui_Functions import TestUiFunctionsClass as func
+from Test_Ui_Functions import rangeErrorException
 from ui_main import Ui_MainWindow
 from guide_ui import Ui_GuideWindow
 from test_ui_d.test_ui import Ui_TestWindow
@@ -13,7 +14,7 @@ from test_ui_d.add_test_ui import Ui_Add_test
 from PyQt5.QtWidgets import QApplication, QMainWindow,QMessageBox
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import wraps
-
+from datetime import datetime
 
 now_point_index = 1
 now_drag_index = 1
@@ -38,6 +39,7 @@ min_drag_interval_time = 0.1
 max_drag_interval_time = 99.9
 x_rate = 1024
 y_rate = 768
+begin_connect_time = None
 '''
     通过装饰器实现一个单例模式
     保证只有一个和窗体类功能类↓
@@ -57,6 +59,14 @@ def reset_test_window():
 class rangeErrorException(Exception):
     def __init__(self):
         pass
+class TimeWaitThread(QtCore.QThread):
+    test_window = None
+    def __init__(self,t,parent = None):
+        super(TimeWaitThread,self).__init__(parent)
+        self.finished.connect(t.wait_about)
+    def run(self):
+        self.sleep(7)
+ 
 
 @singleton
 class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
@@ -109,10 +119,21 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     max_y = 768
     connect_thread = None
     successfully_connect = None
+    time_counter_thread = None
+    #begin_connect_time = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_TestWindow.__init__(self)
         self.setupUi(self)
+        #self.queueList.itemChanged.connect(self.not_empty_set)
+    def closeEvent(self,e):
+        if(self.connectDeviceButton.text() == '连接中...'):
+            e.ignore()
+    def wait_about(self):
+        QMessageBox.about(self,'提示','连接时间过长，请检查您的环境配置和连接状态')
+        self.connectDeviceButton.setEnabled(True)
+        self.successfully_connect = None
+        self.connectDeviceButton.setText('重新连接')
     def set_rate(self,x,y):
         global x_rate
         x_rate = x
@@ -120,6 +141,14 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         y_rate = y
         self.max_x = x
         self.max_y = y
+    def not_empty_set(self):
+        if(self.queueList.count() == 0):
+            self.saveButton.setEnabled(False)
+            self.loadButton.setEnabled(True)
+        else:
+            self.loadButton.setEnabled(False)
+            self.saveButton.setEnabled(True)
+            self.startButton.setEnabled(True)
     def click_in_index_b(self):
         #print("点击 输入app参数 按钮")
         i_d_ui.show()
@@ -144,19 +173,23 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         t_ui.pauseButton.hide()
         t_ui.resumeButton.hide()
         t_ui.stopButton.hide()
-        t_ui.InputAssignmentButton.setEnabled(False)
+        #t_ui.InputAssignmentButton.setEnabled(True)
         
         t_ui.chooseTypeButton.setEnabled(False)
         '''
             if debug
         '''
-        t_ui.chooseTypeButton.setEnabled(True)
+        #t_ui.chooseTypeButton.setEnabled(True)
     def thread_waitingfor_connect(self):
         while(self.successfully_connect == None ):
             self.successfully_connect = functions_class.connect()
-            if(self.successfully_connect == True):
+            if(isinstance(self.successfully_connect,tuple)):
+                self.max_x = self.successfully_connect[0]
+                self.max_y = self.successfully_connect[1]
                 self.InputAssignmentButton.setEnabled(True)
                 self.connectDeviceButton.setEnabled(False)
+                self.loadButton.setEnabled(True)
+                self.connectDeviceButton.setText('已成功连接')
                 break
                 #self.connectDeviceButton.setText("重新连接")
             elif(self.successfully_connect == False):
@@ -164,6 +197,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
                 self.successfully_connect = None
                 self.connectDeviceButton.setText('重新连接')
                 break
+       
 
     '''点击连接设备按钮'''
     def click_connect_b(self):
@@ -171,24 +205,47 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
 
         self.connectDeviceButton.setText('连接中...')
         self.connectDeviceButton.setEnabled(False)
+
         self.connect_thread = threading.Thread(target = self.thread_waitingfor_connect)
         self.connect_thread.start()
 
+        self.time_counter_thread = TimeWaitThread(self)
+        self.time_counter_thread.start()
         #elf.connectDeviceButton.setEnabled(()
 
 
     def click_load_b(self):
+        test_window = t_window()
         print("点击读档按钮")
+        functions_class.load()
+        if(test_window.queueList.count() == 0):
+            test_window.saveButton.setEnabled(False)
+            test_window.loadButton.setEnabled(True)
+        else:
+            test_window.loadButton.setEnabled(False)
+            test_window.saveButton.setEnabled(True)
+            test_window.startButton.setEnabled(True)
     def click_save_b(self):
         print("点击存档按钮")
+        functions_class.save()
     def click_start_b(self):
+        
         functions_class.start()
         print("点击开始按钮")
     def click_pause_b(self):
+        self.pauseButton.setEnabled(False)
+        functions_class.pause()
+        self.resumeButton.setEnabled(True)
+
         print("点击暂停按钮")
     def click_resume_b(self):
+        self.resumeButton.setEnabled(False)
+        functions_class.resume()
+        self.pauseButton.setEnabled(True)
+
         print("点击继续按钮")
     def click_stop_b(self):
+        functions_class.pause()
         print("点击终止按钮")
 @singleton
 class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
@@ -197,34 +254,40 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
         QtWidgets.QDialog.__init__(self)
         Ui_In_dev_infor.__init__(self)
         self.setupUi(self)
-    
-
+        test_window = t_window()
+        self.xPositionValue.setPlaceholderText('手机分辨率:'+ str(test_window.max_x))
+        self.yPositionValue.setPlaceholderText('手机分辨率:'+ str(test_window.max_y))
     def click_fin_b(self):
         try:
             x_rate_value = int(self.xPositionValue.text())
             y_rate_value = int(self.yPositionValue.text())
+            if not functions_class.judge_input_ration(x_rate_value,y_rate_value):
+                raise rangeErrorException
+            functions_class.set_monkey_ration(x_rate_value,y_rate_value)
             test_window = t_window()
             test_window.set_rate(x_rate_value,y_rate_value)
+            if(self.packageNameValue.text() != '' and self.PackageActivityName.text() != ''):
+                functions_class.open_app(self.packageNameValue.text(),self.PackageActivityName.text())
             if(i_d_ui.has_finished == 0):
                 test_window.InputAssignmentButton.setText('重新输入')
                 test_window.chooseTypeButton.setEnabled(True)
 
             self.has_finished = 1
         except ValueError:
-            if(self.xPositionValue.text() == '' or self.yPositionValue.text() == ''):
-                functions_class.error_message_prompt(self,empty_error_code)
-            else:
-                functions_class.error_message_prompt(self,number_error_code)
+            functions_class.error_message_prompt(self,empty_error_code)
         #reset_test_window()
-        test_window = t_window()
-        test_window.loadButton.setEnabled(True)
+        except rangeErrorException:
+            functions_class.error_message_prompt(self,functions_class.logic_error_code,"分辨率超出手机本身分辨率：")
+        '''test_window.loadButton.setEnabled(True)
         test_window.saveButton.setEnabled(True)
-        test_window.startButton.setEnabled(True)
+        test_window.startButton.setEnabled(True)'''
         self.close()
         #print("参数信息输入完毕")
 @singleton
 class add_test(QtWidgets.QDialog,Ui_Add_test):
-    points_list = []#初始化
+    points_list_touch =None#初始化
+    points_list_drag = None
+    
     def __init__(self):
 
         QtWidgets.QDialog.__init__(self)
@@ -233,12 +296,18 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
 
         self.setupUi(self)
         #self.currentQueueList.clear()
+        self.setFixedSize(self.width(),self.height())
         self.currentQueueList.setDragDropMode(self.currentQueueList.InternalMove)
         self.pointSelectComboBox.currentIndexChanged.connect(self.change_final_point_button_text)
+        self.dragSelectComboBox.currentIndexChanged.connect(self.change_multi_drag_comboxBox)
         self.currentQueueList.clear()
 
     def delete_current_row(self):
+        if(self.currentQueueList.count() == 0):
+            return
         row = a_t_ui.currentQueueList.currentRow()
+        if(row == -1):
+            return
         #index = self.currentQueueList.currentIndex()
         print("删除第"+str(row+1)+"条测试")
         functions_class.delete_from_queue(row + 1)
@@ -251,44 +320,13 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         如果已经是最后一个点 按钮文本变为"确定"
     '''
     def mul_touch_next_p(self):
-        '''global now_point_index #注意
-        if(now_point_index < int(a_t_ui.now_point_num.text())):
-            now_point_index = now_point_index + 1
-            text = "第"+str(now_point_index)+"点坐标:(X,Y)"
-            a_t_ui.m_touch_pos.setText(text)'''
-        try:
-            this_x = int(self.v_m_touch_pos_x.text())
-            this_y = int(self.v_m_touch_pos_y.text())
-            if(this_x > x_rate or this_y > y_rate):
-                raise rangeErrorException()
-            new_point = (this_x,this_y)
-            point_index = self.pointSelectComboBox.currentIndex() 
-            self.points_list[point_index] = new_point
-            current_point = self.pointSelectComboBox.currentText()
-            if('（未设置）' in current_point):
-                current_point_text = current_point.replace('（未设置）',str(new_point))
-                self.pointSelectComboBox.setItemText(point_index,current_point_text)
-            else:
-                current_point_text = '第%d点'%(point_index+1) + str(new_point)
-                self.pointSelectComboBox.setItemText(point_index,current_point_text)
-            if(point_index != self.pointSelectComboBox.count() - 1):
-                self.pointSelectComboBox.setCurrentIndex(point_index + 1)
-            self.v_m_touch_pos_x.clear()
-            self.v_m_touch_pos_y.clear()
-        except ValueError:
-            if(self.v_m_touch_pos_x.text() == '' or self.v_m_touch_pos_y.text() == ''):
-                functions_class.error_message_prompt(self,empty_error_code)
-            else:
-                functions_class.error_message_prompt(self,number_error_code)
-        except rangeErrorException:
-            functions_class.error_message_prompt(self,range_error_code)
-
-        '''
-            多点测试的确定按钮
-            按下以后 按钮文本变为“修改”
-            同时左侧的文本框不可选定 直到再按下按钮
-            设置点个数以后 下一行的comboBox里出现与个数相同的item 同时右边的按钮变为enbale
-        '''
+        functions_class.mul_touch_next_p()
+    '''
+        多点测试的确定按钮
+        按下以后 按钮文本变为“修改”
+        同时左侧的文本框不可选定 直到再按下按钮
+        设置点个数以后 下一行的comboBox里出现与个数相同的item 同时右边的按钮变为enbale
+    '''
     def confirm_m_touch_p_num(self):
         #a_t_ui.now_point_num.setText(a_t_ui.v_m_touch_point_num.text())
         if(self.confirmMultiTouchTestButton.text() == '确定'):
@@ -297,22 +335,30 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             self.confirmMultiTouchTestButton.setText('修改')
             self.pointSelectComboBox.clear()
             point_num = int(self.v_m_touch_point_num.text())
-            self.points_list = [(-1,-1) for p in range(point_num)]
+            self.points_list_touch = [(-1,-1) for p in range(point_num)]
             for i in range(1,point_num + 1):
                 self.pointSelectComboBox.addItem("第%d点（未设置）"%i)
         else:
             self.confirmMultiTouchTestButton.setText('确定')
             self.v_m_touch_point_num.setEnabled(True)
     def reset_point_no(self):
-        '''global now_point_index
-        a_t_ui.m_touch_pos.setText("第1点坐标:(X,Y)")
-        now_point_index = 1
-        print("清除参数")'''
-        pass
+        self.pointSelectComboBox.clear()
+        self.pointSelectComboBox.addItem('未确认点的个数')
+        self.confirmMultiTouchTestButton.setText('确定')
+        self.multiTouchNextPointButton.setText('确定并输入下一个点')
+        self.v_m_touch_point_num.setEnabled(True)
+        self.multiTouchNextPointButton.setEnabled(False)
+
     #多端滑动测试
 
-
+    '''多点点击测试选项卡下的
+        确定并加输入下一点 按钮
+        先读取当前输入框内的内容
+        按下按钮后 左边comboBox变为下一个点 然后继续输入
+        如果已经是最后一个点 按钮文本变为"确定"
+    '''
     def mul_drag_next_l(self):
+
         '''global now_drag_index #注意
         if(now_drag_index < int(a_t_ui.now_drag_num.text())):
             now_drag_index = now_drag_index + 1
@@ -320,14 +366,33 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             text2 = "第" + str(now_drag_index) + "次滑动终点坐标:(X,Y)"
             a_t_ui.m_drag_start_p.setText(text1)
             a_t_ui.m_drag_end_p.setText(text2)'''
-        pass
+        functions_class.mul_drag_next_P()
     def change_final_point_button_text(self):
-        if(self.pointSelectComboBox.count() == 0):
+        if(self.pointSelectComboBox.count() == 0 or self.pointSelectComboBox.currentText == '未确认点的个数'):
             return
         if(self.pointSelectComboBox.currentIndex() == self.pointSelectComboBox.count() - 1):
             self.multiTouchNextPointButton.setText('确定')
         else:
             self.multiTouchNextPointButton.setText('确定并输入下一个点')
+    def change_multi_drag_comboxBox(self):
+        if(self.dragSelectComboBox.count() == 0 or self.dragSelectComboBox.currentText() == '待输入'):
+            return
+        if(not '待输入' in self.dragSelectComboBox.currentText()):
+            points = self.points_list_drag
+            index = self.dragSelectComboBox.currentIndex()
+            self.v_m_drag_start_p_x.setText(str(points[index][0][0]))
+            self.v_m_drag_start_p_y.setText(str(points[index][0][1]))
+            self.v_m_drag_end_p_x.setText(str(points[index][1][0]))
+            self.v_m_drag_end_p_y.setText(str(points[index][1][1]))
+        else:
+            self.v_m_drag_start_p_x.clear()
+            self.v_m_drag_start_p_y.clear()
+            self.v_m_drag_end_p_x.clear()
+            self.v_m_drag_end_p_y.clear()
+        if(self.dragSelectComboBox.currentIndex() == self.dragSelectComboBox.count() - 1):
+            self.multiDragNextButton.setText('确定')
+        else:
+            self.multiDragNextButton.setText('确定并输入下次滑动')
     '''
         点击多线滑动的确定按钮
         和多点点击类似
@@ -341,18 +406,21 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             self.confirmMultiDragButton.setText('修改')
             self.dragSelectComboBox.clear()
             drag_num = int(self.v_m_drag_num.text())
-            self.points_list = [((-1,-1),(-1,-1)) for p in range(drag_num)]
+            self.points_list_drag = [((-1,-1),(-1,-1)) for p in range(drag_num)]
             for i in range(1,drag_num + 1):
-                self.dragSelectComboBox.addItem("第%d点"%i)
+                self.dragSelectComboBox.addItem("待输入滑动%d"%i)
+            self.multiDragNextButton.setEnabled(True)
         else:
             self.confirmMultiDragButton.setText('确定')
             self.v_m_drag_num.setEnabled(True)
-
     def reset_drag_no(self):
-        global now_drag_index
-        a_t_ui.m_drag_start_p.setText("第1次滑动起点坐标:(X,Y)")
-        a_t_ui.m_drag_end_p.setText("第1次滑动终点坐标:(X,Y)")
-        now_drag_index = 1
+        self.dragSelectComboBox.clear()
+        self.dragSelectComboBox.addItem('待输入')
+        self.multiDragNextButton.setText('确定并输入下一个点')
+
+        self.confirmMultiDragButton.setText('确定')
+        self.v_m_drag_num.setEnabled(True)
+        self.multiDragNextButton.setEnabled(False)
 
     def add_new_test_b(self):
         if(a_t_ui.tabWidget.currentIndex() == 0):
@@ -371,13 +439,16 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             functions_class.drag_test()
             #print("加入单线滑动测试")
         elif (a_t_ui.tabWidget.currentIndex() == 5):
-            print("加入多线滑动测试")
+            functions_class.multi_drag_test()
+            #print("加入多线滑动测试")
         elif (a_t_ui.tabWidget.currentIndex() == 6):
             functions_class.random_drag_test()
             #print("加入随机滑动测试")
         elif (a_t_ui.tabWidget.currentIndex() == 7):
             functions_class.long_touch_drag_test()
             #print("加入长按滑动测试")
+        elif(self.tabWidget.currentIndex() == 8):
+            functions_class.all_random_test()
     def update_queue_lists(self):
         test_window = t_window()
         queue_items = [self.currentQueueList.item(i).text() for i in range(self.currentQueueList.count())]
@@ -385,8 +456,16 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         test_window.tabWidget.setCurrentIndex(0)
         test_window.queueList.addItems(queue_items)
     def fin_queue_edit(self):
-        print("队列输入完毕")
+        test_window = t_window()
+        #print("队列输入完毕")
         self.update_queue_lists()
+        if(test_window.queueList.count() == 0):
+            test_window.saveButton.setEnabled(False)
+            test_window.loadButton.setEnabled(True)
+        else:
+            test_window.loadButton.setEnabled(False)
+            test_window.saveButton.setEnabled(True)
+            test_window.startButton.setEnabled(True)
         self.currentQueueList.clear()
         a_t_ui.close()
 

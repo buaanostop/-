@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_TestWindow(object):
     def setupUi(self, TestWindow):
         TestWindow.setObjectName("TestWindow")
-        TestWindow.resize(1073, 816)
+        TestWindow.resize(1073, 844)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -46,6 +46,7 @@ class Ui_TestWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.loadButton = QtWidgets.QPushButton(self.layoutWidget)
+        self.loadButton.setEnabled(False)
         self.loadButton.setMinimumSize(QtCore.QSize(250, 40))
         self.loadButton.setMaximumSize(QtCore.QSize(250, 40))
         self.loadButton.setObjectName("loadButton")
@@ -71,6 +72,7 @@ class Ui_TestWindow(object):
         self.pauseButton.setObjectName("pauseButton")
         self.p_r_s.addWidget(self.pauseButton)
         self.resumeButton = QtWidgets.QPushButton(self.layoutWidget)
+        self.resumeButton.setEnabled(False)
         self.resumeButton.setMinimumSize(QtCore.QSize(250, 40))
         self.resumeButton.setMaximumSize(QtCore.QSize(250, 40))
         self.resumeButton.setObjectName("resumeButton")
@@ -127,7 +129,7 @@ class Ui_TestWindow(object):
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
         TestWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(TestWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1073, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1073, 23))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")

@@ -143,7 +143,7 @@ drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0)
             滑动间隔时间，默认为1秒
 
 ###多位置滑动
-multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0)
+t'r(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0)
     参数
     ---------------
     pointlist : ((startx1,starty1,endx1,endy1),(startx2,starty2,endx2,endy2)...),均为int

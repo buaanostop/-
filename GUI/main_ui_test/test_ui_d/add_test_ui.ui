@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>681</width>
+    <width>678</width>
     <height>663</height>
    </rect>
   </property>
@@ -24,8 +24,14 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>0</width>
-     <height>30</height>
+     <width>681</width>
+     <height>351</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>681</width>
+     <height>351</height>
     </size>
    </property>
    <property name="font">
@@ -856,7 +862,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QLineEdit" name="v_m_drag_start_p_y">
+       <widget class="QLineEdit" name="v_m_drag_start_p_x">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -873,6 +879,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="placeholderText">
+         <string>(左侧选择已输入的点)</string>
         </property>
        </widget>
       </item>
@@ -1005,27 +1014,6 @@
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_9">
-      <item row="0" column="0">
-       <widget class="QLineEdit" name="v_m_drag_start_p_x">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QLineEdit" name="v_m_drag_end_p_y">
         <property name="minimumSize">
@@ -1047,6 +1035,30 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="v_m_drag_start_p_y">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string>（可以编辑对应信息）</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
     <widget class="QWidget" name="">
@@ -1054,7 +1066,7 @@
       <rect>
        <x>90</x>
        <y>120</y>
-       <width>110</width>
+       <width>138</width>
        <height>141</height>
       </rect>
      </property>
@@ -1120,7 +1132,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>437</width>
+       <width>496</width>
        <height>32</height>
       </rect>
      </property>
@@ -1256,7 +1268,7 @@
         </property>
         <item>
          <property name="text">
-          <string>待输入滑动1</string>
+          <string>待输入</string>
          </property>
         </item>
        </widget>
@@ -1845,8 +1857,8 @@
   <tabstop>v_drag_i_time</tabstop>
   <tabstop>v_m_drag_num</tabstop>
   <tabstop>confirmMultiDragButton</tabstop>
-  <tabstop>v_m_drag_start_p_x</tabstop>
   <tabstop>v_m_drag_start_p_y</tabstop>
+  <tabstop>v_m_drag_start_p_x</tabstop>
   <tabstop>v_m_drag_end_p_x</tabstop>
   <tabstop>v_m_drag_end_p_y</tabstop>
   <tabstop>v_m_drag_loop_num</tabstop>
@@ -2300,22 +2312,6 @@
    <sender>clearAssignmentButton</sender>
    <signal>clicked()</signal>
    <receiver>v_m_drag_start_p_x</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>449</x>
-     <y>378</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>445</x>
-     <y>101</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>clearAssignmentButton</sender>
-   <signal>clicked()</signal>
-   <receiver>v_m_drag_start_p_y</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2853,6 +2849,22 @@
     <hint type="destinationlabel">
      <x>149</x>
      <y>633</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearAssignmentButton</sender>
+   <signal>clicked()</signal>
+   <receiver>v_m_drag_start_p_y</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>449</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>101</y>
     </hint>
    </hints>
   </connection>

@@ -29,8 +29,8 @@ class do_run_monkey(threading.Thread):
         threading.Thread.__init__(self)
         self.monkeypath = monkeypath
     def run(self):
-#        os.popen("monkeyrunner "+self.monkeypath)
-        os.system("monkeyrunner "+self.monkeypath)
+        os.popen("monkeyrunner "+self.monkeypath)
+#        os.system("monkeyrunner "+self.monkeypath)
             
 def do_connect():
     data = bytes("connect:0:0:0:0:1.0:"+shot_path.replace(':','&'),encoding="utf8")
@@ -48,7 +48,7 @@ def do_connect():
         ratio_x, ratio_y = data.split('x')
         resolution_ratio = (ratio_x, ratio_y)
         print("connect to",resolution_ratio)
-        return True
+        return resolution_ratio
     
 def do_open_app(package_name, activity_name):
     data = bytes("open_app:0:0:0:0:1.0:"+package_name+'&'+activity_name,encoding="utf8")
