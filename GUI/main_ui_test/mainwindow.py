@@ -65,9 +65,15 @@ class TimeWaitThread(QtCore.QThread):
         super(TimeWaitThread,self).__init__(parent)
         self.finished.connect(t.wait_about)
     def run(self):
-        self.sleep(7)
+        self.sleep(10)
  
-
+class WaitMonkeyRunnerStart(QtCore.QThread):
+    test_window = None
+    def __init__(self,t,parent = None):
+        super(WaitMonkeyRunnerStart,self).__init__(parent)
+        self.finished.connect(t.wait_monkey)
+    def run(self):
+        self.sleep(4)
 @singleton
 class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
     #successfully_connect = 1
@@ -121,20 +127,30 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     connect_thread = None
     successfully_connect = None
     time_counter_thread = None
+    wait_monkey_thread = None
     #begin_connect_time = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_TestWindow.__init__(self)
         self.setupUi(self)
+        self.connectDeviceButton.setEnabled(False)
+        self.connectDeviceButton.setText('等待相关部件启动')
+        self.wait_monkey_thread = WaitMonkeyRunnerStart(self)
+        self.wait_monkey_thread.start()
         #self.queueList.itemChanged.connect(self.not_empty_set)
+    def wait_monkey(self):
+        self.connectDeviceButton.setEnabled(True)
+        self.connectDeviceButton.setText('连接设备')
     def closeEvent(self,e):
         if(self.connectDeviceButton.text() == '连接中...'):
             e.ignore()
     def wait_about(self):
-        QMessageBox.about(self,'提示','连接时间过长，请检查您的环境配置和连接状态')
-        self.connectDeviceButton.setEnabled(True)
-        self.successfully_connect = None
-        self.connectDeviceButton.setText('重新连接')
+        if(self.successfully_connect == None):
+            QMessageBox.about(self,'提示','连接时间过长，请检查您的环境配置和连接状态')
+            self.connectDeviceButton.setEnabled(True)
+            self.successfully_connect = None
+            self.connectDeviceButton.setText('重新连接')
+
     def set_rate(self,x,y):
         global x_rate
         x_rate = x
@@ -185,8 +201,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         while(self.successfully_connect == None ):
             self.successfully_connect = functions_class.connect()
             if(isinstance(self.successfully_connect,tuple)):
-                self.max_x = self.successfully_connect[0]
-                self.max_y = self.successfully_connect[1]
+                self.max_x = int(self.successfully_connect[0])
+                self.max_y = int(self.successfully_connect[1])
                 self.InputAssignmentButton.setEnabled(True)
                 self.connectDeviceButton.setEnabled(False)
                 self.loadButton.setEnabled(True)

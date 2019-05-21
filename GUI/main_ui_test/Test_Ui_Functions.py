@@ -5,7 +5,7 @@ import threading
 import os
 import _thread as thread
 import Monkey
-from NewModel import SimpleModel
+#from NewModel import SimpleModel
 from functools import wraps
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
@@ -56,7 +56,7 @@ class TestUiFunctionsClass(object):
     test_form = None
     exception_raw_name = path + '\\exception.txt'
     exception_name = path + '\\log\\exception_' + str(exception_count)+'.txt'
-    log_name = path + '\\test_ui_d\\log.txt'
+    log_name = path + '\\log.txt'
     log_lines = []
     log_timer = None
     bool_successful_read_log = 0
@@ -114,12 +114,12 @@ class TestUiFunctionsClass(object):
         thread.start_new(runMonkeyServer,(lock,))
     @disp_func_msg
     def connect(self):
-        self.add_text('waiting for connection',self.test_form.reportList)
+        self.add_text('waiting for connection\n',self.test_form.reportList)
         connect_successful = Monkey.connect()
-        if(connect_successful):
-            self.add_text('connection successful!',self.test_form.reportList)
+        if(connect_successful != False):
+            self.add_text('connection successful!\n',self.test_form.reportList)
         else:
-            self.add_text('fail to connect your device,please check that if your device connect to computer successfully',self.test_form.reportList)
+            self.add_text('fail to connect your device,please check that if your device connect to computer successfully\n',self.test_form.reportList)
         return connect_successful
     @disp_func_msg
     def pause(self):
@@ -138,8 +138,8 @@ class TestUiFunctionsClass(object):
         self.add_text('start!',self.test_form.reportList)
         self.log_timer = threading.Timer(1,self.log_monitor)
         self.log_timer.start()
-        self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
-        self.model_thread.start()
+        '''self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
+        self.model_thread.start()'''
         Monkey.start()
     
     def range_inside(self,**arg):
