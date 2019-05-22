@@ -5,7 +5,8 @@ import threading
 import os
 import _thread as thread
 import Monkey
-#from NewModel import SimpleModel
+from test_queue import test_thread
+from NewModel import SimpleModel
 from functools import wraps
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
@@ -55,11 +56,12 @@ class TestUiFunctionsClass(object):
     add_test_form = None
     test_form = None
     exception_raw_name = path + '\\exception.txt'
-    exception_name = path + '\\log\\exception_' + str(exception_count)+'.txt'
+    exception_name = ''
     log_name = path + '\\log.txt'
     log_lines = []
     log_timer = None
     bool_successful_read_log = 0
+    end_log_monitor = 0
     model_thread = None
     def __init__(self,test_form,add_test_form):
         #self.thread_start()
@@ -76,7 +78,10 @@ class TestUiFunctionsClass(object):
     def read_exception(self):
         while(1):
             try:
-                f_t = open('exception_' + str(self.exception_count) + '.txt')
+                new_e_path = self.path + '\\log\\'+ 'exception_' + str(self.exception_count) + '.txt'
+
+                #print(new_e_path)
+                f_t = open( new_e_path)
                 self.exception_count += 1
                 f_t.close()
             except IOError:
@@ -131,17 +136,23 @@ class TestUiFunctionsClass(object):
         Monkey.resume()
     @disp_func_msg
     def stop(self):
+        self.end_log_monitor = 1
         Monkey.stop()
     @disp_func_msg
     def start(self):
         picture_file = os.path.join(os.getcwd(), 'screenshot')
         self.add_text('start!',self.test_form.reportList)
-        self.log_timer = threading.Timer(1,self.log_monitor)
+        self.log_timer = threading.Timer(0.01,self.log_monitor)
         self.log_timer.start()
-        '''self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
-        self.model_thread.start()'''
+        self.model_thread = SimpleModel(picture_collection_ptest_threadath=picture_file, step_length=5, limit_range=100, time_interval=3)
+        self.model_thread.start()
+
+        '''self.test_thread = test_thread()
+        self.test_thread.start()'''
+        '''if debug'''
+        #self.read_exception()s
         Monkey.start()
-    
+
     def range_inside(self,**arg):
         if(arg.get('x',1) > self.test_form.max_x) :
             return False,'坐标x(' + str(arg['x']) +'):'
@@ -353,6 +364,8 @@ class TestUiFunctionsClass(object):
             self.error_message_prompt(self.add_test_form,self.empty_error_code,extra_msg)
         except rangeErrorException:
             self.error_message_prompt(self.add_test_form,self.logic_error_code,extra_msg)
+    def test_found_exception(self):
+        self.test_thread.found_exception = True
     def long_touch_drag_test(self):
         extra_msg = ""
         try:
@@ -383,14 +396,19 @@ class TestUiFunctionsClass(object):
         Monkey.change(src+1,dst+1)
     def delete_from_queue(self,index):
         Monkey.delete(index)
+    def after_found(self):
+        self.test_form.pauseButton.setEnabled(False)
+        self.test_form.resumeButton.setEnabled(False)
+        self.test_form.stopButton.setText('退出')
     def disp_report_information(self,nop,context):
         self.test_form.reportList.addItem(context)
     def log_monitor(self):
+        if(self.end_log_monitor == 1):
+            return
         log_name = self.log_name
         #read_log = self.read_log
         log_lines = self.log_lines
-        #file_log = self.file_log
-        #nonlocal bool_successful_read_log
+        self.exception_name = self.path + '\\log\\exception_' + str(self.exception_count)+'.txt'
         try:
             self.read_log = 1
             if(not self.bool_successful_read_log):
@@ -406,12 +424,18 @@ class TestUiFunctionsClass(object):
             #label_2.config(text = content)
             #file_log.close()
             try:
-                file_exception = open(self.exception_raw_name,'r')
+                #print(self.exception_raw_name)
+                if(not self.model_thread.q.empty()):
+                    if(self.model_thread.q.get() != 'found'):
+                        raise IOError
+                else:
+                    raise IOError
+                #file_exception = open(self.exception_raw_name,'r')
                 file_exception_log = open(self.exception_name,'a+')
                 lines_count = len(log_lines)
                 if(len(log_lines) == 0):
                     #print('no log file')
-                    self.log_timer = threading.Timer(0.5,self.log_monitor)
+                    self.log_timer = threading.Timer(0.01,self.log_monitor)
                     self.log_timer.start()
                     return
                 lines_to_be_written = []
@@ -421,17 +445,19 @@ class TestUiFunctionsClass(object):
                 file_exception_log.writelines(lines_to_be_written)
                 self.disp_report_information('end','\n出现异常！相关内容已经保存到log目录下' + self.exception_name + '\n测试已停止')
                 self.exception_count += 1
-                file_exception.close()
-                os.remove(self.path + '\\test_ui_d\\' + self.exception_raw_name)
+                #self.test_form.click_stop_b()
+                self.after_found()
                 self.stop()
                 self.file_log.close()
                 file_exception_log.close()
             except IOError:
-                self.log_timer = threading.Timer(0.5,self.log_monitor)
+                self.log_timer = threading.Timer(0.01,self.log_monitor)
                 self.log_timer.start()
         except IOError:
             if(self.read_log == 0):
                 self.disp_report_information('end','暂未读取到日志文件')
+                self.log_timer = threading.Timer(0.01, self.log_monitor)
+                self.log_timer.start()
 
     '''多点点击测试选项卡下的
         确定并加输入下一点 按钮
@@ -512,18 +538,24 @@ class TestUiFunctionsClass(object):
     def save(self):
         Monkey.save('only')
     def load(self):
-        item_list = Monkey.load('only')
-        if(item_list == False):
-            self.error_message_prompt(self.test_form,self)
-            return
-        else:
-            strs = self.operations_to_str(item_list)
-            self.test_form.queueList.addItems(strs)
+        try:
+            item_list = Monkey.load('only')
+            if(item_list == False):
+                self.error_message_prompt(self.test_form,4)
+                return
+            else:
+                strs = self.operations_to_str(item_list)
+                self.test_form.queueList.addItems(strs)
+        except:
+            self.error_message_prompt(self.test_form,4)
     def open_app(self,p,a):
         Monkey.open_app(p,a)
     def judge_input_ration(self,x,y):
+       #print(self.test_form.max_x)
         if(x > self.test_form.max_x or y > self.test_form.max_y):
             return False
+        else:
+            return True
     def operations_to_str(self,ops):  
         strs = []
         for op in ops:

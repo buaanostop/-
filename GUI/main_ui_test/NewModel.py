@@ -3,9 +3,12 @@ import numpy as np
 import os
 import threading
 import time
-
+import queue
 
 class SimpleModel(threading.Thread):
+    q = queue.Queue()
+    found_exception = False
+    quit_flag = 0
     def __init__(self, picture_collection_path, step_length, limit_range, time_interval):
         threading.Thread.__init__(self)
         self.picture_collection_path = picture_collection_path
@@ -28,8 +31,10 @@ class SimpleModel(threading.Thread):
             if self.quit_flag == 1:
                 break
         if(exception_order != -1):
-            print_exception(exception_order, self.picture_collection_path)
+            #print_exception(exception_order, self.picture_collection_path)
+            self.q.put('found')
             print('Model thread finish')
+            self.found_exception = True
 
 
 '''

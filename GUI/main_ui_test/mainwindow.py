@@ -66,14 +66,22 @@ class TimeWaitThread(QtCore.QThread):
         self.finished.connect(t.wait_about)
     def run(self):
         self.sleep(10)
- 
+class WaitConnect(QtCore.QThread):
+    def __init__(self, t, parent=None):
+        super(WaitConnect, self).__init__(parent)
+        self.t = t
+        self.finished.connect(t.after_connect)
+    def run(self):
+        self.t.successfully_connect = functions_class.connect()
+
+
 class WaitMonkeyRunnerStart(QtCore.QThread):
     test_window = None
     def __init__(self,t,parent = None):
         super(WaitMonkeyRunnerStart,self).__init__(parent)
         self.finished.connect(t.wait_monkey)
     def run(self):
-        self.sleep(4)
+        self.sleep(6)
 @singleton
 class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
     #successfully_connect = 1
@@ -128,6 +136,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     successfully_connect = None
     time_counter_thread = None
     wait_monkey_thread = None
+    rate_tuple = None
     #begin_connect_time = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -144,6 +153,20 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def closeEvent(self,e):
         if(self.connectDeviceButton.text() == '连接中...'):
             e.ignore()
+    def after_connect(self):
+        if (isinstance(self.successfully_connect, tuple)):
+            self.max_x = int(self.successfully_connect[0])
+            self.max_y = int(self.successfully_connect[1])
+            # self.rate_tuple = self.su
+            self.InputAssignmentButton.setEnabled(True)
+            self.connectDeviceButton.setEnabled(False)
+            self.loadButton.setEnabled(True)
+            self.connectDeviceButton.setText('已成功连接')
+            # self.connectDeviceButton.setText("重新连接")
+        elif (self.successfully_connect == False):
+            self.connectDeviceButton.setEnabled(True)
+            # self.successfully_connect = None
+            self.connectDeviceButton.setText('重新连接')
     def wait_about(self):
         if(self.successfully_connect == None):
             QMessageBox.about(self,'提示','连接时间过长，请检查您的环境配置和连接状态')
@@ -167,6 +190,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             self.saveButton.setEnabled(True)
             self.startButton.setEnabled(True)
     def click_in_index_b(self):
+        i_d_window = in_dev_infor()
+        i_d_window.xPositionValue.setPlaceholderText('手机分辨率:'+ str(self.max_x))
+        i_d_window.yPositionValue.setPlaceholderText('手机分辨率:'+ str(self.max_y))
         #print("点击 输入app参数 按钮")
         i_d_ui.show()
     def click_add_test(self):
@@ -196,13 +222,15 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         '''
             if debug
         '''
-        t_ui.chooseTypeButton.setEnabled(True)
+        #t_ui.chooseTypeButton.setEnabled(True)
     def thread_waitingfor_connect(self):
         while(self.successfully_connect == None ):
             self.successfully_connect = functions_class.connect()
             if(isinstance(self.successfully_connect,tuple)):
+                test_window = t_window()
                 self.max_x = int(self.successfully_connect[0])
                 self.max_y = int(self.successfully_connect[1])
+                #self.rate_tuple = self.su
                 self.InputAssignmentButton.setEnabled(True)
                 self.connectDeviceButton.setEnabled(False)
                 self.loadButton.setEnabled(True)
@@ -211,7 +239,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
                 #self.connectDeviceButton.setText("重新连接")
             elif(self.successfully_connect == False):
                 self.connectDeviceButton.setEnabled(True)
-                self.successfully_connect = None
+                #self.successfully_connect = None
                 self.connectDeviceButton.setText('重新连接')
                 break
        
@@ -223,11 +251,13 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.connectDeviceButton.setText('连接中...')
         self.connectDeviceButton.setEnabled(False)
 
-        self.connect_thread = threading.Thread(target = self.thread_waitingfor_connect)
+        '''self.connect_thread = threading.Thread(target = self.thread_waitingfor_connect)'''
+        self.connect_thread = WaitConnect(self)
         self.connect_thread.start()
 
         self.time_counter_thread = TimeWaitThread(self)
         self.time_counter_thread.start()
+
         #elf.connectDeviceButton.setEnabled(()
 
 
@@ -246,14 +276,14 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         print("点击存档按钮")
         functions_class.save()
     def click_start_b(self):
-        
+        self.chooseTypeButton.setEnabled((False))
         functions_class.start()
         print("点击开始按钮")
     def click_pause_b(self):
         self.pauseButton.setEnabled(False)
         functions_class.pause()
         self.resumeButton.setEnabled(True)
-
+        #functions_class.test_found_exception()
         print("点击暂停按钮")
     def click_resume_b(self):
         self.resumeButton.setEnabled(False)
@@ -262,7 +292,12 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
 
         print("点击继续按钮")
     def click_stop_b(self):
-        functions_class.pause()
+        if(self.stopButton.text() == '退出'):
+            main_window = mywindow()
+            main_window.close()
+            self.close()
+        self.chooseTypeButton.setEnabled((True))
+        functions_class.stop()
         print("点击终止按钮")
 @singleton
 class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
@@ -271,9 +306,6 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
         QtWidgets.QDialog.__init__(self)
         Ui_In_dev_infor.__init__(self)
         self.setupUi(self)
-        test_window = t_window()
-        self.xPositionValue.setPlaceholderText('手机分辨率:'+ str(test_window.max_x))
-        self.yPositionValue.setPlaceholderText('手机分辨率:'+ str(test_window.max_y))
     def click_fin_b(self):
         try:
             x_rate_value = int(self.xPositionValue.text())
@@ -440,6 +472,8 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         self.multiDragNextButton.setEnabled(False)
 
     def add_new_test_b(self):
+        test_w = t_window()
+        test_w.InputAssignmentButton.setEnabled(False)
         if(a_t_ui.tabWidget.currentIndex() == 0):
             #print("加入单点点击测试")
             functions_class.add_single_point_test()
