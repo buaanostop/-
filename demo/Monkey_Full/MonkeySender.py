@@ -71,7 +71,7 @@ class DoTest(threading.Thread):
         self.oplist = oplist
         self.resolution_ratio = resolution_ratio # 需要获取分辨率 （宽 ， 高）
 
-    def __writelog(data):
+    def __writelog(self, data):
         now = str(time.strftime("%Y-%m-%d %H:%M:%S "))
         logfile = open(log_path, 'a')
         logfile.write(now + data + '\n')
