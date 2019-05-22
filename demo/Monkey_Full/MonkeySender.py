@@ -23,6 +23,7 @@ resolution_ratio = (540,960)
 
 root_path = os.getcwd()
 shot_path = root_path + '\screenshot'
+log_path = 'log.txt'
 class do_run_monkey(threading.Thread):
     
     def __init__(self, monkeypath):
@@ -70,6 +71,12 @@ class DoTest(threading.Thread):
         self.oplist = oplist
         self.resolution_ratio = resolution_ratio # 需要获取分辨率 （宽 ， 高）
 
+    def __writelog(data):
+        now = str(time.strftime("%Y-%m-%d %H:%M:%S "))
+        logfile = open(log_path, 'a')
+        logfile.write(now + data + '\n')
+        logfile.close()
+        
     def __send(self, optype, x1=0, y1=0, x2=0, y2=0, hold_time=1.0, keyorstring=''):
         while not self.flag.isSet():
             if self.stopflag.isSet():
@@ -82,30 +89,44 @@ class DoTest(threading.Thread):
 
     def __touch(self, x1, y1):
         print("touch", x1, y1)
+        data = "touch ("+ str(x1) + "," + str(y1) + ")"
+        self.__writelog(data)
         self.__send('touch', x1, y1)
 
     def __down(self, x1, y1):
         print("down", x1, y1)
+        data = "touch down ("+ str(x1) + "," + str(y1) + ")"
+        self.__writelog(data)
         self.__send('down', x1, y1)
         
     def __move(self, x1, y1):
         print("move", x1, y1)
+        data = "move to ("+ str(x1) + "," + str(y1) + ")"
+        self.__writelog(data)
         self.__send('move', x1, y1)
 
     def __up(self, x1, y1):
         print("up", x1, y1)
+        data = "touch up ("+ str(x1) + "," + str(y1) + ")"
+        self.__writelog(data)
         self.__send('up', x1, y1)
         
     def __drag(self, x1, y1, x2, y2, drag_time):
         print("drag", x1, y1, x2, y2, drag_time)
+        data = "drag from ("+str(x1)+","+str(y1)+") to ("+str(x2)+","+str(y2)+")"
+        self.__writelog(data)
         self.__send('drag', x1, y1, x2, y2, drag_time)
 
     def __press(self, keyname):
         print("press", keyname)
+        data = "press " + keyname
+        self.__writelog(data)
         self.__send('press', 0, 0, 0, 0, 1.0, keyname)
 
     def __typestr(self, typestring):
         print("typestr", typestring)
+        data = "typestr " + typestring
+        self.__writelog(data)
         self.__send('typestr', 0, 0, 0, 0, 1.0, typestring)
         
     def __wait(self, wait_time):
