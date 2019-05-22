@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\test_ui_d\test_ui.ui'
+# Form implementation generated from reading ui file 'test_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -93,6 +93,7 @@ class Ui_TestWindow(object):
         self.testWinLabel = QtWidgets.QLabel(self.layoutWidget1)
         self.testWinLabel.setMinimumSize(QtCore.QSize(990, 200))
         self.testWinLabel.setMaximumSize(QtCore.QSize(990, 200))
+        self.testWinLabel.setText("")
         self.testWinLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.testWinLabel.setObjectName("testWinLabel")
         self.verticalLayout_3.addWidget(self.testWinLabel)
@@ -129,7 +130,7 @@ class Ui_TestWindow(object):
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
         TestWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(TestWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1073, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1073, 26))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -168,7 +169,7 @@ class Ui_TestWindow(object):
 
     def retranslateUi(self, TestWindow):
         _translate = QtCore.QCoreApplication.translate
-        TestWindow.setWindowTitle(_translate("TestWindow", "MainWindow"))
+        TestWindow.setWindowTitle(_translate("TestWindow", "测试窗口"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.queue_list), _translate("TestWindow", "测试队列"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.report_list), _translate("TestWindow", "测试报告"))
         self.loadButton.setText(_translate("TestWindow", "读取存档"))
@@ -177,7 +178,6 @@ class Ui_TestWindow(object):
         self.pauseButton.setText(_translate("TestWindow", "暂停测试"))
         self.resumeButton.setText(_translate("TestWindow", "继续测试"))
         self.stopButton.setText(_translate("TestWindow", "终止测试"))
-        self.testWinLabel.setText(_translate("TestWindow", "TextLabel"))
         self.connectDeviceButton.setText(_translate("TestWindow", "连接设备"))
         self.InputAssignmentButton.setText(_translate("TestWindow", "输入要测试的app参数"))
         self.chooseTypeButton.setText(_translate("TestWindow", "选择测试并加入测试队列"))

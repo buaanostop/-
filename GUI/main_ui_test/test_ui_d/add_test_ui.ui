@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>选择测试窗口</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -39,11 +39,14 @@
      <pointsize>9</pointsize>
     </font>
    </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>8</number>
    </property>
    <widget class="QWidget" name="single_point_touch_test">
     <attribute name="title">
@@ -66,10 +69,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>Y坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="touch_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;点击的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>点击的次数：</string>
          </property>
@@ -89,12 +98,15 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="touch_i_time">
          <property name="whatsThis">
-          <string>单位：秒</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次点击间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
           <string>两次点击间隔时间：</string>
@@ -141,8 +153,11 @@
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="touch_pos">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;点击点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
-          <string>点的坐标:(X,Y)</string>
+          <string>点的坐标:(X,Y):</string>
          </property>
         </widget>
        </item>
@@ -159,6 +174,9 @@
       <layout class="QGridLayout" name="single_point_press_test">
        <item row="2" column="0">
         <widget class="QLabel" name="press_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;长按的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>长按的次数：</string>
          </property>
@@ -178,6 +196,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>Y坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="0" column="1">
@@ -193,6 +214,9 @@
            <width>16777215</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
          </property>
         </widget>
        </item>
@@ -217,8 +241,11 @@
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="press_pos">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;长按点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
-          <string>点的坐标:(X,Y)</string>
+          <string>点的坐标:(X,Y)(必填)</string>
          </property>
         </widget>
        </item>
@@ -243,6 +270,9 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="press_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;长按持续时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>长按持续时间</string>
          </property>
@@ -270,7 +300,7 @@
        <item row="3" column="0">
         <widget class="QLabel" name="press_i_time">
          <property name="whatsThis">
-          <string>单位：秒</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次长按间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
           <string>两次长按间隔时间：</string>
@@ -307,7 +337,7 @@
       </size>
      </property>
      <property name="placeholderText">
-      <string/>
+      <string>X坐标(必填)</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="v_m_touch_pos_y">
@@ -330,6 +360,9 @@
        <width>16777215</width>
        <height>30</height>
       </size>
+     </property>
+     <property name="placeholderText">
+      <string>X坐标(必填)</string>
      </property>
     </widget>
     <widget class="QPushButton" name="multiTouchNextPointButton">
@@ -373,7 +406,7 @@
       <item>
        <widget class="QLabel" name="m_touch_point_num">
         <property name="whatsThis">
-         <string>修改个数将会清空之前输入的点的信息</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;多次点击测试终点击点的个数，调整个数之后必须点击确定，以确定个数。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>点击点的个数：</string>
@@ -458,7 +491,7 @@
      </property>
      <item>
       <property name="text">
-       <string>未确认点的个数</string>
+       <string>未确认点的个数(必填)</string>
       </property>
      </item>
     </widget>
@@ -477,6 +510,9 @@
       </property>
       <item row="0" column="0">
        <widget class="QLabel" name="m_touch_i_time">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次点击间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
          <string>两次点击间隔时间：</string>
         </property>
@@ -503,6 +539,9 @@
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="m_touch_loop_num">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;执行循环的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
          <string>循环的遍数：</string>
         </property>
@@ -529,6 +568,9 @@
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="m_touch_loop_i_time">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次循环间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
          <string>循环间隔时间：</string>
         </property>
@@ -565,6 +607,9 @@
       <layout class="QGridLayout" name="random_touch_test">
        <item row="1" column="0">
         <widget class="QLabel" name="r_touch_p2">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;范围顶点2的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>随机范围顶点2</string>
          </property>
@@ -572,6 +617,9 @@
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="r_touch_p1">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;范围顶点1的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>随机范围顶点1</string>
          </property>
@@ -636,6 +684,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="r_touch_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;点击的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>点击次数：</string>
          </property>
@@ -659,6 +710,9 @@
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="r_touch_i_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次点击间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>两次点击间隔时间：</string>
          </property>
@@ -727,10 +781,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>Y坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="drag_p1">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;起点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>起点坐标：(X,Y)</string>
          </property>
@@ -750,6 +810,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="0" column="2">
@@ -766,10 +829,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>Y坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="drag_i_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次滑动间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>两次滑动间隔时间：</string>
          </property>
@@ -789,10 +858,19 @@
            <height>30</height>
           </size>
          </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="drag_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>滑动次数：</string>
          </property>
@@ -819,8 +897,11 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="drag_p2">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;终点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
-          <string>终点2坐标：(X,Y)</string>
+          <string>终点坐标：(X,Y)</string>
          </property>
         </widget>
        </item>
@@ -851,13 +932,13 @@
     <attribute name="title">
      <string>多线滑动测试</string>
     </attribute>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>220</x>
        <y>50</y>
-       <width>135</width>
-       <height>212</height>
+       <width>162</width>
+       <height>217</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
@@ -865,7 +946,7 @@
        <widget class="QLineEdit" name="v_m_drag_start_p_x">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>160</width>
           <height>30</height>
          </size>
         </property>
@@ -903,6 +984,12 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>X坐标(必填)(上同)</string>
         </property>
        </widget>
       </item>
@@ -1004,17 +1091,17 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>360</x>
+       <x>390</x>
        <y>50</y>
-       <width>135</width>
-       <height>68</height>
+       <width>162</width>
+       <height>69</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_9">
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QLineEdit" name="v_m_drag_end_p_y">
         <property name="minimumSize">
          <size>
@@ -1033,13 +1120,16 @@
           <pointsize>9</pointsize>
          </font>
         </property>
+        <property name="placeholderText">
+         <string>Y坐标(必填)(上同)</string>
+        </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="1" column="0">
        <widget class="QLineEdit" name="v_m_drag_start_p_y">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>160</width>
           <height>30</height>
          </size>
         </property>
@@ -1061,25 +1151,43 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>120</y>
        <width>138</width>
        <height>141</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_10">
-      <item row="0" column="0">
-       <widget class="QLabel" name="m_drag_loop_num">
+      <item row="3" column="0">
+       <widget class="QLabel" name="m_drag_trip_i_time">
         <property name="font">
          <font>
           <pointsize>9</pointsize>
          </font>
         </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;该输入框设置的是遍与遍之间的滑动间隔，即一遍的n次滑动结束以后，直到下一个n次滑动开始的间隔。针对一个点的点击测试。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
-         <string>滑动循环的遍数：</string>
+         <string>两遍滑动间隔时间：</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="m_drag_time">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;每次滑动时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>每次滑动持续时间：</string>
         </property>
        </widget>
       </item>
@@ -1091,48 +1199,36 @@
          </font>
         </property>
         <property name="whatsThis">
-         <string>一遍内有1到9次滑动，当滑动次数大于1时，该输入框设置的是这几次的间隔</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次滑动间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>两次滑动间隔时间：</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="m_drag_time">
-        <property name="font">
-         <font>
-          <pointsize>9</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>每次滑动持续时间：</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="m_drag_trip_i_time">
+      <item row="0" column="0">
+       <widget class="QLabel" name="m_drag_loop_num">
         <property name="font">
          <font>
           <pointsize>9</pointsize>
          </font>
         </property>
         <property name="whatsThis">
-         <string>该输入框设置的是遍与遍之间的滑动间隔，即一遍的n次滑动结束以后，直到下一个n次滑动开始的间隔</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动循环的遍数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>两遍滑动间隔时间：</string>
+         <string>滑动循环的遍数：</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>496</width>
+       <width>516</width>
        <height>32</height>
       </rect>
      </property>
@@ -1143,6 +1239,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;一遍内滑动的次数。取值范围为&amp;gt;=1的整数。调整数字后必须点击确定按钮。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>一遍内滑动的次数：                </string>
@@ -1211,8 +1310,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>510</x>
-       <y>87</y>
+       <x>560</x>
+       <y>90</y>
        <width>116</width>
        <height>30</height>
       </rect>
@@ -1235,15 +1334,15 @@
       </font>
      </property>
      <property name="text">
-      <string>确认并输入下次滑动</string>
+      <string>确认并输入下个</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>11</x>
        <y>50</y>
-       <width>191</width>
+       <width>192</width>
        <height>61</height>
       </rect>
      </property>
@@ -1280,6 +1379,9 @@
           <pointsize>9</pointsize>
          </font>
         </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;起点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
          <string>起点坐标:(X,Y)</string>
         </property>
@@ -1291,6 +1393,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;终点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>终点坐标:(X,Y)</string>
@@ -1328,6 +1433,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="r_drag_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>滑动次数：</string>
          </property>
@@ -1355,7 +1463,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="randomDragLeftDownPoint">
          <property name="whatsThis">
-          <string>随机范围是一个矩形，这是这个矩形左下角点的坐标，输入(x,y)形式</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;随机范围是一个矩形，这是这个矩形左下角点的坐标，输入(X,Y)形式。针对一个点的点击测试。点击点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
           <string>随机范围顶点1</string>
@@ -1364,6 +1472,9 @@
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="r_drag_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>滑动时间：</string>
          </property>
@@ -1447,6 +1558,9 @@
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="r_drag_i_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次滑动间隔时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>两次滑动间隔时间：</string>
          </property>
@@ -1455,7 +1569,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="randomDragRightUpPoint">
          <property name="whatsThis">
-          <string>随机范围是一个矩形，这是这个矩形右下角点的坐标，输入(x,y)形式</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;随机范围是一个矩形，这是这个矩形右下角点的坐标，输入(X,Y)形式。针对一个点的点击测试。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
           <string>随机范围顶点2</string>
@@ -1494,6 +1608,9 @@
       <layout class="QGridLayout" name="press_drag_test">
        <item row="5" column="0">
         <widget class="QLabel" name="press_drag_i_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;两次动作间隔时间。一次按住加滑动算一个动作，两次动作的间隔。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>两次动作间隔时间：</string>
          </property>
@@ -1501,6 +1618,9 @@
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="press_drag_d_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动持续的时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>滑动时间：</string>
          </property>
@@ -1508,6 +1628,9 @@
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="press_drag_p_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;长按持续的时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>长按时间：</string>
          </property>
@@ -1560,6 +1683,9 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>Y坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -1569,6 +1695,9 @@
            <width>0</width>
            <height>30</height>
           </size>
+         </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
          </property>
         </widget>
        </item>
@@ -1580,10 +1709,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>Y坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="press_drag_start_p">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按住点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>按住点的坐标：(X,Y)</string>
          </property>
@@ -1604,6 +1739,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="press_drag_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;长按滑动的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>长按滑动次数：</string>
          </property>
@@ -1617,10 +1755,16 @@
            <height>30</height>
           </size>
          </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="press_drag_end_p">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;终点的坐标(X,Y)。X的取值范围为(0,分辨率X)，Y的取值范围为(0,分辨率Y)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="text">
           <string>终点坐标：(X,Y)</string>
          </property>
@@ -1650,6 +1794,9 @@
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;随机产生前面各种类型的测试，单位为个。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>随机测试项个数：</string>
@@ -1857,7 +2004,6 @@
   <tabstop>v_drag_i_time</tabstop>
   <tabstop>v_m_drag_num</tabstop>
   <tabstop>confirmMultiDragButton</tabstop>
-  <tabstop>v_m_drag_start_p_y</tabstop>
   <tabstop>v_m_drag_start_p_x</tabstop>
   <tabstop>v_m_drag_end_p_x</tabstop>
   <tabstop>v_m_drag_end_p_y</tabstop>

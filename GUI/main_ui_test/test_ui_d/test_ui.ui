@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>测试窗口</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">
@@ -235,7 +235,7 @@
         </size>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -342,7 +342,7 @@
      <x>0</x>
      <y>0</y>
      <width>1073</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
