@@ -18,9 +18,9 @@ class ScreenShot(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.device = None
-        self.count = 0
+        self.count = 1
         self.path = None
-        self.logpath = None
+        #self.logpath = None
         self.flag = threading.Event() # 运行标志
         self.flag.clear()
     def connect(self, device):
@@ -28,7 +28,7 @@ class ScreenShot(threading.Thread):
         
     def addpath(self, path):
         self.path = path + '/shot'
-        self.logpath = path + '/log_new.txt'
+        #self.logpath = path + '/log_new.txt'
 
     def pause(self):
         self.flag.clear()
@@ -47,13 +47,13 @@ class ScreenShot(threading.Thread):
                 filename = self.path + str(self.count) + '.png'
                 result.writeToFile(filename, 'png')
 
-                logfile = open(self.logpath, 'a')
-                logfile.write('shot'+str(self.count)+'.png '+str(shottime) + '\n')
-                logfile.close()
+                #logfile = open(self.logpath, 'a')
+                #logfile.write('shot'+str(self.count)+'.png '+str(shottime) + '\n')
+                #logfile.close()
                 self.count += 1
             except:
                 traceback.print_exc()
-                os.system("pause")
+                #os.system("pause")
             
 def __connect():
     global device
@@ -141,7 +141,8 @@ try:
             (package_name, activity_name) = keyorstring.split('&')
             __open_app(package_name, activity_name)
 
-        shot.resume()
+        else:
+            shot.resume()
         
         if optype == "touch":
             __touch(x1, y1)
@@ -166,5 +167,5 @@ try:
             print(optype,x1,y1,x2,y2,hold_time,keyorstring)
 except:
     traceback.print_exc()
-    os.system("pause")
+    #os.system("pause")
         

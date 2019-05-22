@@ -50,8 +50,8 @@ else:
 logfile = open(logpath, 'w')
 logfile.close()
 ##清空screenshot文件夹Log文件
-log_new_file = open(log_new_path, 'w')
-log_new_file.close()
+#log_new_file = open(log_new_path, 'w') #不要screenshot的log文件
+#log_new_file.close()
 
 ##启动MonkeyServer
 thread_monkey = do_run_monkey(monkeypath)
@@ -82,8 +82,8 @@ def connect():
     """连接设备
     返回值
     ----------
-    bool : True 连接成功
-            False 连接失败
+    Tuple : (x,y) 连接成功 返回分辨率
+    bool :  False 连接失败
     """
     __writelog(__now() + "connect...")
     return do_connect()

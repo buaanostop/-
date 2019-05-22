@@ -48,7 +48,7 @@ def do_connect():
         ratio_x, ratio_y = data.split('x')
         resolution_ratio = (ratio_x, ratio_y)
         print("connect to",resolution_ratio)
-        return True
+        return resolution_ratio
     
 def do_open_app(package_name, activity_name):
     data = bytes("open_app:0:0:0:0:1.0:"+package_name+'&'+activity_name,encoding="utf8")
