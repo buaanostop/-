@@ -347,10 +347,14 @@ class DoTest(threading.Thread):
     def stop(self):
         self.flag.clear()
         self.stopflag.set()
+
+    def __clearshot(self):
+        self.__send('clearshot', 0, 0, 0, 0, 0, 0)
         
     def run(self):
         self.flag.set()
         self.stopflag.clear()
+        self.__clearshot()
         for op in self.oplist:
             if self.stopflag.isSet():
                 break
