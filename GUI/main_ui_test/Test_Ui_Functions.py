@@ -137,15 +137,19 @@ class TestUiFunctionsClass(object):
     @disp_func_msg
     def stop(self):
         self.end_log_monitor = 1
+        self.model_thread.quit_flag = 1
         Monkey.stop()
     @disp_func_msg
     def start(self):
         picture_file = os.path.join(os.getcwd(), 'screenshot')
         self.add_text('start!',self.test_form.reportList)
+
+        self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
+        self.model_thread.start()
+
         self.log_timer = threading.Timer(0.01,self.log_monitor)
         self.log_timer.start()
-        self.model_thread = SimpleModel(picture_collection_ptest_threadath=picture_file, step_length=5, limit_range=100, time_interval=3)
-        self.model_thread.start()
+
 
         '''self.test_thread = test_thread()
         self.test_thread.start()'''
@@ -425,11 +429,13 @@ class TestUiFunctionsClass(object):
             #file_log.close()
             try:
                 #print(self.exception_raw_name)
-                if(not self.model_thread.q.empty()):
-                    if(self.model_thread.q.get() != 'found'):
-                        raise IOError
-                else:
+                if(self.model_thread.q.empty()):
                     raise IOError
+                else:
+                    print(self.model_thread.q.get())
+                #if(self.model_thread.q.get() != 'found'):
+                   # raise IOError
+
                 #file_exception = open(self.exception_raw_name,'r')
                 file_exception_log = open(self.exception_name,'a+')
                 lines_count = len(log_lines)

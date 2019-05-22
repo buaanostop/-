@@ -1,0 +1,326 @@
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 5
+this order is: 1
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 20511.21161706446
+the picture_num is 6
+this order is: 2
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png
+the distance is 0.0
+this order is: 3
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png
+the distance is 0.0
+this order is: 4
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png
+the distance is 0.0
+this order is: 5
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png
+the distance is 0.0
+this order is: 6
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot6.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 5
+this order is: 1
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 2
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 3
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 4
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 5
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 4
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 4
+the picture_num is 5
+this order is: 1
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 5
+this order is: 1
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 2
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 3
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 4
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 5
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 3
+the picture_num is 3
+the picture_num is 4
+the picture_num is 5
+this order is: 1
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 2
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 3
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 4
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 5
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+the picture_num is 0
+the picture_num is 1
+the picture_num is 2
+the picture_num is 2
+the picture_num is 3
+the picture_num is 4
+the picture_num is 5
+this order is: 1
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 2
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 3
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 4
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png
+the distance is 0.0
+this order is: 5
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot1.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot2.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot3.png
+the distance is 0.0
+pictures name are C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot5.png C:\Users\Lenovo\Desktop\main_ui_test\screenshot\shot4.png
+the distance is 0.0

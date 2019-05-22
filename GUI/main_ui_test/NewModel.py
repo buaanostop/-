@@ -27,14 +27,16 @@ class SimpleModel(threading.Thread):
             # print(exception_order)
             print_check(exception_order)
             if exception_order != -1:
+                self.q.put('found')
+                print('found exception')
+                self.found_exception = True
                 break
             if self.quit_flag == 1:
+                print("stop model")
                 break
-        if(exception_order != -1):
+       # if(exception_order != -1):
             #print_exception(exception_order, self.picture_collection_path)
-            self.q.put('found')
-            print('Model thread finish')
-            self.found_exception = True
+
 
 
 '''

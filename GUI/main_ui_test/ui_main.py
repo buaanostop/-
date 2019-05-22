@@ -89,6 +89,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.guide_b.clicked.connect(MainWindow.click_guide_b)
         self.test_b.clicked.connect(MainWindow.click_test_b)
+        self.feedback_b.clicked.connect(MainWindow.click_feedback_b)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -98,4 +99,5 @@ class Ui_MainWindow(object):
         self.guide_b.setText(_translate("MainWindow", "引导"))
         self.test_b.setText(_translate("MainWindow", "测试"))
         self.feedback_b.setText(_translate("MainWindow", "反馈"))
+
 import images.main_p

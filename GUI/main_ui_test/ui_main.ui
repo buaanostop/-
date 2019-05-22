@@ -181,8 +181,8 @@
    <slot>click_guide_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>328</x>
-     <y>538</y>
+     <x>687</x>
+     <y>622</y>
     </hint>
     <hint type="destinationlabel">
      <x>751</x>
@@ -197,8 +197,8 @@
    <slot>click_test_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>328</x>
-     <y>426</y>
+     <x>687</x>
+     <y>515</y>
     </hint>
     <hint type="destinationlabel">
      <x>742</x>
@@ -206,9 +206,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>feedback_b</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>click_feedback_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>591</x>
+     <y>673</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>795</x>
+     <y>688</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>click_guide_b()</slot>
   <slot>click_test_b()</slot>
+  <slot>click_feedback_b()</slot>
  </slots>
 </ui>

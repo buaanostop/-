@@ -33,6 +33,9 @@ class ScreenShot(threading.Thread):
     def pause(self):
         self.flag.clear()
 
+    def clear(self):
+        self.count = 1
+
     def resume(self):
         self.flag.set()
 
@@ -140,6 +143,8 @@ try:
         elif optype == "open_app":
             (package_name, activity_name) = keyorstring.split('&')
             __open_app(package_name, activity_name)
+        elif optype == "clearshot":
+            shot.clear()
 
         else:
             shot.resume()
