@@ -1,12 +1,18 @@
 #Monkey.py API文档
 
 -------------------------------------
+###Gamma阶段新增
+refresh() 刷新手机截图
+截图保存在/refreshshot.png 
+1080*1920的设备需要等待两秒左右
+然后读取当前的refreshshot.png
+
 ### 1.连接设备（在此步启动MonkeyServer）
 connect()
     返回值
     ----------
-    bool : True 连接成功
-            False 连接失败
+    Tuple : (x,y) 连接成功 返回分辨率
+    bool :  False 连接失败
 ### 2.关闭 MonkeyServer
 close()
 
@@ -15,7 +21,7 @@ save(save_name)
     参数
     -------------
     save_name : string
-                存档的名字(不带扩展名)
+                存档的路径 例如 ceshi1.save
     返回值
     -------------
     bool : True 保存成功
@@ -26,10 +32,10 @@ load(save_name)
     参数
     -----------
     save_name : string
-                存档的名字
+                存档的路径 例如 ceshi1.save
     返回值
     -----------
-    List(Operation) : 读取成功，返回列表
+    List[Operation] : 读取成功，返回列表
     bool : False 读取失败
 
 ### 5.打开应用
@@ -143,7 +149,7 @@ drag(pointlist, drag_time=1.0, drag_number=1, interval_time=1.0)
             滑动间隔时间，默认为1秒
 
 ###多位置滑动
-t'r(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0)
+multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loop_time = 1.0)
     参数
     ---------------
     pointlist : ((startx1,starty1,endx1,endy1),(startx2,starty2,endx2,endy2)...),均为int

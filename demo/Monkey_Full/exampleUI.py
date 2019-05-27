@@ -11,6 +11,7 @@ import time
 import _thread as thread
 import Monkey
 import tkinter.messagebox
+from PIL import Image, ImageTk
 
     
 def connect():
@@ -46,6 +47,17 @@ def drag():
     pointlist = ((x1,y1),(x2,y2))
     Monkey.drag(pointlist)
 
+def refresh():
+    Monkey.refresh()
+    time.sleep(2)
+##    pilimage = Image.open("refreshshot.png")
+##    tkimage = ImageTk.PhotoImage(image=pilimage)
+##    labelshot = Label(root, image=tkimage)
+##    labelshot.grid(row = 5, column = 3)
+    bm = PhotoImage(file='refreshshot.png')
+    lableshot.configure(image = bm)
+    root.update()
+    
 def on_closing():
     Monkey.close()
     root.destroy()
@@ -81,6 +93,12 @@ b_resume.grid(row=4, column=1)
 
 b_stop = Button(root, text='停止测试', command=stop)
 b_stop.grid(row=4, column=0)
+
+b_refresh = Button(root, text='刷新屏幕', command=refresh)
+b_refresh.grid(row=5, column=0)
+
+lableshot = Label(root)
+lableshot.grid(row=6,column=3)
 
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop()

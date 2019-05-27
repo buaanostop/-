@@ -13,6 +13,7 @@ import threading
 import time
 device = None
 resolution_ratio = (540, 960)
+rootpath = ""
 class ScreenShot(threading.Thread):
     """截图"""
     def __init__(self):
@@ -27,7 +28,9 @@ class ScreenShot(threading.Thread):
         self.device = device
         
     def addpath(self, path):
-        self.path = path + '/shot'
+        global rootpath
+        rootpath = path
+        self.path = path + '/screenshot/shot'
         #self.logpath = path + '/log_new.txt'
 
     def pause(self):
@@ -112,6 +115,13 @@ def __typestr(typestring):
     print("typestr",typestring)
     device.type(typestring)
 
+def __refresh():
+    print("refresh")
+    shotfile = device.takeSnapshot()
+    filename = rootpath + "/refreshshot.png"
+    shotfile.writeToFile(filename, 'png')
+    print("refreshshot.png save to "+filename)
+
 def __close():
     print("close")
     s.close()
@@ -140,11 +150,17 @@ try:
         if optype == "connect":
             shot.addpath(keyorstring.replace('&',':'))
             __connect()
+            continue
         elif optype == "open_app":
             (package_name, activity_name) = keyorstring.split('&')
             __open_app(package_name, activity_name)
+            continue
         elif optype == "clearshot":
             shot.clear()
+            continue
+        elif optype == "refresh":
+            __refresh()
+            continue
             
         else:
             shot.resume()
