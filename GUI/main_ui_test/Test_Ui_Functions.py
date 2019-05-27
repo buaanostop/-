@@ -6,7 +6,7 @@ import os
 import _thread as thread
 import Monkey
 from test_queue import test_thread
-from NewModel import SimpleModel
+#from NewModel import SimpleModel
 from functools import wraps
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
@@ -144,8 +144,8 @@ class TestUiFunctionsClass(object):
         picture_file = os.path.join(os.getcwd(), 'screenshot')
         self.add_text('start!',self.test_form.reportList)
 
-        self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
-        self.model_thread.start()
+        ''' self.model_thread = SimpleModel(picture_collection_path=picture_file, step_length=5, limit_range=100, time_interval=3)
+            self.model_thread.start()'''
 
         self.log_timer = threading.Timer(0.01,self.log_monitor)
         self.log_timer.start()
@@ -541,11 +541,11 @@ class TestUiFunctionsClass(object):
             ops = Monkey.all_random(value)
             items = self.operations_to_str(ops)
             self.add_test_form.currentQueueList.addItems(items)
-    def save(self):
-        Monkey.save('only')
-    def load(self):
+    def save(self,name):
+        Monkey.save(name)
+    def load(self,name):
         try:
-            item_list = Monkey.load('only')
+            item_list = Monkey.load(name)
             if(item_list == False):
                 self.error_message_prompt(self.test_form,4)
                 return

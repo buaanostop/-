@@ -12,7 +12,7 @@ from guide_ui import Ui_GuideWindow
 from test_ui_d.test_ui import Ui_TestWindow
 from test_ui_d.in_device_infor import Ui_In_dev_infor
 from test_ui_d.add_test_ui import Ui_Add_test
-from PyQt5.QtWidgets import QApplication, QMainWindow,QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow,QMessageBox,QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import wraps
 from datetime import datetime
@@ -303,8 +303,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
 
     def click_load_b(self):
         test_window = t_window()
-        print("点击读档按钮")
-        functions_class.load()
+        load_file_name,_ = QFileDialog.getOpenFileName(self,'读档',os.getcwd() + '\\save','存档文件(*.save)')
+        functions_class.load(load_file_name)
         if(test_window.queueList.count() == 0):
             test_window.saveButton.setEnabled(False)
             test_window.loadButton.setEnabled(True)
@@ -312,9 +312,12 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             test_window.loadButton.setEnabled(False)
             test_window.saveButton.setEnabled(True)
             test_window.startButton.setEnabled(True)
+    '''"点击存档按钮"'''
     def click_save_b(self):
-        print("点击存档按钮")
-        functions_class.save()
+        #print("点击存档按钮")
+        #file_set = QFileDialog.Options()
+        save_file_name,_ = QFileDialog.getSaveFileName(self,"存档",os.getcwd() + "\\save","存档文件(*.save)")
+        functions_class.save(save_file_name)
     def click_start_b(self):
         self.chooseTypeButton.setEnabled((False))
         functions_class.start()
@@ -572,6 +575,8 @@ if __name__ == '__main__':
     a_t_ui = add_test()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
+    t_ui.saveButton.setEnabled(True)
+    t_ui.loadButton.setEnabled(True)
     ui.show()
     sys.exit(app.exec_())
 # queueList

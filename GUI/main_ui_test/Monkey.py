@@ -160,7 +160,7 @@ def save(save_name):
             False 保存失败
     """
     try:
-        f = open('save\\'+save_name+'.save','w')
+        f = open(save_name,'w')
         for op in oplist:
             f.write(str(op.todict())+'\n')
         f.close()
@@ -184,7 +184,7 @@ def load(save_name):
     """
     try:       
         clear() # 清空当前oplist
-        f = open('save\\'+save_name+'.save','r')
+        f = open(save_name,'r')
         data = f.readline()
         while data:
             data = eval(data)
@@ -197,7 +197,7 @@ def load(save_name):
         return oplist
     except:
         f.close()
-        __writelog(_now() + save_name + " load fail")
+        __writelog(__now() + save_name + " load fail")
         return False
 
 def all_random(test_number=100):
