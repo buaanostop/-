@@ -231,8 +231,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             self.startButton.setEnabled(True)
     def click_in_index_b(self):
         i_d_window = in_dev_infor()
-        i_d_window.xPositionValue.setPlaceholderText('手机分辨率:'+ str(self.max_x))
-        i_d_window.yPositionValue.setPlaceholderText('手机分辨率:'+ str(self.max_y))
+        '''i_d_window.xPositionValue.setPlaceholderText('手机分辨率:'+ str(self.max_x))
+        i_d_window.yPositionValue.setPlaceholderText('手机分辨率:'+ str(self.max_y))'''
         #print("点击 输入app参数 按钮")
         i_d_ui.show()
     def click_add_test(self):
@@ -350,7 +350,7 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
         Ui_In_dev_infor.__init__(self)
         self.setupUi(self)
     def click_fin_b(self):
-        try:
+        '''try:
             x_rate_value = int(self.xPositionValue.text())
             y_rate_value = int(self.yPositionValue.text())
             if not functions_class.judge_input_ration(x_rate_value,y_rate_value):
@@ -369,10 +369,13 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
             functions_class.error_message_prompt(self,empty_error_code)
         #reset_test_window()
         except rangeErrorException:
-            functions_class.error_message_prompt(self,functions_class.logic_error_code,"分辨率超出手机本身分辨率：")
-        '''test_window.loadButton.setEnabled(True)
-        test_window.saveButton.setEnabled(True)
-        test_window.startButton.setEnabled(True)'''
+            functions_class.error_message_prompt(self,functions_class.logic_error_code,"分辨率超出手机本身分辨率：")'''
+        if(self.packageNameValue.text() != '' and self.PackageActivityName.text() != ''):
+                functions_class.open_app(self.packageNameValue.text(),self.PackageActivityName.text())
+        self.has_finished = 1
+        test_window = t_window()
+        test_window.chooseTypeButton.setEnabled(True)
+        test_window.InputAssignmentButton.setEnabled(False)
         self.close()
         #print("参数信息输入完毕")
 @singleton
@@ -575,8 +578,7 @@ if __name__ == '__main__':
     a_t_ui = add_test()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
-    t_ui.saveButton.setEnabled(True)
-    t_ui.loadButton.setEnabled(True)
+    t_ui.InputAssignmentButton.setEnabled(True)
     ui.show()
     sys.exit(app.exec_())
 # queueList

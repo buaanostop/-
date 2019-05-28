@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'in_device_infor.ui'
+# Form implementation generated from reading ui file 'c:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\test_ui_d\in_device_infor.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -43,12 +43,6 @@ class Ui_In_dev_infor(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.reso_x = QtWidgets.QLabel(In_dev_infor)
-        self.reso_x.setObjectName("reso_x")
-        self.verticalLayout_2.addWidget(self.reso_x)
-        self.reso_y = QtWidgets.QLabel(In_dev_infor)
-        self.reso_y.setObjectName("reso_y")
-        self.verticalLayout_2.addWidget(self.reso_y)
         self.p_name = QtWidgets.QLabel(In_dev_infor)
         self.p_name.setObjectName("p_name")
         self.verticalLayout_2.addWidget(self.p_name)
@@ -59,16 +53,6 @@ class Ui_In_dev_infor(object):
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setSpacing(27)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.xPositionValue = QtWidgets.QLineEdit(In_dev_infor)
-        self.xPositionValue.setMinimumSize(QtCore.QSize(200, 30))
-        self.xPositionValue.setMaximumSize(QtCore.QSize(200, 30))
-        self.xPositionValue.setObjectName("xPositionValue")
-        self.verticalLayout.addWidget(self.xPositionValue)
-        self.yPositionValue = QtWidgets.QLineEdit(In_dev_infor)
-        self.yPositionValue.setMinimumSize(QtCore.QSize(200, 30))
-        self.yPositionValue.setMaximumSize(QtCore.QSize(200, 30))
-        self.yPositionValue.setObjectName("yPositionValue")
-        self.verticalLayout.addWidget(self.yPositionValue)
         self.packageNameValue = QtWidgets.QLineEdit(In_dev_infor)
         self.packageNameValue.setMinimumSize(QtCore.QSize(639, 30))
         self.packageNameValue.setMaximumSize(QtCore.QSize(639, 30))
@@ -84,8 +68,6 @@ class Ui_In_dev_infor(object):
 
         self.retranslateUi(In_dev_infor)
         self.finishInputButton.clicked.connect(In_dev_infor.click_fin_b)
-        self.cleanButton.clicked.connect(self.xPositionValue.clear)
-        self.cleanButton.clicked.connect(self.yPositionValue.clear)
         self.cleanButton.clicked.connect(self.packageNameValue.clear)
         self.cleanButton.clicked.connect(self.PackageActivityName.clear)
         self.exitButton.clicked.connect(In_dev_infor.reject)
@@ -94,18 +76,14 @@ class Ui_In_dev_infor(object):
 
     def retranslateUi(self, In_dev_infor):
         _translate = QtCore.QCoreApplication.translate
-        In_dev_infor.setWindowTitle(_translate("In_dev_infor", "Dialog"))
+        In_dev_infor.setWindowTitle(_translate("In_dev_infor", "输入参数窗口"))
         self.finishInputButton.setText(_translate("In_dev_infor", "输入完毕"))
         self.exitButton.setText(_translate("In_dev_infor", "退出"))
         self.cleanButton.setText(_translate("In_dev_infor", "清屏"))
-        self.reso_x.setWhatsThis(_translate("In_dev_infor", "<html><head/><body><p>设置测试的窗口分辨率X值，取值范围为(0,手机/模拟器分辨率X值)。</p></body></html>"))
-        self.reso_x.setText(_translate("In_dev_infor", "分辨率X值:"))
-        self.reso_y.setWhatsThis(_translate("In_dev_infor", "<html><head/><body><p>设置测试的窗口分辨率Y值，取值范围为(0,手机/模拟器分辨率Y值)。</p></body></html>"))
-        self.reso_y.setText(_translate("In_dev_infor", "分辨率Y值:"))
         self.p_name.setWhatsThis(_translate("In_dev_infor", "<html><head/><body><p>应用的包名，例如：com.Jelly.JellyFish</p><p>（可以为空，默认对当前app进行测试）</p></body></html>"))
         self.p_name.setText(_translate("In_dev_infor", "应用的包名："))
         self.a_name.setWhatsThis(_translate("In_dev_infor", "<html><head/><body><p>应用的活动名，例如: com.unity3d.player.UnityPlayerActivity</p><p>（可以为空，默认对当前app进行测试）</p></body></html>"))
         self.a_name.setText(_translate("In_dev_infor", "应用的活动名："))
-        self.packageNameValue.setPlaceholderText(_translate("In_dev_infor", "（后两行可以为空，默认对当前app进行测试）"))
-        self.PackageActivityName.setPlaceholderText(_translate("In_dev_infor", "（后两行可以为空，默认对当前app进行测试）"))
+        self.packageNameValue.setPlaceholderText(_translate("In_dev_infor", "（后可以为空，默认对当前app进行测试）"))
+        self.PackageActivityName.setPlaceholderText(_translate("In_dev_infor", "（后可以为空，默认对当前app进行测试）"))
 

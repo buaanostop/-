@@ -96,26 +96,6 @@
         <number>15</number>
        </property>
        <item>
-        <widget class="QLabel" name="reso_x">
-         <property name="whatsThis">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试的窗口分辨率X值，取值范围为(0,手机/模拟器分辨率X值)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>分辨率X值:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="reso_y">
-         <property name="whatsThis">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试的窗口分辨率Y值，取值范围为(0,手机/模拟器分辨率Y值)。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>分辨率Y值:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="p_name">
          <property name="whatsThis">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;应用的包名，例如：com.Jelly.JellyFish&lt;/p&gt;&lt;p&gt;（可以为空，默认对当前app进行测试）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -143,38 +123,6 @@
         <number>27</number>
        </property>
        <item>
-        <widget class="QLineEdit" name="xPositionValue">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>30</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="yPositionValue">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>30</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLineEdit" name="packageNameValue">
          <property name="minimumSize">
           <size>
@@ -189,7 +137,7 @@
           </size>
          </property>
          <property name="placeholderText">
-          <string>（后两行可以为空，默认对当前app进行测试）</string>
+          <string>（后可以为空，默认对当前app进行测试）</string>
          </property>
         </widget>
        </item>
@@ -208,7 +156,7 @@
           </size>
          </property>
          <property name="placeholderText">
-          <string>（后两行可以为空，默认对当前app进行测试）</string>
+          <string>（后可以为空，默认对当前app进行测试）</string>
          </property>
         </widget>
        </item>
@@ -233,38 +181,6 @@
     <hint type="destinationlabel">
      <x>412</x>
      <y>228</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cleanButton</sender>
-   <signal>clicked()</signal>
-   <receiver>xPositionValue</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>664</x>
-     <y>245</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>40</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cleanButton</sender>
-   <signal>clicked()</signal>
-   <receiver>yPositionValue</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>690</x>
-     <y>239</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>97</y>
     </hint>
    </hints>
   </connection>
