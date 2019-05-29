@@ -27,7 +27,7 @@ resolution_ration_error_code = 3
 something_else_error_code = 4
 have_not_connect_error_code = 5
 not_successful_connected_error_code = 6
-
+lock = QtCore.QMutex()
 min_click_times = 1
 max_click_times = 9999
 min_interval_time = 0.1
@@ -41,6 +41,7 @@ max_drag_interval_time = 99.9
 x_rate = 1024
 y_rate = 768
 begin_connect_time = None
+test_count = 0
 '''
     通过装饰器实现一个单例模式
     保证只有一个和窗体类功能类↓
@@ -57,11 +58,22 @@ def reset_test_window():
     test_window = t_window()
     test_window.setupUi(test_window)
     test_window.t_init()
-class rangeErrorException(Exception):
-    def __init__(self):
-        pass
+class GetCurrentTestThread(QtCore.QThread):
+    before_count = -1
+    def __init__(self,t,parent = None):
+        super(GetCurrentTestThread,self).__init__(parent)
+        self.t = t
+        #self.finished.connect(get_current_test)
+    def run(self):
+        while(True):
+            lock.lock()
+            after_count = self.t.get_current_test()
+            if(after_count != self.before_count):
+                self.t.set_current_test(after_count)
+                self.before_count = after_count
+            lock.unlock()
+            
 class TimeWaitThread(QtCore.QThread):
-    test_window = None
     def __init__(self,t,parent = None):
         super(TimeWaitThread,self).__init__(parent)
         self.finished.connect(t.wait_about)
@@ -172,6 +184,7 @@ class g_window(QtWidgets.QMainWindow,Ui_GuideWindow):
 class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     max_x = 1024
     max_y = 768
+    current_test = 0
     connect_thread = None
     successfully_connect = None
     time_counter_thread = None
@@ -186,7 +199,34 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.connectDeviceButton.setText('等待相关部件启动')
         self.wait_monkey_thread = WaitMonkeyRunnerStart(self)
         self.wait_monkey_thread.start()
+        self.testButton.clicked.connect(self.to_test)
+        self.queueList.itemClicked.connect(self.set_not_selectable)
+        #self.queueList.itemChanged.connect(self.set_not_selectable)
+        #self.queueList.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents,True)
         #self.queueList.itemChanged.connect(self.not_empty_set)
+    def get_current_test(self):
+        '''获取当前test的序号'''
+        return test_count
+    def set_not_selectable(self,item):
+        current_flag = item.flags()
+        item.setFlags(current_flag & (~QtCore.Qt.ItemIsSelectable))
+    def set_current_test(self,counter):
+        #self.queueList.set
+        self.queueList.setCurrentRow(counter)
+        try:
+            if(counter > self.queueList.count()):
+                raise AttributeError
+            self.queueList.item(counter).setBackground(QtGui.QColor(16,109,156))
+            if(counter > 0):
+                self.queueList.item(counter - 1).setBackground(QtGui.QColor(255,255,255))
+        except AttributeError:
+            pass
+        #self.queueList.setCurrentIndex()
+        #self.current_test += 1
+    def to_test(self):
+        global test_count
+        test_count += 1
+        #self.set_current_test()
     def wait_monkey(self):
         self.connectDeviceButton.setEnabled(True)
         self.connectDeviceButton.setText('连接设备')
@@ -321,6 +361,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def click_start_b(self):
         self.chooseTypeButton.setEnabled((False))
         functions_class.start()
+        current_test_thread = GetCurrentTestThread(self)
+        current_test_thread.start()
         print("点击开始按钮")
     def click_pause_b(self):
         self.pauseButton.setEnabled(False)
@@ -578,7 +620,11 @@ if __name__ == '__main__':
     a_t_ui = add_test()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
+    '''测试用 正式版去掉'''
     t_ui.InputAssignmentButton.setEnabled(True)
+    current_test_thread = GetCurrentTestThread(t_ui)
+    current_test_thread.start()
+    '''以上'''
     ui.show()
     sys.exit(app.exec_())
 # queueList

@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_TestWindow(object):
     def setupUi(self, TestWindow):
         TestWindow.setObjectName("TestWindow")
-        TestWindow.resize(1073, 844)
+        TestWindow.resize(1036, 844)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -93,6 +93,7 @@ class Ui_TestWindow(object):
         self.testWinLabel = QtWidgets.QLabel(self.layoutWidget1)
         self.testWinLabel.setMinimumSize(QtCore.QSize(990, 200))
         self.testWinLabel.setMaximumSize(QtCore.QSize(990, 200))
+        self.testWinLabel.setText("")
         self.testWinLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.testWinLabel.setObjectName("testWinLabel")
         self.verticalLayout_3.addWidget(self.testWinLabel)
@@ -127,9 +128,12 @@ class Ui_TestWindow(object):
         self.chooseTypeButton.setObjectName("chooseTypeButton")
         self.horizontalLayout_2.addWidget(self.chooseTypeButton)
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
+        self.testButton = QtWidgets.QPushButton(self.centralwidget)
+        self.testButton.setGeometry(QtCore.QRect(470, 770, 75, 23))
+        self.testButton.setObjectName("testButton")
         TestWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(TestWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1073, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1036, 23))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -168,7 +172,7 @@ class Ui_TestWindow(object):
 
     def retranslateUi(self, TestWindow):
         _translate = QtCore.QCoreApplication.translate
-        TestWindow.setWindowTitle(_translate("TestWindow", "MainWindow"))
+        TestWindow.setWindowTitle(_translate("TestWindow", "测试窗口"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.queue_list), _translate("TestWindow", "测试队列"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.report_list), _translate("TestWindow", "测试报告"))
         self.loadButton.setText(_translate("TestWindow", "读取存档"))
@@ -177,9 +181,9 @@ class Ui_TestWindow(object):
         self.pauseButton.setText(_translate("TestWindow", "暂停测试"))
         self.resumeButton.setText(_translate("TestWindow", "继续测试"))
         self.stopButton.setText(_translate("TestWindow", "终止测试"))
-        self.testWinLabel.setText(_translate("TestWindow", "TextLabel"))
         self.connectDeviceButton.setText(_translate("TestWindow", "连接设备"))
         self.InputAssignmentButton.setText(_translate("TestWindow", "输入要测试的app参数"))
         self.chooseTypeButton.setText(_translate("TestWindow", "选择测试并加入测试队列"))
+        self.testButton.setText(_translate("TestWindow", "测试按钮"))
         self.menu.setTitle(_translate("TestWindow", "帮助"))
 

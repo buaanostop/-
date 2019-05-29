@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1073</width>
+    <width>1036</width>
     <height>844</height>
    </rect>
   </property>
@@ -335,14 +335,27 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="testButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>770</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>测试按钮</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1073</width>
-     <height>26</height>
+     <width>1036</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

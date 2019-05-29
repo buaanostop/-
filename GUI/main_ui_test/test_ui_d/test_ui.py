@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'test_ui.ui'
+# Form implementation generated from reading ui file 'c:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\test_ui_d\test_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_TestWindow(object):
     def setupUi(self, TestWindow):
         TestWindow.setObjectName("TestWindow")
-        TestWindow.resize(1073, 844)
+        TestWindow.resize(1036, 844)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -128,9 +128,12 @@ class Ui_TestWindow(object):
         self.chooseTypeButton.setObjectName("chooseTypeButton")
         self.horizontalLayout_2.addWidget(self.chooseTypeButton)
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
+        self.testButton = QtWidgets.QPushButton(self.centralwidget)
+        self.testButton.setGeometry(QtCore.QRect(470, 770, 75, 23))
+        self.testButton.setObjectName("testButton")
         TestWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(TestWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1073, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1036, 23))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -181,5 +184,6 @@ class Ui_TestWindow(object):
         self.connectDeviceButton.setText(_translate("TestWindow", "连接设备"))
         self.InputAssignmentButton.setText(_translate("TestWindow", "输入要测试的app参数"))
         self.chooseTypeButton.setText(_translate("TestWindow", "选择测试并加入测试队列"))
+        self.testButton.setText(_translate("TestWindow", "测试按钮"))
         self.menu.setTitle(_translate("TestWindow", "帮助"))
 
