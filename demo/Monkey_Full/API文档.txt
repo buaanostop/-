@@ -80,6 +80,11 @@ set_resolution_ratio(width,height)
             宽度
     height : int
             高度
+
+### 11.返回正在进行的测试
+now_running()
+    返回值
+    int : 测试的序号 0开始，在没有开始或已经结束的情况下返回-1
 -------------------------------------
 ### 单击
 touch(pos_x, pos_y, touch_number=1, interval_time=1.0)

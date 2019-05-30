@@ -24,6 +24,8 @@ resolution_ratio = (540,960)
 root_path = os.getcwd()
 shot_path = root_path + '\screenshot'
 log_path = 'log.txt'
+
+now_index = -1
 class do_run_monkey(threading.Thread):
     
     def __init__(self, monkeypath):
@@ -67,7 +69,11 @@ def do_close():
     sendsocket.sendto(data, (host, port))
     recsocket.close()
     print("close")
-    
+
+def do_now_running():
+    global now_index
+    return now_index
+
 class DoTest(threading.Thread):
     def __init__(self, oplist):
         threading.Thread.__init__(self)
@@ -358,10 +364,13 @@ class DoTest(threading.Thread):
         self.__send('clearshot', 0, 0, 0, 0, 0, 0)
         
     def run(self):
+        global now_index
         self.flag.set()
         self.stopflag.clear()
         self.__clearshot()
         for op in self.oplist:
+            now_index += 1
             if self.stopflag.isSet():
                 break
             self.__actOp(op)
+        now_index = -1
