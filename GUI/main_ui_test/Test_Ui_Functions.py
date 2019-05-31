@@ -137,7 +137,7 @@ class TestUiFunctionsClass(object):
     @disp_func_msg
     def stop(self):
         self.end_log_monitor = 1
-        self.model_thread.quit_flag = 1
+        #self.model_thread.quit_flag = 1
         Monkey.stop()
     @disp_func_msg
     def start(self):
@@ -550,6 +550,7 @@ class TestUiFunctionsClass(object):
                 self.error_message_prompt(self.test_form,4)
                 return
             else:
+                self.test_form.queueList.clear()
                 strs = self.operations_to_str(item_list)
                 self.test_form.queueList.addItems(strs)
         except:

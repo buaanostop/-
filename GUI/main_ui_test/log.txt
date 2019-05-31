@@ -1,19 +1,2 @@
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 drag test add success
-2019-05-29 22:19:45 long_touch test add success
-2019-05-29 22:19:45 touch_drag test add success
-2019-05-29 22:19:45 touch_drag test add success
-2019-05-29 22:19:45 long_touch test add success
-2019-05-29 22:19:45 touch_drag test add success
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 long_touch test add success
-2019-05-29 22:19:45 touch_drag test add success
-2019-05-29 22:19:45 drag test add success
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 touch test add success
-2019-05-29 22:19:45 long_touch test add success
-2019-05-29 22:19:45 all_random test add success
-2019-05-29 22:20:23 close
+2019-05-31 08:34:40 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/1234.save load success
+2019-05-31 08:34:46 start

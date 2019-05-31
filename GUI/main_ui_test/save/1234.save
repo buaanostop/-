@@ -1,3 +1,16 @@
-hello
-hello
-how are u
+{'optype': 'long_touch', 'pointlist': ((901, 1143),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch_drag', 'pointlist': ((721, 564), (1078, 825)), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.5, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((951, 1225), (756, 1303)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.5, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'long_touch', 'pointlist': ((100, 1822),), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((715, 1312),), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((854, 1325),), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch_drag', 'pointlist': ((770, 953), (609, 278)), 'number': 1, 'interval_time': 1.0, 'hold_time': 3.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch', 'pointlist': ((881, 357),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((72, 1288), (977, 957)), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((377, 722),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch_drag', 'pointlist': ((189, 1265), (495, 1521)), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.5, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch_drag', 'pointlist': ((88, 1264), (7, 363)), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.0, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch', 'pointlist': ((395, 1100),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((1036, 199),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((592, 560),), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((305, 1722),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}

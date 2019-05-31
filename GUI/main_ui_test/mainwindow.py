@@ -382,6 +382,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             main_window.close()
             self.close()
         self.chooseTypeButton.setEnabled((True))
+        self.loadButton.setEnabled(True)
         functions_class.stop()
         print("点击终止按钮")
 @singleton
@@ -417,6 +418,7 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
         self.has_finished = 1
         test_window = t_window()
         test_window.chooseTypeButton.setEnabled(True)
+        test_window.loadButton.setEnabled(True)
         test_window.InputAssignmentButton.setEnabled(False)
         self.close()
         #print("参数信息输入完毕")
