@@ -67,6 +67,7 @@ def __writelog(data):
     logfile = open(logpath, 'a')
     logfile.write(data + '\n')
     logfile.close()
+
         
 def __now():
     """返回当前时间信息"""
@@ -122,15 +123,6 @@ def clear():
     """清空测试列表"""
     oplist.clear()
     return oplist
-
-def now_running():
-    """返回当前正在进行的测试
-    返回值
-    -----------
-    int : 测试的序号，0开始，在没有开始或已经结束的情况下返回-1
-
-    """
-    return do_now_running()
 
 def delete(index):
     """删除列表中第index个测试
