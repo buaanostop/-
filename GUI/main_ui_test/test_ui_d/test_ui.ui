@@ -210,131 +210,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>31</y>
-      <width>992</width>
-      <height>291</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QLabel" name="testWinLabel">
-       <property name="minimumSize">
-        <size>
-         <width>990</width>
-         <height>200</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>990</width>
-         <height>200</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QPushButton" name="connectDeviceButton">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>321</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>321</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>连接设备</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="InputAssignmentButton">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>321</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>321</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
-         </property>
-         <property name="mouseTracking">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>输入要测试的app参数</string>
-         </property>
-         <property name="autoDefault">
-          <bool>false</bool>
-         </property>
-         <property name="default">
-          <bool>false</bool>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="chooseTypeButton">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>321</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>321</width>
-           <height>41</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>选择测试并加入测试队列</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
    <widget class="QPushButton" name="testButton">
     <property name="geometry">
      <rect>
@@ -348,6 +223,133 @@
      <string>测试按钮</string>
     </property>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>911</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="connectDeviceButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>连接设备</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="InputAssignmentButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>输入要测试的app参数</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="addPointButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>添加屏幕上的点</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="chooseTypeButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>选择测试并加入测试队列</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -355,7 +357,7 @@
      <x>0</x>
      <y>0</y>
      <width>1036</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -376,8 +378,8 @@
    <slot>click_add_test()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1004</x>
-     <y>325</y>
+     <x>881</x>
+     <y>285</y>
     </hint>
     <hint type="destinationlabel">
      <x>856</x>
@@ -712,8 +714,8 @@
    <slot>click_connect_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>112</x>
-     <y>305</y>
+     <x>239</x>
+     <y>207</y>
     </hint>
     <hint type="destinationlabel">
      <x>73</x>
@@ -728,12 +730,28 @@
    <slot>click_in_index_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>414</x>
-     <y>310</y>
+     <x>881</x>
+     <y>207</y>
     </hint>
     <hint type="destinationlabel">
      <x>366</x>
      <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addPointButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_add_point_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>320</y>
     </hint>
    </hints>
   </connection>
@@ -749,5 +767,6 @@
   <slot>click_resume_b()</slot>
   <slot>click_stop_b()</slot>
   <slot>click_connect_b()</slot>
+  <slot>click_add_point_b()</slot>
  </slots>
 </ui>
