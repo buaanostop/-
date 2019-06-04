@@ -92,7 +92,25 @@ class WaitConnect(QtCore.QThread):
     def run(self):
         self.t.successfully_connect = functions_class.connect()
 
-
+class ShowWariningErrorLog(QtCore.QThread):
+    t = None
+    status = None
+    def __init__(self,t,status,parent = None):
+        super(ShowWariningError,self).__init__(parent)
+        self.t = t
+        self.status = status
+    def run(self):
+        while(True):
+            try:
+                warining_error_file = open("adblog.txt")
+                if self.status == 1:
+                    pass
+                elif self.status == 2:
+                    pass
+                elif self.status == 3:
+                    pass
+            except IOError:
+                pass
 class WaitMonkeyRunnerStart(QtCore.QThread):
     test_window = None
     def __init__(self,t,parent = None):
@@ -228,6 +246,10 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             pass
         #self.queueList.setCurrentIndex()
         #self.current_test += 1
+    def check_warning_error(self):
+        warning_int = 1 if self.warningCheckBox.checked() else 0
+        error_int = 2 if self.errorCheckBox.checked() else 0
+        self.status = warning_int + error_int
     def to_test(self):
         global test_count
         test_count += 1
