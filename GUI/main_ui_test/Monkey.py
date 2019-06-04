@@ -68,9 +68,6 @@ def __writelog(data):
     logfile.write(data + '\n')
     logfile.close()
 
-def __runMonkeyServer():
-    """启动MonkeyServer"""
-    pass
         
 def __now():
     """返回当前时间信息"""
@@ -118,6 +115,10 @@ def set_resolution_ratio(width, height):
 
 ##----------------------------------------
 ##针对测试列表的操作
+def refresh():
+    """刷新屏幕"""
+    do_refresh()
+    
 def clear():
     """清空测试列表"""
     oplist.clear()
@@ -153,7 +154,7 @@ def save(save_name):
     参数
     -------------
     save_name : string
-                存档的名字
+                存档的路径
     返回值
     -------------
     bool : True 保存成功
@@ -176,7 +177,7 @@ def load(save_name):
     参数
     -----------
     save_name : string
-                存档的名字
+                存档的路径
     返回值
     -----------
     List(Operation) : 读取成功，返回列表
@@ -197,7 +198,7 @@ def load(save_name):
         return oplist
     except:
         f.close()
-        __writelog(__now() + save_name + " load fail")
+        __writelog(_now() + save_name + " load fail")
         return False
 
 def all_random(test_number=100):

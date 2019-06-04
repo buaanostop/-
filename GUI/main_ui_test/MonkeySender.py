@@ -32,9 +32,15 @@ class do_run_monkey(threading.Thread):
     def run(self):
         os.popen("monkeyrunner "+self.monkeypath)
 #        os.system("monkeyrunner "+self.monkeypath)
-            
+
+def do_refresh():
+    data = bytes("refresh:0:0:0:0:1.0:0",encoding="utf8")
+    sendsocket.sendto(data, (host, port))
+    print("refresh...")
+    
+
 def do_connect():
-    data = bytes("connect:0:0:0:0:1.0:"+shot_path.replace(':','&'),encoding="utf8")
+    data = bytes("connect:0:0:0:0:1.0:"+root_path.replace(':','&'),encoding="utf8")
     sendsocket.sendto(data, (host, port))
     print("connect")
 
@@ -350,7 +356,7 @@ class DoTest(threading.Thread):
 
     def __clearshot(self):
         self.__send('clearshot', 0, 0, 0, 0, 0, 0)
-
+        
     def run(self):
         self.flag.set()
         self.stopflag.clear()

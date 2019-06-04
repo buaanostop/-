@@ -126,6 +126,11 @@ class TestUiFunctionsClass(object):
         else:
             self.add_text('fail to connect your device,please check that if your device connect to computer successfully\n',self.test_form.reportList)
         return connect_successful
+
+    @disp_func_msg
+    def refresh(self):
+        # self.add_text('pausing...',self.test_form.reportList)
+        Monkey.refresh()
     @disp_func_msg
     def pause(self):
         #self.add_text('pausing...',self.test_form.reportList)

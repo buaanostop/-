@@ -12,8 +12,10 @@ from guide_ui import Ui_GuideWindow
 from test_ui_d.test_ui import Ui_TestWindow
 from test_ui_d.in_device_infor import Ui_In_dev_infor
 from test_ui_d.add_test_ui import Ui_Add_test
-from PyQt5.QtWidgets import QApplication, QMainWindow,QMessageBox,QFileDialog
+from test_ui_d.add_point_ui import Ui_addPointWindow
+from PyQt5.QtWidgets import QApplication,QMainWindow,QMessageBox,QFileDialog,QMenu
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 from functools import wraps
 from datetime import datetime
 
@@ -42,6 +44,9 @@ x_rate = 1024
 y_rate = 768
 begin_connect_time = None
 test_count = 0
+#加点用
+addpoint_x = 0
+addpoint_y = 0
 '''
     通过装饰器实现一个单例模式
     保证只有一个和窗体类功能类↓
@@ -339,7 +344,12 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.time_counter_thread.start()
 
         #elf.connectDeviceButton.setEnabled(()
-
+    def click_add_point_b(self):
+        a_p_ui.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
+        a_p_ui.customContextMenuRequested.connect(a_p_ui.rightMenuShow)
+        #a_p_ui.resize(900,600)
+        #a_p_ui.setFixedSize(900,600)
+        a_p_ui.show()
 
     def click_load_b(self):
         test_window = t_window()
@@ -610,6 +620,43 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         self.currentQueueList.clear()
         a_t_ui.close()
 
+@singleton
+class a_p_window(QtWidgets.QDialog,Ui_addPointWindow):
+    global functions_class
+    def __init__(self):
+        QtWidgets.QDialog.__init__(self)
+        Ui_addPointWindow.__init__(self)
+        self.setupUi(self)
+
+    def rightMenuShow(self):
+        self.contextMenu = QMenu()
+        self.actionA = self.contextMenu.addAction(u'加入当前鼠标指向点的坐标')
+        self.actionB = self.contextMenu.addAction(u'刷新当前屏幕图片')
+        self.contextMenu.popup(QCursor.pos())  # 2菜单显示的位置
+        self.actionA.triggered.connect(self.actionAddPoint)
+        self.actionB.triggered.connect(self.actionRefresh)
+        self.contextMenu.show()
+    def mousePressEvent(self, event):
+        global addpoint_x,addpoint_y
+        if event.buttons() == QtCore.Qt.RightButton:  # 右键按下
+            addpoint_x = event.x()
+            addpoint_y = event.y()
+            print(addpoint_x,addpoint_y)
+    def actionAddPoint(self):
+        global addpoint_x, addpoint_y
+
+        print('加入点')
+        print(addpoint_x,addpoint_y)
+        print(t_ui.max_x)
+        print(t_ui.max_y)
+
+    def actionRefresh(self):
+        functions_class.refresh()
+        pm = QtGui.QPixmap()
+        pm.load(r"refreshshot.png")
+        a_p_ui.label.setPixmap(pm)
+        a_p_ui.label.setScaledContents(True)
+
 if __name__ == '__main__':
     global functions_class
 
@@ -620,6 +667,7 @@ if __name__ == '__main__':
     t_ui = t_window()
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()
+    a_p_ui = a_p_window()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
     '''测试用 正式版去掉'''
