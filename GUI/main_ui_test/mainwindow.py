@@ -5,6 +5,7 @@ sys.path.insert(1,new_path)
 import threading
 import time
 import webbrowser
+from logcat import LogCat
 from Test_Ui_Functions import TestUiFunctionsClass as func
 from Test_Ui_Functions import rangeErrorException
 from ui_main import Ui_MainWindow
@@ -63,6 +64,11 @@ def reset_test_window():
     test_window = t_window()
     test_window.setupUi(test_window)
     test_window.t_init()
+@singleton
+class LastLine():
+    line = ""
+    def __init__(self):
+        self.line = ""
 class GetCurrentTestThread(QtCore.QThread):
     before_count = -1
     def __init__(self,t,parent = None):
@@ -96,19 +102,18 @@ class ShowWariningErrorLog(QtCore.QThread):
     t = None
     status = None
     def __init__(self,t,status,parent = None):
-        super(ShowWariningError,self).__init__(parent)
+        super(ShowWariningErrorLog,self).__init__(parent)
         self.t = t
         self.status = status
     def run(self):
         while(True):
             try:
-                warining_error_file = open("adblog.txt")
-                if self.status == 1:
-                    pass
-                elif self.status == 2:
-                    pass
-                elif self.status == 3:
-                    pass
+                warining_error_file = open("adbcat.txt")
+                last_line = LastLine().line
+                adb_line = warining_error_file.readline()
+                if(adb_line != last_line):
+                    LastLine().line = adb_line
+                    self.t.reportList.addItem(LastLine().line)
             except IOError:
                 pass
 class WaitMonkeyRunnerStart(QtCore.QThread):
@@ -224,9 +229,13 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.wait_monkey_thread.start()
         self.testButton.clicked.connect(self.to_test)
         self.queueList.itemClicked.connect(self.set_not_selectable)
+        self.errorCheckBox.stateChanged.connect(self.set_both_checked)
         #self.queueList.itemChanged.connect(self.set_not_selectable)
         #self.queueList.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents,True)
         #self.queueList.itemChanged.connect(self.not_empty_set)
+    def set_both_checked(self):
+        if(self.errorCheckBox.isChecked()):
+            self.warningCheckBox.setChecked(True)
     def get_current_test(self):
         '''获取当前test的序号'''
         return test_count
@@ -248,7 +257,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #self.current_test += 1
     def check_warning_error(self):
         warning_int = 1 if self.warningCheckBox.checked() else 0
-        error_int = 2 if self.errorCheckBox.checked() else 0
+        error_int = 1 if self.errorCheckBox.checked() else 0
         self.status = warning_int + error_int
     def to_test(self):
         global test_count

@@ -353,24 +353,30 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>650</x>
       <y>290</y>
-      <width>341</width>
+      <width>378</width>
       <height>61</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>4</number>
+     </property>
      <item>
-      <widget class="QCheckBox" name="errorCheckBox">
+      <widget class="QCheckBox" name="warningCheckBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="text">
-        <string>显示adb日志Warning错误</string>
+        <string>显示adb日志Warning</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="warningCheckBox">
+      <widget class="QCheckBox" name="errorCheckBox">
        <property name="text">
-        <string>显示adb日志Error错误</string>
+        <string>显示adb日志Error和Warning</string>
        </property>
       </widget>
      </item>
@@ -404,8 +410,8 @@
    <slot>click_add_test()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>881</x>
-     <y>285</y>
+     <x>882</x>
+     <y>281</y>
     </hint>
     <hint type="destinationlabel">
      <x>856</x>
@@ -421,11 +427,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>560</y>
+     <y>555</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>434</y>
+     <y>431</y>
     </hint>
    </hints>
   </connection>
@@ -441,7 +447,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>641</y>
+     <y>638</y>
     </hint>
    </hints>
   </connection>
@@ -453,7 +459,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>560</y>
+     <y>555</y>
     </hint>
     <hint type="destinationlabel">
      <x>855</x>
@@ -485,11 +491,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>560</y>
+     <y>555</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>560</y>
+     <y>555</y>
     </hint>
    </hints>
   </connection>
@@ -505,7 +511,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>641</y>
+     <y>638</y>
     </hint>
    </hints>
   </connection>
@@ -521,7 +527,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>704</y>
+     <y>700</y>
     </hint>
    </hints>
   </connection>
@@ -537,7 +543,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
    </hints>
   </connection>
@@ -549,11 +555,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>434</y>
+     <y>431</y>
     </hint>
    </hints>
   </connection>
@@ -565,7 +571,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>818</x>
@@ -581,11 +587,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>560</y>
+     <y>555</y>
     </hint>
    </hints>
   </connection>
@@ -597,11 +603,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>641</y>
+     <y>638</y>
     </hint>
    </hints>
   </connection>
@@ -613,11 +619,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>704</y>
+     <y>700</y>
     </hint>
    </hints>
   </connection>
@@ -629,11 +635,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
     <hint type="destinationlabel">
      <x>1017</x>
-     <y>767</y>
+     <y>762</y>
     </hint>
    </hints>
   </connection>
@@ -740,8 +746,8 @@
    <slot>click_connect_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>239</x>
-     <y>207</y>
+     <x>327</x>
+     <y>204</y>
     </hint>
     <hint type="destinationlabel">
      <x>73</x>
@@ -756,8 +762,8 @@
    <slot>click_in_index_b()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>881</x>
-     <y>207</y>
+     <x>882</x>
+     <y>204</y>
     </hint>
     <hint type="destinationlabel">
      <x>366</x>
