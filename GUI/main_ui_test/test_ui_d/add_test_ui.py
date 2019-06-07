@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import overload
+
 class Ui_Add_test(object):
     def setupUi(self, Add_test):
         Add_test.setObjectName("Add_test")
@@ -625,7 +625,7 @@ class Ui_Add_test(object):
         self.groupBox = QtWidgets.QGroupBox(Add_test)
         self.groupBox.setGeometry(QtCore.QRect(10, 400, 661, 201))
         self.groupBox.setObjectName("groupBox")
-        self.currentQueueList = overload.MyCurrentQueue(self.groupBox)
+        self.currentQueueList = QtWidgets.QListWidget(self.groupBox)
         self.currentQueueList.setGeometry(QtCore.QRect(10, 20, 641, 171))
         font = QtGui.QFont()
         font.setPointSize(9)
@@ -653,9 +653,32 @@ class Ui_Add_test(object):
         self.addToQueueButton.setFont(font)
         self.addToQueueButton.setObjectName("addToQueueButton")
         self.horizontalLayout_2.addWidget(self.addToQueueButton)
+        self.layoutWidget_2 = QtWidgets.QWidget(Add_test)
+        self.layoutWidget_2.setGeometry(QtCore.QRect(120, 360, 262, 42))
+        self.layoutWidget_2.setObjectName("layoutWidget_2")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.layoutWidget_2)
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.choosePointBox = QtWidgets.QComboBox(self.layoutWidget_2)
+        self.choosePointBox.setMinimumSize(QtCore.QSize(160, 35))
+        self.choosePointBox.setMaximumSize(QtCore.QSize(160, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.choosePointBox.setFont(font)
+        self.choosePointBox.setObjectName("choosePointBox")
+        self.choosePointBox.addItem("")
+        self.horizontalLayout_4.addWidget(self.choosePointBox)
+        self.addPointConfirmButton = QtWidgets.QPushButton(self.layoutWidget_2)
+        self.addPointConfirmButton.setMinimumSize(QtCore.QSize(0, 40))
+        self.addPointConfirmButton.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.addPointConfirmButton.setFont(font)
+        self.addPointConfirmButton.setObjectName("addPointConfirmButton")
+        self.horizontalLayout_4.addWidget(self.addPointConfirmButton)
 
         self.retranslateUi(Add_test)
-        self.tabWidget.setCurrentIndex(8)
+        self.tabWidget.setCurrentIndex(0)
         self.deleteButton.clicked.connect(Add_test.delete_current_row)
         self.clearAssignmentButton.clicked.connect(self.v_touch_i_time.clear)
         self.clearAssignmentButton.clicked.connect(self.v_touch_num.clear)
@@ -717,6 +740,7 @@ class Ui_Add_test(object):
         self.addToQueueButton.clicked.connect(Add_test.add_new_test_b)
         self.finishButton.clicked.connect(Add_test.fin_queue_edit)
         self.clearAssignmentButton.clicked.connect(self.v_m_drag_start_p_y.clear)
+        self.addPointConfirmButton.clicked.connect(Add_test.choose_point_confirm)
         QtCore.QMetaObject.connectSlotsByName(Add_test)
         Add_test.setTabOrder(self.v_r_drag_start_p_x, self.v_touch_pos_y)
         Add_test.setTabOrder(self.v_touch_pos_y, self.v_touch_num)
@@ -779,7 +803,7 @@ class Ui_Add_test(object):
 
     def retranslateUi(self, Add_test):
         _translate = QtCore.QCoreApplication.translate
-        Add_test.setWindowTitle(_translate("Add_test", "Dialog"))
+        Add_test.setWindowTitle(_translate("Add_test", "选择测试窗口"))
         self.tabWidget.setWhatsThis(_translate("Add_test", "<html><head/><body><p><br/></p></body></html>"))
         self.v_touch_pos_y.setPlaceholderText(_translate("Add_test", "Y坐标(必填)"))
         self.touch_num.setWhatsThis(_translate("Add_test", "<html><head/><body><p>点击的次数。取值范围为&gt;=1的整数。不填默认为1。单位为次。</p></body></html>"))
@@ -929,4 +953,6 @@ class Ui_Add_test(object):
         self.groupBox.setTitle(_translate("Add_test", "当前测试队列"))
         self.clearAssignmentButton.setText(_translate("Add_test", "清除参数"))
         self.addToQueueButton.setText(_translate("Add_test", "加入测试队列"))
+        self.choosePointBox.setItemText(0, _translate("Add_test", "填入已保存的点"))
+        self.addPointConfirmButton.setText(_translate("Add_test", "确定"))
 
