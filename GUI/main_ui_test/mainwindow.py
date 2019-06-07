@@ -14,7 +14,8 @@ from test_ui_d.test_ui import Ui_TestWindow
 from test_ui_d.in_device_infor import Ui_In_dev_infor
 from test_ui_d.add_test_ui import Ui_Add_test
 from test_ui_d.add_point_ui import Ui_addPointWindow
-from PyQt5.QtWidgets import QApplication,QMainWindow,QMessageBox,QFileDialog,QMenu
+from test_ui_d.name_point import Ui_NamePoint
+from PyQt5.QtWidgets import QApplication,QMainWindow,QMessageBox,QFileDialog,QMenu,QTableWidgetItem
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QCursor
 from functools import wraps
@@ -48,6 +49,8 @@ test_count = 0
 #加点用
 addpoint_x = 0
 addpoint_y = 0
+fx = 0
+fy = 0
 '''
     通过装饰器实现一个单例模式
     保证只有一个和窗体类功能类↓
@@ -650,6 +653,43 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             test_window.startButton.setEnabled(True)
         self.currentQueueList.clear()
         a_t_ui.close()
+    def choose_point_confirm(self):
+        ind = a_t_ui.choosePointBox.currentIndex()-1
+        print(ind)
+        point_x = a_p_ui.pointTable.item(ind,1).text()
+        point_y = a_p_ui.pointTable.item(ind,2).text()
+        print(point_x,point_y)
+        if(a_t_ui.tabWidget.currentIndex() == 0):#单点点击测试
+            a_t_ui.v_touch_pos_x.setText(point_x)
+            a_t_ui.v_touch_pos_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 1):#单点长按测试
+            a_t_ui.v_press_pos_x.setText(point_x)
+            a_t_ui.v_press_pos_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 2):#多点点击测试
+            a_t_ui.v_m_touch_pos_x.setText(point_x)
+            a_t_ui.v_m_touch_pos_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 3):#随机点击测试
+            a_t_ui.v_r_touch_p1_x.setText(point_x)
+            a_t_ui.v_r_touch_p1_y.setText(point_y)
+            a_t_ui.v_r_touch_p2_x.setText(point_x)
+            a_t_ui.v_r_touch_p2_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 4):#单线滑动测试
+            a_t_ui.v_drag_p1_x.setText(point_x)
+            a_t_ui.v_drag_p1_y.setText(point_y)
+            a_t_ui.v_drag_p2_x.setText(point_x)
+            a_t_ui.v_drag_p2_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 5):#随机滑动测试
+            a_t_ui.v_m_drag_start_p_x.setText(point_x)
+            a_t_ui.v_m_drag_start_p_y.setText(point_y)
+            a_t_ui.v_m_drag_end_p_x.setText(point_x)
+            a_t_ui.v_m_drag_end_p_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 6):#长按滑动测试
+            a_t_ui.v_press_drag_start_p_x.setText(point_x)
+            a_t_ui.v_press_drag_start_p_y.setText(point_y)
+            a_t_ui.v_m_drag_end_p_x.setText(point_x)
+            a_t_ui.v_m_drag_end_p_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 7):
+            return
 
 @singleton
 class a_p_window(QtWidgets.QDialog,Ui_addPointWindow):
@@ -672,15 +712,17 @@ class a_p_window(QtWidgets.QDialog,Ui_addPointWindow):
         if event.buttons() == QtCore.Qt.RightButton:  # 右键按下
             addpoint_x = event.x()
             addpoint_y = event.y()
-            print(addpoint_x,addpoint_y)
+            #print(addpoint_x,addpoint_y)
     def actionAddPoint(self):
-        global addpoint_x, addpoint_y
-
-        print('加入点')
-        print(addpoint_x,addpoint_y)
-        print(t_ui.max_x)
-        print(t_ui.max_y)
-
+        global addpoint_x, addpoint_y,fx,fy
+        if(addpoint_x > 940 or addpoint_x <40 or addpoint_y > 640 or addpoint_y < 40):
+            print("超出范围")
+            return
+        else:
+            n_p.show()
+            fx = round((float)(((addpoint_x - 40) * t_ui.max_x) / 900))
+            fy = round((float)(((addpoint_y - 40) * t_ui.max_y) / 600))
+            print(fx,fy)
     def actionRefresh(self):
         functions_class.refresh()
         pm = QtGui.QPixmap()
@@ -688,6 +730,43 @@ class a_p_window(QtWidgets.QDialog,Ui_addPointWindow):
         a_p_ui.label.setPixmap(pm)
         a_p_ui.label.setScaledContents(True)
 
+    def delete_current_point_row(self):
+        if (a_p_ui.pointTable.rowCount() == 0):
+            return
+        row = a_p_ui.pointTable.currentRow()
+        print("删除第" + str(row + 1) + "个点")
+        a_p_ui.pointTable.removeRow(row)
+        a_t_ui.choosePointBox.removeItem(row+1)
+
+@singleton
+class n_p_window(QtWidgets.QDialog,Ui_NamePoint):
+
+    def __init__(self):
+        QtWidgets.QDialog.__init__(self)
+        Ui_NamePoint.__init__(self)
+        self.setupUi(self)
+    def name_point_confirm(self):
+        global fx, fy
+        i=0
+        while(i<a_p_ui.pointTable.rowCount()):
+            if(n_p.nameLine.text() == a_p_ui.pointTable.item(i,0).text()):
+                break
+            else:
+                i = i + 1
+        if(i == a_p_ui.pointTable.rowCount()):
+            a_p_ui.pointTable.insertRow(a_p_ui.pointTable.rowCount())
+            item = QTableWidgetItem(n_p.nameLine.text())
+            a_p_ui.pointTable.setItem(i,0,item)
+            item = QTableWidgetItem((str)(fx))
+            a_p_ui.pointTable.setItem(i, 1, item)
+            item = QTableWidgetItem((str)(fy))
+            a_p_ui.pointTable.setItem(i, 2, item)
+            a_t_ui.choosePointBox.addItem("")
+            a_t_ui.choosePointBox.setItemText(i+1,n_p.nameLine.text())
+            n_p.close()
+            n_p.nameLine.clear()
+        else:
+            print("名称重复")
 if __name__ == '__main__':
     global functions_class
 
@@ -699,6 +778,7 @@ if __name__ == '__main__':
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()
     a_p_ui = a_p_window()
+    n_p = n_p_window()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
     '''测试用 正式版去掉'''
