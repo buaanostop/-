@@ -30,6 +30,7 @@ class do_run_monkey(threading.Thread):
         threading.Thread.__init__(self)
         self.monkeypath = monkeypath
     def run(self):
+        print(self.monkeypath)
         os.popen("monkeyrunner "+self.monkeypath)
 #        os.system("monkeyrunner "+self.monkeypath)
 

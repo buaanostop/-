@@ -1,7 +1,7 @@
 import sys
 import os
-new_path = sys.path[0] + '\\monkeys'
-sys.path.insert(1,new_path)
+#new_path = sys.path[0] + '\\monkeys'
+#sys.path.insert(1,new_path)
 import threading
 import time
 import webbrowser
