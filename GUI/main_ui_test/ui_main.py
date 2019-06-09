@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setStyleSheet("border-image: url(:/newPrefix/1.png);")
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/mp/1.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/mp/h.png"))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
@@ -94,7 +94,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "主界面"))
         self.label.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.guide_b.setText(_translate("MainWindow", "引导"))
         self.test_b.setText(_translate("MainWindow", "测试"))

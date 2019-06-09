@@ -15,6 +15,7 @@ from test_ui_d.in_device_infor import Ui_In_dev_infor
 from test_ui_d.add_test_ui import Ui_Add_test
 from test_ui_d.add_point_ui import Ui_addPointWindow
 from test_ui_d.name_point import Ui_NamePoint
+from test_ui_d.warning import Ui_warning
 from PyQt5.QtWidgets import QApplication,QMainWindow,QMessageBox,QFileDialog,QMenu,QTableWidgetItem
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QCursor
@@ -326,6 +327,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         a_t_ui.v_m_drag_num.show()'''
         #a_t_ui.confirm_m_drag_n_b.show()
         a_t_ui.confirmMultiDragButton.show()
+        if(a_t_ui.choosePointBox.currentIndex() == 0):
+            a_t_ui.addPointConfirmButton.setEnabled(False)
+            a_t_ui.addPointConfirmButton_2.setEnabled(False)
         a_t_ui.show()
 
     def t_init(self):
@@ -660,6 +664,7 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         point_y = a_p_ui.pointTable.item(ind,2).text()
         print(point_x,point_y)
         if(a_t_ui.tabWidget.currentIndex() == 0):#单点点击测试
+            a_t_ui.addPointConfirmButton_2.hide()
             a_t_ui.v_touch_pos_x.setText(point_x)
             a_t_ui.v_touch_pos_y.setText(point_y)
         elif (a_t_ui.tabWidget.currentIndex() == 1):#单点长按测试
@@ -671,26 +676,61 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         elif (a_t_ui.tabWidget.currentIndex() == 3):#随机点击测试
             a_t_ui.v_r_touch_p1_x.setText(point_x)
             a_t_ui.v_r_touch_p1_y.setText(point_y)
-            a_t_ui.v_r_touch_p2_x.setText(point_x)
-            a_t_ui.v_r_touch_p2_y.setText(point_y)
         elif (a_t_ui.tabWidget.currentIndex() == 4):#单线滑动测试
             a_t_ui.v_drag_p1_x.setText(point_x)
             a_t_ui.v_drag_p1_y.setText(point_y)
-            a_t_ui.v_drag_p2_x.setText(point_x)
-            a_t_ui.v_drag_p2_y.setText(point_y)
-        elif (a_t_ui.tabWidget.currentIndex() == 5):#随机滑动测试
+        elif (a_t_ui.tabWidget.currentIndex() == 5):#多线滑动测试
             a_t_ui.v_m_drag_start_p_x.setText(point_x)
             a_t_ui.v_m_drag_start_p_y.setText(point_y)
-            a_t_ui.v_m_drag_end_p_x.setText(point_x)
-            a_t_ui.v_m_drag_end_p_y.setText(point_y)
-        elif (a_t_ui.tabWidget.currentIndex() == 6):#长按滑动测试
+        elif (a_t_ui.tabWidget.currentIndex() == 6):  # 随机滑动测试
+            a_t_ui.v_r_drag_start_p_x.setText(point_x)
+            a_t_ui.v_r_drag_start_p_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 7):#长按滑动测试
             a_t_ui.v_press_drag_start_p_x.setText(point_x)
             a_t_ui.v_press_drag_start_p_y.setText(point_y)
+
+
+    def choose_point_confirm_2(self):
+        ind = a_t_ui.choosePointBox.currentIndex() - 1
+        print(ind)
+        point_x = a_p_ui.pointTable.item(ind, 1).text()
+        point_y = a_p_ui.pointTable.item(ind, 2).text()
+        print(point_x, point_y)
+        if (a_t_ui.tabWidget.currentIndex() == 3):  # 随机点击测试
+            a_t_ui.v_r_touch_p2_x.setText(point_x)
+            a_t_ui.v_r_touch_p2_y.setText(point_y)
+
+        elif (a_t_ui.tabWidget.currentIndex() == 4):  # 单线滑动测试
+            a_t_ui.v_drag_p2_x.setText(point_x)
+            a_t_ui.v_drag_p2_y.setText(point_y)
+
+        elif (a_t_ui.tabWidget.currentIndex() == 5):  # 多线滑动测试
             a_t_ui.v_m_drag_end_p_x.setText(point_x)
             a_t_ui.v_m_drag_end_p_y.setText(point_y)
-        elif (a_t_ui.tabWidget.currentIndex() == 7):
-            return
+        elif (a_t_ui.tabWidget.currentIndex() == 6):  # 随机滑动测试
+            a_t_ui.v_r_drag_end_p_x.setText(point_x)
+            a_t_ui.v_r_drag_end_p_y.setText(point_y)
+        elif (a_t_ui.tabWidget.currentIndex() == 7): # 长按滑动测试
+            a_t_ui.v_press_drag_end_p_x.setText(point_x)
+            a_t_ui.v_press_drag_end_p_y.setText(point_y)
 
+    def tab_changed(self):
+        if (a_t_ui.tabWidget.currentIndex() == 0 or a_t_ui.tabWidget.currentIndex() == 1 or a_t_ui.tabWidget.currentIndex() == 2) :
+            a_t_ui.addPointConfirmButton.show()
+            a_t_ui.addPointConfirmButton_2.hide()
+        elif(a_t_ui.tabWidget.currentIndex() == 3 or a_t_ui.tabWidget.currentIndex() == 4 or a_t_ui.tabWidget.currentIndex() == 5 or a_t_ui.tabWidget.currentIndex() == 6 or a_t_ui.tabWidget.currentIndex() == 7):
+            a_t_ui.addPointConfirmButton.show()
+            a_t_ui.addPointConfirmButton_2.show()
+        elif(a_t_ui.tabWidget.currentIndex() == 8):
+            a_t_ui.addPointConfirmButton.hide()
+            a_t_ui.addPointConfirmButton_2.hide()
+    def box_changed(self):
+        if(a_t_ui.choosePointBox.currentIndex() == 0):
+            a_t_ui.addPointConfirmButton.setEnabled(False)
+            a_t_ui.addPointConfirmButton_2.setEnabled(False)
+        else:
+            a_t_ui.addPointConfirmButton.setEnabled(True)
+            a_t_ui.addPointConfirmButton_2.setEnabled(True)
 @singleton
 class a_p_window(QtWidgets.QDialog,Ui_addPointWindow):
     global functions_class
@@ -716,7 +756,8 @@ class a_p_window(QtWidgets.QDialog,Ui_addPointWindow):
     def actionAddPoint(self):
         global addpoint_x, addpoint_y,fx,fy
         if(addpoint_x > 940 or addpoint_x <40 or addpoint_y > 640 or addpoint_y < 40):
-            print("超出范围")
+            warn_ui.label.setText("超出可选范围！")
+            warn_ui.show()
             return
         else:
             n_p.show()
@@ -766,7 +807,16 @@ class n_p_window(QtWidgets.QDialog,Ui_NamePoint):
             n_p.close()
             n_p.nameLine.clear()
         else:
-            print("名称重复")
+            warn_ui.label.setText("点的名称重复！")
+            warn_ui.show()
+
+@singleton
+class warning_ui(QtWidgets.QDialog,Ui_warning):
+    def __init__(self):
+        QtWidgets.QDialog.__init__(self)
+        Ui_warning.__init__(self)
+        self.setupUi(self)
+
 if __name__ == '__main__':
     global functions_class
 
@@ -779,6 +829,7 @@ if __name__ == '__main__':
     a_t_ui = add_test()
     a_p_ui = a_p_window()
     n_p = n_p_window()
+    warn_ui = warning_ui()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
     '''测试用 正式版去掉'''
