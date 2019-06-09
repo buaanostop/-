@@ -222,6 +222,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     time_counter_thread = None
     wait_monkey_thread = None
     rate_tuple = None
+    status = 0
     #begin_connect_time = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -247,15 +248,19 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         current_flag = item.flags()
         item.setFlags(current_flag & (~QtCore.Qt.ItemIsSelectable))
     def set_current_test(self,counter):
-        #self.queueList.set
-        self.queueList.setCurrentRow(counter)
         try:
-            if(counter > self.queueList.count()):
-                raise AttributeError
-            self.queueList.item(counter).setBackground(QtGui.QColor(16,109,156))
-            if(counter > 0):
-                self.queueList.item(counter - 1).setBackground(QtGui.QColor(255,255,255))
-        except AttributeError:
+            self.test_count = functions_class.now_running()
+            #self.queueList.set
+            self.queueList.setCurrentRow(counter)
+            try:
+                if(counter > self.queueList.count()):
+                    raise AttributeError
+                self.queueList.item(counter).setBackground(QtGui.QColor(16,109,156))
+                if(counter > 0):
+                    self.queueList.item(counter - 1).setBackground(QtGui.QColor(255,255,255))
+            except AttributeError:
+                pass
+        except:
             pass
         #self.queueList.setCurrentIndex()
         #self.current_test += 1
@@ -340,7 +345,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         t_ui.resumeButton.hide()
         t_ui.stopButton.hide()
         #t_ui.InputAssignmentButton.setEnabled(True)
-        
+        t_ui
         t_ui.chooseTypeButton.setEnabled(False)
         '''
             if debug
@@ -409,8 +414,10 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def click_start_b(self):
         self.chooseTypeButton.setEnabled((False))
         functions_class.start()
-        current_test_thread = GetCurrentTestThread(self)
-        current_test_thread.start()
+        self.current_test_thread = GetCurrentTestThread(self)
+        self.current_test_thread.start()
+        self.show_warning_error_thread = ShowWariningErrorLog(self,self.status)
+        self.show_warning_error_thread.start()
         print("点击开始按钮")
     def click_pause_b(self):
         self.pauseButton.setEnabled(False)
@@ -832,11 +839,13 @@ if __name__ == '__main__':
     warn_ui = warning_ui()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
-    '''测试用 正式版去掉'''
+    '''测试用 正式版去掉
     t_ui.InputAssignmentButton.setEnabled(True)
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
-    '''以上'''
+    以上'''
+    t_ui.InputAssignmentButton.setEnabled(True)
+    t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
 # queueList

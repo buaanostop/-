@@ -591,3 +591,9 @@ class TestUiFunctionsClass(object):
                     op.wait_time,op.hold_time,op.number,op.interval_time)
             strs.append(item_str)
         return strs
+    def now_running(self):
+        now_index = Monkey.now_running()
+        if(now_index >= 0):
+            return now_index
+        else:
+            return 0
