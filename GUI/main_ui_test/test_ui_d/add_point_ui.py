@@ -40,7 +40,7 @@ class Ui_addPointWindow(object):
 
     def retranslateUi(self, addPointWindow):
         _translate = QtCore.QCoreApplication.translate
-        addPointWindow.setWindowTitle(_translate("addPointWindow", "Dialog"))
+        addPointWindow.setWindowTitle(_translate("addPointWindow", "加入当前屏幕上的点"))
         self.chooseDeletePointButton.setText(_translate("addPointWindow", "删除选中点"))
         item = self.pointTable.horizontalHeaderItem(0)
         item.setText(_translate("addPointWindow", "名称"))
