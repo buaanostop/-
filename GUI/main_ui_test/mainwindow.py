@@ -100,7 +100,9 @@ class WaitConnect(QtCore.QThread):
         self.t = t
         self.finished.connect(t.after_connect)
     def run(self):
+        print("before")
         self.t.successfully_connect = functions_class.connect()
+        print("after")
 
 class ShowWariningErrorLog(QtCore.QThread):
     t = None
@@ -844,7 +846,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    t_ui.InputAssignmentButton.setEnabled(True)
+    #t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
