@@ -235,7 +235,7 @@ class TestUiFunctionsClass(object):
                 id = point_tuple.index((-1,-1))
                 p_e = pointNotEnoughException(id+1)
                 raise p_e
-            self.placeholder_to_text(self.add_test_form.v_m_touch_i_time,self.add_test_form.v_m_touch_loop_num)
+            self.placeholder_to_text(self.add_test_form.v_m_touch_i_time,self.add_test_form.v_m_touch_loop_num,self.add_test_form.v_m_touch_loop_i_time)
             #during_time = float(self.add_test_form.v_press_time.text())
             loop_number = int(self.add_test_form.v_m_touch_loop_num.text())
             interval_time = float(self.add_test_form.v_m_touch_i_time.text())
