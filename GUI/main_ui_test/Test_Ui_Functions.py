@@ -316,9 +316,12 @@ class TestUiFunctionsClass(object):
                 self.add_test_form.v_m_drag_time,self.add_test_form.v_m_drag_trip_i_time ]
         extra_msg = ""
         try:
+            if(self.add_test_form.points_list_drag == None):
+                extra_msg = '滑动队列：'
+                raise ValueError
             drag_tuple = tuple(self.add_test_form.points_list_drag)
             if( ((-1,-1),(-1,-1)) in drag_tuple):
-                id = drag_tuple.index((-1,-1),(-1,-1))
+                id = drag_tuple.index(((-1,-1),(-1,-1)))
                 p_e = pointNotEnoughException(id + 1)
                 raise p_e
             self.placeholder_to_text(line_edits)
@@ -469,6 +472,8 @@ class TestUiFunctionsClass(object):
                 self.disp_report_information('end','暂未读取到日志文件')
                 self.log_timer = threading.Timer(0.01, self.log_monitor)
                 self.log_timer.start()
+        except AttributeError:
+            pass
 
     '''多点点击测试选项卡下的
         确定并加输入下一点 按钮
@@ -593,7 +598,4 @@ class TestUiFunctionsClass(object):
         return strs
     def now_running(self):
         now_index = Monkey.now_running()
-        if(now_index >= 0):
-            return now_index
-        else:
-            return 0
+        return now_index

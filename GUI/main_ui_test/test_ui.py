@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\test_ui.ui'
+# Form implementation generated from reading ui file 'test_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #

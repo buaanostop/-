@@ -8,7 +8,6 @@ Monkey.py
 1.创建测试队列
 2.保存、读取测试队列
 3.控制测试的运行
-
 """
 import sys
 import time
@@ -67,7 +66,6 @@ def __writelog(data):
     logfile = open(logpath, 'a')
     logfile.write(data + '\n')
     logfile.close()
-
         
 def __now():
     """返回当前时间信息"""
@@ -95,7 +93,6 @@ def open_app(package_name, activity_name):
                     活动名 例如 com.unity3d.player.UnityPlayerActivity
     返回值
     ---------
-
     """
     __writelog(__now() + "open app")
     do_open_app(package_name, activity_name)
@@ -124,13 +121,20 @@ def clear():
     oplist.clear()
     return oplist
 
+def now_running():
+    """返回当前正在进行的测试
+    返回值
+    -----------
+    int : 测试的序号，0开始，在没有开始或已经结束的情况下返回-1
+    """
+    return do_now_running()
+
 def delete(index):
     """删除列表中第index个测试
     参数
     -------------
     index : int
             要删除的位置（从1开始）
-
     """
     oplist.pop(index - 1)
     return oplist
@@ -210,7 +214,6 @@ def all_random(test_number=100):
     返回值
     list[Operation]
     随机操作的队列
-
     """
     num = 0
     testtype = ['touch','long_touch','drag','touch_drag']
@@ -266,7 +269,6 @@ def touch(pos_x, pos_y, touch_number=1, interval_time=1.0):
             点击的次数，默认为1
     interval_time : float
             多次点击间隔时间,默认为1秒
-
     """
     op = Operation('touch', ((pos_x, pos_y),), touch_number, interval_time, 0, 0, 0)
     oplist.append(op)
@@ -309,7 +311,6 @@ def multi_touch(pointlist, loop_number=1, interval_time = 1.0, loop_time = 1.0):
                 两次点击的间隔时间,默认为1秒
     loop_time : float
                 两遍循环的间隔时间，默认为1秒
-
     """
     op = Operation('multi_touch', pointlist, loop_number, interval_time, 0, 0, loop_time)
     oplist.append(op)
@@ -366,7 +367,6 @@ def multi_drag(pointlist, loop_number=1, interval_time = 1.0, drag_time=1.0, loo
                 每次滑动的持续时间，默认为1秒
     loop_time : float
                 两遍滑动的间隔时间，默认为1秒
-
     """
     op = Operation('multi_drag', pointlist, loop_number, interval_time, drag_time, 0, loop_time)   
     oplist.append(op)
@@ -386,7 +386,6 @@ def random_drag(pointlist, drag_number=1, interval_time=1.0, drag_time=1.0):
                 每两次滑动间隔的时间，默认为1秒
     drag_time : float
                 滑动时间，默认为1秒
-
     """
     op = Operation('random_drag', pointlist, drag_number, interval_time, drag_time, 0, 0)
     oplist.append(op)
@@ -407,7 +406,6 @@ def touch_drag(pointlist, touch_time=1.0, drag_time=1.0, touch_number=1, interva
                 长按滑动的次数
     interval_time : float
                 两次动作的间隔时间
-
     """
     op = Operation('touch_drag', pointlist, touch_number, interval_time, drag_time, 0, touch_time)
     oplist.append(op)
@@ -421,7 +419,6 @@ def press(key_name):
     -----------
     key_name : string
             按键的名字
-
     """
     op = Operation('press', None, 0, 0, 0, key_name, 0)
     oplist.append(op)
@@ -446,7 +443,6 @@ def wait(wait_time):
     ------
     wait_time : float
                 要等待的时间
-
     """
     op = Operation('wait', None, 0, 0, 0, 0, wait_time)
     oplist.append(op)
@@ -490,7 +486,6 @@ def stop():
     return True
 
 ##-------------------------------
-
 
 
 

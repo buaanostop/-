@@ -46,7 +46,7 @@ max_drag_interval_time = 99.9
 x_rate = 1024
 y_rate = 768
 begin_connect_time = None
-test_count = 0
+#test_count = 0
 #加点用
 addpoint_x = 0
 addpoint_y = 0
@@ -73,19 +73,30 @@ class LastLine():
     line = ""
     def __init__(self):
         self.line = ""
+class WaitForStopThread(QtCore.QThread):
+    def __init__(self, t, parent=None):
+        super(WaitForStopThread, self).__init__(parent)
+        self.finished.connect(t.reset_start)
+        self.t = t
+    def run(self):
+        now_ind = functions_class.now_running()
+        while( now_ind != -1):
+            lock.lock()
+            now_ind = functions_class.now_running()
+            lock.unlock()
 class GetCurrentTestThread(QtCore.QThread):
     before_count = -1
+    continue_flag = True
     def __init__(self,t,parent = None):
         super(GetCurrentTestThread,self).__init__(parent)
         self.t = t
         #self.finished.connect(get_current_test)
     def run(self):
-        while(True):
+        while(self.continue_flag):
             lock.lock()
             after_count = self.t.get_current_test()
-            if(after_count != self.before_count):
-                self.t.set_current_test(after_count)
-                self.before_count = after_count
+            self.t.set_current_test(after_count)
+            self.before_count = after_count
             lock.unlock()
             
 class TimeWaitThread(QtCore.QThread):
@@ -225,6 +236,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     wait_monkey_thread = None
     rate_tuple = None
     status = 0
+    test_count = 0
+    current_test_thread = None
     #begin_connect_time = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -237,21 +250,27 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.testButton.clicked.connect(self.to_test)
         self.queueList.itemClicked.connect(self.set_not_selectable)
         self.errorCheckBox.stateChanged.connect(self.set_both_checked)
+        self.setFixedSize(1036,844)
         #self.queueList.itemChanged.connect(self.set_not_selectable)
         #self.queueList.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents,True)
         #self.queueList.itemChanged.connect(self.not_empty_set)
     def set_both_checked(self):
         if(self.errorCheckBox.isChecked()):
             self.warningCheckBox.setChecked(True)
+    def reset_start(self):
+        self.startButton.setEnabled(True)
+        self.startButton.setText('开始测试')
     def get_current_test(self):
         '''获取当前test的序号'''
-        return test_count
+        return self.test_count
     def set_not_selectable(self,item):
         current_flag = item.flags()
         item.setFlags(current_flag & (~QtCore.Qt.ItemIsSelectable))
     def set_current_test(self,counter):
         try:
             self.test_count = functions_class.now_running()
+            if(self.test_count == counter or self.test_count == -1):
+                return
             #self.queueList.set
             self.queueList.setCurrentRow(counter)
             try:
@@ -262,8 +281,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
                     self.queueList.item(counter - 1).setBackground(QtGui.QColor(255,255,255))
             except AttributeError:
                 pass
-        except:
-            pass
+        except Exception as e:
+            print(str(e))
         #self.queueList.setCurrentIndex()
         #self.current_test += 1
     def check_warning_error(self):
@@ -286,6 +305,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             self.max_y = int(self.successfully_connect[1])
             # self.rate_tuple = self.su
             self.InputAssignmentButton.setEnabled(True)
+            self.addPointButton.setEnabled(True)
             self.connectDeviceButton.setEnabled(False)
             self.loadButton.setEnabled(True)
             self.connectDeviceButton.setText('已成功连接')
@@ -420,6 +440,10 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.current_test_thread.start()
         self.show_warning_error_thread = ShowWariningErrorLog(self,self.status)
         self.show_warning_error_thread.start()
+        items_count = self.queueList.count()
+        for i in range(0,items_count):
+            self.queueList.item(i).setBackground(QtGui.QColor(255, 255, 255))
+            #self.queueList.item(counter).setBackground(QtGui.QColor(16, 109, 156))
         print("点击开始按钮")
     def click_pause_b(self):
         self.pauseButton.setEnabled(False)
@@ -440,6 +464,16 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             self.close()
         self.chooseTypeButton.setEnabled((True))
         self.loadButton.setEnabled(True)
+        self.current_test_thread.continue_flag = False
+        items_count = self.queueList.count()
+        for i in range(0,items_count):
+            self.queueList.item(i).setBackground(QtGui.QColor(255, 255, 255))
+        self.queueList.setCurrentRow(0)
+        self.test_count = 0
+        self.startButton.setEnabled(False)
+        self.startButton.setText('等待结束')
+        self.reset_thread = WaitForStopThread(self)
+        self.reset_thread.start()
         functions_class.stop()
         print("点击终止按钮")
 @singleton
@@ -798,26 +832,30 @@ class n_p_window(QtWidgets.QDialog,Ui_NamePoint):
     def name_point_confirm(self):
         global fx, fy
         i=0
-        while(i<a_p_ui.pointTable.rowCount()):
-            if(n_p.nameLine.text() == a_p_ui.pointTable.item(i,0).text()):
-                break
-            else:
-                i = i + 1
-        if(i == a_p_ui.pointTable.rowCount()):
-            a_p_ui.pointTable.insertRow(a_p_ui.pointTable.rowCount())
-            item = QTableWidgetItem(n_p.nameLine.text())
-            a_p_ui.pointTable.setItem(i,0,item)
-            item = QTableWidgetItem((str)(fx))
-            a_p_ui.pointTable.setItem(i, 1, item)
-            item = QTableWidgetItem((str)(fy))
-            a_p_ui.pointTable.setItem(i, 2, item)
-            a_t_ui.choosePointBox.addItem("")
-            a_t_ui.choosePointBox.setItemText(i+1,n_p.nameLine.text())
-            n_p.close()
-            n_p.nameLine.clear()
-        else:
-            warn_ui.label.setText("点的名称重复！")
+        if(n_p.nameLine.text() == ""):
+            warn_ui.label.setText("名称不能为空！")
             warn_ui.show()
+        else:
+            while(i<a_p_ui.pointTable.rowCount()):
+                if(n_p.nameLine.text() == a_p_ui.pointTable.item(i,0).text()):
+                    break
+                else:
+                    i = i + 1
+            if(i == a_p_ui.pointTable.rowCount()):
+                a_p_ui.pointTable.insertRow(a_p_ui.pointTable.rowCount())
+                item = QTableWidgetItem(n_p.nameLine.text())
+                a_p_ui.pointTable.setItem(i,0,item)
+                item = QTableWidgetItem((str)(fx))
+                a_p_ui.pointTable.setItem(i, 1, item)
+                item = QTableWidgetItem((str)(fy))
+                a_p_ui.pointTable.setItem(i, 2, item)
+                a_t_ui.choosePointBox.addItem("")
+                a_t_ui.choosePointBox.setItemText(i+1,n_p.nameLine.text())
+                n_p.close()
+                n_p.nameLine.clear()
+            else:
+                warn_ui.label.setText("点的名称重复！")
+                warn_ui.show()
 
 @singleton
 class warning_ui(QtWidgets.QDialog,Ui_warning):
@@ -846,7 +884,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    t_ui.InputAssignmentButton.setEnabled(True)
+    #t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
