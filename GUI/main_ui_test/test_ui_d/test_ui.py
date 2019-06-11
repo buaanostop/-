@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\test_ui_d\test_ui.ui'
+# Form implementation generated from reading ui file 'test_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -116,7 +116,7 @@ class Ui_TestWindow(object):
         self.InputAssignmentButton.setObjectName("InputAssignmentButton")
         self.gridLayout.addWidget(self.InputAssignmentButton, 0, 1, 1, 1)
         self.addPointButton = QtWidgets.QPushButton(self.layoutWidget1)
-        self.addPointButton.setEnabled(True)
+        self.addPointButton.setEnabled(False)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -133,7 +133,7 @@ class Ui_TestWindow(object):
         self.chooseTypeButton.setObjectName("chooseTypeButton")
         self.gridLayout.addWidget(self.chooseTypeButton, 1, 1, 1, 1)
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(650, 290, 378, 61))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(590, 290, 395, 61))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -148,7 +148,7 @@ class Ui_TestWindow(object):
         self.horizontalLayout_2.addWidget(self.errorCheckBox)
         TestWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(TestWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1036, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1036, 26))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -202,7 +202,7 @@ class Ui_TestWindow(object):
         self.InputAssignmentButton.setText(_translate("TestWindow", "输入要测试的app参数"))
         self.addPointButton.setText(_translate("TestWindow", "添加屏幕上的点"))
         self.chooseTypeButton.setText(_translate("TestWindow", "选择测试并加入测试队列"))
-        self.warningCheckBox.setText(_translate("TestWindow", "显示adb日志Warning"))
+        self.warningCheckBox.setText(_translate("TestWindow", "显示adb日志Error"))
         self.errorCheckBox.setText(_translate("TestWindow", "显示adb日志Error和Warning"))
         self.menu.setTitle(_translate("TestWindow", "帮助"))
 
