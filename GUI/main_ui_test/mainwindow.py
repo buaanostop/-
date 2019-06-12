@@ -1,5 +1,6 @@
 import sys
 import os
+import re
 #new_path = sys.path[0] + '\\monkeys'
 #sys.path.insert(1,new_path)
 import threading
@@ -52,6 +53,8 @@ addpoint_x = 0
 addpoint_y = 0
 fx = 0
 fy = 0
+save_name_pattern = re.compile('^[(a-z)_\d]+$')
+rate_pattern = re.compile('\((\d+)\^(\d+)\)')
 '''
     通过装饰器实现一个单例模式
     保证只有一个和窗体类功能类↓
@@ -383,21 +386,28 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #a_p_ui.resize(900,600)
         #a_p_ui.setFixedSize(900,600)
         a_p_ui.show()
-
     def click_load_b(self):
         test_window = t_window()
         load_file_name,_ = QFileDialog.getOpenFileName(self,'读档',os.getcwd() + '\\save','存档文件(*.save)')
         if(load_file_name == ''):
             return
         load_names = load_file_name.split('.')
-        rates = load_names.repace('(','')
-        rates = rates.repace(')','')
-        rates = rates.split('x')
-        try:
-            self.max_x = int(rates[0])
-            self.max_y = int(rates[1])
-        except:
-            pass
+        load_names = load_names[0].split('/')
+        rates = load_names[-1]
+        result = re.search(rate_pattern,rates)
+        if(result):
+            self.max_x = int(result.group(1))
+            self.max_y= int(result.group(2))
+        else:
+            functions_class.error_message_prompt(6,self)
+            return
+        ''' rates = rates.replace(')','')
+            rates = rates.split('^')
+            try:
+                self.max_x = int(rates[0])
+                self.max_y = int(rates[1])
+            except:
+                pass'''
         functions_class.load(load_file_name)
         if(test_window.queueList.count() == 0):
             test_window.saveButton.setEnabled(False)
@@ -406,16 +416,22 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             test_window.loadButton.setEnabled(False)
             test_window.saveButton.setEnabled(True)
             test_window.startButton.setEnabled(True)
-    '''"点击存档按钮"'''
+        '''"点击存档按钮"'''
     def click_save_b(self):
         #print("点击存档按钮")
         #file_set = QFileDialog.Options()
-        save_file_name,_ = QFileDialog.getSaveFileName(self,"存档",os.getcwd() + "\\save","存档文件(*.save)")
+        save_file_name,_ = QFileDialog.getSaveFileName(self,"存档","","存档文件(*.save)")
         if(save_file_name == ''):
             return
-        save_names = save_file_name.split('.')
-        save_names[0] += '(' +(str(self.max_x )+ 'x' + str(self.max_y)) + ')'
-        save_file_name = save_names[0] + '.' + save_names[1]
+        last_name = save_file_name.split('/')[-1].split('.')[0]
+        #last_name = save_file_name
+        match_result = re.match(save_name_pattern,last_name)
+        if(not match_result):
+            functions_class.error_message_prompt(7,self)
+        save_name = last_name
+        save_name += '(' +(str(self.max_x )+ '^' + str(self.max_y)) + ')'
+        save_file_name = os.getcwd() + "\\save\\" + save_name+".save"
+        #print(save_file_name)
         functions_class.save(save_file_name)
     def click_start_b(self):
         self.chooseTypeButton.setEnabled((False))
@@ -481,7 +497,6 @@ class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
             if(i_d_ui.has_finished == 0):
                 test_window.InputAssignmentButton.setText('重新输入')
                 test_window.chooseTypeButton.setEnabled(True)
-
             self.has_finished = 1
         except ValueError:
             functions_class.error_message_prompt(self,empty_error_code)
@@ -862,12 +877,12 @@ if __name__ == '__main__':
     warn_ui = warning_ui()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
-    '''测试用 正式版去掉'''
+    '''测试用 正式版去掉
     t_ui.InputAssignmentButton.setEnabled(True)
-    '''current_test_thread = GetCurrentTestThread(t_ui)
+    current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    #t_ui.InputAssignmentButton.setEnabled(True)
+    t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())

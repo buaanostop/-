@@ -106,8 +106,10 @@ class TestUiFunctionsClass(object):
            QMessageBox.about(widget,'读档错误','读取存档失败，请稍后重试')
         elif(error_code == have_not_connect_error_code):
            QMessageBox.about(widget,'提示','请先连接设备！')
-        elif(error_code == not_successful_connected_error_code):
-           QMessageBox.about(widget,'连接错误','还未成功连接设备')
+        elif(error_code == 6):
+           QMessageBox.about(widget,'读取存档错误','存档文件名错误，请勿擅自更改存档文件名')
+        elif(error_code == 7):
+            QMessageBox.about(widget,'存档命名错误','存档文件名只能包含半角英文字母，数字和下划线，程序会自动在文件名后添加分辨率标记，请勿更改')
     #常数和错误处理结束#
     def runMonkeyServer(self,lock):
     ##!!!!!!!!!!!!!!!!!!!!!!!!!!!!此位置改成MonkeyServer.py所在位置
@@ -153,6 +155,8 @@ class TestUiFunctionsClass(object):
             self.model_thread.start()'''
 
         self.log_timer = threading.Timer(0.01,self.log_monitor)
+        
+        self.end_log_monitor = 0
         self.log_timer.start()
 
 

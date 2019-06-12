@@ -1,28 +1,33 @@
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 touch test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 long_touch test add success
-2019-06-12 12:07:25 drag test add success
-2019-06-12 12:07:25 long_touch test add success
-2019-06-12 12:07:25 long_touch test add success
-2019-06-12 12:07:25 drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 long_touch test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 touch_drag test add success
-2019-06-12 12:07:25 long_touch test add success
-2019-06-12 12:07:25 long_touch test add success
-2019-06-12 12:07:25 drag test add success
-2019-06-12 12:07:25 all_random test add success
-2019-06-12 12:07:40 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/12345(1024x768).save save success
-2019-06-12 12:07:43 start
-2019-06-12 12:07:43 touch down (554,186)
-2019-06-12 12:07:44 stop
-2019-06-12 12:07:45 move to (5,1075)
-2019-06-12 20:37:09 close
+2019-06-12 15:28:02 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/12345(1024^768).save load success
+2019-06-12 15:28:07 touch_drag test add success
+2019-06-12 15:28:07 long_touch test add success
+2019-06-12 15:28:07 long_touch test add success
+2019-06-12 15:28:07 drag test add success
+2019-06-12 15:28:07 long_touch test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 drag test add success
+2019-06-12 15:28:07 touch_drag test add success
+2019-06-12 15:28:07 touch_drag test add success
+2019-06-12 15:28:07 long_touch test add success
+2019-06-12 15:28:07 drag test add success
+2019-06-12 15:28:07 drag test add success
+2019-06-12 15:28:07 long_touch test add success
+2019-06-12 15:28:07 touch_drag test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 touch_drag test add success
+2019-06-12 15:28:07 drag test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 long_touch test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 touch test add success
+2019-06-12 15:28:07 drag test add success
+2019-06-12 15:28:07 all_random test add success
+2019-06-12 15:28:13 C:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\save\124124(1024^768).save save success
+2019-06-12 15:28:14 start
+2019-06-12 15:28:14 touch down (554,186)
+2019-06-12 15:28:14 stop
+2019-06-12 15:28:16 move to (5,1075)
+2019-06-12 15:28:16 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/124124(1024^768).save load success
+2019-06-12 15:28:18 touch up (5,1075)
