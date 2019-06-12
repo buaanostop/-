@@ -230,6 +230,9 @@ class TestUiFunctionsClass(object):
     def multi_touch_test(self):
         extra_msg = ""
         try:
+            if(self.add_test_form.points_list_touch == None):
+                extra_msg = "未输入多点队列："
+                raise ValueError
             point_tuple = tuple(self.add_test_form.points_list_touch)
             if((-1,-1) in point_tuple):
                 id = point_tuple.index((-1,-1))
@@ -599,3 +602,5 @@ class TestUiFunctionsClass(object):
     def now_running(self):
         now_index = Monkey.now_running()
         return now_index
+    def clear(self):
+        Monkey.clear()

@@ -419,6 +419,17 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def click_load_b(self):
         test_window = t_window()
         load_file_name,_ = QFileDialog.getOpenFileName(self,'读档',os.getcwd() + '\\save','存档文件(*.save)')
+        if(load_file_name == ''):
+            return
+        load_names = load_file_name.split('.')
+        rates = load_names.repace('(','')
+        rates = rates.repace(')','')
+        rates = rates.split('x')
+        try:
+            self.max_x = int(rates[0])
+            self.max_y = int(rates[1])
+        except:
+            pass
         functions_class.load(load_file_name)
         if(test_window.queueList.count() == 0):
             test_window.saveButton.setEnabled(False)
@@ -432,6 +443,11 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #print("点击存档按钮")
         #file_set = QFileDialog.Options()
         save_file_name,_ = QFileDialog.getSaveFileName(self,"存档",os.getcwd() + "\\save","存档文件(*.save)")
+        if(save_file_name == ''):
+            return
+        save_names = save_file_name.split('.')
+        save_names[0] += '(' +(str(self.max_x )+ 'x' + str(self.max_y)) + ')'
+        save_file_name = save_names[0] + '.' + save_names[1]
         functions_class.save(save_file_name)
     def click_start_b(self):
         self.chooseTypeButton.setEnabled((False))
@@ -879,9 +895,9 @@ if __name__ == '__main__':
     warn_ui = warning_ui()
     functions_class = func(t_ui,a_t_ui)
     functions_class.read_exception()
-    '''测试用 正式版去掉
+    '''测试用 正式版去掉'''
     t_ui.InputAssignmentButton.setEnabled(True)
-    current_test_thread = GetCurrentTestThread(t_ui)
+    '''current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
     #t_ui.InputAssignmentButton.setEnabled(True)

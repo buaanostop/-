@@ -1,0 +1,11 @@
+{'optype': 'drag', 'pointlist': ((961, 80), (255, 335)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'long_touch', 'pointlist': ((98, 604),), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((341, 482), (948, 730)), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'drag', 'pointlist': ((191, 1240), (635, 1879)), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.5, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((542, 123),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch_drag', 'pointlist': ((353, 907), (365, 1425)), 'number': 1, 'interval_time': 1.0, 'hold_time': 3.0, 'keyorstring': '0', 'wait_time': 0.5}
+{'optype': 'touch_drag', 'pointlist': ((906, 1116), (181, 773)), 'number': 1, 'interval_time': 1.0, 'hold_time': 2.0, 'keyorstring': '0', 'wait_time': 0.5}
+{'optype': 'touch_drag', 'pointlist': ((163, 875), (818, 712)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.5, 'keyorstring': '0', 'wait_time': 1.0}
+{'optype': 'touch', 'pointlist': ((679, 1547),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch', 'pointlist': ((109, 832),), 'number': 1, 'interval_time': 1.0, 'hold_time': 0.0, 'keyorstring': '0', 'wait_time': 0.0}
+{'optype': 'touch_drag', 'pointlist': ((771, 1468), (576, 492)), 'number': 1, 'interval_time': 1.0, 'hold_time': 1.5, 'keyorstring': '0', 'wait_time': 2.0}
