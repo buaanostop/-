@@ -1,5 +1,5 @@
 <RCC>
   <qresource prefix="mp">
-    <file>h.png</file>
+    <file>mainLabel.png</file>
   </qresource>
 </RCC>
