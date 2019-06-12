@@ -33,7 +33,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="images/main_p.qrc">:/mp/h.png</pixmap>
+       <pixmap resource="images/main_p.qrc">:/mp/mainLabel.png</pixmap>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

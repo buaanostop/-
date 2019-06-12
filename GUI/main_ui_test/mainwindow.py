@@ -150,6 +150,8 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
         self.setupUi(self)
     def click_guide_b(self):
         #print("打开引导界面")
+        g_ui.guideTitle.setText("使用引导：图1")
+        g_ui.guidePictures.setStyleSheet("border-image: url(:/gp/1.png);")
         g_ui.show()
     def click_test_b(self):
         #print("打开测试界面")
@@ -175,56 +177,22 @@ class g_window(QtWidgets.QMainWindow,Ui_GuideWindow):
         print("引导界面图片左划")
         global nowp
         if(nowp == 1):
-            nowp = 9
+            nowp = 6
         else:
             nowp = nowp-1
         #g_ui.guidePictures.setPixmap(QtGui.QPixmap(":/gp/"+str(nowp)+".png"))
         g_ui.guidePictures.setStyleSheet("border-image: url(:/gp/"+str(nowp)+".png);")
-        if (nowp == 1):
-            g_ui.textEdit.setText("主界面如上图所示。")
-        elif(nowp == 2):
-            g_ui.textEdit.setText("打开测试界面，请先等待后台程序启动。然后点击连接按钮。")
-        elif(nowp == 3):
-            g_ui.textEdit.setText("点击“输入要测试的APP参数”按钮，输入各项参数。")
-        elif (nowp == 4):
-            g_ui.textEdit.setText("点击“选择测试”按钮，例如图中“单点点击测试”。")
-        elif (nowp == 5):
-            g_ui.textEdit.setText("这里以“完全随机”测试为例，点击“加入测试队列”按钮，确定测试队列后点击“测试队列创建完成”按钮")
-        elif (nowp == 6):
-            g_ui.textEdit.setText("返回到测试界面")
-        elif (nowp == 7):
-            g_ui.textEdit.setText("点击“开始测试”按钮，可以看到测试报告栏里已开始记录测试的报告")
-        elif (nowp == 8):
-            g_ui.textEdit.setText("如图，检测到异常！")
-        elif (nowp == 9):
-            g_ui.textEdit.setText("续上图，已在exception_1.txt文件中记录了本次测试队列。")
+        g_ui.guideTitle.setText("使用引导：图"+str(nowp))
     def click_right_b(self):
         print("引导界面图片右划")
         global nowp
-        if (nowp == 9):
+        if (nowp == 6):
             nowp = 1
         else:
             nowp = nowp + 1
         #g_ui.guidePictures.setPixmap(QtGui.QPixmap(":/gp/" + str(nowp) + ".png"))
         g_ui.guidePictures.setStyleSheet("border-image: url(:/gp/"+str(nowp)+".png);")
-        if (nowp == 1):
-            g_ui.textEdit.setText("主界面如上图所示。")
-        elif(nowp == 2):
-            g_ui.textEdit.setText("打开测试界面，请先等待后台程序启动。然后点击连接按钮。")
-        elif(nowp == 3):
-            g_ui.textEdit.setText("点击“输入要测试的APP参数”按钮，输入各项参数。")
-        elif (nowp == 4):
-            g_ui.textEdit.setText("点击“选择测试”按钮，例如图中“单点点击测试”。")
-        elif (nowp == 5):
-            g_ui.textEdit.setText("这里以“完全随机”测试为例，点击“加入测试队列”按钮，确定测试队列后点击“测试队列创建完成”按钮")
-        elif (nowp == 6):
-            g_ui.textEdit.setText("返回到测试界面")
-        elif (nowp == 7):
-            g_ui.textEdit.setText("点击“开始测试”按钮，可以看到测试报告栏里已开始记录测试的报告")
-        elif (nowp == 8):
-            g_ui.textEdit.setText("如图，检测到异常！")
-        elif (nowp == 9):
-            g_ui.textEdit.setText("续上图，已在exception_1.txt文件中记录了本次测试队列。")
+        g_ui.guideTitle.setText("使用引导：图" + str(nowp))
 @singleton
 class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     max_x = 1024
@@ -870,7 +838,6 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ui = mywindow()
     g_ui = g_window()
-
     t_ui = t_window()
     i_d_ui = in_dev_infor()
     a_t_ui = add_test()

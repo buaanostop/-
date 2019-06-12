@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setStyleSheet("border-image: url(:/newPrefix/1.png);")
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/mp/h.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/mp/mainLabel.png"))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
