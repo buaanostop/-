@@ -767,6 +767,54 @@
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="0" column="0">
       <layout class="QGridLayout" name="drag_test">
+       <item row="2" column="0">
+        <widget class="QLabel" name="drag_num">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>滑动次数：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="v_drag_p2_x">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>X坐标(必填)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="v_drag_num">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="2">
         <widget class="QLineEdit" name="v_drag_p2_y">
          <property name="minimumSize">
@@ -793,25 +841,6 @@
          </property>
          <property name="text">
           <string>起点坐标：(X,Y)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="v_drag_p2_x">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="placeholderText">
-          <string>X坐标(必填)</string>
          </property>
         </widget>
        </item>
@@ -866,18 +895,8 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="drag_num">
-         <property name="whatsThis">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;滑动的次数。取值范围为&amp;gt;=1的整数。不填默认为1。单位为次。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>滑动次数：</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="v_drag_num">
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="v_drag_i_time">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -905,8 +924,18 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="v_drag_i_time">
+       <item row="4" column="0">
+        <widget class="QLabel" name="drag_time">
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;每次滑动时间。取值范围为&amp;gt;0的浮点数。不填默认为1。单位为秒。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>滑动持续时间：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="v_drag_time">
          <property name="minimumSize">
           <size>
            <width>0</width>
