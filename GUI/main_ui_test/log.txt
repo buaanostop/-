@@ -75,3 +75,24 @@
 2019-06-13 13:55:30 move to (109,421)
 2019-06-13 13:55:30 stop
 2019-06-13 13:55:33 touch up (109,421)
+2019-06-13 21:12:59 connect...
+2019-06-13 21:13:37 long_touch test add success
+2019-06-13 21:13:37 touch test add success
+2019-06-13 21:13:37 long_touch test add success
+2019-06-13 21:13:37 touch_drag test add success
+2019-06-13 21:13:37 touch_drag test add success
+2019-06-13 21:13:37 touch_drag test add success
+2019-06-13 21:13:37 all_random test add success
+2019-06-13 21:13:40 start
+2019-06-13 21:13:40 touch down (807,332)
+2019-06-13 21:13:42 touch up (807,332)
+2019-06-13 21:13:43 touch (7,1209)
+2019-06-13 21:13:44 touch down (387,1765)
+2019-06-13 21:13:44 pause
+2019-06-13 21:13:44 touch up (387,1765)
+2019-06-13 21:13:48 resume
+2019-06-13 21:13:49 touch down (357,1655)
+2019-06-13 21:13:50 stop
+2019-06-13 21:13:51 move to (51,1253)
+2019-06-13 21:13:54 touch up (51,1253)
+2019-06-13 21:13:56 close
