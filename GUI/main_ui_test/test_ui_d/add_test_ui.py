@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from overload import MyCurrentQueue
 class Ui_Add_test(object):
     def setupUi(self, Add_test):
         Add_test.setObjectName("Add_test")
@@ -633,7 +633,7 @@ class Ui_Add_test(object):
         self.groupBox = QtWidgets.QGroupBox(Add_test)
         self.groupBox.setGeometry(QtCore.QRect(10, 400, 661, 201))
         self.groupBox.setObjectName("groupBox")
-        self.currentQueueList = QtWidgets.QListWidget(self.groupBox)
+        self.currentQueueList = MyCurrentQueue(self.groupBox)
         self.currentQueueList.setGeometry(QtCore.QRect(10, 20, 641, 171))
         font = QtGui.QFont()
         font.setPointSize(9)

@@ -223,6 +223,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         Ui_TestWindow.__init__(self)
         self.setupUi(self)
         self.connectDeviceButton.setEnabled(False)
+        self.deleteAllTestButton.setEnabled(False)
         self.connectDeviceButton.setText('等待相关部件启动')
         self.wait_monkey_thread = WaitMonkeyRunnerStart(self)
         self.wait_monkey_thread.start()
@@ -230,6 +231,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #self.queueList.itemClicked.connect(self.set_not_selectable)
         self.errorCheckBox.stateChanged.connect(self.set_both_checked)
         self.queueList.currentRowChanged.connect(self.queueList_row_changed)
+        self.deleteAllTestButton.clicked.connect(self.clear_queue)
         self.setFixedSize(1036,844)
         #self.queueList.itemChanged.connect(self.set_not_selectable)
         #self.queueList.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents,True)
@@ -237,7 +239,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def set_both_checked(self):
         if(self.errorCheckBox.isChecked()):
             self.warningCheckBox.setChecked(True)
-            
+    def clear_queue(self):
+        self.queueList.clear()
+        functions_class.clear()
     def reset_start(self):
         self.startButton.setEnabled(True)
         self.startButton.setText('开始测试')
@@ -435,10 +439,12 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         if(test_window.queueList.count() == 0):
             test_window.saveButton.setEnabled(False)
             test_window.loadButton.setEnabled(True)
+            test_window.deleteAllTestButton.setEnabled(False)
         else:
             test_window.loadButton.setEnabled(False)
             test_window.saveButton.setEnabled(True)
             test_window.startButton.setEnabled(True)
+            test_window.deleteAllTestButton.setEnabled(True)
 
         '''"点击存档按钮"'''
     def click_save_b(self):
@@ -723,10 +729,12 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         if(test_window.queueList.count() == 0):
             test_window.saveButton.setEnabled(False)
             test_window.loadButton.setEnabled(True)
+            test_window.deleteAllTestButton.setEnabled(False)
         else:
             test_window.loadButton.setEnabled(False)
             test_window.saveButton.setEnabled(True)
             test_window.startButton.setEnabled(True)
+            test_window.deleteAllTestButton.setEnabled(True)
         self.currentQueueList.clear()
         a_t_ui.close()
     def choose_point_confirm(self):
