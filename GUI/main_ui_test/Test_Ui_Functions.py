@@ -304,7 +304,7 @@ class TestUiFunctionsClass(object):
             x2 = int(self.add_test_form.v_drag_p2_x.text())
             y2 = int(self.add_test_form.v_drag_p2_y.text())
             drag_number = int(self.add_test_form.v_drag_num.text())
-            during_time = int(self.add_test_form.v_drag_time.text())
+            during_time = float(self.add_test_form.v_drag_time.text())
             interval_time = float(self.add_test_form.v_drag_i_time.text())
             in_range,extra_msg = self.range_inside(x = x1,y = y1,drag_times = drag_number,during_time = during_time,interval_time = interval_time)
             if(not in_range):
