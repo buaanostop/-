@@ -1,26 +1,3 @@
-2019-06-13 22:38:27 connect...
-2019-06-13 22:38:33 connect...
-2019-06-13 22:38:39 connect...
-2019-06-13 22:39:11 connect...
-2019-06-13 22:39:37 long_touch test add success
-2019-06-13 22:39:39 long_touch test add success
-2019-06-13 22:39:39 long_touch test add success
-2019-06-13 22:39:39 long_touch test add success
-2019-06-13 22:39:39 long_touch test add success
-2019-06-13 22:39:39 long_touch test add success
-2019-06-13 22:39:39 long_touch test add success
-2019-06-13 22:39:48 start
-2019-06-13 22:39:48 touch down (435,115)
-2019-06-13 22:39:49 touch up (435,115)
-2019-06-13 22:39:50 touch down (435,115)
-2019-06-13 22:39:51 touch up (435,115)
-2019-06-13 22:39:52 touch down (435,115)
-2019-06-13 22:39:53 touch up (435,115)
-2019-06-13 22:39:54 touch down (435,115)
-2019-06-13 22:39:55 touch up (435,115)
-2019-06-13 22:39:56 touch down (435,115)
-2019-06-13 22:39:57 touch up (435,115)
-2019-06-13 22:39:58 touch down (435,115)
-2019-06-13 22:39:59 touch up (435,115)
-2019-06-13 22:40:00 touch down (435,115)
-2019-06-13 22:40:01 touch up (435,115)
+2019-06-13 16:01:46 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/124124(1024^768).save load success
+2019-06-13 16:01:48 start
+2019-06-13 16:01:48 touch down (554,186)

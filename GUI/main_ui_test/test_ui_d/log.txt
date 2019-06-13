@@ -1,66 +1,51 @@
-2019-06-13 14:08:45 touch test add success
-2019-06-13 14:08:45 touch_drag test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 touch test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 touch_drag test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 touch_drag test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 touch_drag test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 touch test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 drag test add success
-2019-06-13 14:08:45 touch test add success
-2019-06-13 14:08:45 touch test add success
-2019-06-13 14:08:45 long_touch test add success
-2019-06-13 14:08:45 all_random test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 drag test add success
-2019-06-13 14:09:01 long_touch test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 touch_drag test add success
-2019-06-13 14:09:01 all_random test add success
-2019-06-13 14:09:04 start
-2019-06-13 14:09:12 stop
-2019-06-13 14:09:35 multi_drag add success
-2019-06-13 14:09:37 start
-2019-06-13 14:09:37 drag from (123,123) to (12,23)
-2019-06-13 14:09:39 drag from (123,12) to (13,44)
-2019-06-13 14:09:43 stop
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 touch test add success
+2019-06-13 15:54:52 touch test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 touch_drag test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 touch test add success
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 touch test add success
+2019-06-13 15:54:52 touch_drag test add success
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 drag test add success
+2019-06-13 15:54:52 long_touch test add success
+2019-06-13 15:54:52 all_random test add success
+2019-06-13 15:54:53 start
+2019-06-13 15:54:53 drag from (571,1820) to (70,1601)
+2019-06-13 15:54:57 touch down (260,683)
+2019-06-13 15:54:57 touch up (260,683)
+2019-06-13 15:54:58 touch (679,474)
+2019-06-13 15:54:59 touch (692,1491)
+2019-06-13 15:55:00 touch down (169,1180)
+2019-06-13 15:55:01 touch up (169,1180)
+2019-06-13 15:55:02 drag from (337,662) to (507,589)
+2019-06-13 15:55:06 touch down (253,66)
+2019-06-13 15:55:07 stop
+2019-06-13 15:55:08 touch up (253,66)
+2019-06-13 15:55:10 start
+2019-06-13 15:55:10 drag from (571,1820) to (70,1601)
+2019-06-13 15:55:13 touch down (260,683)
+2019-06-13 15:55:14 touch up (260,683)
+2019-06-13 15:55:15 touch (679,474)
+2019-06-13 15:55:16 touch (692,1491)
+2019-06-13 15:55:17 touch down (169,1180)
+2019-06-13 15:55:18 touch up (169,1180)
+2019-06-13 15:55:19 drag from (337,662) to (507,589)
+2019-06-13 15:55:23 touch down (253,66)
+2019-06-13 15:55:24 touch up (253,66)
+2019-06-13 15:55:25 touch down (292,938)
+2019-06-13 15:55:27 stop
+2019-06-13 15:55:27 move to (114,450)
+2019-06-13 15:55:28 touch up (114,450)

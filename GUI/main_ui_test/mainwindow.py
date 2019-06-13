@@ -72,6 +72,11 @@ def reset_test_window():
     test_window.setupUi(test_window)
     test_window.t_init()
 @singleton
+class AdbLogFile():
+    filep = None
+    def __init__(self):
+        self.filep = None
+@singleton
 class LastLine():
     line = ""
     def __init__(self):
@@ -128,18 +133,31 @@ class ShowWariningErrorLog(QtCore.QThread):
         super(ShowWariningErrorLog,self).__init__(parent)
         self.t = t
         self.status = status
+        
+        #self.warning_error_file = open(os.getcwd() + "\\logcat.txt")
+        self.warning_error_file = AdbLogFile().filep
     def run(self):
+        '''print("warning_error_file:")
+        print(self.warning_error_file)
+        print("lines:")
+        print(self.warning_error_file.readlines())'''
         while(self.status != 0):
+            if(self.warning_error_file == -1):
+                return
             try:
-                warining_error_file = open("logcat.txt")
+                #warining_error_file = open("logcat.txt")
                 last_line = LastLine().line
-                adb_line = warining_error_file.readline()
+                adb_line = self.warning_error_file.readline()
+                if(not adb_line):
+                    return
+                '''print("last_line:%s"%last_line)
+                print("new_lint:%s"%adb_line)'''
                 if(adb_line != last_line):
                     LastLine().line = adb_line
-                    LastLine().line = "adb log : " + LastLine().line + '\n'
-                    self.t.reportList.addItem(LastLine().line)
+                    self.t.reportList.addItem("adb log : " + LastLine().line)
             except IOError:
-                pass
+                print("no logcat")
+        self.warning_error_file.close()
 class WaitMonkeyRunnerStart(QtCore.QThread):
     test_window = None
     def __init__(self,t,parent = None):
@@ -170,10 +188,6 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
     def closeEvent(self,event):
         functions_class.close_monkeyrunner()
         functions_class.close_model()
-        try:
-            t_ui.LogCat.close()
-        except AttributeError:
-            pass
         #print("close window")
         event.accept()
         #super(mywindow,self).closeEvent(event)
@@ -285,7 +299,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #self.current_test += 1
     def check_warning_error(self):
         warning_int = 1 if self.warningCheckBox.isChecked() else 0
-        error_int = 1 if self.errorCheckBox.isChecked() else 0
+        error_int = 4 if self.errorCheckBox.isChecked() else 0
         self.status = warning_int + error_int
     def to_test(self):
         '''global test_count
@@ -465,6 +479,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #print(save_file_name)
         functions_class.save(save_file_name)
     def click_start_b(self):
+
         self.chooseTypeButton.setEnabled((False))
         functions_class.start()
         self.current_test_thread = GetCurrentTestThread(self)
@@ -473,8 +488,14 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.LogCat = LogCat()
         if(self.status == 1):
             self.LogCat.start(level = 'E')
-        elif(self.status == 2):
+        elif(self.status > 1):
             self.LogCat.start(level = 'W')
+        try:
+            #adb_path = sys.path[0] + '\\logcat.txt'
+            adb_path = 'logcat.txt'
+            AdbLogFile().filep = open(adb_path)
+        except:
+            AdbLogFile().filep = -1
         self.show_warning_error_thread = ShowWariningErrorLog(self,self.status)
         self.show_warning_error_thread.start()
         items_count = self.queueList.count()
@@ -512,6 +533,10 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.reset_thread = WaitForStopThread(self)
         self.reset_thread.start()
         functions_class.stop()
+        try:
+            t_ui.LogCat.close()
+        except AttributeError:
+            pass
         print("点击终止按钮")
 @singleton
 class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
