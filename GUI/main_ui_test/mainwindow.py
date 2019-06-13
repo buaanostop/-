@@ -131,11 +131,12 @@ class ShowWariningErrorLog(QtCore.QThread):
     def run(self):
         while(self.status != 0):
             try:
-                warining_error_file = open("adbcat.txt")
+                warining_error_file = open("logcat.txt")
                 last_line = LastLine().line
                 adb_line = warining_error_file.readline()
                 if(adb_line != last_line):
                     LastLine().line = adb_line
+                    LastLine().line = "adb log : " + LastLine().line + '\n'
                     self.t.reportList.addItem(LastLine().line)
             except IOError:
                 pass
