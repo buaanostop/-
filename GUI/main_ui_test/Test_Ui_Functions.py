@@ -95,11 +95,11 @@ class TestUiFunctionsClass(object):
         have_not_connect_error_code = 5
         not_successful_connected_error_code = 6
         if(error_code == 0):#错误信息:空输入
-           QMessageBox.about(widget,'输入错误',extra_msg + '输入不能为空或其他非法字符，请输入半角阿拉伯正数，具体输入规范可参考“帮助”按钮')
+           QMessageBox.about(widget,'输入错误',extra_msg + '输入不能为空或其他非法字符，请输入半角阿拉伯正数，具体输入规范可使用右上角的问号按钮')
         elif(error_code == 1):#错误信息：输入的应该是数字却不是
-           QMessageBox.about(widget,'输入错误','请输入半角阿拉伯正数，具体输入规范可参考“帮助”按钮')
+           QMessageBox.about(widget,'输入错误','请输入半角阿拉伯正数，具体输入规范可使用右上角的问号按钮')
         elif(error_code == 2):
-           QMessageBox.about(widget,'输入错误',extra_msg + '请输入不要超过限定范围，具体输入范围可参考“帮助”按钮')
+           QMessageBox.about(widget,'输入错误',extra_msg + '请输入不要超过限定范围，具体输入范围可使用右上角的问号按钮')
         elif(error_code == 3):
            QMessageBox.about(widget,'输入错误','缺少第%s个点的数据，请补充' %extra_msg)
         elif(error_code == 4):
@@ -167,9 +167,9 @@ class TestUiFunctionsClass(object):
         Monkey.start()
 
     def range_inside(self,**arg):
-        if(arg.get('x',1) > self.test_form.max_x) :
+        if(arg.get('x',1) > self.test_form.max_x or arg.get('x',1) < 0)  :
             return False,'坐标x(' + str(arg['x']) +'):'
-        if  arg.get('y',1) > self.test_form.max_y :
+        if  arg.get('y',1) > self.test_form.max_y or arg.get('y',1) < 0:
             return False,'坐标y('+ str(arg['y']) +'):'
         if(arg.get('click_times',1)> self.max_click_times or arg.get('click_times',1) < self.min_click_times ):
             return False,'点击次数('+ str(arg['click_times']) +'):'
@@ -180,7 +180,7 @@ class TestUiFunctionsClass(object):
         if(arg.get('during_time',1) > self.max_long_touch_during_time or arg.get('during_time',1) < self.min_drag_during_time):
             return False,'持续时间('+ str(arg['during_time']) +'):'
         if(arg.get('loop_times',1) > self.max_loop_times or arg.get('loop_times',1) < self.min_loop_times):
-            return False,'循环遍数('+ str(arg['loop_time']) +'):'
+            return False,'循环遍数('+ str(arg['loop_times']) +'):'
         if(arg.get('drag_times',1) > self.max_drag_times_number or arg.get('drag_times',1) < self.min_drag_times_number):
             return False,'滑动次数('+ str(arg['drag_times']) +'):'
         return True,""
@@ -304,16 +304,17 @@ class TestUiFunctionsClass(object):
             x2 = int(self.add_test_form.v_drag_p2_x.text())
             y2 = int(self.add_test_form.v_drag_p2_y.text())
             drag_number = int(self.add_test_form.v_drag_num.text())
+            during_time = int(self.add_test_form.v_drag_time.text())
             interval_time = float(self.add_test_form.v_drag_i_time.text())
-            in_range,extra_msg = self.range_inside(x = x1,y = y1,drag_times = drag_number,interval_time = interval_time)
+            in_range,extra_msg = self.range_inside(x = x1,y = y1,drag_times = drag_number,during_time = during_time,interval_time = interval_time)
             if(not in_range):
                 raise rangeErrorException()
             in_range2,extra_msg =self.range_inside(x = x2,y = y2)
             if(not in_range2):
                 raise rangeErrorException()
             point_list = ((x1,y1),(x2,y2))
-            Monkey.drag(point_list,drag_number,interval_time)
-            self.add_test_form.currentQueueList.addItem('单线滑动测试: (%d,%d)到(%d,%d),点击%d次,间隔%fs' %(x1,y1,x2,y2,drag_number,interval_time))
+            Monkey.drag(point_list,during_time,drag_number,interval_time)
+            self.add_test_form.currentQueueList.addItem('单线滑动测试: (%d,%d)到(%d,%d),滑动持续%ds,点击%d次,间隔%fs' %(x1,y1,x2,y2,during_time,drag_number,interval_time))
         except ValueError:
             self.error_message_prompt(self.add_test_form,self.empty_error_code,extra_msg)
         except rangeErrorException:
@@ -327,8 +328,8 @@ class TestUiFunctionsClass(object):
                 extra_msg = '滑动队列：'
                 raise ValueError
             drag_tuple = tuple(self.add_test_form.points_list_drag)
-            if( ((-1,-1),(-1,-1)) in drag_tuple):
-                id = drag_tuple.index(((-1,-1),(-1,-1)))
+            if( (-1,-1,-1,-1) in drag_tuple):
+                id = drag_tuple.index((-1,-1,-1,-1))
                 p_e = pointNotEnoughException(id + 1)
                 raise p_e
             self.placeholder_to_text(line_edits)
@@ -533,7 +534,7 @@ class TestUiFunctionsClass(object):
             in_range2,error_msg = self.range_inside(x = x2,y = y2)
             if(not in_range2):
                 raise rangeErrorException()
-            drag_two_point = ((x1,y1),(x2,y2))
+            drag_two_point = (x1,y1,x2,y2)
             point_index = self.add_test_form.dragSelectComboBox.currentIndex() 
             self.add_test_form.points_list_drag[point_index] = drag_two_point
             #current_two_point = self.add_test_form.drag_two_point.currentText()
@@ -594,7 +595,7 @@ class TestUiFunctionsClass(object):
             elif(op.optype == 'random_touch'):
                 item_str = '随机点击测试: 点击%d次,间隔%fs'%(op.number,op.interval_time)
             elif(op.optype == 'drag'):
-                item_str = '单线滑动测试: (%d,%d)到(%d,%d),点击%d次,间隔%fs'%(op.pointlist[0][0],op.pointlist[0][1],op.pointlist[1][0],op.pointlist[1][1],op.number,op.interval_time)
+                item_str = '单线滑动测试: (%d,%d)到(%d,%d),滑动持续%ds,点击%d次,间隔%fs'%(op.pointlist[0][0],op.pointlist[0][1],op.pointlist[1][0],op.pointlist[1][1],op.hold_time,op.number,op.interval_time)
             elif(op.optype == 'multi_drag'):
                 item_str = '多次顺序滑动: 循环%d次,循环内滑动间隔%f秒，滑动持续时间%f秒，循环间隔%f秒'%(op.number,op.interval_time,op.hold_time,op.wait_time)
             elif(op.optype == 'random_drag'):

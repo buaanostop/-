@@ -169,7 +169,10 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
     def closeEvent(self,event):
         functions_class.close_monkeyrunner()
         functions_class.close_model()
-        t_ui.LogCat.close()
+        try:
+            t_ui.LogCat.close()
+        except AttributeError:
+            pass
         #print("close window")
         event.accept()
         #super(mywindow,self).closeEvent(event)
@@ -234,6 +237,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def set_both_checked(self):
         if(self.errorCheckBox.isChecked()):
             self.warningCheckBox.setChecked(True)
+            
     def reset_start(self):
         self.startButton.setEnabled(True)
         self.startButton.setText('开始测试')
@@ -241,7 +245,11 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         '''获取当前test的序号'''
         return functions_class.now_running()
     def queueList_row_changed(self):
+        if(self.queueList.count() == 0):
+            return
         current_row = self.queueList.currentRow()
+        if(current_row <0 or current_row > self.queueList.count()):
+            return
         self.queueList.item(current_row).setBackground(QtGui.QColor(16,109,156))
         if(current_row > 0):
             #print("before_count:%d"%counter)
@@ -271,8 +279,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         #self.queueList.setCurrentIndex()
         #self.current_test += 1
     def check_warning_error(self):
-        warning_int = 1 if self.warningCheckBox.checked() else 0
-        error_int = 1 if self.errorCheckBox.checked() else 0
+        warning_int = 1 if self.warningCheckBox.isChecked() else 0
+        error_int = 1 if self.errorCheckBox.isChecked() else 0
         self.status = warning_int + error_int
     def to_test(self):
         '''global test_count
@@ -353,8 +361,8 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         t_ui.resumeButton.hide()
         t_ui.stopButton.hide()
         #t_ui.InputAssignmentButton.setEnabled(True)
-        t_ui
-        t_ui.chooseTypeButton.setEnabled(False)
+        #t_ui
+        #t_ui.chooseTypeButton.setEnabled(False)
         '''
             if debug
         '''
@@ -436,7 +444,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     def click_save_b(self):
         #print("点击存档按钮")
         #file_set = QFileDialog.Options()
-        save_file_name,_ = QFileDialog.getSaveFileName(self,"存档","","存档文件(*.save)")
+        save_file_name,_ = QFileDialog.getSaveFileName(self,"存档",os.getcwd() + '\\save',"存档文件(*.save)")
         if(save_file_name == ''):
             return
         last_name = save_file_name.split('/')[-1].split('.')[0]
@@ -454,6 +462,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         functions_class.start()
         self.current_test_thread = GetCurrentTestThread(self)
         self.current_test_thread.start()
+        self.check_warning_error()
         self.LogCat = LogCat()
         if(self.status == 1):
             self.LogCat.start(level = 'E')
@@ -489,7 +498,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         items_count = self.queueList.count()
         for i in range(0,items_count):
             self.queueList.item(i).setBackground(QtGui.QColor(255, 255, 255))
-        self.queueList.setCurrentRow(0)
+        self.queueList.setCurrentRow(-1)
         self.test_count = 0
         self.startButton.setEnabled(False)
         self.startButton.setText('等待结束')
@@ -630,10 +639,10 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
         if(not '待输入' in self.dragSelectComboBox.currentText()):
             points = self.points_list_drag
             index = self.dragSelectComboBox.currentIndex()
-            self.v_m_drag_start_p_x.setText(str(points[index][0][0]))
-            self.v_m_drag_start_p_y.setText(str(points[index][0][1]))
-            self.v_m_drag_end_p_x.setText(str(points[index][1][0]))
-            self.v_m_drag_end_p_y.setText(str(points[index][1][1]))
+            self.v_m_drag_start_p_x.setText(str(points[index][0]))
+            self.v_m_drag_start_p_y.setText(str(points[index][1]))
+            self.v_m_drag_end_p_x.setText(str(points[index][2]))
+            self.v_m_drag_end_p_y.setText(str(points[index][3]))
         else:
             self.v_m_drag_start_p_x.clear()
             self.v_m_drag_start_p_y.clear()
@@ -656,7 +665,7 @@ class add_test(QtWidgets.QDialog,Ui_Add_test):
             self.confirmMultiDragButton.setText('修改')
             self.dragSelectComboBox.clear()
             drag_num = int(self.v_m_drag_num.text())
-            self.points_list_drag = [((-1,-1),(-1,-1)) for p in range(drag_num)]
+            self.points_list_drag = [(-1,-1,-1,-1) for p in range(drag_num)]
             for i in range(1,drag_num + 1):
                 self.dragSelectComboBox.addItem("待输入滑动%d"%i)
             self.multiDragNextButton.setEnabled(True)
@@ -903,7 +912,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    #t_ui.InputAssignmentButton.setEnabled(True)
+    t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
