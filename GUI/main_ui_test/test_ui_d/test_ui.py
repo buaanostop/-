@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from overload import MyQueueList
 class Ui_TestWindow(object):
     def setupUi(self, TestWindow):
         TestWindow.setObjectName("TestWindow")
@@ -29,7 +29,7 @@ class Ui_TestWindow(object):
         self.tabWidget.setObjectName("tabWidget")
         self.queue_list = QtWidgets.QWidget()
         self.queue_list.setObjectName("queue_list")
-        self.queueList = QtWidgets.QListWidget(self.queue_list)
+        self.queueList = MyQueueList(self.queue_list)
         self.queueList.setGeometry(QtCore.QRect(10, 20, 731, 331))
         self.queueList.setObjectName("queueList")
         self.tabWidget.addTab(self.queue_list, "")

@@ -480,7 +480,8 @@ class TestUiFunctionsClass(object):
                 self.log_timer = threading.Timer(0.01, self.log_monitor)
                 self.log_timer.start()
         except AttributeError:
-            pass
+            self.log_timer = threading.Timer(0.01,self.log_monitor)
+            self.log_timer.start()
 
     '''多点点击测试选项卡下的
         确定并加输入下一点 按钮

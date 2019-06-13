@@ -97,8 +97,11 @@ class GetCurrentTestThread(QtCore.QThread):
     def run(self):
         while(self.continue_flag):
             lock.lock()
+            #self.before_count = self.t.get_current_test()
+            #print(before_count)
+            self.t.set_current_test(self.before_count)
             after_count = self.t.get_current_test()
-            self.t.set_current_test(after_count)
+            #print(after_count)
             self.before_count = after_count
             lock.unlock()
             
@@ -114,9 +117,9 @@ class WaitConnect(QtCore.QThread):
         self.t = t
         self.finished.connect(t.after_connect)
     def run(self):
-        print("before")
+        #print("before")
         self.t.successfully_connect = functions_class.connect()
-        print("after")
+        #print("after")
 
 class ShowWariningErrorLog(QtCore.QThread):
     t = None
@@ -126,7 +129,7 @@ class ShowWariningErrorLog(QtCore.QThread):
         self.t = t
         self.status = status
     def run(self):
-        while(True):
+        while(self.status != 0):
             try:
                 warining_error_file = open("adbcat.txt")
                 last_line = LastLine().line
@@ -158,7 +161,7 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
         g_ui.show()
     def click_test_b(self):
         #print("打开测试界面")
-        t_ui.t_init()
+        t_ui.t_init()  
         t_ui.show()
 
     def click_feedback_b(self):
@@ -166,6 +169,7 @@ class mywindow(QtWidgets.QMainWindow,Ui_MainWindow):
     def closeEvent(self,event):
         functions_class.close_monkeyrunner()
         functions_class.close_model()
+        t_ui.LogCat.close()
         #print("close window")
         event.accept()
         #super(mywindow,self).closeEvent(event)
@@ -207,8 +211,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
     wait_monkey_thread = None
     rate_tuple = None
     status = 0
-    test_count = 0
+    test_count = -1
     current_test_thread = None
+    LogCat = None
     #begin_connect_time = None
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
@@ -219,8 +224,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.wait_monkey_thread = WaitMonkeyRunnerStart(self)
         self.wait_monkey_thread.start()
         self.testButton.clicked.connect(self.to_test)
-        self.queueList.itemClicked.connect(self.set_not_selectable)
+        #self.queueList.itemClicked.connect(self.set_not_selectable)
         self.errorCheckBox.stateChanged.connect(self.set_both_checked)
+        self.queueList.currentRowChanged.connect(self.queueList_row_changed)
         self.setFixedSize(1036,844)
         #self.queueList.itemChanged.connect(self.set_not_selectable)
         #self.queueList.setAttribute(QtCore.Qt.WA_TransparentForMouseEvents,True)
@@ -233,7 +239,13 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.startButton.setText('开始测试')
     def get_current_test(self):
         '''获取当前test的序号'''
-        return self.test_count
+        return functions_class.now_running()
+    def queueList_row_changed(self):
+        current_row = self.queueList.currentRow()
+        self.queueList.item(current_row).setBackground(QtGui.QColor(16,109,156))
+        if(current_row > 0):
+            #print("before_count:%d"%counter)
+            self.queueList.item(current_row - 1).setBackground(QtGui.QColor(255,255,255))
     def set_not_selectable(self,item):
         current_flag = item.flags()
         item.setFlags(current_flag & (~QtCore.Qt.ItemIsSelectable))
@@ -243,13 +255,15 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             if(self.test_count == counter or self.test_count == -1):
                 return
             #self.queueList.set
-            self.queueList.setCurrentRow(counter)
             try:
-                if(counter > self.queueList.count()):
+                if(self.test_count > self.queueList.count()):
                     raise AttributeError
-                self.queueList.item(counter).setBackground(QtGui.QColor(16,109,156))
-                if(counter > 0):
-                    self.queueList.item(counter - 1).setBackground(QtGui.QColor(255,255,255))
+                print("test_count:%d"%self.test_count)
+                self.queueList.setCurrentRow(self.test_count)
+                '''self.queueList.item(self.test_count).setBackground(QtGui.QColor(16,109,156))
+                if(counter >= 0):
+                    print("before_count:%d"%counter)
+                    self.queueList.item(self.test_count - 1).setBackground(QtGui.QColor(255,255,255))'''
             except AttributeError:
                 pass
         except Exception as e:
@@ -261,8 +275,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         error_int = 1 if self.errorCheckBox.checked() else 0
         self.status = warning_int + error_int
     def to_test(self):
-        global test_count
-        test_count += 1
+        '''global test_count
+        test_count += 1'''
+        pass
         #self.set_current_test()
     def wait_monkey(self):
         self.connectDeviceButton.setEnabled(True)
@@ -416,6 +431,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             test_window.loadButton.setEnabled(False)
             test_window.saveButton.setEnabled(True)
             test_window.startButton.setEnabled(True)
+
         '''"点击存档按钮"'''
     def click_save_b(self):
         #print("点击存档按钮")
@@ -438,6 +454,11 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         functions_class.start()
         self.current_test_thread = GetCurrentTestThread(self)
         self.current_test_thread.start()
+        self.LogCat = LogCat()
+        if(self.status == 1):
+            self.LogCat.start(level = 'E')
+        elif(self.status == 2):
+            self.LogCat.start(level = 'W')
         self.show_warning_error_thread = ShowWariningErrorLog(self,self.status)
         self.show_warning_error_thread.start()
         items_count = self.queueList.count()
@@ -882,7 +903,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    t_ui.InputAssignmentButton.setEnabled(True)
+    #t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
