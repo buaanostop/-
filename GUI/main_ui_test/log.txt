@@ -1,33 +1,21 @@
-2019-06-12 15:28:02 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/12345(1024^768).save load success
-2019-06-12 15:28:07 touch_drag test add success
-2019-06-12 15:28:07 long_touch test add success
-2019-06-12 15:28:07 long_touch test add success
-2019-06-12 15:28:07 drag test add success
-2019-06-12 15:28:07 long_touch test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 drag test add success
-2019-06-12 15:28:07 touch_drag test add success
-2019-06-12 15:28:07 touch_drag test add success
-2019-06-12 15:28:07 long_touch test add success
-2019-06-12 15:28:07 drag test add success
-2019-06-12 15:28:07 drag test add success
-2019-06-12 15:28:07 long_touch test add success
-2019-06-12 15:28:07 touch_drag test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 touch_drag test add success
-2019-06-12 15:28:07 drag test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 long_touch test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 touch test add success
-2019-06-12 15:28:07 drag test add success
-2019-06-12 15:28:07 all_random test add success
-2019-06-12 15:28:13 C:\Users\sickk\Documents\GitHub\nostop_Autotest\Autotest\GUI\main_ui_test\save\124124(1024^768).save save success
-2019-06-12 15:28:14 start
-2019-06-12 15:28:14 touch down (554,186)
-2019-06-12 15:28:14 stop
-2019-06-12 15:28:16 move to (5,1075)
-2019-06-12 15:28:16 C:/Users/sickk/Documents/GitHub/nostop_Autotest/Autotest/GUI/main_ui_test/save/124124(1024^768).save load success
-2019-06-12 15:28:18 touch up (5,1075)
+2019-06-13 21:12:59 connect...
+2019-06-13 21:13:37 long_touch test add success
+2019-06-13 21:13:37 touch test add success
+2019-06-13 21:13:37 long_touch test add success
+2019-06-13 21:13:37 touch_drag test add success
+2019-06-13 21:13:37 touch_drag test add success
+2019-06-13 21:13:37 touch_drag test add success
+2019-06-13 21:13:37 all_random test add success
+2019-06-13 21:13:40 start
+2019-06-13 21:13:40 touch down (807,332)
+2019-06-13 21:13:42 touch up (807,332)
+2019-06-13 21:13:43 touch (7,1209)
+2019-06-13 21:13:44 touch down (387,1765)
+2019-06-13 21:13:44 pause
+2019-06-13 21:13:44 touch up (387,1765)
+2019-06-13 21:13:48 resume
+2019-06-13 21:13:49 touch down (357,1655)
+2019-06-13 21:13:50 stop
+2019-06-13 21:13:51 move to (51,1253)
+2019-06-13 21:13:54 touch up (51,1253)
+2019-06-13 21:13:56 close

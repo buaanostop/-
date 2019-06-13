@@ -378,7 +378,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
                 #self.successfully_connect = None
                 self.connectDeviceButton.setText('重新连接')
                 break
-       
+
 
     '''点击连接设备按钮'''
     def click_connect_b(self):
