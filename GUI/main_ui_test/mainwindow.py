@@ -945,7 +945,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    #t_ui.InputAssignmentButton.setEnabled(True)
+    t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
