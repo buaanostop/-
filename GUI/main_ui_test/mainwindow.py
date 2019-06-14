@@ -480,11 +480,11 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.current_test_thread = GetCurrentTestThread(self)
         self.current_test_thread.start()
         self.check_warning_error()
-        '''self.LogCat = LogCat()
+        self.LogCat = LogCat()
         if(self.status == 1):
             self.LogCat.start(level = 'E')
         elif(self.status > 1):
-            self.LogCat.start(level = 'W')'''
+            self.LogCat.start(level = 'W')
         try:
             #adb_path = sys.path[0] + '\\logcat.txt'
             adb_path = os.getcwd() + '\\logcat.txt'
