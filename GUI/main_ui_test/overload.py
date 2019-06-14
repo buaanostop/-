@@ -15,10 +15,4 @@ class MyCurrentQueue(QtWidgets.QListWidget):
         super(MyCurrentQueue,self).dragMoveEvent(event)
     def dragEnterEvent(self,event):
         super(MyCurrentQueue,self).dragEnterEvent(event)
-class MyQueueList(QtWidgets.QListWidget):
-    def __init__(self,parent = None):
-        super(MyQueueList,self).__init__(parent)
-    def mousePressEvent(self,e):
-        e.ignore()
-    def mouseMoveEvent(self,e):
-        e.ignore()
+

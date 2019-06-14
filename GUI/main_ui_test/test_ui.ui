@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TestWindow</class>
+ <widget class="QMainWindow" name="TestWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1036</width>
+    <height>844</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>测试窗口</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="testButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>770</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>测试按钮</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>911</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="connectDeviceButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>连接设备</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="InputAssignmentButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>输入要测试的app参数</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="addPointButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>添加屏幕上的点</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="chooseTypeButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>321</width>
+         <height>41</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>选择测试并加入测试队列</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>290</y>
+      <width>395</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>4</number>
+     </property>
+     <item>
+      <widget class="QCheckBox" name="warningCheckBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>显示adb日志Error</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="errorCheckBox">
+       <property name="text">
+        <string>显示adb日志Error和Warning</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>351</y>
+      <width>751</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="queue_list">
+     <attribute name="title">
+      <string>测试队列</string>
+     </attribute>
+     <widget class="QListWidget" name="queueList">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>731</width>
+        <height>331</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="report_list">
+     <attribute name="title">
+      <string>测试报告</string>
+     </attribute>
+     <widget class="QListWidget" name="reportList">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>731</width>
+        <height>331</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clearReportButton">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>352</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>清空测试报告</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>390</y>
+      <width>254</width>
+      <height>328</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="p_r_s">
+       <item>
+        <widget class="QPushButton" name="pauseButton">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>暂停测试</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="resumeButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>继续测试</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stopButton">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>终止测试</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="loadButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>读取存档</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="saveButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>保存测试</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="startButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>开始测试</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="deleteAllTestButton">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>删除所有测试队列</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1036</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>chooseTypeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_add_test()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>881</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>856</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>loadButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1020</x>
+     <y>600</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pauseButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>836</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>457</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>saveButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>858</x>
+     <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>saveButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>889</x>
+     <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>startButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>694</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pauseButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>952</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>457</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>resumeButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>970</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>504</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>stopButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>987</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>loadButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1020</x>
+     <y>600</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>saveButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>821</x>
+     <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>startButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>694</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pauseButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>457</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>resumeButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>504</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>stopButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loadButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_load_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>794</x>
+     <y>600</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>756</x>
+     <y>362</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_save_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>945</x>
+     <y>647</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>857</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_start_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>978</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pauseButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_pause_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>457</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>783</x>
+     <y>585</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>resumeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_resume_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>504</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>788</x>
+     <y>780</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_stop_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>909</x>
+     <y>780</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>connectDeviceButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_connect_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>73</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>InputAssignmentButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_in_index_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>881</x>
+     <y>207</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addPointButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TestWindow</receiver>
+   <slot>click_add_point_b()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>167</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>deleteAllTestButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>793</x>
+     <y>694</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>786</x>
+     <y>741</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopButton</sender>
+   <signal>clicked()</signal>
+   <receiver>deleteAllTestButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>851</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>806</x>
+     <y>741</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearReportButton</sender>
+   <signal>clicked()</signal>
+   <receiver>reportList</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>766</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>572</x>
+     <y>728</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>click_in_index_b()</slot>
+  <slot>click_cho_t_b()</slot>
+  <slot>click_add_test()</slot>
+  <slot>click_load_b()</slot>
+  <slot>click_save_b()</slot>
+  <slot>click_start_b()</slot>
+  <slot>click_pause_b()</slot>
+  <slot>click_resume_b()</slot>
+  <slot>click_stop_b()</slot>
+  <slot>click_connect_b()</slot>
+  <slot>click_add_point_b()</slot>
+  <slot>click_deleteAll_b()</slot>
+ </slots>
+</ui>
