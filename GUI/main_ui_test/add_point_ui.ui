@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>addPointWindow</class>
+ <widget class="QDialog" name="addPointWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>979</width>
+    <height>833</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>加入当前屏幕上的点</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>900</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="chooseDeletePointButton">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>680</y>
+     <width>111</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>删除选中点</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="pointTable">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>660</y>
+     <width>731</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>229</number>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>37</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>名称</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Y</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>chooseDeletePointButton</sender>
+   <signal>clicked()</signal>
+   <receiver>addPointWindow</receiver>
+   <slot>delete_current_point_row()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>729</x>
+     <y>736</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>669</x>
+     <y>724</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>click_add_point_confirm_b()</slot>
+  <slot>delete_current_point_row()</slot>
+  <slot>delete_all_point()</slot>
+ </slots>
+</ui>
