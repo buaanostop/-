@@ -133,25 +133,17 @@ class ShowWariningErrorLog(QtCore.QThread):
         super(ShowWariningErrorLog,self).__init__(parent)
         self.t = t
         self.status = status
-        
-        #self.warning_error_file = open(os.getcwd() + "\\logcat.txt")
         self.warning_error_file = AdbLogFile().filep
     def run(self):
-        '''print("warning_error_file:")
-        print(self.warning_error_file)
-        print("lines:")
-        print(self.warning_error_file.readlines())'''
         while(self.status != 0):
             if(self.warning_error_file == -1):
-                return
+                continue
             try:
                 #warining_error_file = open("logcat.txt")
                 last_line = LastLine().line
                 adb_line = self.warning_error_file.readline()
-                if(not adb_line):
-                    return
-                '''print("last_line:%s"%last_line)
-                print("new_lint:%s"%adb_line)'''
+                if((not adb_line) or (adb_line == '\n')):
+                    continue
                 if(adb_line != last_line):
                     LastLine().line = adb_line
                     self.t.reportList.addItem("adb log : " + LastLine().line)
@@ -478,6 +470,9 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         save_file_name = os.getcwd() + "\\save\\" + save_name+".save"
         #print(save_file_name)
         functions_class.save(save_file_name)
+    def set_check(self,status):
+        self.errorCheckBox.setEnabled(status)
+        self.warningCheckBox.setEnabled(status)
     def click_start_b(self):
 
         self.chooseTypeButton.setEnabled((False))
@@ -485,14 +480,14 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.current_test_thread = GetCurrentTestThread(self)
         self.current_test_thread.start()
         self.check_warning_error()
-        self.LogCat = LogCat()
+        '''self.LogCat = LogCat()
         if(self.status == 1):
             self.LogCat.start(level = 'E')
         elif(self.status > 1):
-            self.LogCat.start(level = 'W')
+            self.LogCat.start(level = 'W')'''
         try:
             #adb_path = sys.path[0] + '\\logcat.txt'
-            adb_path = 'logcat.txt'
+            adb_path = os.getcwd() + '\\logcat.txt'
             AdbLogFile().filep = open(adb_path)
         except:
             AdbLogFile().filep = -1
@@ -502,11 +497,13 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         for i in range(0,items_count):
             self.queueList.item(i).setBackground(QtGui.QColor(255, 255, 255))
             #self.queueList.item(counter).setBackground(QtGui.QColor(16, 109, 156))
+        self.set_check(False)
         print("点击开始按钮")
     def click_pause_b(self):
         self.pauseButton.setEnabled(False)
         functions_class.pause()
         self.resumeButton.setEnabled(True)
+
         #functions_class.test_found_exception()
         print("点击暂停按钮")
     def click_resume_b(self):
@@ -534,9 +531,11 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.reset_thread.start()
         functions_class.stop()
         try:
+            self.show_warning_error_thread.status = 0
             t_ui.LogCat.close()
         except AttributeError:
             pass
+        self.set_check(True)
         print("点击终止按钮")
 @singleton
 class in_dev_infor(QtWidgets.QDialog,Ui_In_dev_infor):
@@ -946,7 +945,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    t_ui.InputAssignmentButton.setEnabled(True)
+    #t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())
