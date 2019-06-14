@@ -498,6 +498,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
             self.queueList.item(i).setBackground(QtGui.QColor(255, 255, 255))
             #self.queueList.item(counter).setBackground(QtGui.QColor(16, 109, 156))
         self.set_check(False)
+        self.addPointButton.setEnabled(False)
         print("点击开始按钮")
     def click_pause_b(self):
         self.pauseButton.setEnabled(False)
@@ -527,6 +528,7 @@ class t_window(QtWidgets.QMainWindow,Ui_TestWindow):
         self.test_count = 0
         self.startButton.setEnabled(False)
         self.startButton.setText('等待结束')
+        self.addPointButton.setEnabled(True)
         self.reset_thread = WaitForStopThread(self)
         self.reset_thread.start()
         functions_class.stop()
@@ -945,7 +947,7 @@ if __name__ == '__main__':
     current_test_thread = GetCurrentTestThread(t_ui)
     current_test_thread.start()
     以上'''
-    #t_ui.InputAssignmentButton.setEnabled(True)
+    t_ui.InputAssignmentButton.setEnabled(True)
     t_ui.testButton.hide()
     ui.show()
     sys.exit(app.exec_())

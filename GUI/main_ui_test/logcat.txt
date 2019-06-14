@@ -1,24 +1,54 @@
-123
-124
-15123
-124
-124
-124
-124
-125
-1
-534
-6456
-776
-878
-9
-780
-7890
-8
-124124
-nihao
-123123
-123123
-...
-124
-125125
+/system/bin/sh: pidof: not found
+--------- beginning of main
+W/Controller( 2595): We should not show context menu when nothing is touched
+--------- beginning of system
+W/ContextImpl( 1754): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1327 com.android.server.InputMethodManagerService.showCurrentInputLocked:1902 com.android.server.InputMethodManagerService.attachNewInputLocked:1152 com.android.server.InputMethodManagerService.startInputUncheckedLocked:1224 com.android.server.InputMethodManagerService.startInputLocked:1186 
+W/ContextImpl( 1754): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1327 com.android.server.InputMethodManagerService.hideCurrentInputLocked:1992 com.android.server.InputMethodManagerService.hideSoftInput:1955 com.android.internal.view.IInputMethodManager$Stub.onTransact:194 com.android.server.InputMethodManagerService.onTransact:873 
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/Controller( 2595): We should not show context menu when nothing is touched
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/ContextImpl( 1754): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1327 com.android.server.InputMethodManagerService.hideCurrentInputLocked:1992 com.android.server.InputMethodManagerService.hideSoftInput:1955 com.android.internal.view.IInputMethodManager$Stub.onTransact:194 com.android.server.InputMethodManagerService.onTransact:873 
+W/ContextImpl( 1754): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1327 com.android.server.InputMethodManagerService.showCurrentInputLocked:1902 com.android.server.InputMethodManagerService.showSoftInput:1862 com.android.internal.view.IInputMethodManager$Stub.onTransact:175 com.android.server.InputMethodManagerService.onTransact:873 
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/Controller( 2595): We should not show context menu when nothing is touched
+W/ContextImpl( 1754): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1327 com.android.server.InputMethodManagerService.showCurrentInputLocked:1902 com.android.server.InputMethodManagerService.attachNewInputLocked:1152 com.android.server.InputMethodManagerService.startInputUncheckedLocked:1224 com.android.server.InputMethodManagerService.startInputLocked:1186 
+W/ContextImpl( 1754): Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1327 com.android.server.InputMethodManagerService.hideCurrentInputLocked:1992 com.android.server.InputMethodManagerService.hideSoftInput:1955 com.android.internal.view.IInputMethodManager$Stub.onTransact:194 com.android.server.InputMethodManagerService.onTransact:873 
+W/WindowManager( 1754): updateFocusedWindowLocked, focusedAppToken is null.
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+E/dhcpcd  ( 2948): timed out
+E/DhcpStateMachine( 1754): DHCP failed on eth1: Timed out waiting for DHCP to finish
+W/InputMethodManagerService( 1754): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@3928c66b attribute=null, token = android.os.BinderProxy@fd4de17
+E/WifiConfigStore( 1754): SSID temp disabled for  "WiredSSID"NONE had autoJoinStatus=0 self added false ephemeral false
+E/WifiConfigStore( 1754):  message=DHCP FAILURE
+E/WifiConfigStore( 1754): blacklisted "WiredSSID"NONE to 0 due to IP config failures, count=3 disableReason=2 01:80:c2:00:00:03 ipfail=12
+E/WifiConfigStore( 1754): saveWifiConfigBSSID Setting BSSID for "WiredSSID"NONE to any
+E/WifiStateMachine( 1754): Start Disconnecting Watchdog 13
+E/WifiStateMachine( 1754): WifiStateMachine Disconnected CMD_START_SCAN source -2 38, 39 -> obsolete
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/Controller( 2595): We should not show context menu when nothing is touched
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+E/WifiStateMachine( 1754): WifiStateMachine shouldSwitchNetwork  txSuccessRate=-0.25 rxSuccessRate=-0.25 delta 1000 -> 1000
+E/WifiStateMachine( 1754): CMD_AUTO_CONNECT sup state ScanState my state DisconnectedState nid=0 roam=3
+E/WifiStateMachine( 1754): CMD_AUTO_CONNECT will save config -> "WiredSSID" nid=0
+E/WifiConfigStore( 1754): Setting BSSID for "WiredSSID"NONE to any
+E/WifiConfigStore( 1754): will read network variables netId=0
+E/WifiStateMachine( 1754): CMD_AUTO_CONNECT did save config ->  nid=0
+E/WifiConfigStore( 1754): will read network variables netId=0
+E/WifiConfigStore( 1754): saveWifiConfigBSSID Setting BSSID for "WiredSSID"NONE to any
+E/WifiConfigStore( 1754): saveWifiConfigBSSID Setting BSSID for "WiredSSID"NONE to any
+E/WifiStateMachine( 1754): Start Dhcp Watchdog 14
+E/native  ( 1754): do suspend false
+E/WifiStateMachine( 1754): Unexpected BatchedScanResults :null
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+E/EGL_emulation( 1444): tid 1444: eglCreateSyncKHR(1479): error 0x3004 (EGL_BAD_ATTRIBUTE)
+W/InputManager( 1754): Input event injection from pid 2945 failed.
+W/InputManager( 1754): Input event injection from pid 2945 failed.
