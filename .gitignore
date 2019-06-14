@@ -12,3 +12,4 @@ GUI/main_ui_test/buaa_autotest.code-workspace
 *.save
 *.txt
 *.pyc
+GUI/main_ui_test/log.txt
