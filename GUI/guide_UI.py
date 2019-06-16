@@ -7,7 +7,7 @@ def guide(top):
         top.resizable(0,0)
         ind = 28
         def lastp():
-                nonlocal label2
+                nonlocal  label2
                 nonlocal label3
                 nonlocal ind
                 if(ind == 1):
